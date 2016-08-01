@@ -6,5 +6,22 @@
 #red {
     text-align: center;
     padding: 8px 0px;
+    margin-top: 20px;
 }
 
+#orange {
+    padding-left: 50px;
+}
+
+#yellow {
+    height: 100px;             /* 높이 지정 */
+    display: table-cell;       /* display 속성 추가 */
+    vertical-align: middle;    /* vertical-align 속성 추가 */
+    text-align: center;
+}
+
+
+#blue {
+     display: inline-block;
+     text-align: center;
+}
