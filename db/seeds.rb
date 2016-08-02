@@ -5,3 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+    xlsx = Roo::Excelx.new("xlsx/testdb.xlsx")
+    input= xlsx.parse(  num: 'num',
+                        wc: 'wc',
+                        season: 'season',
+                        tone: 'tone', 
+                        brand: 'brand',
+                        name: 'name',
+                        price: 'price',
+                        size: 'size',
+                        zzim: 'zzim',
+                        pro_type: 'pro_type',
+                        glitter: 'glitter',
+                        texture: 'texture')
+    
+    input.each_with_index do |item, index|
+        next if index == 0
+        Testdb.create(item)
+    end
