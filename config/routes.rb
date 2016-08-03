@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'home/hyunhee'=>'home#hyunhee'
   get 'home/woou'=>'home#woou'
   post 'home/woou'
+  get 'home/seoyeon'=>'home#seoyeon'
+  post 'home/seoyeon'
   #성호의 route
   
   

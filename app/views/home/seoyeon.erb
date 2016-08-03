@@ -1,0 +1,115 @@
+<nar class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href = "/" >
+                <img src="/images/logo.png" style="width:20px;margin:13px 0px";>
+            </a>
+            <a class="btn_search pull-right visible-xs" href="javascript.showMenuList();">
+                <img src="/images/logo.png" style="width:22px; margin:10px">
+            </a>
+            <div class="search_area inner container" style="display:none;">
+                <form method="get" name="frm" id="top_frm_search" action="#" onsubmit="return keyword_search();">
+                    <div class="filter-parent" id="search">
+                        <label for="filter-by">
+                            <img src="/img/logo.png">
+                        </label>
+                        <div class="ui-widget" style="position:relative; height:46px; display:block;">
+                            <input type="text" name="searchText" placeholder="검색하세요" id="filter-by" class="form-control input-lg ui-autocomplete-input"
+                            tabindex="1" style="line=height: 18px;font-size:16px;height:36px;position:relative;"
+                            autocomplete="off">
+                            <a class = "search_cancel" href="javascript:showMenuList();"role="button">
+                                <img src="/images/logo.png" class="icon_cancel">
+                                
+                            </a>
+                        </div>
+                        <a href="#" id="filter-clear" class="fa fa-times hide"></a>
+                    </div>
+                </form>
+            </div>
+            <div id="header">
+                <span class="btn_menu">
+                    <a href="#" class="menu-icon">
+                        <img src="/img/logo.png"style="width:22px; margin:12px 10px;">
+                    </a>
+                </span>
+                
+            </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+			<div class="text-center head">
+				<a href="">
+				    <img src="/images/logo.png" alt="">
+				</a>
+				
+				<!--PC 검색창 분류-->
+				<a class="btn_search pull-right hidden-xs" href="javascript:showMenuList();">
+				    <img src="/images/logo.png" style="width:22px; margin:12px 10px;">
+				</a>
+				<!--PC 검색창 끝 -->
+			</div>
+		</div>
+    </div>
+</nar>
+<div id="wrap" style="position: relative;">
+	<div id="aside">
+		<div class="menu_wrap">
+			<div class="bg_side" style="display: none;"></div>
+			<div class="menu_box" style="left: -500px;">
+
+				<span class="menu_close">
+					<a href="#" aria-hidden="true"><img src="/img/icon_cancel_white.png"></a>
+				</span>
+
+				<div class="head"><img src="/img/logo.png" alt="GlowPick"></div>
+				<nav id="sidebar">
+					<ul id="left-menu" class="open-active">
+						<li><a href="/">홈</a></li>
+						<li class="dropdown">
+							<a href="#" target="_self">카테고리별 랭킹<span class="caret"></span></a>
+							<ul class="sub-menu" style="overflow: hidden; display: none;">
+            <li><a href="/category_product?id=1">스킨케어</a></li>
+            <li><a href="/category_product?id=5">클렌징</a></li>
+            <li><a href="/category_product?id=6">베이스메이크업</a></li>
+            <li><a href="/category_product?id=7">색조메이크업</a></li>
+            <li><a href="/category_product?id=4">마스크/팩</a></li>
+            <li><a href="/category_product?id=3">선케어</a></li>
+            <li><a href="/category_product?id=2">기능성화장품</a></li>
+            <li><a href="/category_product?id=11">바디/핸드/풋</a></li>
+            <li><a href="/category_product?id=10">헤어</a></li>
+            <li><a href="/category_product?id=13">네일</a></li>
+            <li><a href="/category_product?id=21">여성용품</a></li>
+            <li><a href="/category_product?id=17">미용렌즈</a></li>
+            <li><a href="/category_product?id=9">향수</a></li>
+            <li><a href="/category_product?id=14">기타제품</a></li>
+            <li><a href="/category_product?id=15">베이비&amp;맘</a></li>
+            <li><a href="/category_product?id=12">바디라인</a></li>
+            <li><a href="/category_product?id=8">남성화장품</a></li>
+    </ul>						</li>
+						<li>
+							<a href="/?brand">브랜드별 랭킹</a>
+						</li>
+						<!--<li>
+							<a href="http://glowmee.co.kr/home/index">글로우 폴</a>
+						</li>-->
+					</ul>
+				</nav>
+				<ul class="smenu">
+					<li class="menu-etc"><a href="#">다른 채널</a></li>
+					<li><a href="https://goo.gl/Nax7GZ"><img src="/img/button_apple.png"></a></li>
+					<li><a href="https://goo.gl/cjw2o0"><img src="/img/button_android.png" style="width:145px;"></a></li>
+				</ul>
+				<div class="clearfix"></div>
+				<div class="menu_icon text-center">
+					<a href="https://www.facebook.com/glowpick" target="_blank"><img src="/img/menu_facebook.png"></a>
+					<a href="http://post.naver.com/glowmee" target="_blank"><img src="/img/menu_post.png"></a>
+					<a href="http://www.vingle.net/Glowpick" target="_blank"><img src="/img/menu_bangl.png"></a>
+					<a href="https://www.instagram.com/glowpick/" target="_blank"><img src="/img/menu_insta.png"></a>
+					<a href="https://story.kakao.com/ch/glowpick" target="_blank"><img src="/img/menu_kakaostory.png"></a>
+				</div>
+				<div class="clearfix"></div>
+
+				<div class="copyright">GLOWDAYZ, INC.</div>
+			</div>
+		</div>
+	</div>
+</div>
