@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806071849) do
+ActiveRecord::Schema.define(version: 20160806100238) do
+
+  create_table "eyedbs", force: :cascade do |t|
+    t.string   "num"
+    t.string   "wc"
+    t.string   "season"
+    t.string   "tone"
+    t.string   "brand"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "size"
+    t.integer  "zzim"
+    t.string   "pro_type"
+    t.boolean  "glitter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
