@@ -4,7 +4,7 @@ class CreateLipdbs < ActiveRecord::Migration
       t.string  :num
       t.string  :wc
       t.string  :season
-      t.integer :tone
+      t.string :tone
       t.string  :brand
       t.string  :name
       t.integer :price
