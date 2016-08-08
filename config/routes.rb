@@ -3,19 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home/index'
-  get 'home/layout5' => 'home#layout5'
-  post 'home/layout5'
-  get 'home/layout4'=>'home#layout4'
-  post 'home/layout4'
-  
-  get 'home/bomi'=>'home#bomi'
-  post 'home/bomi'
-  get 'home/hyunhee'=>'home#hyunhee'
-  get 'home/woou'=>'home#woou'
-  post 'home/woou'
-  get 'home/seoyeon'=>'home#seoyeon'
-  post 'home/seoyeon'
-  #성호의 route
+  get 'home/layout5'
+  get 'home/layout4'
   
   
   # The priority is based upon order of creation: first created -> highest priority.
