@@ -4,7 +4,7 @@
 
 
 
-  <title>Workspace</title>
+  <title>Palette :: 내 컬러에 맞는 화장품</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -58,52 +58,57 @@
                     <span class="icon-bar"></span>
                 </button>
               </span>
-              
+           
               <span class="gCenter" style="float:center">
                 <a class="navbar-brand" href="/">logo</a>
               </span>
-              
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             
             
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                     <!-- search form -->
-                     
-                      
-                      <!-- /search form -->
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">상품보기<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="dropdown-header">Warm</li>
                               <li>
-                                  <a href="portfolio-1-col.html" style="text-indent:20px">립</a>
+                                  <a href="/home/layout4" style="text-indent:20px">립</a>
                               </li>
                               <li>
-                                  <a href="portfolio-2-col.html" style="text-indent:20px">섀도우</a>
+                                  <a href="/home/layout4" style="text-indent:20px">섀도우</a>
                               </li>
                             <li class="dropdown-header">Cool</li>
                               <li>
-                                  <a href="portfolio-3-col.html" style="text-indent:20px">립</a>
+                                  <a href="/home/layout4" style="text-indent:20px">립</a>
                               </li>
                               <li>
-                                  <a href="portfolio-4-col.html" style="text-indent:20px">섀도우</a>
+                                  <a href="/home/layout4" style="text-indent:20px">섀도우</a>
                               </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="about.html">로그인</a>
+                        <a href="#">시즌톡</a>
                     </li>
                     <li>
-                        <a href="services.html">시즌톡</a>
+                        <a href="#">콘텐츠</a>
+                    </li>
+                     <li>
+                        <a href="#">로그인</a>
                     </li>
                     <li>
-                        <a href="contact.html">콘텐츠</a>
+                        <form class="searchbox">
+                            <input type="search" placeholder="원하는 상품을 검색해보세요" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                            <input type="submit" class="searchbox-submit" value="GO">
+                            <span class="searchbox-icon">GO</span>
+                        </form>
                     </li>
                 </ul>
+               
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- /.navbar-collapse1 -->
+            
         </div>
         <!-- /.container -->
     </nav>
@@ -111,10 +116,127 @@
        
   
   <style>
-  
- 
-  
+    .searchbox{
+    position:relative;
+    min-width:50px;
+    width:0%;
+    height:50px;
+    float:right;
+    overflow:hidden;
+    
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    -ms-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
+}
+
+.searchbox-input{
+    top:0;
+    right:0;
+    border:0;
+    outline:0;
+    background:#dcddd8;
+    width:100%;
+    height:50px;
+    margin:0;
+    padding:0px 55px 0px 20px;
+    font-size:1em;
+    color:#000000;
+}
+.searchbox-input::-webkit-input-placeholder {
+    color: #d74b4b;
+}
+.searchbox-input:-moz-placeholder {
+    color: #d74b4b;
+}
+.searchbox-input::-moz-placeholder {
+    color: #d74b4b;
+}
+.searchbox-input:-ms-input-placeholder {
+    color: #d74b4b;
+}
+
+.searchbox-icon,
+.searchbox-submit{
+    width:50px;
+    height:50px;
+    display:block;
+    position:absolute;
+    top:0;
+    font-family:verdana;
+    font-size:22px;
+    right:0;
+    padding:0;
+    margin:0;
+    border:0;
+    outline:0;
+    line-height:50px;
+    text-align:center;
+    cursor:pointer;
+    color:#dcddd8;
+    background:#172b3c;
+}
+
+
+
+.searchbox-open{
+    width:100%;
+}
+
+.byline{
+  position:absolute;
+  top:150px;
+  left:30%;
+  text-align:center;
+  font-size:18px;
+}
+.byline a{
+  text-decoration:none;
+  color: #d74b4b;
+}
   </style>
+  <script>
+      $(document).ready(function(){
+            var submitIcon = $('.searchbox-icon');
+            var inputBox = $('.searchbox-input');
+            var searchBox = $('.searchbox');
+            var isOpen = false;
+            submitIcon.click(function(){
+                if(isOpen == false){
+                    searchBox.addClass('searchbox-open');
+                    inputBox.focus();
+                    isOpen = true;
+                } else {
+                    searchBox.removeClass('searchbox-open');
+                    inputBox.focusout();
+                    isOpen = false;
+                }
+            });  
+             submitIcon.mouseup(function(){
+                    return false;
+                });
+            searchBox.mouseup(function(){
+                    return false;
+                });
+            $(document).mouseup(function(){
+                    if(isOpen == true){
+                        $('.searchbox-icon').css('display','block');
+                        submitIcon.click();
+                    }
+                });
+        });
+            function buttonUp(){
+                var inputVal = $('.searchbox-input').val();
+                inputVal = $.trim(inputVal).length;
+                if( inputVal !== 0){
+                    $('.searchbox-icon').css('display','none');
+                } else {
+                    $('.searchbox-input').val('');
+                    $('.searchbox-icon').css('display','block');
+                }
+            }
+  </script>
 
 
 <%= yield %>

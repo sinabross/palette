@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/layout5'
   get 'home/layout4'
   
+ 
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
