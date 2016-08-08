@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   
   def layout5
     
-      end
+  end
   
   def bomi 
     
