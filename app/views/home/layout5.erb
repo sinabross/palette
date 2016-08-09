@@ -1,131 +1,126 @@
-
-    <div class="btn-group btn-group-justified" role="group" aria-label="..." style="text-align:center; margin-top:60px" id="red">
-      <div class="btn-group; col-xs-6 col-sm-4" role="group">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <i class="fa fa-bars" aria-hidden="true"></i> 컬러 카테고리
-         
-        </button>
-        <ul class="dropdown-menu pull-center" aria-labelledby="dLabel" >
-          <li class="dropdown-header">Warm</li>
-           <li><a href="#">가나다라마바사아자차카타파하</a></li>
-          <li class="dropdown-header">Cool</li>
-           <li><a href="#">Dropdown link</a></li>
-        </ul>
-        
-      </div>
-      <div class="col-xs-6 col-sm-4" role="group" style="padding: 8px 0px;">
-        <a href="" style="color:black">시즌톡</a>
-        
-      </div>
-      <div class="col-xs-6 col-sm-4" role="group" style="padding: 8px 0px;">
-        <a href="" style="color:black">콘텐츠</a>
-        
+ 
+ <!-- 제품,세부톤 선택 버튼 -->
+ <hr style="border: solid 0.2px lightgray;">
+    <div class="container"> 
+        <div class="row" style="margin-top:30px; text-align:center">
+            
+               <!-- 제품선택버튼 -->
+                <div class="btn-group col-md-3 col-md-offset-3 col-xs-6" >
+                  <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    제품 <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" style="width:100%">
+                    <li><a href="#">전체보기</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">립스틱</a></li>
+                    <li><a href="#">립틴트</a></li>
+                    <li><a href="#">립글로즈</a></li>
+                  </ul>
+                </div>
+                      
+                <!-- 세부톤선택버튼 -->
+                <div class="btn-group col-md-3 col-xs-6" >
+                  <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    세부톤 <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" style="width:100%">
+                    <li><a href="#">비비드</a></li>
+                    <li><a href="#">브라이트</a></li>
+                    <li><a href="#">스트롱</a></li>
+                    <li><a href="#">딥</a></li>
+                    <li><a href="#">라이트</a></li>
+                    <li><a href="#">소프트</a></li>
+                    <li><a href="#">덜</a></li>
+                    <li><a href="#">다크</a></li>
+                    <li><a href="#">페일</a></li>
+                    <li><a href="#">라이트그레이쉬</a></li>
+                    <li><a href="#">그레이쉬</a></li>
+                    <li><a href="#">다크그레이쉬</a></li>
+                    <li><a href="#">무채색</a></li>
+                  </ul>
+                </div>
+                
+        </div>        
+    </div>
     
-      </div>
-     
-     </div> 
-        <hr style="border: solid 0.2px gray;">
-
-    <!-- Page Content -->
+    <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
+    
+    
+<!-- 상세페이지 -->
     
     <div class="container">
 
       
         <!-- /.row -->
-        <div style = "margin-top:100px">
-       <!-- Portfolio Item Row -->
-        <div class="row">
-
-            <div class="col-md-6" >
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active"  style="float:right">
-                            <img class="img1" src="/images/lip.png" alt="" width=365, height=400 >
+        <div style = "margin-top:50px">
+        <!-- Portfolio Item Row -->
+            <div class="row">
+    
+                <div class="col-md-5 col-md-offset-1 col-xs-12" >
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    
+    
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active "  style="float:center">
+                                <img class="img1" src="/images/lip.png">
+                            </div>
+    
                         </div>
-
+    
+                        <!-- Controls -->
+    
                     </div>
-
-                    <!-- Controls -->
-
                 </div>
+    
+                <div class="col-md-6 col-xs-12"  style="text-align:left" id="orange">
+                    <h3>[브랜드] 제품명</h3><br>
+                    <h4>용량 / 가격</h4><br>
+    
+                    <!-- 좋아요버튼 BEGIN
+                    <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
+                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                    --> 
+                    
+                    <hr style="border:solid 1px lightgray;">
+                        <div>
+                            <div class="col-md-6">
+                                <h4> <strong>톤</strong>  페일</h4><br>
+                                <img class="p hidden-xs" src="/images/p.png">
+                            </div>
+                            <div class="col-md-6">
+                                <h4> <strong>타입</strong>  쿨</h4><br>
+                                <img class="c hidden-xs" src="/images/c.png">
+                                
+                            </div>
+                        </div>
+                </div>
+                
+    
             </div>
-
-            <div class="col-md-6"  style="text-align:left" id="orange">
-                <h2>[이니스프리] 크리미 틴트 립스틱</h2>
-                <h3>용량 / 가격</h3><br>
-
-                <!-- LikeBtn.com BEGIN -->
-                <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
-                <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                <!-- LikeBtn.com END --> 
-                <HR style="border:solid 1px gray;">
-                    <div class="col-md-6">
-                        <h4> - 페일</h4><br>
-                        <img class="p" src="/images/p.png">
-                    </div>
-                    <div class="col-md-6">
-                        <h4> - 쿨, 오렌지 계열</h4><br>
-                        <img class="c" src="/images/c.png">
-                        
-                    </div>
-            </div>
-            
-
-        </div>
         </div>
         <!-- /.row -->
-
-        <!-- Related Projects Row -->
-        <div style = "margin-top:100px">
-            <h3>전문가 평</h3>
-            <h1> </h1>
-        <div class="well"> 블라블라 블라블라</div>
         
-        </div>
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">Related Projects</h3>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
+        <br> 
+        <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
+        <br>
+        
+        <!-- 제품군, 펄유무, 텍스쳐-->
+        <span class="glyphicon glyphicon-tags col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;"> 제품군</span>
+        <span class="glyphicon glyphicon-tag col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;"> 펄유무</span>
+        <span class="glyphicon glyphicon-refresh col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;"> 텍스처</span>
+        
+        <!-- 수정요청 버튼 들어갈 부분 -->
+        
+        
+        <!-- Related Projects Row -->
+        
+        
+        <br>
+        <br>
 
       
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+   

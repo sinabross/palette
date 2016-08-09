@@ -3,7 +3,13 @@ class HomeController < ApplicationController
     
   end
   
+  def write
+
+  end
+  
+  
   def layout4
+     
     
   end
   
@@ -11,8 +17,8 @@ class HomeController < ApplicationController
     
   end
   
-  def bomi 
-    
+  def layout4_test
+     @w_lips = Lipdb.get_w_lip
   end
   
   
