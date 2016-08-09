@@ -73,11 +73,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li>
-                        <div class="middle" style="margin-right:30px">
+                        <div class="middle" style="margin-right:10px;">
                    
-                            <input type="search" placeholder="원하는 상품을 검색해보세요" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-                            <input type="submit" class="searchbox-submit" value="GO">
+                            <input type="search" placeholder="원하는 상품을 검색해보세요" name="search" style="padding-right:100px;margin-right:100px" class="searchbox-input" onkeyup="buttonUp();" required>
+                            <input type="text" class="searchbox-submit" action="search">
                             <span class="searchbox-icon"><span class="glyphicon glyphicon-search"></span></span>
+                        
+                        
+                        
                         
                         </div>
                     </li>
@@ -162,6 +165,7 @@
 }
 .searchbox-input:-ms-input-placeholder {
     color: #696969;
+    
 }
 
 .searchbox-icon,
