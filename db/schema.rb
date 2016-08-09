@@ -25,9 +25,8 @@ ActiveRecord::Schema.define(version: 20160809064821) do
     t.integer  "zzim"
     t.string   "pro_type"
     t.boolean  "glitter"
-    t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lipdbs", force: :cascade do |t|
@@ -43,14 +42,19 @@ ActiveRecord::Schema.define(version: 20160809064821) do
     t.string   "pro_type"
     t.boolean  "glitter"
     t.string   "texture"
-    t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "brand"
+    t.string   "name"
+    t.string   "size"
+    t.integer  "price"
+    t.string   "tone"
+    t.string   "image_url",  default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
