@@ -1,0 +1,51 @@
+
+<hr style="border: solid 0.2px gray;">
+<!-- Page Content -->
+<div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row" style="margin-top:50px">
+        <div style="text-align:center">
+            <div class="col-xs-6 col-sm-3" style="font-size:18px">
+                -
+                <a href = "">전체</a>
+            </div>
+            <div class="col-xs-6 col-sm-3" style="font-size:18px">
+                -
+                <a href = "">립스틱</a>
+            </div>
+            <div class="col-xs-6 col-sm-3" style="font-size:18px">
+                -
+                <a href = "">립틴트</a>
+            </div>
+            <div class="col-xs-6 col-sm-3" style="font-size:18px">
+                -
+                <a href = "">립글로즈</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Projects Row -->
+    <% @w_lips.each_slice(3) do |slice| %>
+    <div class="row" style="margin-top:40px; margin-left:40px">
+        <% slice.each do |w|%>
+            <div class="col-md-4 img-portfolio" style="display:inline" >
+                <a href="/home/layout5">
+                    <img class="example" id="<%=w.id%>" align="center" src="/images/lip.png" alt="" style="width: 200px; height: auto">
+                </a>
+                <a href="/home/layout5"><h5>[<%=w.brand%>]<%=w.name%></h5></a> <br>
+                <p><%=w.size%> / <%=w.price%>원</p> <br>
+                <p><%=w.wc%> / <%=w.tone%></p>
+             </div>
+        <%end%>
+    </div>
+    <% end %>
+    <hr>
+</div><!-- /.container -->
+
+<script>
+    
+    
+    
+</script>
+
