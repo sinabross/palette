@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
+  
   get 'home/index'
   get 'home/layout5'
   get 'home/layout4'
   
+  get 'home/layout4_test'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

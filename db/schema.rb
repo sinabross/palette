@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806100238) do
+ActiveRecord::Schema.define(version: 20160809064821) do
 
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20160806100238) do
     t.integer  "zzim"
     t.string   "pro_type"
     t.boolean  "glitter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_url",  default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "lipdbs", force: :cascade do |t|
@@ -42,23 +43,12 @@ ActiveRecord::Schema.define(version: 20160806100238) do
     t.string   "pro_type"
     t.boolean  "glitter"
     t.string   "texture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_url",  default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table "testdbs", force: :cascade do |t|
-    t.string   "num"
-    t.string   "wc"
-    t.string   "season"
-    t.string   "tone"
-    t.string   "brand"
-    t.string   "name"
-    t.integer  "price"
-    t.string   "size"
-    t.integer  "zzim"
-    t.string   "pro_type"
-    t.boolean  "glitter"
-    t.string   "texture"
+  create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
