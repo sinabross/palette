@@ -47,4 +47,260 @@
         <%= yield %>
         <%= render :partial => "layouts/partial/footer" %>
     </body>
+<head>
+
+
+
+  <title>Palette :: 내 컬러에 맞는 화장품</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Modern Business - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ 
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <span class="gLeft" style="float:left">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+              </span>
+           
+              <span class="gCenter" style="float:center">
+
+                <a class="navbar-brand" href="/">logo</a>
+
+              </span>
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">상품보기<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Warm</li>
+                              <li>
+                                  <a href="/home/layout4" style="text-indent:20px">립</a>
+                              </li>
+                              <li>
+                                  <a href="/home/layout4" style="text-indent:20px">섀도우</a>
+                              </li>
+                            <li class="dropdown-header">Cool</li>
+                              <li>
+                                  <a href="/home/layout4" style="text-indent:20px">립</a>
+                              </li>
+                              <li>
+                                  <a href="/home/layout4" style="text-indent:20px">섀도우</a>
+                              </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">시즌톡</a>
+                    </li>
+                    <li>
+                        <a href="#">콘텐츠</a>
+                    </li>
+                     <li>
+                        <a href="#">로그인</a>
+                    </li>
+                    <li>
+                        <div class="middle">
+                        <form class="searchbox">
+                            <input type="search" placeholder="원하는 상품을 검색해보세요" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                            <input type="submit" class="searchbox-submit" value="GO">
+                            <span class="searchbox-icon"><span class="glyphicon glyphicon-search"></span></span>
+                        </form>
+                        </div>
+                    </li>
+                </ul>
+               
+            </div>
+            <!-- /.navbar-collapse1 -->
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+        
+       
+  
+  <style>
+    .searchbox{
+    position:relative;
+    min-width:50px;
+    width:0%;
+    height:50px;
+    float:right;
+    overflow:hidden;
+    
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    -ms-transition: width 0.3s;
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
+}
+
+.searchbox-input{
+    top:0;
+    right:0;
+    border:0;
+    outline:0;
+    background:#dcddd8;
+    width:100%;
+    height:30px;
+    margin:10px;
+    padding:0px 65px 0px 10px;
+    font-size:1em;
+    color:#000000;
+}
+.searchbox-input::-webkit-input-placeholder {
+    color: #696969;
+}
+.searchbox-input:-moz-placeholder {
+    color: #696969;
+}
+.searchbox-input::-moz-placeholder {
+    color: #696969;
+}
+.searchbox-input:-ms-input-placeholder {
+    color: #696969;
+}
+
+.searchbox-icon,
+.searchbox-submit{
+    width:50px;
+    height:50px;
+    display:block;
+    position:absolute;
+    top:0;
+    font-family:verdana;
+    font-size:22px;
+    right:0;
+    padding:0;
+    margin:0;
+    border:0;
+    outline:0;
+    line-height:50px;
+    text-align:center;
+    cursor:pointer;
+    color:#dcddd8;
+    background:#172b3c;
+}
+
+
+
+.searchbox-open{
+    width:100%;
+}
+
+.byline{
+  position:absolute;
+  top:150px;
+  left:30%;
+  text-align:center;
+  font-size:18px;
+}
+.byline a{
+  text-decoration:none;
+  color: #d74b4b;
+}
+  </style>
+  <script>
+      $(document).ready(function(){
+            var submitIcon = $('.searchbox-icon');
+            var inputBox = $('.searchbox-input');
+            var searchBox = $('.searchbox');
+            var isOpen = false;
+            submitIcon.click(function(){
+                if(isOpen == false){
+                    searchBox.addClass('searchbox-open');
+                    inputBox.focus();
+                    isOpen = true;
+                } else {
+                    searchBox.removeClass('searchbox-open');
+                    inputBox.focusout();
+                    isOpen = false;
+                }
+            });  
+             submitIcon.mouseup(function(){
+                    return false;
+                });
+            searchBox.mouseup(function(){
+                    return false;
+                });
+            $(document).mouseup(function(){
+                    if(isOpen == true){
+                        $('.searchbox-icon').css('display','block');
+                        submitIcon.click();
+                    }
+                });
+        });
+            function buttonUp(){
+                var inputVal = $('.searchbox-input').val();
+                inputVal = $.trim(inputVal).length;
+                if( inputVal !== 0){
+                    $('.searchbox-icon').css('display','none');
+                } else {
+                    $('.searchbox-input').val('');
+                    $('.searchbox-icon').css('display','block');
+                }
+            }
+  </script>
+
+
+<%= yield %>
+
+      <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="text-align:center">Copyright &copy; 멋쟁이사자처럼4기:최영진,송성호,김예현,김현희 2016</p>
+                </div>
+            </div>
+        </footer>
+ 
+
+</body>
 </html>

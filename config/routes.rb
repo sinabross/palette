@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  
+
   get 'home/index'
   get 'home/layout5'
   get 'home/layout4'
