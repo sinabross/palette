@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   
   root 'home#index'
-
-
   get 'home/index'
-  get 'home/layout5'
-  get 'home/layout4'
   
-  get 'home/layout4_test'
+  
+  get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 상품리스트로 이동하게 하는 코드
+  get 'home/layout4_test/:colors' => "home#layout4_test"  # 상품카테고리에서 상품리스트로 이동하게 하는 코드
+  
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:w_lip_id' => "home#layout5"
