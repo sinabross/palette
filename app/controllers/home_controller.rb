@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    
+
   end
   
   def write
@@ -9,7 +9,22 @@ class HomeController < ApplicationController
   
   
   def layout4
-     @w_lips = Lipdb.get_w_lip 
+    # 웜톤 립 출력
+     if params[:colors] == "w_lips" 
+      @list = Lipdb.get_w_lip 
+     end
+     # 웜톤 섀도우 출력
+     if params[:colors] == "w_eyes"  
+      @list = Eyedb.get_w_eye
+     end
+     # 쿨톤 립 출력
+     if params[:colors] == "c_lips" 
+      @list = Lipdb.get_c_lip 
+     end
+     # 쿨톤 섀도우 출력
+     if params[:colors] == "c_eyes"  
+      @list = Eyedb.get_c_eye
+     end
     
   end
   
@@ -18,7 +33,22 @@ class HomeController < ApplicationController
   end
   
   def layout4_test
-     @w_lips = Lipdb.get_w_lip
+     # 웜톤 립 출력
+     if params[:colors] == "w_lips" 
+      @list = Lipdb.get_w_lip 
+     end
+     # 웜톤 섀도우 출력
+     if params[:colors] == "w_eyes"  
+      @list = Eyedb.get_w_eye
+     end
+     # 쿨톤 립 출력
+     if params[:colors] == "c_lips" 
+      @list = Lipdb.get_c_lip 
+     end
+     # 쿨톤 섀도우 출력
+     if params[:colors] == "c_eyes"  
+      @list = Eyedb.get_c_eye
+     end
   end
   
   def layout5_test
