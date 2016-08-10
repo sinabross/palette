@@ -5,21 +5,25 @@
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
         <%= csrf_meta_tags %>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+       
     
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/bootstrap.css" rel="stylesheet">
+        
     
         <!-- Custom CSS -->
-        <link href="css/modern-business.css" rel="stylesheet">
+        <link href="/assets/modern-business.css" rel="stylesheet">
     
-        <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts 
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     
+        <!-- Javascript -->
+        <link href="/assets/bootstrap.js" rel="javascript">
+        <link href="/assets/bootstrap.min.js" rel="javascript">
+        <link href="/assets/contact_me.js" rel="javascript">
+        <link href="/assets/jquery.js" rel="javascript">
+        <link href="/assets/jqBootstrapValidation.js" rel="javascript">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -27,6 +31,14 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     
     <body>
@@ -35,133 +47,5 @@
         <%= yield %>
         <%= render :partial => "layouts/partial/footer" %>
     </body>
-
-
-  <style>
-    .searchbox{
-    position:relative;
-    min-width:50px;
-    width:0%;
-    height:50px;
-    float:right;
-    overflow:hidden;
-    
-    -webkit-transition: width 0.3s;
-    -moz-transition: width 0.3s;
-    -ms-transition: width 0.3s;
-    -o-transition: width 0.3s;
-    transition: width 0.3s;
-}
-
-.searchbox-input{
-    top:0;
-    right:0;
-    border:0;
-    outline:0;
-    background:#dcddd8;
-    width:100%;
-    height:40px;
-    margin:5px;
-    padding:0px 55px 0px 8px;
-    font-size:1em;
-    color:#000000;
-}
-.searchbox-input::-webkit-input-placeholder {
-    color: #696969;
-}
-.searchbox-input:-moz-placeholder {
-    color: #696969;
-}
-.searchbox-input::-moz-placeholder {
-    color: #696969;
-}
-.searchbox-input:-ms-input-placeholder {
-    color: #696969;
-    
-}
-
-.searchbox-icon,
-.searchbox-submit{
-    width:50px;
-    height:50px;
-    display:block;
-    position:absolute;
-    top:0;
-    font-family:verdana;
-    font-size:22px;
-    right:0;
-    padding:0;
-    margin:0;
-    border:0;
-    outline:0;
-    line-height:50px;
-    text-align:center;
-    cursor:pointer;
-    color:#dcddd8;
-    background:#333333;
-}
-
-
-
-.searchbox-open{
-    width:100%;
-}
-
-.byline{
-  position:absolute;
-  top:150px;
-  left:30%;
-  text-align:center;
-  font-size:18px;
-}
-.byline a{
-  text-decoration:none;
-  color: #d74b4b;
-}
-  </style>
-  
-  
-  <script>
-      $(document).ready(function(){
-            var submitIcon = $('.searchbox-icon');
-            var inputBox = $('.searchbox-input');
-            var searchBox = $('.searchbox');
-            var isOpen = true;
-            submitIcon.click(function(){
-                if(isOpen == false){
-                    searchBox.addClass('searchbox-open');
-                    inputBox.focus();
-                    isOpen = true;
-                } else {
-                    searchBox.removeClass('searchbox-open');
-                    inputBox.focusout();
-                    isOpen = false;
-                }
-            });  
-             submitIcon.mouseup(function(){
-                    return false;
-                });
-            searchBox.mouseup(function(){
-                    return false;
-                });
-            $(document).mouseup(function(){
-                    if(isOpen == true){
-                        $('.searchbox-icon').css('display','block');
-                        submitIcon.click();
-                    }
-                });
-        });
-            function buttonUp(){
-                var inputVal = $('.searchbox-input').val();
-                inputVal = $.trim(inputVal).length;
-                if( inputVal !== 0){
-                    $('.searchbox-icon').css('display','none');
-                } else {
-                    $('.searchbox-input').val('');
-                    $('.searchbox-icon').css('display','block');
-                }
-            }
-  </script>
-
 
 </html>
