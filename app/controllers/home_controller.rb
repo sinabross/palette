@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   
   
   def layout4
-     
+     @w_lips = Lipdb.get_w_lip
     
   end
   
