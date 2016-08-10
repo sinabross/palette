@@ -38,99 +38,29 @@
                     <li><a href="#">무채색</a></li>
                   </ul>
                 </div>
-                
         </div>        
     </div>
         
         
-        <!-- Projects Row -->
-        <div class="row" style="margin-top:40px">
-            <div class="col-md-4 img-portfolio">
-                <a href="layout5">
-                    <img class="example" align="center" src="/images/lip.png" alt="" style="width: 200px; height: auto">
+        <!-- 제품 리스트 -->
+      <% @w_lips.each_slice(3) do |slice| %>
+    <div class="row" style="margin-top:40px; margin-left:40px">
+        <% slice.each do |w|%>
+            <div class="col-md-4 img-portfolio" style="display:inline" >
+                <a href="/home/layout5">
+                    <img class="example" align="center" src="https://s3.ap-northeast-2.amazonaws.com/garsong0514/uploads/1465980733.1110578DFEQA.PNG" 
+                    alt="" style="width: 200px; height: auto">
                 </a>
-                <h3>
-                    <a href="layout5">[이니스프리] 크리미 립틴트</a>
-                </h3>
-                <p>70ml / 7,000원</p>
-                <p> 쿨 / 페일</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <a href="layout5">
-                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>얼마게?</p>
-                <p>안알랴줌</p>
-            </div>
-            <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-                </a>
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-            </div>
-        </div>
-        
-        <div class="col-md-4 img-portfolio">
-            <a href="layout5">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-            </a>
-            <h3>
-                <a href="portfolio-item.html">Project Name</a>
-            </h3>
-            <p>얼마게?</p>
-            <p>안알랴줌</p>
-        </div>
-        
-        <div class="col-md-4 img-portfolio">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-            </a>
-            <h3>
-                <a href="portfolio-item.html">Project Name</a>
-            </h3>
-        </div>
-        <!-- /.row -->
-
-
-        <hr>
-
-       
+                <a href="/home/layout5"><h5>[<%=w.brand%>]<%=w.name%></h5></a> <br>
+                <p><%=w.size%> / <%=w.price%>원</p> <br>
+                <p><%=w.wc%> / <%=w.tone%></p>
+             </div>
+        <%end%>
     </div>
-
-    <!-- Projects Row -->
-    <div class="row">
-        <div class="col-md-4 img-portfolio">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-            </a>
-            <h3>
-                <a href="portfolio-item.html">Project Name</a>
-            </h3>
-        </div>
-        
-        <div class="col-md-4 img-portfolio">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-            </a>
-            <h3>
-                <a href="portfolio-item.html">Project Name</a>
-            </h3>
-        </div>
-        
-        <div class="col-md-4 img-portfolio">
-            <a href="portfolio-item.html">
-                <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
-            </a>
-            <h3>
-                <a href="portfolio-item.html">Project Name</a>
-            </h3>
-        </div>
-    </div><!-- /.row -->
-    <hr>
-</div><!-- /.container -->
+    <% end %>
+    
+    <!-- pagination -->
+    <%= render :partial => "layouts/partial/pagination" %>
+</div>
+<!-- /.container -->
 
