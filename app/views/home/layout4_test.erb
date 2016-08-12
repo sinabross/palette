@@ -44,14 +44,19 @@
     <% @list.each_slice(3) do |slice| %>
     <div class="row" style="margin-top:40px; margin-left:40px">
         <% slice.each do |w|%>
-            <div class="col-md-4 img-portfolio" style="display:inline" >
-                <a href="/home/layout5_test/<%=w.id%>">
-                    <img class="example" align="center" src="https://s3.ap-northeast-2.amazonaws.com/garsong0514/uploads/1465980733.1110578DFEQA.PNG" 
-                    alt="" style="width: 200px; height: auto">
-                </a>
-                <a href="/home/layout5"><h5>[<%=w.brand%>]<%=w.name%></h5></a> <br>
-                <p><%=w.size%> / <%=w.price%>원</p> <br>
-                <p><%=w.wc%> / <%=w.tone%></p>
+            <div class="col-md-4 img-portfolio" style="display:inline">
+                
+                    <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+                    <a class="col-md-12 col-xs-6" href="/home/layout5_test/<%=w.id%>">
+                        <!--사진 src 현희 아마존에서 제품 넘버로 불러오기(성공) -->
+                        <img class="example" align="center" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg" 
+                        alt="" style="width: 200px; height: auto">
+                    </a>
+                    <p class="col-md-12 col-xs-6">
+                        <a href="/home/layout5/<%=w.id%>"><h5>[<%=w.brand%>]<%=w.name%></h5></a><br>
+                        <p><%=w.size%> / <%=w.price%>원</p><br>
+                        <p><%=w.wc%> / <%=w.tone%> </p>
+                    </p>
              </div>
         <%end%>
     </div>
