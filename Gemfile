@@ -6,6 +6,7 @@ gem "fog-aws" #이것도역시^^ https://github.com/carrierwaveuploader/carrierw
 gem 'carrierwave' #이거슨 사진저장위한 거얌..............ㅎㅎㅎㅎㅎ
 gem 'will_paginate', '~> 3.0' #페이지 번호 부여 및 번호를 통한 이동을 위한 젬 파일
 
+
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

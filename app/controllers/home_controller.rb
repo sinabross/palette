@@ -13,15 +13,20 @@ class HomeController < ApplicationController
      if params[:colors] == "w_lips" 
       @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
      end
-     # 웜톤 섀도우 출력
-     if params[:colors] == "w_eyes"  
-      @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
-     end
      # 쿨톤 립 출력
      if params[:colors] == "c_lips" 
       @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21) 
      end
-     # 쿨톤 섀도우 출력
+
+    
+  end
+  
+  def layout4_sha
+        # 웜톤 섀도우 출력
+     if params[:colors] == "w_eyes"  
+      @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
+     end
+          # 쿨톤 섀도우 출력
      if params[:colors] == "c_eyes"  
       @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
      end
