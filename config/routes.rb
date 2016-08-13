@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :home, only: [:layout4]
   root 'home#index'
   get 'home/index'
   
