@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :home, only: [:layout4]
+  resources :home, only: [:layout4] #for pagination
+  
   root 'home#index'
   get 'home/index'
   
