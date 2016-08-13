@@ -24,14 +24,18 @@
                 <ul class="nav navbar-nav navbar-right">
                     
                     <li>
-                        <div class="middle" style="margin-right:10px;">
+                        <form class="middle" style="margin-right:10px;" action="/home/search" method="get" >
                             
                             <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
                             <input type="search" placeholder="원하는 상품을 검색해보세요" name="search" style="padding-right:100px" class="searchbox-input" >
                               <button type="button" class="searchbox-submit" > <!--'예현'으로 바뀌는 부분 안바뀌게 수정(내용입력시 돋보기아이콘 유지됨)-->
                                 <span class="glyphicon glyphicon-search"></span>
                               </button>
-                        </div>
+
+                                     
+                        </form>
+                                    
+                          
                     </li>
                     
                      <li class="dropdown">

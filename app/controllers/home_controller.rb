@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   def index
-
+     
   end
   
-  def write
+  def search
 
   end
   
@@ -26,6 +26,10 @@ class HomeController < ApplicationController
       @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
      end
     
+    #검색 기능
+   
+     
+                        
   end
   
   def layout5
@@ -56,3 +60,4 @@ class HomeController < ApplicationController
   end
  
 end
+
