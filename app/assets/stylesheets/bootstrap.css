@@ -9,7 +9,6 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
-
 body {
   margin: 0;
 }
@@ -44,7 +43,6 @@ template {
   display: none;
 }
 a {
-  color: black;
   background-color: transparent;
 }
 a:active,
@@ -87,7 +85,6 @@ sub {
 }
 img {
   border: 0;
-  display: inline-block;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -1100,7 +1097,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: black;
+  color: #337ab7;
   text-decoration: none;
 }
 a:hover,
@@ -3005,7 +3002,7 @@ select[multiple].input-lg {
 }
 .btn {
   display: inline-block;
-  padding: 6px 30px;
+  padding: 6px 12px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
@@ -3021,7 +3018,6 @@ select[multiple].input-lg {
       -ms-user-select: none;
           user-select: none;
   background-image: none;
-  background-color: white;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -3524,13 +3520,13 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 30;
+  left: 0;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 200px;
-  padding: 15px 10px 100px 10px;
-  margin: 10px 250px 0;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
   list-style: none;
@@ -3984,8 +3980,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
 }
-.nav > li > color: #337ab7;
-    text-decoration: none;
+.nav > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -4695,7 +4690,6 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
 }
-
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 20px;

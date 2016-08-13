@@ -1,19 +1,14 @@
-<nav aria-label="Page navigation" style="text-align:center">
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<%= will_paginate @list %>
+
+
+<style>
+
+  .pagination {
+  .previous_page { background:#7777ff; color:white }
+  .previous_page.disabled { background: white; color: #777 }
+  .current { background: yellow }
+  .next_page { background: #7777ff; color: white }
+  .next_page.disabled { background: white; color: #777 }
+}
+
+</style>
