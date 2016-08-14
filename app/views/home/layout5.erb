@@ -63,7 +63,7 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active "  style="float:center">
-                                <!--임시사진으로 대체, 본래 src=https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@w_lips_post.num%>.jpg-->
+                                <!--임시사진으로 대체, 본래 src=https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg-->
                                 <img class="img1" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg">
                             </div>
     
@@ -75,8 +75,8 @@
                 </div>
     
                 <div class="col-md-6 col-xs-12"  style="text-align:left" id="orange">
-                    <h3>[<%=@w_lips_post.brand %>] <%=@w_lips_post.name %></h3><br>
-                    <h4><%=@w_lips_post.size %> / <%=@w_lips_post.price %>원</h4><br>
+                    <h3>[<%=@product.brand %>] <%=@product.name %></h3><br>
+                    <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
     
                     <!-- 좋아요버튼 BEGIN
                     <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
@@ -86,11 +86,11 @@
                     <hr style="border:solid 1px lightgray;">
                         <div>
                             <div class="col-md-6">
-                                <h4> <strong>톤</strong>   <%=@w_lips_post.tone %></h4><br>
+                                <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
                                 <img class="p hidden-xs" src="/images/p.png">
                             </div>
                             <div class="col-md-6">
-                                <h4> <strong>타입</strong>   <%=@w_lips_post.wc %></h4><br>
+                                <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                 <img class="c hidden-xs" src="/images/c.png">
                                 
                             </div>
@@ -108,11 +108,11 @@
         
         <!-- 제품군, 펄유무, 텍스쳐-->
         <span class="glyphicon glyphicon-tags col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@w_lips_post.pro_type %></span>
+            <%=@product.pro_type %></span>
         <span class="glyphicon glyphicon-tag col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@w_lips_post.glitter %></span>
+            <%=@product.glitter %></span>
         <span class="glyphicon glyphicon-refresh col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@w_lips_post.texture %></span>
+            <%=@product.texture %></span>
         
         <!-- 수정요청 버튼 들어갈 부분 -->
         

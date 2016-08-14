@@ -8,7 +8,9 @@ class Lipdb < ActiveRecord::Base
         return Lipdb.where(wc:"c").all
     end
     
-    searchable do
-      text :name, :brand, :tone, :pro_type, :wc
+    def self.search(search)
+      where("name LIKE ? OR brand LIKE ?", "%#{search}%", "%#{search}%")
     end
+    
+
 end
