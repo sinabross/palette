@@ -5,14 +5,18 @@ class HomeController < ApplicationController
   
   def search
      
-     if params[:search]
-        @list = Lipdb.search(params[:search]).order("created_at DESC") && Eyedb.search(params[:search]).order("created_at DESC")
-        
-      else
-        @list = Lipdb.all.order('created_at DESC') && Eyedb.all.order('created_at DESC')
-       
-     end
-        
+     # 립 제품 검색결과
+       if params[:search]
+         @result = Lipdb.all.search(params[:search]).order("id DESC")
+       else
+         @result = Lipdb.all.order("zzim desc")
+       end
+     # 섀도우 제품 검색결과  
+       if params[:search]
+         @result2 = Eyedb.all.search(params[:search]).order("id DESC")
+       else
+         @result2 = Eyedb.all.order("zzim desc")
+       end
   end
   
   
