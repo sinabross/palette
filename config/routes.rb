@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
-  get 'home/layout5/:product_id' => "home#layout5"
+  get 'home/layout5/:product_num' => "home#layout5"
   get 'home/layout5_test/:w_lip_id' => "home#layout5_test"
   
   # The priority is based upon order of creation: first created -> highest priority.

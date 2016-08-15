@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160806100238) do
     t.integer  "zzim"
     t.string   "pro_type"
     t.boolean  "glitter"
+    t.string   "texture",    default: ""
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false

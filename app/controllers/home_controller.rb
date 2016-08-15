@@ -101,8 +101,17 @@ class HomeController < ApplicationController
   end
   
   def layout5
+  
+     #립 상세페이지
+     if params[:product_num].start_with?("L")
+      @product = Lipdb.find_by_num(params[:product_num])
+     end
      
-     @product = Lipdb.find(params[:product_id])
+     #섀도우 상세페이지
+     if params[:product_num].start_with?("S")
+      @product = Eyedb.find_by_num(params[:product_num])
+     end
+      
   end
   
   def layout4_test
