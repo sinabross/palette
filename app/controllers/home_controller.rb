@@ -19,62 +19,85 @@ class HomeController < ApplicationController
   def layout4
     
     # 웜톤 립 출력
-     if params[:colors] == "w_lips" 
-      @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
-     end
-     
-    # if params[:colors] == "w_lipstick"
-   #   @list = Lipdb.get_w_lip.where(pro_type:"lipstick").paginate(page: params[:page], per_page: 21)  
-    # end
-   #  if params[:colors] == "w_liptint"
-   ##   @list = Lipdb.get_w_lip.where(pro_type:"liptint").paginate(page: params[:page], per_page: 21)  
-   #  end     
-  #  if params[:colors] == "w_lipgloss"
-   #   @list = Lipdb.get_w_lip.where(pro_type:"lipgloss/liplacquer").paginate(page: params[:page], per_page: 21)  
-  #   end
-     
+    
+     if params[:colors] == "w_lips"
+      #웜립일때
+      @colors = "w_lips"
+      @liplist = params[:liplist]
+      @liptone = params[:liptone]
+      #웝립/제품군/세부톤
+      @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      #세부톤 선택안했을때
+      if params[:liptone] == nil
+       @liptone = "세부톤"
+       #웜립/제품군에 따라 출력
+       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
+        #세부톤,제품군 선택안했을때 웜립 전체출력
+        if params[:liplist] == nil 
+         @liplist = "제품"
+         @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21)
+        end
+       end
+    end
+
      # 쿨톤 립 출력
-     if params[:colors] == "c_lips" 
-      @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21) 
-     end 
-   #  if params[:colors] == "c_lipstick"
-    #  @list = Lipdb.get_c_lip.where(pro_type:"lipstick").paginate(page: params[:page], per_page: 21)  
-     #end
-  #   if params[:colors] == "c_liptint"
-   #   @list = Lipdb.get_c_lip.where(pro_type:"liptint").paginate(page: params[:page], per_page: 21)  
-    # end     
-     #if params[:colors] == "c_lipgloss"
-    #  @list = Lipdb.get_c_lip.where(pro_type:"lipgloss/liplacquer").paginate(page: params[:page], per_page: 21)  
-     #end
+     if params[:colors] == "c_lips"
+      @colors = "c_lips"
+      @liplist = params[:liplist]
+      @liptone = params[:liptone]
+      @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+       if params[:liptone] == nil
+        @liptone = "세부톤"
+       @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
+        if params[:liplist] == nil 
+         @liplist = "제품"
+         @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21)
+        end
+       end
+      end
+    
 
   end
 
 
   def layout4_sha
-     # 웜톤 섀도우 출력
-     if params[:colors] == "w_eyes"  
-      @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
-     end
-     # 웜톤 섀도우 제품 종류에 따른 출력
-   #  if params[:colors] == "w_eyescake"  
-    #  @list = Eyedb.get_w_eye.where(pro_type:"cake").paginate(page: params[:page], per_page: 21)
-  #   end
-  #   if params[:colors] == "w_eyespencil"  
-  #    @list = Eyedb.get_w_eye.where(pro_type:"pencil").paginate(page: params[:page], per_page: 21)
-  #   end
+   
+    if params[:colors] == "w_eyes"
      
-     # 쿨톤 섀도우 출력
-     if params[:colors] == "c_eyes"  
-      @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
-     end
+      @colors = "w_eyes"
+      @eyelist = params[:eyelist]
+      @eyetone = params[:eyetone]
+      @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
      
-     # 쿨톤 섀도우 제품의 종류에 따른 출력
- #    if params[:colors] == "c_eyescake"  
-  #    @list = Eyedb.get_c_eye.where(pro_type:"cake").paginate(page: params[:page], per_page: 21)
-  #   end
- #    if params[:colors] == "c_eyespencil"  
- #     @list = Eyedb.get_c_eye.where(pro_type:"pencil").paginate(page: params[:page], per_page: 21)
-  #   end
+      if params[:eyetone] == nil
+       @eyetone = "세부톤"
+       
+       @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).paginate(page: params[:page], per_page: 21)
+     
+        if params[:eyelist] == nil 
+         @eyelist = "제품"
+         @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
+        end
+       end
+    end
+
+  
+     if params[:colors] == "c_eyes"
+      @colors = "c_eyes"
+      @eyelist = params[:eyelist]
+      @eyetone = params[:eyetone]
+      @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+       if params[:eyetone] == nil
+        @eyetone = "세부톤"
+        @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).paginate(page: params[:page], per_page: 21)
+        if params[:eyelist] == nil
+         @eyelist = "제품"
+         @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
+        end
+       end
+      end
+    
+
   end
   
   def layout5

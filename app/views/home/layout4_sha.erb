@@ -5,36 +5,36 @@
                <!-- 제품선택버튼 -->
                 <div class="btn-group col-md-3 col-md-offset-3 col-xs-6" >
                   <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="dropdown_title">제품</span> <span class="caret"></span>
+                    <span id="dropdown_title"><%=@eyelist%></span> <span class="caret"></span>
                   </button>
                   <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
-                    <li><a>전체보기</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>">전체보기</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a></a></li>
-                    <li><a>케이크</a></li>
-                    <li><a>펜슬</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/cake">케이크</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/pencil">펜슬</a></li>
                   </ul>
                 </div>
                       
                 <!-- 세부톤선택버튼 -->
                 <div class="btn-group col-md-3 col-xs-6" >
                   <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="dropdown_title2">세부톤</span> <span class="caret"></span>
+                    <span id="dropdown_title2"><%=@eyetone%></span> <span class="caret"></span>
                   </button>
                   <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
-                    <li><a>비비드</a></li>
-                    <li><a>브라이트</a></li>
-                    <li><a>스트롱</a></li>
-                    <li><a>딥</a></li>
-                    <li><a>라이트</a></li>
-                    <li><a>소프트</a></li>
-                    <li><a>덜</a></li>
-                    <li><a>다크</a></li>
-                    <li><a>페일</a></li>
-                    <li><a>라이트그레이쉬</a></li>
-                    <li><a>그레이쉬</a></li>
-                    <li><a>다크그레이쉬</a></li>
-                    <li><a>무채색</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/vivid">비비드</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/bright">브라이트</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/strong">스트롱</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/deep">딥</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/light">라이트</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/soft">소프트</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/dull">덜</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/dark">다크</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/pale">페일</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/lightgraish">라이트그레이쉬</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/graish">그레이쉬</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/darkgraish">다크그레이쉬</a></li>
+                    <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>">무채색</a></li>
                   </ul>
                 </div>
         </div>        
