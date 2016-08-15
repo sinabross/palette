@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
   
+  get 'home/search'
  
   get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
   get 'home/layout4_sha/:colors'  => "home#layout4_sha"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드

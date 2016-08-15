@@ -9,7 +9,7 @@ class Eyedb < ActiveRecord::Base
     end
    
     def self.search(search)
-      where("name LIKE ? OR brand LIKE ?", "%#{search}%", "%#{search}%")
+      where("name LIKE ? OR brand LIKE ? OR wc LIKE ? OR pro_type LIKE ? OR tone LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
     end
     
     
