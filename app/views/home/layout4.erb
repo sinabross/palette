@@ -5,36 +5,38 @@
                <!-- 제품선택버튼 -->
                 <div class="btn-group col-md-3 col-md-offset-3 col-xs-6" >
                   <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="dropdown_title">제품</span> <span class="caret"></span>
+                    <span id="dropdown_title"><%=@liplist%></span> <span class="caret"></span>
                   </button>
                   <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
-                    <li><a>전체보기</a></li>
+                  
+                    <li><a href="/home/layout4/<%=@colors%>">전체보기</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/home/layout4/w_lips/w_lipstick">립스틱</a></li>
-                    <li><a href="/home/layout4/w_lips/w_liptint">립틴트</a></li>
-                    <li><a href="/home/layout4/w_lips/w_lipgloss">립글로즈/립라카</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/lipstick">립스틱</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/liptint">립틴트</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/lipgloss">립글로즈/립라카</a></li>
+                 
                   </ul>
                 </div>
                       
                 <!-- 세부톤선택버튼 -->
                 <div class="btn-group col-md-3 col-xs-6" >
                   <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="dropdown_title2">세부톤</span> <span class="caret"></span>
+                    <span id="dropdown_title2"><%=@liptone%></span> <span class="caret"></span>
                   </button>
                   <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
-                    <li><a>비비드</a></li>
-                    <li><a>브라이트</a></li>
-                    <li><a>스트롱</a></li>
-                    <li><a>딥</a></li>
-                    <li><a>라이트</a></li>
-                    <li><a>소프트</a></li>
-                    <li><a>덜</a></li>
-                    <li><a>다크</a></li>
-                    <li><a>페일</a></li>
-                    <li><a>라이트그레이쉬</a></li>
-                    <li><a>그레이쉬</a></li>
-                    <li><a>다크그레이쉬</a></li>
-                    <li><a>무채색</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/vivid">비비드</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/bright">브라이트</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/strong">스트롱</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/deep">딥</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/light">라이트</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/soft">소프트</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/dull">덜</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/dark">다크</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/pale">페일</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/lightgraish">라이트그레이쉬</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/graish">그레이쉬</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>/darkgraish">다크그레이쉬</a></li>
+                    <li><a href="/home/layout4/<%=@colors%>/<%=@liplist%>">무채색</a></li>
                   </ul>
                 </div>
         </div>        
