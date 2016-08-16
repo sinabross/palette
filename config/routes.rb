@@ -9,8 +9,6 @@ Rails.application.routes.draw do
  
   get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
   get 'home/layout4_sha/:colors'  => "home#layout4_sha"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
-  #get 'home/layout4_test/:colors' => "home#layout4_test"  # 상품카테고리에서 상품리스트로 이동하게 하는 코드
-  
   
   get 'home/layout4/:colors/:liplist' => "home#layout4" # 립 pro_type 세부 카테고리 분류
   get 'home/layout4_sha/:colors/:eyelist' => "home#layout4_sha" # 쉐도우 pro_type 세부 카테고리 분류
@@ -21,8 +19,7 @@ Rails.application.routes.draw do
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
-  get 'home/layout5_test/:w_lip_id' => "home#layout5_test"
-  
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
