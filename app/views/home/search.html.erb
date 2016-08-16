@@ -1,6 +1,6 @@
 
-<% if (@result && @result2).blank? %>
-  <h4><%= params[:search] %>에 따른 검색 결과가 없습니다.</h4>
+<% if @result.blank? && @result2.blank? %>
+  <h4 style="text-align:center">'<%= params[:search] %>'에 따른 검색 결과가 없습니다.</h4>
 <% end %>
 
 
