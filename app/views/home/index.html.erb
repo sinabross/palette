@@ -206,13 +206,18 @@
     <hr>
 </div><!-- /.container -->
 
-
-<!-- Script to Activate the Carousel -->
-<script>
-$('.carousel').carousel({
-    interval: 5000 //changes the speed
-})
-</script>
+    <% if user_signed_in? %>
+      <p>현재 로그인된 유저의 이메일 : <%= current_user.email %></p>
+      <p><%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %></p>
+    <% else %>
+      <p><%= link_to "로그인", new_user_session_path %></p>
+    <% end %>
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
 
 
 
