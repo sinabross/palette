@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :home, only: [:layout4] #for pagination
   
   root 'home#index'

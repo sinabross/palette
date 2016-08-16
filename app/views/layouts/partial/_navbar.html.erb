@@ -67,7 +67,11 @@
                         <a href="#">콘텐츠</a>
                     </li>
                      <li>
-                        <a href="#">로그인</a>
+                        <% if user_signed_in? %>
+                          <a><%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %></a>
+                        <% else %>
+                          <a><%= link_to "로그인", new_user_session_path %></a>
+                        <% end %>
                     </li>
 
                 </ul>
