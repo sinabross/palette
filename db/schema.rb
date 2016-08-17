@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20160816074040) do
     t.string   "name"
     t.integer  "price"
     t.string   "size"
-    t.integer  "zzim"
+    t.integer  "zzim",       default: 0
     t.string   "pro_type"
-    t.boolean  "glitter"
+    t.string   "glitter"
     t.string   "texture",    default: ""
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20160816074040) do
     t.string   "name"
     t.integer  "price"
     t.string   "size"
-    t.integer  "zzim"
+    t.integer  "zzim",       default: 0
     t.string   "pro_type"
-    t.boolean  "glitter"
+    t.string   "glitter"
     t.string   "texture"
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
