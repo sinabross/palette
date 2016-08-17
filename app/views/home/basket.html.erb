@@ -8,8 +8,52 @@
   <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" class="img-circle" style="width: 70%; border-radius: 50%">
   <br><br>
   <p style="font-size:15px">코딩천사 님</p>
-  <button type="button" style="width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px">타입 변경</button>
+  
+  <!-- 타입변경버튼 -->
+  <button type="button" href="#modalLayer" class="modalLink seasons">타입 변경</button>
+    <div id="modalLayer">
+      <div class="modalContent">
+        
+        <div class="col-md-3">
+          <label class="radio-inline"><input type="radio" name="optradio"></label><br><br>
+          <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%">
+          <p>봄(warm)</p>
+          <p>있으며 인생을 풍부하게 하는 온갖 과실이 어디 있으랴? 이상! 우리의 청춘이 가장 많이 품고 있는 이상! 이것이야말로 무한한 가치를 가진 것이다 사람은 크고 작고 간에 이상이 있음으로써 용감하</p>
+        </div>
+        
+        <div class="col-md-3">
+          <label class="radio-inline"><input type="radio" name="optradio"></label><br><br>
+          <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%">
+          <p>여름(cool)</p>
+          <p>있으며 인생을 풍부하게 하는 온갖 과실이 어디 있으랴? 이상! 우리의 청춘이 가장 많이 품고 있는 이상! 이것이야말로 무한한 가치를 가진 것이다 사람은 크고 작고 간에 이상이 있음으로써 용감하</p>
+        </div>
+        
+        <div class="col-md-3">
+          <label class="radio-inline"><input type="radio" name="optradio"></label><br><br>
+          <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%">
+          <p>가을(warm)</p>
+          <p>있으며 인생을 풍부하게 하는 온갖 과실이 어디 있으랴? 이상! 우리의 청춘이 가장 많이 품고 있는 이상! 이것이야말로 무한한 가치를 가진 것이다 사람은 크고 작고 간에 이상이 있음으로써 용감하</p>
+        </div>
+        
+        <div class="col-md-3">
+          <label class="radio-inline"><input type="radio" name="optradio"></label><br><br>
+          <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%">
+          <p>겨울(cool)</p>
+          <p>있으며 인생을 풍부하게 하는 온갖 과실이 어디 있으랴? 이상! 우리의 청춘이 가장 많이 품고 있는 이상! 이것이야말로 무한한 가치를 가진 것이다 사람은 크고 작고 간에 이상이 있음으로써 용감하</p>
+        </div>
+        
+        <br><br>
+        <!-- 할일 : 닫기버튼은 X표로 바꾸고, 수정하기 눌러도 팝업창 닫아지게하고, 수정하기버튼 가운데로 -->
+        <div class="col-md-12">
+          <button type="button" class="seasons">수정하기</button>
+        </div>
+        <button type="button">닫기</button>
+      </div>
+    </div>
+  <!-- 타입변경버튼끝-->
+  
 </div>
+
 <div class="container content box col-md-9" id="basket">
   <form method="post" action="checkout1.html">
     <div class="table-responsive">
@@ -18,20 +62,20 @@
         <thead>
           <tr>
             <th><input type="checkbox" name="select_all" id="select_all"></th>
-            <th>상품사진</th>
-            <th>상품명</th>
-            <th>가격</th>
-            <th>컬러톤</th>
+            <th class="col-md-2 col-xs-2">상품사진</th>
+            <th class="col-md-5">상품명</th>
+            <th class="col-md-1 hidden-xs">가격</th>
+            <th class="col-md-1 hidden-xs">컬러톤</th>
             <th>삭제</th>
           </tr>
         </thead>
         <tbody> <!-- 찜제품목록 -->
           <tr>
             <td><input type="checkbox"></td>
-            <td class="col-md-2 col-xs-2"><a href="#"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%"></a></td>
+            <td><a href="#"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%"></a></td>
             <td><a href="#">[이니스프리] 어쩌구</a></td>
-            <td>5555555555원</td>
-            <td>쿨/라이트</td>
+            <td class="hidden-xs">5555555555원</td>
+            <td class="hidden-xs">쿨/라이트</td>
             <td><button type="button" style="width:60%; height:28px; border-radius:4px; background-color:lightgray; text-align:center; font-size:12px">삭제</button></td>
             <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
           </tr>
@@ -40,8 +84,8 @@
             <td><input type="checkbox"></td>
             <td><a href="#"><img src=""></a></td>
             <td><a href="#">[이니스프리] 아이젤 라이너</a></td>
-            <td>14,000원</td>
-            <td>쿨/페일</td>
+            <td class="hidden-xs">14,000원</td>
+            <td class="hidden-xs">쿨/페일</td>
             <td><button type="button" style="width:60%; height:28px; border-radius:4px; background-color:lightgray; text-align:center; font-size:12px">삭제</button></td>
             <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
           </tr>
@@ -50,7 +94,18 @@
     </div>
   </form>
 </div>
-                   
+           
+<style>
+  a{color:#000;} 
+
+  .mask{width:100%; height:100%; position:fixed; left:0; top:0; z-index:10; background:#000; opacity:.5; filter:alpha(opacity=50);}
+  .seasons{width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px;}
+  
+  #modalLayer{display:none; position:relative;}
+  #modalLayer .modalContent{width:1000px; height:500px; padding:30px; border:2px solid #ccc; position:fixed; left:50%; top:50%; z-index:11; background:#fff;}
+  #modalLayer .modalContent button{position:absolute; right:0; top:0; cursor:pointer;}
+</style>
+
 <script>
   $('#select_all').click(function(event) {
     if(this.checked) {
@@ -64,5 +119,27 @@
             this.checked = false;
         });
     }
+  });
+  
+  
+  $(document).ready(function(){
+    var modalLayer = $("#modalLayer");
+    var modalLink = $(".modalLink");
+    var modalCont = $(".modalContent");
+    var marginLeft = modalCont.outerWidth()/2;
+    var marginTop = modalCont.outerHeight()/2; 
+  
+    modalLink.click(function(){
+      modalLayer.fadeIn("slow");
+      modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
+      $(this).blur();
+      $(".modalContent > a").focus(); 
+      return false;
+    });
+  
+    $(".modalContent > button").click(function(){
+      modalLayer.fadeOut("slow");
+      modalLink.focus();
+    });		
   });
 </script>
