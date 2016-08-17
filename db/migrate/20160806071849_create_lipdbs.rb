@@ -9,9 +9,9 @@ class CreateLipdbs < ActiveRecord::Migration
       t.string  :name
       t.integer :price
       t.string  :size
-      t.integer :zzim
+      t.integer :zzim, default:"0"
       t.string  :pro_type
-      t.boolean :glitter
+      t.string  :glitter
       t.string  :texture
       t.string :image_url, default:""
       

@@ -31,6 +31,14 @@ class HomeController < ApplicationController
       @liptone = params[:liptone]
       #웝립/제품군/세부톤
       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      if params[:liplist] == nil
+       @liplist = "제품"
+       @list = Lipdb.get_w_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+       if params[:liptone] == nil
+        @liptone = "세부톤"
+        @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
+       end
+      end
       #세부톤 선택안했을때
       if params[:liptone] == nil
        @liptone = "세부톤"
@@ -41,8 +49,8 @@ class HomeController < ApplicationController
          @liplist = "제품"
          @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21)
         end
-       end
-    end
+      end
+     end
 
      # 쿨톤 립 출력
      if params[:colors] == "c_lips"
@@ -50,6 +58,14 @@ class HomeController < ApplicationController
       @liplist = params[:liplist]
       @liptone = params[:liptone]
       @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      if params[:liplist] == nil
+       @liplist = "제품"
+       @list = Lipdb.get_c_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+       if params[:liptone] == nil
+        @liptone = "세부톤"
+        @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21) 
+       end
+      end
        if params[:liptone] == nil
         @liptone = "세부톤"
        @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
@@ -58,7 +74,7 @@ class HomeController < ApplicationController
          @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21)
         end
        end
-      end
+     end
     
 
   end
@@ -72,7 +88,14 @@ class HomeController < ApplicationController
       @eyelist = params[:eyelist]
       @eyetone = params[:eyetone]
       @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
-     
+      if params[:eyelist] == nil
+       @eyelist = "제품"
+       @list = Eyedb.get_w_eye.where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+       if params[:eyetone] == nil
+        @eyetone = "세부톤"
+        @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21) 
+       end
+      end
       if params[:eyetone] == nil
        @eyetone = "세부톤"
        
@@ -82,7 +105,7 @@ class HomeController < ApplicationController
          @eyelist = "제품"
          @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
         end
-       end
+      end
     end
 
   
@@ -91,6 +114,14 @@ class HomeController < ApplicationController
       @eyelist = params[:eyelist]
       @eyetone = params[:eyetone]
       @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+      if params[:eyelist] == nil
+       @eyelist = "제품"
+       @list = Eyedb.get_c_eye.where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+       if params[:eyetone] == nil
+        @eyetone = "세부톤"
+        @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21) 
+       end
+      end
        if params[:eyetone] == nil
         @eyetone = "세부톤"
         @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).paginate(page: params[:page], per_page: 21)
@@ -99,7 +130,7 @@ class HomeController < ApplicationController
          @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
         end
        end
-      end
+     end
     
 
   end
