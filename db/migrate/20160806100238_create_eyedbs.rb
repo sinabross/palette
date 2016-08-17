@@ -1,7 +1,7 @@
 class CreateEyedbs < ActiveRecord::Migration
   def change
     create_table :eyedbs do |t|
-       t.string  :num
+      t.string  :num
       t.string  :wc
       t.string  :season
       t.string  :tone
@@ -9,9 +9,9 @@ class CreateEyedbs < ActiveRecord::Migration
       t.string  :name
       t.integer :price
       t.string  :size
-      t.integer :zzim
+      t.integer :zzim, default:"0"
       t.string  :pro_type
-      t.boolean :glitter
+      t.string  :glitter
       t.string  :texture, default:""
       t.string :image_url, default:""
       

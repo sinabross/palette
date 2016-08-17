@@ -1,48 +1,68 @@
 <!DOCTYPE html>
-  <div id="all">
-    <div id="content">
-      <div class="container">
-      <br><br>
-        <div class="col-md-9" id="basket">
-          <div class="box">
-            <form method="post" action="checkout1.html">
-            <h1>찜한 상품 보기</h1>
-            <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>쳌박</th>
-                  <th>상품사진</th>
-                  <th>상품명</th>
-                  <th>가격</th>
-                  <th>컬러톤</th>
-                  <th>관리(삭제버튼)</th>
-                </tr>
-              </thead>
-              <tbody> <!-- 찜제품목록 -->
-                <tr>
-                  <td>쳌</td>
-                  <td><a href="#"><img src="img/detailsquare.jpg" alt="글도넣을수있따"></a></td>
-                  <td><a href="#">아이스아메리카노</a></td>
-                  <td>5555555555원</td>
-                  <td>쿨/라이트</td>
-                  <td>삭제하기</td>
-                  <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                </tr>
-                
-                <tr>
-                  <td>쳌</td>
-                  <td><a href="#"><img src="img/basketsquare.jpg" alt="이거슨사진이다"></a></td>
-                  <td><a href="#">[이니스프리] 아이젤 라이너</a></td>
-                  <td>14,000원</td>
-                  <td>쿨/페일</td>
-                  <td>삭제하기</td>
-                  <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-            </form>
-         </div>
-                   
+<br><br>
 
+<div class="container content col-md-3" style="text-align:center">
+  <h2><strong>마이페이지</strong></h2>
+  <hr style="border: solid 1.0px lightgray;">
+  <h4>찜한 상품 보기</h4>
+  <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" class="img-circle" style="width: 70%; border-radius: 50%">
+  <br><br>
+  <p style="font-size:15px">코딩천사 님</p>
+  <button type="button" style="width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px">타입 변경</button>
+</div>
+<div class="container content box col-md-9" id="basket">
+  <form method="post" action="checkout1.html">
+    <div class="table-responsive">
+      <table class="table">
+        <hr style="border: solid 1.0px lightgray;">
+        <thead>
+          <tr>
+            <th><input type="checkbox" name="select_all" id="select_all"></th>
+            <th>상품사진</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>컬러톤</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody> <!-- 찜제품목록 -->
+          <tr>
+            <td><input type="checkbox"></td>
+            <td class="col-md-2 col-xs-2"><a href="#"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%"></a></td>
+            <td><a href="#">[이니스프리] 어쩌구</a></td>
+            <td>5555555555원</td>
+            <td>쿨/라이트</td>
+            <td><button type="button" style="width:60%; height:28px; border-radius:4px; background-color:lightgray; text-align:center; font-size:12px">삭제</button></td>
+            <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+          </tr>
+                
+          <tr>
+            <td><input type="checkbox"></td>
+            <td><a href="#"><img src=""></a></td>
+            <td><a href="#">[이니스프리] 아이젤 라이너</a></td>
+            <td>14,000원</td>
+            <td>쿨/페일</td>
+            <td><button type="button" style="width:60%; height:28px; border-radius:4px; background-color:lightgray; text-align:center; font-size:12px">삭제</button></td>
+            <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+                   
+<script>
+  $('#select_all').click(function(event) {
+    if(this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function() {
+            this.checked = true;
+        });
+    }
+    else {
+      $(':checkbox').each(function() {
+            this.checked = false;
+        });
+    }
+  });
+</script>
