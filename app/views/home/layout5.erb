@@ -56,7 +56,7 @@
         <!-- Portfolio Item Row -->
             <div class="row">
     
-                <div class="col-md-5 col-md-offset-1 col-xs-12" >
+                <div class="col-md-6 col-xs-12" >
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     
     
@@ -74,9 +74,9 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12"  style="text-align:left" id="orange">
-                    <h3>[<%=@product.brand %>] <%=@product.name %></h3><br>
-                    <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
+                <div class="col-md-6 col-xs-12"  id="orange">
+                <h3>[<%=@product.brand %>] <%=@product.name %></h3><br>
+                <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
     
                     <!-- 좋아요버튼 BEGIN
                     <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
@@ -113,19 +113,96 @@
             <%=@product.glitter %></span>
         <span class="glyphicon glyphicon-refresh col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
             <%=@product.texture %></span>
-        
+        <br>
+        <br>
         <!-- 수정요청 버튼 들어갈 부분 -->
-        
-        
-        <!-- Related Projects Row -->
-        
-        
-        <br>
-        <br>
+        <hr style="border: solid 0.2px lightgray;">
+        <button type="button" class="btn btn-secondary" style="float: right;">목록</button>
+        <button type="button" class="btn btn-secondary" style="float: right; margin-right:10px">수정요청</button>
 
-      
+        <!-- 댓글 -->
+        <br>
+        <br>
+        
+        
+        <div class="container">
+          <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
+              <p class="lead">후기를 작성해보세요!</p>
+              
+              <ul class="media-list forum">
+                  
+                <!-- 회원1 댓글 -->
+                <li class="media well">
+                  <div class="pull-left user-info" href="#" float="left">
+                    <img class="avatar img-circle img-thumbnail" src="http://snipplicious.com/images/guest.png"
+                      width="64" alt="Generic placeholder image">
+                      <br />
+                    <strong><center><a href="user.html">김현희</a></center></strong>
+                    <small><center>여름</center></small>
+                  </div>
+                  <div class="media-body">
+            
+                    <!-- Post Info Buttons END -->
+                    <!-- Post Text -->
+                    <div> <!--댓글 제목-->
+                        <h4>인생틴트 찾았어요!!!</h4>
+                        <p align="right"><small>2016-08-18</small></p>
+                    </div>
+                    
+                    <!--댓글 본문(이미지, 내용)-->
+                    <img src="http://mblogthumb4.phinf.naver.net/20160403_295/milsi0502_1459668361752NjK4J_JPEG/SAM_5182.JPG?type=w2"
+                      width="150px">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWZerY3-qH7hWuxkmDxuo6BaOjjN8ChqZoOa6X_tp6UbAYn6sA"
+                      width="150px">
+                     <br><br>
+                    <p>이거 샀는데 넘 예뻐요 강추강추~~^^ 악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다</p>
+                  <!-- Post Text EMD -->
+                  </div>
+                </li>
+               <!--회원1 댓글 끝--> 
+               
+               
+               
+                <!-- 회원2 댓글 -->
+                <li class="media well">
+                  <div class="pull-left user-info" href="#" float="left">
+                    <img class="avatar img-circle img-thumbnail" src="http://snipplicious.com/images/guest.png"
+                      width="64" alt="Generic placeholder image">
+                      <br />
+                    <strong><center><a href="user.html">김현희</a></center></strong>
+                    <small><center>여름</center></small>
+                  </div>
+                  <div class="media-body">
+            
+                    <!-- Post Info Buttons END -->
+                    <!-- Post Text -->
+                    <div> <!--댓글 제목-->
+                        <h4>인생틴트 찾았어요!!!</h4>
+                        <p align="right"><small>2016-08-18</small></p>
+                    </div>
+                    
+                    <!--댓글 본문(이미지, 내용)-->
+                    <p>이거 샀는데 넘 예뻐요 강추강추~~^^ 악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다</p>
+                  <!-- Post Text EMD -->
+                  </div>
+                </li>
+               <!--회원2 댓글 끝--> 
+            
+              </ul>
+            </div>
+              
+                    
+            <!--후기작성버튼-->
+            <center><a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+            <!--후기작성버튼  끝-->           
+                        
+         </div>
+                    
     </div>
-    <!-- /.container -->
+                <!-- /.container -->
+                
+                
+    
 
    
 <script>
