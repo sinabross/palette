@@ -29,10 +29,11 @@
                             <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
                             <input type="hidden" name="utf8" value="✓">
                             <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px;" class="searchbox-input" >
-                              <input type="submit" class="searchbox-submit" > <!--'예현'으로 바뀌는 부분 안바뀌게 수정(내용입력시 돋보기아이콘 유지됨)-->
-                                <span class="glyphicon glyphicon-search"></span>
+          
+                              <button type="submit"class="searchbox-submit">
+                                  <i id="searchbox-icon" class="glyphicon glyphicon-search" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
                               </button>
-        
+                                
                         </form>
                         
                         <!-- 검색 기능 연습-->
@@ -66,7 +67,11 @@
                         <a href="#">콘텐츠</a>
                     </li>
                      <li>
-                        <a href="#">로그인</a>
+                        <% if user_signed_in? %>
+                          <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+                        <% else %>
+                          <%= link_to "로그인", new_user_session_path %>
+                        <% end %>
                     </li>
 
                 </ul>
