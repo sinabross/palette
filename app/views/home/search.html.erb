@@ -1,6 +1,9 @@
 
 <% if @result.blank? && @result2.blank? %>
-  <h4 style="text-align:center">'<%= params[:search] %>'에 따른 검색 결과가 없습니다.</h4>
+  <div style="margin-top:200px;margin-bottom:200px">
+    <h4 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h4>
+    <h4 style="text-align:center">띄어쓰기를 해주시면 보다 정확한 검색 결과를 제공합니다.</h4>
+  </div>
 <% end %>
 
 
