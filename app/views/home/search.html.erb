@@ -1,10 +1,70 @@
+<% unless @result.blank? && @result2.blank? %>
+  
+  <div class="row" style="margin-top:30px; text-align:center">             
 
+    <!-- 웜/쿨 선택 버튼 -->
+     <div class="btn-group col-md-2 col-md-offset-2 col-xs-4" >
+      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="dropdown_title"><%=@eyelist%></span> <span class="caret"></span>
+      </button>
+      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
+        <li><a href="/home/layout4_sha/<%=@colors%>">전체보기</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/home/layout4/<%=@colors%>/립스틱">웜</a></li>
+        <li><a href="/home/layout4/<%=@colors%>/립틴트">쿨</a></li>
+      </ul>
+    </div>
+    
+    <!-- 제품 선택 버튼 -->
+    <div class="btn-group col-md-3 col-xs-4" >
+      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="dropdown_title"><%=@eyelist%></span> <span class="caret"></span>
+      </button>
+      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
+        <li><a href="/home/layout4_sha/<%=@colors%>">전체보기</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/home/layout4/<%=@colors%>/립스틱">립스틱</a></li>
+        <li><a href="/home/layout4/<%=@colors%>/립틴트">립틴트</a></li>
+        <li><a href="/home/layout4/<%=@colors%>/립글로즈">립글로즈</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/케이크">케이크</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/펜슬">펜슬</a></li>
+      </ul>
+    </div>
+                    
+    <!-- 세부톤선택버튼 -->
+    <div class="btn-group col-md-3 col-xs-4" >
+      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="dropdown_title2"><%=@eyetone%></span> <span class="caret"></span>
+      </button>
+      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/비비드">비비드</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/브라이트">브라이트</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/스트롱">스트롱</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/딥">딥</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/라이트">라이트</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/소프트">소프트</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/덜">덜</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/다크">다크</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/페일">페일</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/라이트그레이쉬">라이트그레이쉬</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/그레이쉬">그레이쉬</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/다크그레이쉬">다크그레이쉬</a></li>
+        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>">무채색</a></li>
+      </ul>
+    </div>
+  </div>  
+<% end %>
+ 
+ 
+ <!-- if there is no search result, show this message-->
 <% if @result.blank? && @result2.blank? %>
   <div style="margin-top:200px;margin-bottom:200px">
     <h4 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h4>
     <h4 style="text-align:center">띄어쓰기를 해주시면 보다 정확한 검색 결과를 제공합니다.</h4>
   </div>
 <% end %>
+
 
 
 <!--제품 출력 목록 -->
@@ -33,7 +93,7 @@
     </div>
     <% end %>
 
-<!--제품 출력 목록 -->
+<!--제품 출력 목록2 -->
  <% @result2.each_slice(3) do |slice| %>
     <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
         <% slice.each do |w|%>
@@ -62,3 +122,17 @@
     <!-- pagination -->
     
     <%= render :partial => "layouts/partial/pagination" %>
+    
+<script>
+    
+    //제품 드롭다운
+    $('#divNewNotifications li').on('click', function() { 
+          $('#dropdown_title').html($(this).find('a').html());
+        });
+        
+    //세부톤 드롭다운
+    $('#divNewNotifications2 li').on('click', function() {
+          $('#dropdown_title2').html($(this).find('a').html());
+        });    
+    
+</script>
