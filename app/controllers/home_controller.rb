@@ -6,14 +6,18 @@ class HomeController < ApplicationController
   def search
      
      # 립 제품 검색결과
+       @search = params[:search].split(" ").first
+       @search2 = params[:search].split(" ").second
+       @search3 = params[:search].split(" ").third
+        
        if params[:search]
-         @result = Lipdb.all.search(params[:search]).order("id DESC")
+         @result = Lipdb.all.search(@search,@search2,@search3).order("id DESC")
        else
          @result = Lipdb.all.order("zzim desc")
        end
      # 섀도우 제품 검색결과  
        if params[:search]
-         @result2 = Eyedb.all.search(params[:search]).order("id DESC")
+         @result2 = Eyedb.all.search(@search,@search2,@search3).order("id DESC")
        else
          @result2 = Eyedb.all.order("zzim desc")
        end
