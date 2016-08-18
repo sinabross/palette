@@ -14,6 +14,7 @@
                     <li><a href="/home/layout4/<%=@colors%>/립스틱">립스틱</a></li>
                     <li><a href="/home/layout4/<%=@colors%>/립틴트">립틴트</a></li>
                     <li><a href="/home/layout4/<%=@colors%>/립글로즈">립글로즈</a></li>
+                    
                  
                   </ul>
                 </div>
@@ -44,7 +45,7 @@
 
     <!-- Projects Row -->
     <% @list.each_slice(3) do |slice| %>
-    <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
+   <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
         <% slice.each do |w|%>
             <div class="col-md-4 img-portfolio"  style="display:inline;">
                     <br>
