@@ -1414,16 +1414,17 @@ a.bg-danger:focus {
   border-bottom: 1px solid #eee;
   font-size: 25px;
   font-style: bold;
+  
 }
 .product_name {
-  font-size: 20px;
-  font-style:bold;
+  font-size: 15px;
   color: black;
   
 }
 .product_price {
   font-size: 13px;
   color:black;
+  margin-top: 10px;
 }
 .product_tone {
   font-size: 13px;
