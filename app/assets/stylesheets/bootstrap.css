@@ -1299,6 +1299,7 @@ p {
   .lead {
     font-size: 21px;
   }
+  
 }
 small,
 .small {
@@ -1411,7 +1412,12 @@ a.bg-danger:focus {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
+  font-size: 20px;
 }
+.product_name {
+  font-size: 15px;
+}
+
 ul,
 ol {
   margin-top: 0;
@@ -1463,6 +1469,12 @@ dd {
   }
   .dl-horizontal dd {
     margin-left: 180px;
+  }
+  .page-header {
+    font-size: 30px;
+  }
+  .product_name {
+    font-size: 20px;
   }
 }
 abbr[title],
