@@ -10,6 +10,9 @@ class HomeController < ApplicationController
      @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
      
   end
+  def index2
+     
+  end
   
   def search
      
