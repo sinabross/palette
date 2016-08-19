@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/index2'
   
   get 'home/search'
+
   get 'home/basket'
   get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
   get 'home/layout4_sha/:colors'  => "home#layout4_sha"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   get 'home/layout4/:colors/:liplist/:liptone' => "home#layout4"# 립 tone 세부 카테고리 분류 
   get 'home/layout4_sha/:colors/:eyelist/:eyetone' => "home#layout4_sha"
   
+  get 'home/write_review' # 리뷰쓰기
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
