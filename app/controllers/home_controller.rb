@@ -1,5 +1,13 @@
 class HomeController < ApplicationController
   def index
+    # 웜 립 TOP3
+     @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
+    # 웜 섀도 TOP3
+     @w_best_sha = Eyedb.get_w_eye.order('zzim desc').first(3)
+    # 쿨 립 TOP3
+     @c_best_lip = Lipdb.get_c_lip.order('zzim desc').first(3)
+    # 쿨 섀도 TOP3
+     @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
      
   end
   
