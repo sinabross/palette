@@ -5,22 +5,40 @@ class HomeController < ApplicationController
   
   def search
      
-     # 립 제품 검색결과
-       @search = params[:search].split(" ").first
-       @search2 = params[:search].split(" ").second
-       @search3 = params[:search].split(" ").third
-        
-       if params[:search]
-         @result = Lipdb.all.search(@search,@search2,@search3).order("id DESC").paginate(page: params[:page], per_page: 21)
+     
+     
+     # splitting the search key word
+     
+       if params[:search].include?(" ") == true
+         @search = params[:search].split(" ").first
+         @search2 = params[:search].split(" ").second
+         @search3 = params[:search].split(" ").third
        else
-         @result = Lipdb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
-       end
-     # 섀도우 제품 검색결과  
-       if params[:search]
-         @result2 = Eyedb.all.search(@search,@search2,@search3).order("id DESC").paginate(page: params[:page], per_page: 21)
-       else
-         @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
-       end
+         @search = params[:search]
+       end   
+       # 1-1. searching from Lipdb
+         if params[:search]
+           @result = Lipdb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
+         else
+           @result = Lipdb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
+         end
+         
+       # 1-2. searching from Eyedb 
+         if params[:search]
+           @result2 = Eyedb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
+         else
+           @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
+         end
+         
+     
+       
+     
+      
+      
+     
+     
+      
+       
   end
   
   
@@ -36,8 +54,8 @@ class HomeController < ApplicationController
       #웝립/제품군/세부톤
       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
       if params[:liplist] == nil
-       @liplist = "제품"
-       @list = Lipdb.get_w_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      @liplist = "제품"
+      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
        if params[:liptone] == nil
         @liptone = "세부톤"
         @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
