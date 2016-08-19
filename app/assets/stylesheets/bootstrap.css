@@ -1412,10 +1412,21 @@ a.bg-danger:focus {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
-  font-size: 15px;
+  font-size: 25px;
+  font-style: bold;
 }
 .product_name {
-  font-size: 10px;
+  font-size: 20px;
+  font-style:bold;
+  color: black;
+  
+}
+.product_price {
+  font-size: 13px;
+  color:black;
+}
+.product_tone {
+  font-size: 13px;
   color:black;
 }
 
