@@ -201,5 +201,9 @@ class HomeController < ApplicationController
   def layout5_test
      @w_lips_post = Lipdb.find(params[:w_lip_id])
   end
+  
+  def write_review
+   
+  end
  
 end

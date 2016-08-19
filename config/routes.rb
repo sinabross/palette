@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'home/layout4/:colors/:liplist/:liptone' => "home#layout4"# 립 tone 세부 카테고리 분류 
   get 'home/layout4_sha/:colors/:eyelist/:eyetone' => "home#layout4_sha"
   
+  get 'home/write_review' # 리뷰쓰기
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
