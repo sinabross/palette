@@ -1,67 +1,16 @@
-<% unless @result.blank? && @result2.blank? %>
-  
-  <div class="row" style="margin-top:30px; text-align:center">             
 
-    <!-- 웜/쿨 선택 버튼 -->
-     <div class="btn-group col-md-2 col-md-offset-2 col-xs-4" >
-      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="dropdown_title"><%=@eyelist%></span> <span class="caret"></span>
-      </button>
-      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
-        <li><a href="/home/layout4_sha/<%=@colors%>">전체보기</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="/home/layout4/<%=@colors%>/립스틱">웜</a></li>
-        <li><a href="/home/layout4/<%=@colors%>/립틴트">쿨</a></li>
-      </ul>
-    </div>
-    
-    <!-- 제품 선택 버튼 -->
-    <div class="btn-group col-md-3 col-xs-4" >
-      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="dropdown_title"><%=@eyelist%></span> <span class="caret"></span>
-      </button>
-      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
-        <li><a href="/home/layout4_sha/<%=@colors%>">전체보기</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="/home/layout4/<%=@colors%>/립스틱">립스틱</a></li>
-        <li><a href="/home/layout4/<%=@colors%>/립틴트">립틴트</a></li>
-        <li><a href="/home/layout4/<%=@colors%>/립글로즈">립글로즈</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/케이크">케이크</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/펜슬">펜슬</a></li>
-      </ul>
-    </div>
-                    
-    <!-- 세부톤선택버튼 -->
-    <div class="btn-group col-md-3 col-xs-4" >
-      <button type="button" class="btn btn-default dropdown-toggle" style="width:100%"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="dropdown_title2"><%=@eyetone%></span> <span class="caret"></span>
-      </button>
-      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/비비드">비비드</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/브라이트">브라이트</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/스트롱">스트롱</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/딥">딥</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/라이트">라이트</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/소프트">소프트</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/덜">덜</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/다크">다크</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/페일">페일</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/라이트그레이쉬">라이트그레이쉬</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/그레이쉬">그레이쉬</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>/다크그레이쉬">다크그레이쉬</a></li>
-        <li><a href="/home/layout4_sha/<%=@colors%>/<%=@eyelist%>">무채색</a></li>
-      </ul>
-    </div>
-  </div>  
-<% end %>
- 
- 
+
  <!-- if there is no search result, show this message-->
 <% if @result.blank? && @result2.blank? %>
   <div style="margin-top:200px;margin-bottom:200px">
-    <h4 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h4>
-    <h4 style="text-align:center">띄어쓰기를 해주시면 보다 정확한 검색 결과를 제공합니다.</h4>
+    
+      <h3 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h3>
+      <br>
+      <h4 style="text-align:center; font-weight:bold">보다 자세한 검색을 위한 Tip</h4>
+      <br>
+      <p style="text-align:center">1. 띄어쓰기를 하면 보다 정확한 검색 결과를 보실 수 있습니다.</p>
+      <p style="text-align:center">2. 브랜드명, 제품명, 세부톤 등으로 다양하게 검색해보세요.<br><strong>예)</strong>바비브라운 쿨 섀도우</p>
+    
   </div>
 <% end %>
 
@@ -75,10 +24,8 @@
                     <br>
                     <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
                     <a class="col-md-12 col-xs-6" style="img align=center" href="/home/layout5/<%=w.num%>">
-                        <!-- 현희 s3에서 넘버별로 불러오기: src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg" -->
-                        <!-- 예비사진 src=https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg-->
-                        <!-- 사진 없는거랑 jpg아니여서 깨지는게 많아서 밑에 src는 임시 -->
-                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg"
+                        
+                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
                         alt="" style="width: 100%;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
                     </a>
                     <p class="col-md-12 col-xs-6" > <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
@@ -101,10 +48,8 @@
                     <br>
                     <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
                     <a class="col-md-12 col-xs-6" style="img align=center" href="/home/layout5/<%=w.id%>">
-                        <!-- 현희 s3에서 넘버별로 불러오기: src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg" -->
-                        <!-- 예비사진 src=https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg-->
-                        <!-- 사진 없는거랑 jpg아니여서 깨지는게 많아서 밑에 src는 임시 -->
-                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg"
+                        
+                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
                         alt="" style="width: 100%;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
                     </a>
                     <p class="col-md-12 col-xs-6" > <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
