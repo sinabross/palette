@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise' #로그인
-#gem 'omniauth-facebook' #페이스북으로 로그인
+
 gem 'roo' #엑셀을 db로 슝
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "fog-aws" #이것도역시^^ https://github.com/carrierwaveuploader/carrierwave
