@@ -1429,7 +1429,7 @@ a.bg-danger:focus {
 .product_tone {
   font-size: 13px;
   color:black;
-}
+
 
 ul,
 ol {
@@ -1496,6 +1496,8 @@ dd {
   .product_price {
     padding-top: 15px;
   }
+  
+
   
 }
 abbr[title],
