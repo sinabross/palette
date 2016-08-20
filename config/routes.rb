@@ -24,6 +24,19 @@ Rails.application.routes.draw do
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
  
+  # 좋아요 기능
+  
+  resources :home do 
+    member do
+      put "like", to: "home#upvote"
+      put "dislike", to: "home#downvote"
+    end
+  end
+  
+ get 'home/:product_num/like' => "home#upvote"
+ get 'home/:product_num/dislike' => "home#downvote"
+ 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

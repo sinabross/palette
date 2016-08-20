@@ -179,30 +179,29 @@ class HomeController < ApplicationController
      if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
      end
-      
+  
   end
   
-  def layout4_test
-     # 웜톤 립 출력
-     if params[:colors] == "w_lips" 
-      @list = Lipdb.get_w_lip 
-     end
-     # 웜톤 섀도우 출력
-     if params[:colors] == "w_eyes"  
-      @list = Eyedb.get_w_eye
-     end
-     # 쿨톤 립 출력
-     if params[:colors] == "c_lips" 
-      @list = Lipdb.get_c_lip 
-     end
-     # 쿨톤 섀도우 출력
-     if params[:colors] == "c_eyes"  
-      @list = Eyedb.get_c_eye
-     end
-  end
-  
-  def layout5_test
-     @w_lips_post = Lipdb.find(params[:w_lip_id])
+  def upvote 
+    
+    if params[:id].start_with?("L") 
+      @product = Lipdb.find_by_num(params[:id])
+    else if params[:id].start_with?("S")
+      @product = Eyedb.find_by_num(params[:id])   
+    end
+    end
+    
+    @product.upvote_by current_user
+    
+    redirect_to :back
+  end  
+
+  def downvote
+    
+    @like_product = @product.find(params[:id])
+    @like_product.downvote_by current_user
+    
+    redirect_to :back
   end
   
   def write_review

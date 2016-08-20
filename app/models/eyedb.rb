@@ -1,4 +1,6 @@
 class Eyedb < ActiveRecord::Base
+    belongs_to :user
+    acts_as_votable # for 찜하기 기능
     
     def self.get_w_eye
         return Eyedb.where(wc:"웜").all
