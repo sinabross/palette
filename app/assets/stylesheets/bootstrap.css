@@ -1412,7 +1412,7 @@ a.bg-danger:focus {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
-  font-size: 25px;
+  font-size: 20px;
   font-style: bold;
   
 }
@@ -1493,6 +1493,10 @@ dd {
     font-size: 15px;
     color: black;
   }
+  .product_price {
+    padding-top: 15px;
+  }
+  
 }
 abbr[title],
 abbr[data-original-title] {
