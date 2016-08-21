@@ -1,0 +1,3 @@
+$("#<%= @product.num%>").removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+
+$("#<%= @product.id %>").html("<%= j (render partial: 'home/likes', locals: { product: @product } ) %>");
