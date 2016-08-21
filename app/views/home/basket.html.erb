@@ -7,7 +7,9 @@
   <h4>찜한 상품 보기</h4>
   <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/2016-08-17-20-35-05-823.jpg" class="img-circle" style="width: 70%; border-radius: 50%">
   <br><br>
-  <p style="font-size:15px">코딩천사 님</p>
+  <p style="font-size:15px"><%= current_user.username %> 님</p>
+  <p style="font-size:15px">이메일: <%= current_user.email %></p>
+  <p style="font-size:15px">계절타입: <%= current_user.userseason %></p>
   
   <!-- 타입변경버튼 -->
   <button type="button" href="#modalLayer" class="modalLink seasons">타입 변경</button>
@@ -17,7 +19,7 @@
         
         <!--봄-->
         <div class="row col-md-3 col-xs-12">
-          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio"name="optradio"></label><br><br></div>
+          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio" value="봄"></label><br><br></div>
           <div class="col-md-12 col-xs-3"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/2016-08-17-20-35-05-823.jpg" style="width:100%"><br>
           <p>봄(warm)</p></div>
           <div class="col-md-12 col-xs-7">한 해의 네 철 가운데 첫째 철. 겨울과 여름 사이이며, 달로는 3~5월, 절기(節氣)로는 입춘부터 입하 전까지를 이른다.</div>
@@ -26,7 +28,7 @@
         
         <!--여름-->
         <div class="row col-md-3 col-xs-12">
-          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio"></label><br><br></div>
+          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio" value="여름"></label><br><br></div>
           <div class="col-md-12 col-xs-3"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/2016-08-17-20-35-05-823.jpg" style="width:100%"><br>
           <p>여름(cool)</p></div>
           <div class="col-md-12 col-xs-7">한 해의 네 철 가운데 둘째 철. 봄과 가을 사이이며, 낮이 길고 더운 계절로, 달로는 6~8월, 절기(節氣)로는 입하부터 입추 전까지를 이른다.</div><br>
@@ -35,7 +37,7 @@
         
         <!--가을-->
         <div class="row col-md-3 col-xs-12">
-          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio"></label><br><br></div>
+          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio" value="가을"></label><br><br></div>
           <div class="col-md-12 col-xs-3"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/2016-08-17-20-35-05-823.jpg" style="width:100%"><br>
           <p>가을(warm)</p></div>
           <div class="col-md-12 col-xs-7">한 해의 네 철 가운데 셋째 철. 여름과 겨울의 사이이며, 달로는 9~11월, 절기(節氣)로는 입추부터 입동 전까지를 이른다.</div><br>
@@ -44,7 +46,7 @@
         
         <!--겨울-->
         <div class="row col-md-3 col-xs-12">
-          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio"></label><br><br></div>
+          <div class="col-md-12 col-xs-1"><label class="radio-inline"><input type="radio" name="optradio" value="겨울"></label><br><br></div>
           <div class="col-md-12 col-xs-3"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/2016-08-17-20-35-05-823.jpg" style="width:100%"><br>
           <p>겨울(cool)</p></div>
           <div class="col-md-12 col-xs-7">한 해의 네 철 가운데 넷째 철. 가을과 봄 사이이며, 낮이 짧고 추운 계절로, 달로는 12~2월, 절기(節氣)로는 입동부터 입춘 전까지를 이른다.</div><br>
@@ -53,7 +55,8 @@
         <!-- 할일 : 닫기버튼은 X표로 바꾸고, 수정하기 눌러도 팝업창 닫아지게하고, 수정하기버튼 가운데로 -->
         <div class="row col-md-12 col-xs-12">
           <br>
-        <button type="button" class="seasons" style="width:30%; margin-top:5% position:center;">수정하기</button>
+            <button onclick="myFunction()" type="button" class="seasons" style="width:30%; margin-top:5% position:center;">수정하기
+            </button>
         </div>
         
         
@@ -152,8 +155,19 @@
     });		
     
      $(".modalContent > div > button").click(function(){
-      modalLayer.fadeOut("fast");
-      modalLink.focus();
+        alert("<%=current_user.username%>님의 계절타입이 ["+$("input[name=optradio]:checked").val()+"]로 변경되었습니다!");
+        //var x = $("input[name=optradio]:checked").val();
+        //뭘클릭했는지 출력하는거까진 되는데, 클릭한값을 current_user의 계절타입에 대입하는 방법을 모르겠음!
+        modalLayer.fadeOut("fast");
+        modalLink.focus();
     });	
+    
+   // function myFunction() {
+//        var x = document.getElementById("myRadio").value;
+ //       current_user.userseason = x;
+ //   }
+    
   });
+  
+  
 </script>
