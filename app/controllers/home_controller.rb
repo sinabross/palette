@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  
   def index
     # 웜 립 TOP3
      @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
@@ -169,10 +170,11 @@ class HomeController < ApplicationController
   end
   
   def layout5
-  
+    
      #립 상세페이지
      if params[:product_num].start_with?("L")
       @product = Lipdb.find_by_num(params[:product_num])
+      
      end
      
      #섀도우 상세페이지
@@ -182,7 +184,10 @@ class HomeController < ApplicationController
   
   end
   
-  def upvote 
+  # 아래는 좋아요 기능을 위한 노력의 흔적들..........
+ 
+  
+  def like 
     
     if params[:id].start_with?("L") 
       @product = Lipdb.find_by_num(params[:id])
@@ -191,17 +196,32 @@ class HomeController < ApplicationController
     end
     end
     
-    @product.upvote_by current_user
+    if @product.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    end
     
-    redirect_to :back
+    
   end  
 
-  def downvote
+  def unlike
     
-    @like_product = @product.find(params[:id])
-    @like_product.downvote_by current_user
+   if params[:id].start_with?("L") 
+      @product = Lipdb.find_by_num(params[:id])
+   else if params[:id].start_with?("S")
+      @product = Eyedb.find_by_num(params[:id])   
+   end
+   end
     
-    redirect_to :back
+    if @product.unliked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    end
+    
   end
   
   def write_review

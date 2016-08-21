@@ -39,16 +39,25 @@
                       <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
                       <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
                       -->
-                        <%= link_to like_home_path(@product.num), method: :put do %>
-                          Upvote
-                          <%= @product.get_upvotes.size %>
-                        <% end %>
+                      <% if current_user.liked? @product %>
+                       <div class="row">  
+                        <div class="col-sm-1 like-button">
+                        <%= link_to '', unlike_home_path(@product.num), remote: true,
+                                              id: "#{@product.num}", 
+                                              class: "like glyphicon #{liked_product @product}" %>
+                        </div>
+                       </div>  
+                      <% else %>
+                        <div class="row"> 
+                         <div class="col-sm-1 like-button">
+                        <%= link_to '', like_home_path(@product.num), remote: true,
+                                              id: "#{@product.num}",
+                                              class: "like glyphicon #{liked_product @product}" %>
+                         </div>
+                        </div>   
+                      <% end %>
+                                            
                         
-                        <%= link_to dislike_home_path(@product.num), method: :put do %>
-                          Downvote
-                          <%= @product.get_downvotes.size %>
-                        <% end %>
-                      
                       <hr style="border:solid 1px lightgray;">
                           <div>
                               <div class="col-md-6">

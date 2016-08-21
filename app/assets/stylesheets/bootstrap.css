@@ -1430,7 +1430,15 @@ a.bg-danger:focus {
   font-size: 13px;
   color:black;
 }
+.like {
+  text-decoration: none;
+  color: red;
+}
 
+.like-button a:hover, a:focus {
+  text-decoration: none;
+  color: red;
+}
 ul,
 ol {
   margin-top: 0;

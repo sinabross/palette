@@ -1,6 +1,7 @@
 class Lipdb < ActiveRecord::Base
     belongs_to :user 
-    acts_as_votable # for 찜하기 기능 
+    acts_as_votable # for 찜하기 기능
+    
      
     def self.get_w_lip
         return Lipdb.where(wc:"웜").all
@@ -16,5 +17,5 @@ class Lipdb < ActiveRecord::Base
       "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%").where("name LIKE ? OR brand LIKE ? OR wc LIKE ? OR pro_type LIKE ? OR tone LIKE ?",
       "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%")
     end
-
+    
 end

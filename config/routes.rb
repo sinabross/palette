@@ -25,16 +25,14 @@ Rails.application.routes.draw do
   get 'home/layout5/:product_num' => "home#layout5"
  
   # 좋아요 기능
-  
   resources :home do 
     member do
-      put "like", to: "home#upvote"
-      put "dislike", to: "home#downvote"
+      get "like"
+      get "unlike"
     end
   end
   
- get 'home/:product_num/like' => "home#upvote"
- get 'home/:product_num/dislike' => "home#downvote"
+
  
  
   # The priority is based upon order of creation: first created -> highest priority.
