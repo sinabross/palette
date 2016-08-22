@@ -235,5 +235,13 @@ class HomeController < ApplicationController
    
   end
  
+ 
+  def userseason_update
+   @user = current_user
+   @user.userseason = params[:optradio]
+   @user.save
+
+   redirect_to "/basket"
+  end
 
 end

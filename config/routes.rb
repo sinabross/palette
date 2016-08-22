@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
   get 'home/basket'
   get '/basket' => 'home#basket'
+  get 'home/season_update'
+  get 'season_update' => 'home#season_update'
+  post 'home/userseason_update'
+  
+  
+  
   
   get 'home/basket_test'
 
