@@ -69,7 +69,7 @@
                      <li>
                        
                         <% if user_signed_in? %>
-                          <%= link_to "마이페이지", href="https://palette-repo-fork-pinkholic93.c9users.io/home/basket" %>
+                          <%= link_to "마이페이지", href="/basket" %>
                         <% else %>
                           <%= link_to "마이페이지", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
                         <% end %>
