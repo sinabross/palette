@@ -196,13 +196,19 @@ class HomeController < ApplicationController
     end
     end
     
-    if @product.liked_by current_user
+    #if @product.liked_by current_user
+     # respond_to do |format|
+      #  format.html { redirect_to :back }
+       # format.js
+      #end
+    #end
+     @product.liked_by current_user
       respond_to do |format|
-        format.html { redirect_to :back }
-        format.js
+        #format.html { redirect_to :back }
+        format.js 
+        
+       
       end
-    end
-    
     
   end  
 
@@ -215,12 +221,13 @@ class HomeController < ApplicationController
    end
    end
     
-    if @product.unliked_by current_user
+     @product.unliked_by current_user
       respond_to do |format|
-        format.html { redirect_to :back }
-        format.js
+        #format.html { redirect_to :back }
+        format.js 
+         
+        
       end
-    end
     
   end
   
