@@ -55,8 +55,15 @@
                         <a href="/home/layout5/<%=w.num%>" ><p>[<%=w.brand%>]<%=w.name%></p></a>
                         <span> <%=w.size%> / <%=w.price%>원</span><br>
                         <span> <%=w.wc%> / <%=w.tone%> </span>
+                    
+                        <!-- LikeBtn.com BEGIN -->
+                        <div style="text-align:right">
+                        <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                          width="20" ><%=display_likes(w)%></p>                  
+                        </div>
+                        <!-- LikeBtn.com END -->
                     </p>
-                    <br>
+                    
                     <hr style="border: solid 1.0px lightgray;"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
              </div>
         <%end%>

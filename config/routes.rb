@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'home/basket'
   get '/basket' => 'home#basket'
   
+  
   get 'home/basket_test'
 
   get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드

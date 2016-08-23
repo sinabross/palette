@@ -4,13 +4,18 @@
  <%= will_paginate @list, :class => "flickr_pagination"%>
 <% end %>
 
-<% if @result %>
- <%= will_paginate @result, :class => "flickr_pagination"%>
-<% end %>
-
-<% if @result2 %>
- <%= will_paginate @result2, :class => "flickr_pagination"%>
-<% end %>
+<% unless @result.blank? && @result2.blank?%>
+  <%= will_paginate @result, :class => "flickr_pagination"%>
+<%else%>
+  <% if @result %>
+   <%= will_paginate @result, :class => "flickr_pagination"%>
+  <% end %>
+  
+  <% if @result2 %>
+   <%= will_paginate @result2, :class => "flickr_pagination"%>
+  <% end %>
+<%end%>
+  
 
 
 
