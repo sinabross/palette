@@ -30,8 +30,9 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12"  id="orange">
-                <h3>[<%=@product.brand %>] <%=@product.name %></h3><br>
+                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top: 30px">
+                <h4>[<%=@product.brand %>]</h4><br>
+                <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
                 <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
     
                     <!-- 좋아요버튼 BEGIN
@@ -41,11 +42,11 @@
                     
                     <hr style="border:solid 1px lightgray;">
                         <div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                 <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
                                 <img class="p hidden-xs" src="/images/p.png">
-                            </div>
-                            <div class="col-md-6">
+                            </div> <!-- 모바일에서는 같은 열로 맞춤 -->
+                            <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                 <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                 <img class="c hidden-xs" src="/images/c.png">
                                 
