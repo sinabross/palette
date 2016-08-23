@@ -179,7 +179,7 @@ class HomeController < ApplicationController
      
   end
   
-  # 아래는 좋아요 기능을 위한 노력의 흔적들..........
+  #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
  
   
   def like 
@@ -218,11 +218,12 @@ class HomeController < ApplicationController
  
       end
     
-    @like_list  
+  # ==============좋아요 기능 컨트롤러 끝   
     
   end
   
   def write_review
+   
    
   end
   
@@ -234,6 +235,14 @@ class HomeController < ApplicationController
   end
   def basket_delete
     
+ 
+  end
+  def userseason_update
+     @user = current_user
+     @user.userseason = params[:optradio]
+     @user.save
+  
+     redirect_to "/basket"
   end
 
 end
