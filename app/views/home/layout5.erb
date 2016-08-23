@@ -43,7 +43,8 @@
                     
                       <!--좋아요 기능 작동하는 하트 버튼 노출-->
                       
-                      <% if current_user.liked? @product %>
+                   
+                      <% if current_user.voted_up_on? @product %>
                        <div class="row">  
                         <div class="col-sm-1 unlike-button">
                         <%= link_to '', unlike_home_path(@product.num), remote: true,
@@ -51,14 +52,17 @@
                                               class: "like glyphicon glyphicon-heart" %>
                         </div>
                        </div>  
+                   
                       <% else %>
+                       
                         <div class="row"> 
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                               id: "#{@product.num}_like",
-                                              class: "like glyphicon glyphicon-heart-empty" %>
+                                              class: "like glyphicon glyphicon-heart-empty" %> 
                          </div>
-                        </div>   
+                        </div>  
+                         
                       <% end %>
                       <!--/좋아요 기능 작동하는 하트 버튼 -->
                       
@@ -73,8 +77,7 @@
                         </div>
                     <%end%>      
                     
-                      <!--팝업 메시지                   
-                        <a class="like_this" data-title="Goto twitter?" href="/home/basket">Goto twitter</a>-->
+                      
                        
                       <hr style="border:solid 1px lightgray;">
                           <div>
@@ -221,11 +224,31 @@
     });	
     
     
-    $('a.like').on('click',function() {
+    $('.like-button').on('click',function() {
                             
-    $('this.$target').confirm('찜한 상품 목록에 추가 되었습니다!', '찜한 상품 목록으로 이동하시겠습니까?');
-                            
+    
+        var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
+
+        if(result) {
+           //yes
+            location.replace('/home/basket');
+        } else {
+            //no
+            location.reload();
+        }
+           
      });
-                          
+    
+     $('.unlike-button').on('click',function() {
+                            
+    
+        var result = confirm('관심상품 리스트에서 제거 되었습니다.');
+
+        if(result) {
+           //확인
+            location.reload();
+        } 
+           
+     });                      
         
 </script>
