@@ -1480,15 +1480,10 @@ dd {
   }
   .dl-horizontal dd {
     margin-left: 180px;
-  }
-  .page-header {
-    font-size: 50px;
-    font-family: 'NanumGothic', '나눔고딕','NanumGothicWeb', '맑은 고딕', 'Malgun Gothic', 'Dotum';
-    
     
   }
   .product_name {
-    font-size: 30px;
+    font-size: 60px;
     color: black;
   }
   .product_price {
@@ -1629,7 +1624,7 @@ pre code {
   .container {
     width: 970px;
   }
-}
+  
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
