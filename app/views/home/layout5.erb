@@ -40,27 +40,28 @@
                     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
                     --> 
                     
-                    <hr style="border:solid 1px lightgray;">
-                        <div>
-                            <div class="col-md-6 col-xs-6" style="padding-top:30px">
-                                <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
-                                <img class="p hidden-xs" src="/images/p.png">
-                            </div> <!-- 모바일에서는 같은 열로 맞춤 -->
-                            <div class="col-md-6 col-xs-6" style="padding-top:30px">
-                                <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
-                                <img class="c hidden-xs" src="/images/c.png">
-                                
-                            </div>
+                      <!--좋아요 기능 작동하는 하트 버튼 노출-->
+                      
+                   
+                      <% if current_user.voted_up_on? @product %>
+                       <div class="row">  
+                        <div class="col-sm-1 unlike-button">
+                        <%= link_to '', unlike_home_path(@product.num), remote: true,
+                                              id: "#{@product.num}_like", 
+                                              class: "like glyphicon glyphicon-heart" %>
                         </div>
                        </div>  
+                   
                       <% else %>
+                       
                         <div class="row"> 
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                               id: "#{@product.num}_like",
-                                              class: "like glyphicon glyphicon-heart-empty" %>
+                                              class: "like glyphicon glyphicon-heart-empty" %> 
                          </div>
-                        </div>   
+                        </div>  
+                         
                       <% end %>
                       <!--/좋아요 기능 작동하는 하트 버튼 -->
                       
@@ -73,15 +74,15 @@
                                                           class: "glyphicon glyphicon-heart-empty"%>
                           </div>
                         </div>
-                    <%end%>                    
-                        
+                    <%end%>      
+ 
                       <hr style="border:solid 1px lightgray;">
                           <div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                   <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
                                   <img class="p hidden-xs" src="/images/p.png">
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                   
                                   <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                   <img class="c hidden-xs" src="/images/c.png">
@@ -185,7 +186,7 @@
             </div>
               
             <% if user_signed_in? %>
-              <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+              <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% else %>
               <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% end %>
@@ -219,5 +220,32 @@
       alert("로그인 후 이용해주세요!");
     });	
     
+    
+    $('.like-button').on('click',function() {
+                            
+    
+        var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
+
+        if(result) {
+           //yes
+            location.replace('/home/basket');
+        } else {
+            //no
+            location.reload();
+        }
+           
+     });
+    
+     $('.unlike-button').on('click',function() {
+                            
+    
+        var result = confirm('관심상품 리스트에서 제거 되었습니다.');
+
+        if(result) {
+           //확인
+            location.reload();
+        } 
+           
+     });                      
         
 </script>
