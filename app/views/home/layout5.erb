@@ -71,8 +71,11 @@
                                                           class: "glyphicon glyphicon-heart-empty"%>
                           </div>
                         </div>
-                    <%end%>                    
-                        
+                    <%end%>      
+                    
+                      <!--팝업 메시지                   
+                        <a class="like_this" data-title="Goto twitter?" href="/home/basket">Goto twitter</a>-->
+                       
                       <hr style="border:solid 1px lightgray;">
                           <div>
                               <div class="col-md-6">
@@ -183,7 +186,7 @@
             </div>
               
             <% if user_signed_in? %>
-              <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+              <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% else %>
               <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% end %>
@@ -217,5 +220,12 @@
       alert("로그인 후 이용해주세요!");
     });	
     
+    
+    $('a.like').on('click',function() {
+                            
+    $('this.$target').confirm('찜한 상품 목록에 추가 되었습니다!', '찜한 상품 목록으로 이동하시겠습니까?');
+                            
+     });
+                          
         
 </script>

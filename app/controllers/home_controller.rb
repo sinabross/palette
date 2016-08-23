@@ -221,11 +221,22 @@ class HomeController < ApplicationController
  
       end
     
-  # ==============좋아요 기능 컨트롤러 끝   
+  # ============== 좋아요 기능 컨트롤러 끝   
     
   end
   
+  # =============== 후기 쓰기 페이지
   def write_review
+    
+    #립
+     if params[:product_num].start_with?("L")
+      @product = Lipdb.find_by_num(params[:product_num])
+     end
+     
+     #섀도우
+     if params[:product_num].start_with?("S")
+      @product = Eyedb.find_by_num(params[:product_num])
+     end
    
    
   end
