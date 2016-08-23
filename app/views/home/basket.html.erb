@@ -32,16 +32,17 @@
           </tr>
         </thead>
         <tbody> <!-- 찜제품목록 -->
+          <%@like_list.each do |list|%>
           <tr>
             <td><input type="checkbox"></td>
-            <td><a href="#"><img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/1463896363ULMOQZPA.jpg" style="width:100%"></a></td>
-            <td><a href="#">[이니스프리] 어쩌구</a></td>
-            <td class="hidden-xs">5555555555원</td>
-            <td class="hidden-xs">쿨/라이트</td>
+            <td><a href="/home/layout5/<%=list.num%>"><img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=list.num%>.jpg" style="width:100%"></a></td>
+            <td><a href="/home/layout5/<%=list.num%>">[<%=list.brand%>] <%=list.name%></a></td>
+            <td class="hidden-xs"><%=list.price%>원</td>
+            <td class="hidden-xs"><%=list.wc%>/<%=list.tone%></td>
             <td><button type="button" style="width:60%; height:28px; border-radius:4px; background-color:lightgray; text-align:center; font-size:12px">삭제</button></td>
             <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
           </tr>
-                
+          <%end%>
           <tr>
             <td><input type="checkbox"></td>
             <td><a href="#"><img src=""></a></td>

@@ -1,4 +1,6 @@
 $("#<%= @product.num%>_like").removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+
 $("#<%= @product.num %>_like").attr("href", '/home/<%= @product.num %>/like');
+
 
 <!--$("#<%= @product.num %>_like").html("<%= j (render partial: 'home/unlikes', locals: { product: @product } ) %>");-->
