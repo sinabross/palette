@@ -40,9 +40,9 @@
                     <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
                     --> 
                     
+                    
                       <!--좋아요 기능 작동하는 하트 버튼 노출-->
-                      
-                   
+                  <%if user_signed_in?%>    
                       <% if current_user.voted_up_on? @product %>
                        <div class="row">  
                         <div class="col-sm-1 unlike-button">
