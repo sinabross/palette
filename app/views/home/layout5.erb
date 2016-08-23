@@ -58,11 +58,22 @@
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                               id: "#{@product.num}_like",
-                                              class: "like glyphicon #{liked_product @product}" %>
+                                              class: "like glyphicon glyphicon-heart-empty" %>
                          </div>
                         </div>   
                       <% end %>
-                                            
+                      <!--/좋아요 기능 작동하는 하트 버튼 -->
+                      
+                      <%else%>
+                      <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
+                        <div class="row">
+                          <div class="col-sm-1 like-button">
+                          <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },
+                                                          id: "fake-like",
+                                                          class: "glyphicon glyphicon-heart-empty"%>
+                          </div>
+                        </div>
+                    <%end%>                    
                         
                       <hr style="border:solid 1px lightgray;">
                           <div>
@@ -208,4 +219,5 @@
       alert("로그인 후 이용해주세요!");
     });	
     
+        
 </script>

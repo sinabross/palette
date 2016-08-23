@@ -106,16 +106,7 @@ class HomeController < ApplicationController
          else
            @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
          end
-         
-     
-       
-     
-      
-      
-     
-     
-      
-       
+    
   end
   
   
@@ -129,24 +120,24 @@ class HomeController < ApplicationController
       @liplist = params[:liplist]
       @liptone = params[:liptone]
       #웝립/제품군/세부톤
-      @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
       if params[:liplist] == nil
       @liplist = "제품"
-      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
        if params[:liptone] == nil
         @liptone = "세부톤"
-        @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
+        @list = Lipdb.get_w_lip.order('zzim desc').paginate(page: params[:page], per_page: 21) 
        end
       end
       #세부톤 선택안했을때
       if params[:liptone] == nil
        @liptone = "세부톤"
        #웜립/제품군에 따라 출력
-       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
+       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
         #세부톤,제품군 선택안했을때 웜립 전체출력
         if params[:liplist] == nil 
          @liplist = "제품"
-         @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21)
+         @list = Lipdb.get_w_lip.order('zzim desc').paginate(page: params[:page], per_page: 21)
         end
       end
      end
@@ -156,21 +147,21 @@ class HomeController < ApplicationController
       @colors = "c_lips"
       @liplist = params[:liplist]
       @liptone = params[:liptone]
-      @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+      @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
       if params[:liplist] == nil
        @liplist = "제품"
-       @list = Lipdb.get_c_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
+       @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
        if params[:liptone] == nil
         @liptone = "세부톤"
-        @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21) 
+        @list = Lipdb.get_c_lip.order('zzim desc').paginate(page: params[:page], per_page: 21) 
        end
       end
        if params[:liptone] == nil
         @liptone = "세부톤"
-       @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
+       @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
         if params[:liplist] == nil 
          @liplist = "제품"
-         @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21)
+         @list = Lipdb.get_c_lip.order('zzim desc').paginate(page: params[:page], per_page: 21)
         end
        end
      end
@@ -186,23 +177,23 @@ class HomeController < ApplicationController
       @colors = "w_eyes"
       @eyelist = params[:eyelist]
       @eyetone = params[:eyetone]
-      @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+      @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
       if params[:eyelist] == nil
        @eyelist = "제품"
-       @list = Eyedb.get_w_eye.where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+       @list = Eyedb.get_w_eye.where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
        if params[:eyetone] == nil
         @eyetone = "세부톤"
-        @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21) 
+        @list = Eyedb.get_w_eye.order('zzim desc').paginate(page: params[:page], per_page: 21) 
        end
       end
       if params[:eyetone] == nil
        @eyetone = "세부톤"
        
-       @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).paginate(page: params[:page], per_page: 21)
+       @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
      
         if params[:eyelist] == nil 
          @eyelist = "제품"
-         @list = Eyedb.get_w_eye.paginate(page: params[:page], per_page: 21)
+         @list = Eyedb.get_w_eye.order('zzim desc').paginate(page: params[:page], per_page: 21)
         end
       end
     end
@@ -212,21 +203,21 @@ class HomeController < ApplicationController
       @colors = "c_eyes"
       @eyelist = params[:eyelist]
       @eyetone = params[:eyetone]
-      @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+      @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
       if params[:eyelist] == nil
        @eyelist = "제품"
-       @list = Eyedb.get_c_eye.where(tone:params[:eyetone]).paginate(page: params[:page], per_page: 21)
+       @list = Eyedb.get_c_eye.where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
        if params[:eyetone] == nil
         @eyetone = "세부톤"
-        @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21) 
+        @list = Eyedb.get_c_eye.order('zzim desc').paginate(page: params[:page], per_page: 21) 
        end
       end
        if params[:eyetone] == nil
         @eyetone = "세부톤"
-        @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).paginate(page: params[:page], per_page: 21)
+        @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
         if params[:eyelist] == nil
          @eyelist = "제품"
-         @list = Eyedb.get_c_eye.paginate(page: params[:page], per_page: 21)
+         @list = Eyedb.get_c_eye.order('zzim desc').paginate(page: params[:page], per_page: 21)
         end
        end
      end
@@ -246,10 +237,17 @@ class HomeController < ApplicationController
      if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
      end
-  
+    
+     # 좋아요 수를 lip,eye db의 zzim에 저장
+     @product.zzim = @product.votes_for.up.by_type(User).size
+     @product.save
+     
+     
+     
+     
   end
   
-  # 아래는 좋아요 기능을 위한 노력의 흔적들..........
+  #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
  
   
   def like 
@@ -261,18 +259,13 @@ class HomeController < ApplicationController
     end
     end
     
-    #if @product.liked_by current_user
-     # respond_to do |format|
-      #  format.html { redirect_to :back }
-       # format.js
-      #end
-    #end
+     
      @product.liked_by current_user
+     
       respond_to do |format|
         #format.html { redirect_to :back }
-        format.js 
+        format.js
         
-       
       end
     
   end  
@@ -290,9 +283,10 @@ class HomeController < ApplicationController
       respond_to do |format|
         #format.html { redirect_to :back }
         format.js 
-         
-        
+ 
       end
+    
+  # ==============좋아요 기능 컨트롤러 끝   
     
   end
   
@@ -300,14 +294,39 @@ class HomeController < ApplicationController
    
    
   end
- 
- 
-  def userseason_update
-   @user = current_user
-   @user.userseason = params[:optradio]
-   @user.save
-
-   redirect_to "/basket"
+  
+  # My page
+  def basket
+    
+    @like_list = current_user.find_liked_items
+    
   end
-
+  
+  def basket_delete
+    
+    if params[:list_num].start_with?("L")
+    @delete_item = Lipdb.find_by_num(params[:list_num])
+     else if params[:list_num].start_with?("S")
+      @delete_item = Eyedb.find_by_num(params[:list_num])
+     end
+    end
+    
+    @delete_item.unliked_by current_user
+    
+    @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+    @delete_item.save
+    
+    
+    redirect_to "/home/basket"
+    
+  end
+  
+  def userseason_update
+     @user = current_user
+     @user.userseason = params[:optradio]
+     @user.save
+  
+     redirect_to "/basket"
+  end
+  # /My page
 end

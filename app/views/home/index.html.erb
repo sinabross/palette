@@ -16,8 +16,9 @@
         </div>
         
         <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');">                <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/rank/popup-entrance-80e191ec200fa60cdc26051d64839ac8.jpg">
-</div>
+            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');">
+              <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/rank/popup-entrance-80e191ec200fa60cdc26051d64839ac8.jpg">
+            </div>
             <div class="carousel-caption">
                 <h2>배너2</h2>
             </div>
@@ -76,7 +77,7 @@
               <!-- Like numbers -->
                 <div class="col-xs-3 col-md-3" style="text-align:right">
                 <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                    width="20" > 38</p>                  
+                    width="20" ><%=display_likes(best)%></p>                  
                   </div>
               <!-- /Like numbers -->
               
@@ -94,7 +95,7 @@
         
         <%@w_best_sha.each do |best|%>
         
-           <div class="col-xs-12 col-sm-4 col-md-4" > 
+           <div class="col-xs-12 col-sm-4 col-md-4"> 
           
                <a href="/home/layout5/<%=best.num%>" class="col-xs-5 col-md-12">
 
@@ -121,7 +122,7 @@
                <!-- Like numbers -->
                  <div class="col-xs-3" "col-md-3" style="text-align:right">
                    <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                     width="20" > 38</p>                  
+                     width="20" > <%=display_likes(best)%> </p>                  
                  </div>
               <!-- /Like numbers -->
               
@@ -159,7 +160,7 @@
                <!-- Like numbers -->
                 <div class="col-xs-3 col-md-3" style="text-align:right">
                   <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                    width="20" > 38</p>                  
+                    width="20" > <%=display_likes(best)%> </p>                  
                 </div>
               <!-- /Like numbers -->
               
@@ -196,7 +197,7 @@
               <!-- Like numbers -->
                 <div class="col-xs-3 col-md-3" style="text-align:right">
                   <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                    width="20" > 38</p>                  
+                    width="20" > <%=display_likes(best)%> </p>                  
                 </div>
               <!-- /Like numbers -->
               
