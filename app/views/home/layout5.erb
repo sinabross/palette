@@ -52,6 +52,31 @@
                                 
                             </div>
                         </div>
+                       </div>  
+                      <% else %>
+                        <div class="row"> 
+                         <div class="col-sm-1 like-button">
+                        <%= link_to '', like_home_path(@product.num), remote: true,
+                                              id: "#{@product.num}_like",
+                                              class: "like glyphicon #{liked_product @product}" %>
+                         </div>
+                        </div>   
+                      <% end %>
+                                            
+                        
+                      <hr style="border:solid 1px lightgray;">
+                          <div>
+                              <div class="col-md-6">
+                                  <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
+                                  <img class="p hidden-xs" src="/images/p.png">
+                              </div>
+                              <div class="col-md-6">
+                                  
+                                  <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
+                                  <img class="c hidden-xs" src="/images/c.png">
+                                  
+                              </div>
+                          </div>
                 </div>
                 
     
@@ -148,9 +173,13 @@
               </ul>
             </div>
               
-                    
-            <!--후기작성버튼-->
-            <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+            <% if user_signed_in? %>
+              <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+            <% else %>
+              <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+            <% end %>
+            <!--후기작성버튼
+            <!--<center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <!--후기작성버튼  끝-->           
                         
          </div>
@@ -173,5 +202,10 @@
     $('#divNewNotifications2 li').on('click', function() {
           $('#dropdown_title2').html($(this).find('a').html());
         });  
+    
+    //로그인 안한상태에서 후기쓰기 누르면 뜨는 안내메세지    
+    $("#review_login").click(function(){
+      alert("로그인 후 이용해주세요!");
+    });	
     
 </script>

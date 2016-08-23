@@ -1,4 +1,7 @@
 class Eyedb < ActiveRecord::Base
+    belongs_to :user
+     acts_as_votable # for 찜하기 기능
+     
     
     def self.get_w_eye
         return Eyedb.where(wc:"웜").all
@@ -14,6 +17,5 @@ class Eyedb < ActiveRecord::Base
       "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%").where("name LIKE ? OR brand LIKE ? OR wc LIKE ? OR pro_type LIKE ? OR tone LIKE ?",
       "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%")
     end
-    
     
 end
