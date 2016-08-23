@@ -42,12 +42,13 @@
               <input type="checkbox">
               </form>
             </td>
-            <td><a href="/home/layout5/<%=list.num%>"><img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=list.num%>.jpg" style="width:100%"></a></td>
-            <td><a href="/home/layout5/<%=list.num%>">[<%=list.brand%>] <%=list.name%></a></td>
-            <td class="hidden-xs"><%=list.price%>원</td>
-            <td class="hidden-xs"><%=list.wc%>/<%=list.tone%></td>
-            <td><a id="delete_item" href="/home/basket_delete/<%=list.num%>"><button class="delete-button glyphicon glyphicon-trash" type="button">삭제</button></a></td>
-           
+            <td class="col-xs-2"><a href="/home/layout5/<%=list.num%>"><img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=list.num%>.jpg" width=70></a></td>
+            <td class="col-xs-3" style="padding-top:20px"><a href="/home/layout5/<%=list.num%>" style="color:black">[<%=list.brand%>]<br> <%=list.name%></a></td>
+            <td class="hidden-xs" style="padding-top:30px"><%=list.price%>원</td>
+            <td class="hidden-xs" style="padding-top:25px"><%=list.wc%>/<%=list.tone%></td>
+            <td class="col-xs-6" style="padding-top:30px"><a href="/home/basket_delete/<%=list.num%>"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/White_X_in_red_background.svg/2000px-White_X_in_red_background.svg.png" width=20></a></td>
+            
+            <!--이거뭐야 예현아 <td><a href="/"><i class="fa fa-trash-o"></i></a></td>-->
           </tr>
           
           <%end%>
