@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820091446) do
+ActiveRecord::Schema.define(version: 20160823064054) do
+
+  create_table "baskets", force: :cascade do |t|
+    t.string   "wc"
+    t.string   "tone"
+    t.string   "brand"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "image_url",  default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
