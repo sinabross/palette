@@ -44,7 +44,7 @@
             <td><a href="/home/layout5/<%=list.num%>">[<%=list.brand%>] <%=list.name%></a></td>
             <td class="hidden-xs"><%=list.price%>원</td>
             <td class="hidden-xs"><%=list.wc%>/<%=list.tone%></td>
-            <td><a href="/home/basket_delete/<%=list.num%>"><button class="delete-button glyphicon glyphicon-trash" type="button">삭제</button></a></td>
+            <td><a href="#"><button id="<%=list.num%>"class="delete-button glyphicon glyphicon-trash" type="button">삭제</button></a></td>
            
           </tr>
           
@@ -77,16 +77,19 @@
     }
   });
   
-  //제품 삭제확인 메세지
+  //제품 삭제
    $('.delete-button').on('click',function() {
-                            
+         
+        var list_num = $('#').attr('id')                    
         var result = confirm('삭제 하시겠습니까?');
 
         if(result) {
            //yes
-           
+            location.replace('/home/basket_delete/list_num');
         } else {
             //no
-         
+            
+        }
+           
      });
 </script>
