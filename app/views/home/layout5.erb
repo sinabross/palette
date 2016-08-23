@@ -18,9 +18,9 @@
     
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active "  style="float:center">
+                            <div class="item active "  style="padding: 50px">
                                
-                                <img class="img1 img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
+                                <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
                             </div>
     
                         </div>
@@ -30,20 +30,20 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12"  id="orange">
-                  <h3>[<%=@product.brand %>] <%=@product.name %></h3><br>
-                  <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
-      
-                      
-                      <!-- 좋아요버튼 BEGIN
-                      <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
-                      <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                      -->
-                    <% if user_signed_in?%>  
+                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top: 30px">
+                <h4>[<%=@product.brand %>]</h4><br>
+                <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
+                <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
+    
+                    <!-- 좋아요버튼 BEGIN
+                    <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
+                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+                    --> 
+                    
                     
                       <!--좋아요 기능 작동하는 하트 버튼 노출-->
-                      
-                      <% if current_user.liked? @product %>
+                  <%if user_signed_in?%>    
+                      <% if current_user.voted_up_on? @product %>
                        <div class="row">  
                         <div class="col-sm-1 unlike-button">
                         <%= link_to '', unlike_home_path(@product.num), remote: true,
@@ -51,14 +51,17 @@
                                               class: "like glyphicon glyphicon-heart" %>
                         </div>
                        </div>  
+                   
                       <% else %>
+                       
                         <div class="row"> 
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                               id: "#{@product.num}_like",
-                                              class: "like glyphicon glyphicon-heart-empty" %>
+                                              class: "like glyphicon glyphicon-heart-empty" %> 
                          </div>
-                        </div>   
+                        </div>  
+                         
                       <% end %>
                       <!--/좋아요 기능 작동하는 하트 버튼 -->
                       
@@ -71,15 +74,15 @@
                                                           class: "glyphicon glyphicon-heart-empty"%>
                           </div>
                         </div>
-                    <%end%>                    
-                        
+                    <%end%>      
+ 
                       <hr style="border:solid 1px lightgray;">
                           <div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                   <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
                                   <img class="p hidden-xs" src="/images/p.png">
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
                                   
                                   <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                   <img class="c hidden-xs" src="/images/c.png">
@@ -183,7 +186,7 @@
             </div>
               
             <% if user_signed_in? %>
-              <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
+              <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% else %>
               <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% end %>
@@ -197,7 +200,7 @@
                 <!-- /.container -->
                 
                 
-    
+   
 
    
 <script>
@@ -217,5 +220,32 @@
       alert("로그인 후 이용해주세요!");
     });	
     
+    
+    $('.like-button').on('click',function() {
+                            
+    
+        var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
+
+        if(result) {
+           //yes
+            location.replace('/home/basket');
+        } else {
+            //no
+            location.reload();
+        }
+           
+     });
+    
+     $('.unlike-button').on('click',function() {
+                            
+    
+        var result = confirm('관심상품 리스트에서 제거 되었습니다.');
+
+        if(result) {
+           //확인
+            location.reload();
+        } 
+           
+     });                      
         
 </script>

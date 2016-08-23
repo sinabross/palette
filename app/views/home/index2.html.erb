@@ -46,164 +46,157 @@
 
     <!-- Portfolio Section-->
     <div class="row">
+        
+        <div class="page-header col-lg-12 col-md-12 col-xs-12">웜 립 Best top 3
+        </div>
+        
+          <%@w_best_lip.each do |best|%>
+        
+            <div class="col-xs-12 col-sm-4 col-md-4" > 
+          
+              <a href="/home/layout5/<%=best.num%>" class="col-xs-5 col-md-12">
+                  
+                  <img class="img-responsive img-portfolio img-hover img-thumbnail" 
+                  src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=best.num%>.jpg" alt="" width="300" height="280" >
+                  
+              </a>
+              
+              <div class="col-xs-7 col-md-12">
+                  
+                <a class="product_name" href="/home/layout5/<%=best.num%>">[<%=best.brand%>]<%=best.name%></a>
+                <p class="product_price"><%=best.size%> / <%=best.price%>원</p>
+              </div>
+              
+              <div class="col-xs-4 col-md-8">
+              <!-- 컬러/톤 줄에 좋아요 이미지를 위치 시킴 -->
+                <p class="product_tone"><%=best.wc%> / <%=best.tone%></p>
+                  
+              </div>
+              <!-- Like numbers -->
+                <div class="col-xs-3 col-md-3" style="text-align:right">
+                <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                    width="20" > 38</p>                  
+                  </div>
+              <!-- /Like numbers -->
+              
+            </div> <!--/div.col-xs-12 col-sm-4 col-md-4-->
+        
+          <%end%>
+        
+    </div> <!--/div.row-->
+    
+    <div class="row">
+        
         <div class="col-lg-12 col-md-12 col-xs-12">
-            <p class="page-header">웜 타입 베스트 립</p>
+            <p class="page-header">웜 섀도우 Best top 3</p>
         </div>
         
-        <div class="col-xs-12 col-sm-4" > 
-          <form action="/write" method="POST" enctype="multipart/form-data">
-            <a href="/home/layout5" class="col-xs-5">
-                <img class="img-responsive img-portfolio img-hover" src="/images/capture.png" alt="" width="300" height="280" >
-            </a>
+        <%@w_best_sha.each do |best|%>
+        
+           <div class="col-xs-12 col-sm-4 col-md-4" > 
+          
+               <a href="/home/layout5/<%=best.num%>" class="col-xs-5 col-md-12">
+                   <img class="img-responsive img-portfolio img-hover img-thumbnail" 
+                   src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=best.num%>.jpg" alt="" width="300" height="280" >
+               </a>
+              
+                <div class="col-xs-7 col-md-12">
+                    <a class="product_name" href="/home/layout5/<%=best.num%>">[<%=best.brand%>]<%=best.name%></a>
+                    <p class="product_price"><%=best.size%> / <%=best.price%>원</p>
+                </div>
+                
+                <div class="col-xs-4 col-md-8">
+                    <!-- 컬러/톤 줄에 좋아요 이미지를 위치 시킴 -->
+                    <p class="product_tone"><%=best.wc%> / <%=best.tone%></p>
+                </div>
+                
+               <!-- Like numbers -->
+                 <div class="col-xs-3" "col-md-3" style="text-align:right">
+                   <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                     width="20" > 38</p>                  
+                 </div>
+              <!-- /Like numbers -->
+              
+           </div> <!--/div.col-xs-12 col-sm-4 col-md-4 -->
+        
+          <%end%>
+        
+    </div> <!--/div.row-->
+       
+    <div class="row">
+        
+         <div class="col-lg-12 col-md-12 col-xs-12">
+             <p class="page-header">쿨 립 Best top 3</p>
+         </div>
+        
+           <%@c_best_lip.each do |best|%>
+        
+          <div class="col-xs-12 col-sm-4 col-md-4" > 
+          
+               <a href="/home/layout5/<%=best.num%>" class="col-xs-5 col-md-12">
+                   <img class="img-responsive img-portfolio img-hover img-thumbnail" 
+                   src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=best.num%>.jpg" alt="" width="300" height="280" >
+               </a>
+              
+                <div class="col-xs-7 col-md-12">
+                    <a class="product_name" href="/home/layout5/<%=best.num%>">[<%=best.brand%>]<%=best.name%></a>
+                    <p class="product_price"><%=best.size%> / <%=best.price%>원</p>
+                </div>        
+                
+                <div class="col-xs-4 col-md-8"> 
+                <!-- 컬러/톤 줄에 좋아요 이미지를 위치 시킴 -->
+                    <p class="product_tone"><%=best.wc%> / <%=best.tone%></p>
+                </div>
+                
+               <!-- Like numbers -->
+                <div class="col-xs-3 col-md-3" style="text-align:right">
+                  <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                    width="20" > 38</p>                  
+                </div>
+              <!-- /Like numbers -->
+              
+            </div> <!--/div.col-xs-12 col-sm-4 col-md-4 -->
+        
+          <%end%>
+        
+    </div> <!--/div.row-->
+    
+    <div class="row">
+        
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <p class="page-header">쿨 섀도우 Best top 3</p>
+        </div>
+        
+           <%@c_best_sha.each do |best|%>
+        
+           <div class="col-xs-12 col-sm-4 col-md-4" > 
            
-            <div class="col-xs-7">
-                <a class="product_name" href="#">[이니스프리] 크리미 립틴트</a>
-                <p class="product_price">70ml / 7,000원</p>
-                <p class="product_tone"> 쿨 / 페일</p>
-            </div>
-        </div>
+               <a href="/home/layout5/<%=best.num%>" class="col-xs-5 col-md-12">
+                   <img class="img-responsive img-portfolio img-hover img-thumbnail" 
+                   src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=best.num%>.jpg" alt="" width="300" height="280" >
+               </a>
+              
+                <div class="col-xs-7 col-md-12">
+                    <a class="product_name" href="/home/layout5/<%=best.num%>">[<%=best.brand%>]<%=best.name%></a>
+                    <p class="product_price"><%=best.size%> / <%=best.price%>원</p>
+                </div>
+                <div class="col-xs-4 col-md-8">
+                    <!-- 컬러/톤 줄에 좋아요 이미지를 위치 시킴 -->
+                 <p class="product_tone"><%=best.wc%> / <%=best.tone%></p>
+                </div>
+                
+              <!-- Like numbers -->
+                <div class="col-xs-3 col-md-3" style="text-align:right">
+                  <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                    width="20" > 38</p>                  
+                </div>
+              <!-- /Like numbers -->
+              
+            </div> <!--/div.col-xs-12 col-sm-4 col-md-4 -->
         
+          <%end%>
         
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="/images/rightbutton.jpg" alt="" width="300" height="280">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="" width="300" height="280">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-    </div>
-       
-       
-   <div class="row">
-       <div class="col-lg-12">
-            <h2 class="page-header">웜 타입 베스트 섀도우</h2>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-    </div>
-    
-    
-    
-   <div class="row">
-       <div class="col-lg-12">
-            <h2 class="page-header">쿨 타입 베스트 립</h2>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-lg-12">
-            <h2 class="page-header">쿨 타입 베스트 섀도우</h2>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-                <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-        
-        <div class="col-xs-6 col-sm-4">
-            <a href="/home/layout5">
-                <img class="img-responsive img-portfolio img-hover" src="http://placehold.it/700x450" alt="">
-            </a>
-            <h3>
-            <a href="/home/layout5">[이니스프리] 크리미 립틴트</a>
-            </h3>
-            <p>70ml / 7,000원</p>
-            <p> 쿨 / 페일</p>
-        </div>
-    </div><!-- /.row -->
+    </div> <!--/div.row-->
 
     <hr>
 </div>
