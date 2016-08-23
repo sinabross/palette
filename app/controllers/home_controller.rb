@@ -177,6 +177,9 @@ class HomeController < ApplicationController
      @product.zzim = @product.votes_for.up.by_type(User).size
      @product.save
      
+     
+     
+     
   end
   
   #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
@@ -227,16 +230,32 @@ class HomeController < ApplicationController
    
   end
   
+  # My page
   def basket
     
     @like_list = current_user.find_liked_items
-
-  
+    
   end
+  
   def basket_delete
     
- 
+    if params[:list_num].start_with?("L")
+    @delete_item = Lipdb.find_by_num(params[:list_num])
+     else if params[:list_num].start_with?("S")
+      @delete_item = Eyedb.find_by_num(params[:list_num])
+     end
+    end
+    
+    @delete_item.unliked_by current_user
+    
+    @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+    @delete_item.save
+    
+    
+    redirect_to "/home/basket"
+    
   end
+  
   def userseason_update
      @user = current_user
      @user.userseason = params[:optradio]
@@ -244,5 +263,5 @@ class HomeController < ApplicationController
   
      redirect_to "/basket"
   end
-
+  # /My page
 end
