@@ -44,8 +44,10 @@
             <td><a href="/home/layout5/<%=list.num%>">[<%=list.brand%>] <%=list.name%></a></td>
             <td class="hidden-xs"><%=list.price%>원</td>
             <td class="hidden-xs"><%=list.wc%>/<%=list.tone%></td>
-            <td><a id="delete_item" href="/home/basket_delete/<%=list.num%>"><button class="delete-button glyphicon glyphicon-trash" type="button">삭제</button></a></td>
-           
+            
+            <td><%= link_to '', basket_delete_home_path(list.num), data: { confirm: "삭제 하시겠습니까?" },
+                                                          
+                                                          class: "glyphicon glyphicon-trash"%></td>
           </tr>
           
           <%end%>
