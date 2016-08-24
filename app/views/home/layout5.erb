@@ -47,8 +47,8 @@
                        <div class="row">  
                         <div class="col-sm-1 unlike-button">
                         <%= link_to '', unlike_home_path(@product.num), remote: true,
-                                              id: "#{@product.num}_like", 
-                                              class: "like glyphicon glyphicon-heart" %>
+                                                id: "#{@product.num}_like", 
+                                                class: "like glyphicon glyphicon-heart" %>
                         </div>
                        </div>  
                    
@@ -57,8 +57,8 @@
                         <div class="row"> 
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
-                                              id: "#{@product.num}_like",
-                                              class: "like glyphicon glyphicon-heart-empty" %> 
+                                                id: "#{@product.num}_like",
+                                                class: "like glyphicon glyphicon-heart-empty" %> 
                          </div>
                         </div>  
                          
@@ -68,7 +68,7 @@
                       <%else%>
                       <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
                         <div class="row">
-                          <div class="col-sm-1 like-button">
+                          <div class="col-sm-1 fake-like-button">
                           <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },
                                                           id: "fake-like",
                                                           class: "glyphicon glyphicon-heart-empty"%>
@@ -221,7 +221,7 @@
     });	
     
     
-    $('.like-button').on('click',function() {
+   $('.like-button').on('click',function() {
                             
     
         var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
@@ -236,7 +236,7 @@
            
      });
     
-     $('.unlike-button').on('click',function() {
+    $('.unlike-button').on('click',function() {
                             
     
         var result = confirm('관심상품 리스트에서 제거 되었습니다.');
