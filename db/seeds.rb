@@ -45,4 +45,4 @@
     end
     
     
-    User.create(email: 'user@gmail.com', password: 'useruser')
+   # User.create(email: 'user@gmail.com', password: 'useruser')
