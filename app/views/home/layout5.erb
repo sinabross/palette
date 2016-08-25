@@ -153,7 +153,12 @@
                         <p><%= p.created_at.strftime("%Y-%m-%d") %></p>
                         <!-- 수정하는 페이지로 이동-->
                         <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
-                        <a href="/destroy/<%= p.id %>">[삭제]</a>
+                        <!-- 삭제버튼-->
+                        <% if p.username = current_user.username %>
+                            <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                        <% else %>
+                            <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                        <% end %>
                         
                     </div>
                     <!-- Review END -->

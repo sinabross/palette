@@ -81,7 +81,7 @@ $(function(){
 
     $('.review_submit').click(function(){
         pro_num = this.value;
-        alert(pro_num); //맞는지확인
+        //alert(pro_num); //맞는지확인
         date=<%= Time.now.strftime("%Y-%m-%d") %>
         pro_content=$("#content_" + pro_num).val();
         

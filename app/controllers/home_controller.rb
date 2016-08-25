@@ -323,7 +323,8 @@ class HomeController < ApplicationController
    @review.userseason = current_user.userseason
    
    @review.save
-   redirect_to :back
+   
+   redirect_to :root
    
   end
   
@@ -355,14 +356,14 @@ class HomeController < ApplicationController
    #사진업로드끝
    @one_review.save
    
-   redirect_to :back
+   redirect_to :root
    
   end
   
   def destroy #리뷰삭제
    @one_review=Review.find(params[:review_id])
    @one_review.destroy
-   redirect_to :root
+   redirect_to :back
   end
   
   
