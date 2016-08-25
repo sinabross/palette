@@ -19,14 +19,14 @@
                               <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"비밀번호를 입력하세요!" %>
                         </div>
                         
-       <!--                 <% if devise_mapping.rememberable? -%>
+                        <% if devise_mapping.rememberable? -%>
                         <div class="checkbox">
                           
                               <%= f.check_box :remember_me, class:"character-checkbox" %>
                               <%= f.label :remember_me, class:"label" %>
 
                         </div>
-                            <% end %>-->
+                            <% end -%>
                         <div class="actions" id="btn-login">
                             <%= f.submit "Log in", class:"btn btn-custom btn-lg btn-block"%>
                         
