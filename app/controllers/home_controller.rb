@@ -306,7 +306,6 @@ class HomeController < ApplicationController
       @product = Eyedb.find_by_num(params[:product_num])
      end
    
-   
   end
   
   def review_submit
@@ -337,19 +336,22 @@ class HomeController < ApplicationController
   
   def basket_delete
     
-    if params[:list_num].start_with?("L")
-    @delete_item = Lipdb.find_by_num(params[:list_num])
-     else if params[:list_num].start_with?("S")
-      @delete_item = Eyedb.find_by_num(params[:list_num])
-     end
-    end
-    
-    @delete_item.unliked_by current_user
-    
-    @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
-    @delete_item.save
-    
-    
+   # 개별 제품 삭제
+   if params[:list_num]
+     
+      if params[:list_num].start_with?("L")
+      @delete_item = Lipdb.find_by_num(params[:list_num])
+       else if params[:list_num].start_with?("S")
+        @delete_item = Eyedb.find_by_num(params[:list_num])
+       end
+      end
+      
+      @delete_item.unliked_by current_user
+      
+      @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+      @delete_item.save
+   end 
+
     redirect_to "/home/basket"
     
   end

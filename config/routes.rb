@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'home/basket'
   get '/basket' => 'home#basket'
+  post 'home/basket_delete'
   get 'home/:list_num/basket_delete/' => 'home#basket_delete'
   get 'home/season_update'
   get 'season_update' => 'home#season_update'

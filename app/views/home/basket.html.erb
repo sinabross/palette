@@ -19,28 +19,26 @@
 
 <div class="container content box" id="basket">
 
-  <form method="post" action="checkout1.html">
-    <div class="col-md-9 col-xs-12">
+ 
+    <div class="table-responsive">
       <table class="table">
         <hr style="border: solid 1.0px lightgray;">
         <thead>
           <tr>
             <th><input type="checkbox" name="select_all" id="select_all"></th>
             <th class="col-md-2 col-xs-2">상품사진</th>
-            <th class="col-md-5 col-xs-7">상품명</th>
-            <th class="col-md-2 hidden-xs">가격</th>
-            <th class="col-md-2 hidden-xs">컬러톤</th>
-            <th class="col-xs-6">삭제</th>
+            <th class="col-md-5">상품명</th>
+            <th class="col-md-1 hidden-xs">가격</th>
+            <th class="col-md-1 hidden-xs">컬러톤</th>
+            <th>삭제</th>
           </tr>
         </thead>
         <tbody> <!-- 찜제품목록 -->
           <%@like_list.each do |list|%>
-         
+        <form method="post" action="#">
           <tr>
-            <td style="padding-top:30px">
-              <form action="#" method="post">
+            <td>
               <input type="checkbox">
-              </form>
             </td>
             <td><a href="/home/layout5/<%=list.num%>"><img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=list.num%>.jpg" style="width:100%"></a></td>
             <td><a href="/home/layout5/<%=list.num%>">[<%=list.brand%>] <%=list.name%></a></td>
@@ -55,10 +53,11 @@
           
           <%end%>
           
+          </form>   
         </tbody>
       </table>
     </div>
-  </form>
+  <!--</form> -->
 </div>
            
            
@@ -83,19 +82,5 @@
     }
   });
   
-  //제품 삭제
-   $('.delete-button').on('click',function() {
-         
-        var list_num = "$('#').attr('id')"                    
-        var result = confirm('삭제 하시겠습니까?');
-
-        if(result) {
-           //yes
-          
-        } else {
-            //no
-         $("#delete_item").attr("href", '/home/basket');
-        }
-           
-     });
+  
 </script>
