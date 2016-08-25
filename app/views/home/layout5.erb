@@ -32,7 +32,7 @@
     
                 <div class="col-md-6 col-xs-12"  id="orange" style="padding-top: 30px">
                 <h4>[<%=@product.brand %>]</h4><br>
-                <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
+                <h3><strong><%=@product.name %></strong></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
                 <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
     
                     <!-- 좋아요버튼 BEGIN
@@ -201,7 +201,10 @@
                 
                 
    
-
+<style>
+      @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+      h4 {font-family: 'Hanna';}
+</style>
    
 <script>
     
