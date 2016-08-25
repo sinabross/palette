@@ -120,10 +120,11 @@
         
         
         <div class="container">
-          <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
-              <p class="lead">후기를 작성해보세요!</p>
+            <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
+            <p class="lead">후기를 작성해보세요!</p>
               
-              <ul class="media-list forum">
+            <div>
+                <ul class="media-list forum">
                   
                 <!-- 회원1 댓글 -->
                 <li class="media well">
@@ -175,14 +176,34 @@
                         <p align="right"><small>2016-08-18</small></p>
                     </div>
                     
-                    <!--댓글 본문(이미지, 내용)-->
-                    <p>이거 샀는데 넘 예뻐요 강추강추~~^^ 악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다우리의 귀는 생의 찬미를 듣는다 그것은 웅대한 관현악이며 미묘한 교향악이다</p>
-                  <!-- Post Text EMD -->
-                  </div>
-                </li>
-               <!--회원2 댓글 끝--> 
+                    <li class="media well">
+                        <!-- User info -->
+                        <div class="pull-left user-info" href="#" float="left">
+                            <img class="avatar img-circle img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%= p.userseason %>.png"
+                                 width="64" alt="Generic placeholder image">
+                            <br/>
+                            <strong><center><a href="user.html"><%=p.username%></a></center></strong>
+                            <small><center><%=p.userseason%></center></small>
+                        </div>
+                        <!-- User info END-->
+                          
+                        <!-- Review -->
+                        <div class="media-body">
+                            <!-- Image -->  
+                            <img width="150px" src="<%= p.img_url %>">
+        
+                            <br><br>
+                            <p><%=p.content %></p>
+                            <p><%= p.created_at.strftime("%Y-%m-%d") %></p>
+                        </div>
+                        <!-- Review END -->
+                    </li>
+                <%end%>
+                <!--from Review db 끝--> 
+
             
               </ul>
+              </div>
             </div>
               
             <% if user_signed_in? %>
@@ -195,6 +216,7 @@
             <!--후기작성버튼  끝-->           
                         
          </div>
+        
                     
     </div>
                 <!-- /.container -->
