@@ -10,12 +10,11 @@
   <p style="font-size:15px"><strong><%=current_user.username%></strong> 님</p>
   <p style="font-size:15px">계절타입: <strong><%=current_user.userseason%></strong></p>
   
-  <button><a href="home/season_update" style="font-size:15px;color:black">타입 변경</a></button> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+  <a href="/home/season_update" style="font-size:15px;color:black">타입 변경</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
 
 
 </div>
   
-
 
 <div class="container content box" id="basket">
 
@@ -82,5 +81,19 @@
     }
   });
   
-  
+  //제품 삭제
+   $('.delete-button').on('click',function() {
+         
+        var list_num = "$('#').attr('id')"                    
+        var result = confirm('삭제 하시겠습니까?');
+
+        if(result) {
+           //yes
+          
+        } else {
+            //no
+         $("#delete_item").attr("href", '/home/basket');
+        }
+           
+     });
 </script>

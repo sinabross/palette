@@ -8,7 +8,7 @@
 
       
         <!-- /.row -->
-        <div style = "margin-top:50px">
+        <div style = "margin-top:40px">
         <!-- Portfolio Item Row -->
             <div class="row">
     
@@ -18,7 +18,7 @@
     
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
-                            <div class="item active "  style="padding: 50px">
+                            <div class="item active "  style="padding-right:50px; padding-left:50px">
                                
                                 <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
                             </div>
@@ -30,10 +30,10 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12 detail"  id="<%=@product.num%>" style="padding-top:30px; margin-left:-15px;">
-                <h4>[<%=@product.brand %>]</h4><br>
-                <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
-                <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
+                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
+                <h4>[<%=@product.brand %>]</h4>
+                <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
+                <h4><%=@product.size %> / <%=@product.price %>원</h4>
     
                     <!-- 좋아요버튼 BEGIN
                     <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
@@ -45,7 +45,7 @@
                   <%if user_signed_in?%>    
                       <% if current_user.voted_up_on? @product %>
                        <div class="row">  
-                        <div class="col-sm-1 unlike-button">
+                        <div class="col-sm-1 unlike-button" align="right">
                         <%= link_to '', unlike_home_path(@product.num), remote: true,
                                                 id: "#{@product.num}_like", 
                                                 class: "like fa fa-heart" %>
@@ -55,7 +55,7 @@
                       <% else %>
                        
                         <div class="row"> 
-                         <div class="col-sm-1 like-button">
+                         <div class="col-sm-1 like-button" align="right">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                                 id: "#{@product.num}_like",
                                                 class: "like fa fa-heart-o" %> 
@@ -68,7 +68,7 @@
                       <%else%>
                       <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
                         <div class="row">
-                          <div class="col-sm-1 fake-like-button">
+                          <div class="col-sm-1 fake-like-button" align="right">
                           <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },
                                                           id: "fake-like",
                                                           class: "fa fa-heart-o"%>
@@ -78,16 +78,18 @@
  
                       <hr style="border:solid 1px lightgray;">
                           <div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:15px">
-                                  <h4 style="text-align: center"> <strong>톤</strong>   <%=@product.tone %></h4><br>
+                              <div class="col-md-6 col-xs-6" style="padding-top:5px">
+                                  
+                                  <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
                                   <img class="p hidden-xs" src="/images/p.png">
+                                  
                               </div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:15px">
+                              <div class="col-md-6 col-xs-6" style="padding-top:5px">
                                   
                                   <h4 style="text-align: center"> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                   <img class="c hidden-xs" src="/images/c.png">
-                                  
-                              </div>
+                              </div>    
+                              
                           </div>
                 </div>
                 
@@ -101,12 +103,27 @@
         <br>
         
         <!-- 제품군, 펄유무, 텍스쳐-->
-        <span class="glyphicon glyphicon-tags col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@product.pro_type %></span>
-        <span class="glyphicon glyphicon-tag col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@product.glitter %></span>
-        <span class="glyphicon glyphicon-refresh col-md-4 col-xs-4" aria-hidden="true" style="font-size:17px; text-align:center;">
-            <%=@product.texture %></span>
+        <div style="margin-right:-20px; margin-top:-20px">
+        <div class="panel panel-default col-md-4 col-xs-4">
+            <div class="panel-body" align="center">
+                <span style="font-size:12px; text-align:center">
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+            </div>
+        </div>
+        <div class="panel panel-default col-md-4 col-xs-4">    
+            <div class="panel-body" align="center">
+                <span style="font-size:12px; text-align:center">
+                     <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/glitter.png" width="30"><br><%=@product.glitter %></span>
+            </div>
+        </div>
+        <div class="panel panel-default col-md-4 col-xs-4">
+            <div class="panel-body" align="center">
+                <span style="font-size:12px; text-align:right">
+                      <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/texture.png" width="30"><br><%=@product.texture %></span>
+            </div>
+        </div>
+        </div>
+
         <br>
         <br>
         <!-- 수정요청 버튼 들어갈 부분 -->
@@ -187,7 +204,10 @@
                 
                 
    
-
+<style>
+      @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+      h4 {font-family: 'Hanna';}
+</style>
    
 <script>
     
