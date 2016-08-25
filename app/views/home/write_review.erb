@@ -22,7 +22,7 @@
                     <!-- 후기글 작성폼. 내용,사진첨부 -->
                     <form style="margin-top:40px" action="/home/review_submit" method="post" enctype="multipart/form-data">
                         <textarea class="form-control" rows="8" id="content" name="content" placeholder="후기를 작성해주세요!"></textarea>
-                        <input type="file" name="pic" accept="image/*">
+                        <input type="file" name="pic" accept="image/*" multiple="true">
                         <button name="pro_submit" value="<%=@product.num%>" type="submit" class="btn btn-default review_submit">Submit</button>
                     </form>
                     

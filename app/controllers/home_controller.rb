@@ -241,11 +241,9 @@ class HomeController < ApplicationController
      # 좋아요 수를 lip,eye db의 zzim에 저장
      @product.zzim = @product.votes_for.up.by_type(User).size
      
-     
-     
-     
+
      @review=Review.where(num:params[:product_num])
-    
+     
      @product.save
      
   end
@@ -305,23 +303,20 @@ class HomeController < ApplicationController
      if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
      end
-   
+     
+    
   end
   
   def review_submit #리뷰를등록
    @review = Review.new
    @review.num = params[:pro_submit]
    @review.content = params[:content]
-   
-   #사진업로드
-   uploader = LightUploader.new
-   uploader.store!(params[:pic])
-   @review.img_url = uploader.url
-   #사진업로드끝
-   
    @review.username = current_user.username
    @review.userseason = current_user.userseason
    
+   uploader = LightUploader.new
+   uploader.store!(params[:pic])
+   @review.img_url=uploader.url
    @review.save
    
    redirect_to :root
@@ -348,12 +343,12 @@ class HomeController < ApplicationController
    @one_review=Review.find(params[:review_id])
    @one_review.content = params[:content]
    #사진업로드
-   if params[:pic] != nil
-    uploader = LightUploader.new
-    uploader.store!(params[:pic])
-    @one_review.img_url = uploader.url
-   end
-   #사진업로드끝
+    if params[:pic] != nil
+     uploader = LightUploader.new
+     uploader.store!(params[:pic])
+     @one_review.img_url = uploader.url
+    end
+   
    @one_review.save
    
    redirect_to :root
