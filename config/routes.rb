@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :home, only: [:layout4] #for pagination
   
-  devise_for :users
   
   root 'home#index'
   get 'home/index'
