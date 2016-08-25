@@ -3,7 +3,7 @@
 
           <div class="row" >
           	   <div class="col-md-12 col-xs-12">
-                    <h1>후기 작성하기</h1>
+                    <h1>후기 수정하기</h1>
                     
                     
                     <!--상품정보 출력-->
@@ -20,10 +20,10 @@
                     </div>
 
                     <!-- 후기글 작성폼. 내용,사진첨부 -->
-                    <form style="margin-top:40px" action="/home/review_submit" method="post" enctype="multipart/form-data">
-                        <textarea class="form-control" rows="8" id="content" name="content" placeholder="후기를 작성해주세요!"></textarea>
+                    <form style="margin-top:40px" action="/home/review_update_submit/<%=@one_review.id%>" method="POST" enctype="multipart/form-data">
+                        <textarea class="form-control" rows="8" id="content" name="content"><%=@one_review.content%></textarea>
                         <input type="file" name="pic" accept="image/*">
-                        <button name="pro_submit" value="<%=@product.num%>" type="submit" class="btn btn-default review_submit">Submit</button>
+                        <button type="submit" class="btn btn-default">수정하기</button>
                     </form>
                     
                     <!-- 첨부된이미지 확인-->
@@ -31,7 +31,7 @@
                           <div class="panel panel-default">
                             <div class="panel-heading">첨부된 이미지</div>
                             <div class="panel-body">
-                                <img src="" width="150px">
+                                <img src="<%= @one_review.img_url %>" width="150px">
                             </div>
                           </div>
                      </div>
@@ -74,29 +74,3 @@
 }
 
 </style>
-
-<script>
-$(function(){
-//review_submit 이란 녀석이 클릭이 되면, 아래 코드를 돌린다.
-
-    $('.review_submit').click(function(){
-        pro_num = this.value;
-        alert(pro_num); //맞는지확인
-        date=<%= Time.now.strftime("%Y-%m-%d") %>
-        pro_content=$("#content_" + pro_num).val();
-        
-        $.ajax({
-            method: "POST",
-            url: "/home/review_submit",
-            data: {  num_of_pro: pro_num, content: pro_content , username: current_user, userseason: current_user.userseason, date: date},
-            success: function(){
-                $( "#review_"+ pro_num ).append( "<p>"+pro_content+"</p>" );
-                $("#content_" + pro_num).val('');  
-            },
-            error: function(){
-                alert("후기가 작성되지 않았습니다.");
-            }
-        })
-    });
-});
-</script>
