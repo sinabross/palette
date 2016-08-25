@@ -1,4 +1,6 @@
-$("#<%= @product.num%>_like").removeClass('glyphicon-heart').addClass('glyphicon-heart-empty');
+alert('관심상품 목록에서 제거 되었습니다.');
+
+$("#<%= @product.num%>_like").removeClass('fa-heart').addClass('fa-heart-o');
 
 $("#<%= @product.num %>_like").attr("href", '/home/<%= @product.num %>/like');
 

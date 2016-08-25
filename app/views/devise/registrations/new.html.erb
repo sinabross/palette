@@ -1,148 +1,36 @@
-<!-- 회원가입 페이지 -->
+<h2>Sign up</h2>
 
-      
-<section id="login"> <!--style시트 넣기위한 id이므로 상관없음-->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label :userseason %><br />
+    <%= f.text_field :userseason %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
 
-        <div class="form-wrap">
-          <h1>회원가입</h1>
-          <!--Log in with your email account-->
-            <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
-              <div class="form-group">
-                <%= f.label :email %><br />
-                <%= f.email_field :email,class:"form-control" ,placeholder:"이메일", autofocus: true %>
-              </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
 
-              <div class="form-group">
-                <%= f.label :password %>
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"비밀번호" %>
-              </div>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
 
-              <div class="form-group">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control", placeholder:"비밀번호 확인" %>
-              </div>
-                            
-              <div class="form-group">
-                <%= f.label :닉네임 %><br />
-                <%= f.text_field :username, class:"form-control" ,placeholder:"닉네임", autofocus: true %>
-              </div>
-                            
-              <div class="form-group">
-                <%= f.label :진단타입 %><br />
-                <div class="btn-group">
-                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">계절타입 <span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">봄</a></li>
-                        <li><a href="#">여름</a></li>
-                        <li><a href="#">가을</a></li>
-                        <li><a href="#">겨울</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">없음</a></li>
-                      </ul>
-                </div>
-              </div>
-                            
-              <div class="actions">
-                <%= f.submit "Sign up", class:"btn btn-custom btn-lg btn-block" %>
-              </div>
-        <% end %>
-
-          <div style="text-align:center">
-            <%= render "devise/shared/links" %>
-          </div>
-          <hr>
-        </div>
-      </div> <!-- /.col-xs-12 -->
-    </div> <!-- /.row -->
-  </div> <!-- /.container -->
-</section>
-
-
-<style>
-  /*    --------------------------------------------------
-	:: Login Section
-	-------------------------------------------------- */
-#login {
-    padding-top: 50px
-}
-#login .form-wrap {
-    width: 70%;
-    margin: 0 auto;
-}
-#login h1 {
-    color: #6E6E6E;
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 20px;
-}
-#login .form-group {
-    margin-bottom: 25px;
-}
-#login .checkbox {
-    margin-bottom: 20px;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-#login .checkbox.show:before {
-    content: '\e013';
-    color: #1fa67b;
-    font-size: 17px;
-    margin: 1px 0 0 3px;
-    position: absolute;
-    pointer-events: none;
-    font-family: 'Glyphicons Halflings';
-}
-#login .checkbox .character-checkbox {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    vertical-align: middle;
-    display: inline-block;
-}
-#login .checkbox .label {
-    color: #6d6d6d;
-    font-size: 13px;
-    font-weight: normal;
-}
-#login .btn.btn-custom {
-    font-size: 14px;
-	margin-bottom: 20px;
-}
-#login .forget {
-    font-size: 13px;
-	text-align: center;
-	display: block;
-}
-
-/*    --------------------------------------------------
-	:: Inputs & Buttons
-	-------------------------------------------------- */
-.form-control {
-    color: #212121;
-}
-.btn-custom {
-    color: #fff;
-	background-color: #333333;
-}/*원래 색: #1fa67b*/
-.btn-custom:hover,
-.btn-custom:focus {
-    color: #fff;
-}
-
-</style>
+<%= render "devise/shared/links" %>
