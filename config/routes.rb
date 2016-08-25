@@ -38,6 +38,9 @@ Rails.application.routes.draw do
   
   #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
+  
+  #후기쓰기
+  post 'home/review_submit'
  
   # 좋아요 기능
   resources :home do 

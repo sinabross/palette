@@ -1,4 +1,5 @@
 class Lipdb < ActiveRecord::Base
+    has_many :reviews
     belongs_to :user 
     acts_as_votable # for 찜하기 기능
     
