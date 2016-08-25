@@ -30,7 +30,7 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top: 30px">
+                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:30px; margin-left:-15px;">
                 <h4>[<%=@product.brand %>]</h4><br>
                 <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
                 <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
@@ -58,7 +58,7 @@
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                                 id: "#{@product.num}_like",
-                                                class: "like glyphicon glyphicon-heart-empty" %> 
+                                                class: "like glyphicon glyphicon-heart-empty" %>
                          </div>
                         </div>  
                          
@@ -78,13 +78,13 @@
  
                       <hr style="border:solid 1px lightgray;">
                           <div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
-                                  <h4> <strong>톤</strong>   <%=@product.tone %></h4><br>
+                              <div class="col-md-6 col-xs-6" style="padding-top:15px">
+                                  <h4 style="text-align: center"> <strong>톤</strong>   <%=@product.tone %></h4><br>
                                   <img class="p hidden-xs" src="/images/p.png">
                               </div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:30px">
+                              <div class="col-md-6 col-xs-6" style="padding-top:15px">
                                   
-                                  <h4> <strong>타입</strong>   <%=@product.wc %></h4><br>
+                                  <h4 style="text-align: center"> <strong>타입</strong>   <%=@product.wc %></h4><br>
                                   <img class="c hidden-xs" src="/images/c.png">
                                   
                               </div>
@@ -139,7 +139,7 @@
                     <!-- Post Info Buttons END -->
                     <!-- Post Text -->
                     <div> <!--댓글 제목-->
-                        <h4>인생틴트 찾았어요!!!</h4>
+                        
                         <p align="right"><small>2016-08-18</small></p>
                     </div>
                     
@@ -171,7 +171,7 @@
                     <!-- Post Info Buttons END -->
                     <!-- Post Text -->
                     <div> <!--댓글 제목-->
-                        <h4>인생틴트 찾았어요!!!</h4>
+                        
                         <p align="right"><small>2016-08-18</small></p>
                     </div>
                     
