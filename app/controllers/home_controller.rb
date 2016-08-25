@@ -241,11 +241,9 @@ class HomeController < ApplicationController
      # 좋아요 수를 lip,eye db의 zzim에 저장
      @product.zzim = @product.votes_for.up.by_type(User).size
      
-     
-     
-     
+
      @review=Review.where(num:params[:product_num])
-    
+     
      @product.save
      
   end
@@ -296,7 +294,7 @@ class HomeController < ApplicationController
   # ============== 좋아요 기능 컨트롤러 끝
   
   # =============== 후기 쓰기 페이지
-  def write_review
+  def write_review #리뷰를쓰는페이지
     
     #립
      if params[:product_num].start_with?("L")
@@ -307,27 +305,64 @@ class HomeController < ApplicationController
      if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
      end
-   
+     
+    
   end
   
-  def review_submit
+  def review_submit #리뷰를등록
    @review = Review.new
-   @review.num = params[:num_of_pro]
+   @review.num = params[:pro_submit]
    @review.content = params[:content]
-   
-   #사진업로드
-   uploader = LightUploader.new
-   uploader.store!(params[:pic])
-   @review.img_url = uploader.url
-   #사진업로드끝
-   
    @review.username = current_user.username
    @review.userseason = current_user.userseason
    
+   uploader = LightUploader.new
+   uploader.store!(params[:pic])
+   @review.img_url=uploader.url
    @review.save
-   redirect_to :back
+   
+   redirect_to :root
    
   end
+  
+  def update_view #리뷰를수정하는페이지
+   #립
+   if params[:product_num].start_with?("L")
+      @product = Lipdb.find_by_num(params[:product_num])
+   end
+     
+   #섀도우
+   if params[:product_num].start_with?("S")
+      @product = Eyedb.find_by_num(params[:product_num])
+   end
+   
+   #리뷰
+   @one_review=Review.find(params[:review_id])
+   
+  end
+  
+  def review_edit #수정한리뷰를 등록
+   @one_review=Review.find(params[:review_id])
+   @one_review.content = params[:content]
+   #사진업로드
+    if params[:pic] != nil
+     uploader = LightUploader.new
+     uploader.store!(params[:pic])
+     @one_review.img_url = uploader.url
+    end
+   
+   @one_review.save
+   
+   redirect_to :root
+   
+  end
+  
+  def destroy #리뷰삭제
+   @one_review=Review.find(params[:review_id])
+   @one_review.destroy
+   redirect_to :back
+  end
+  
   
   # My page
   def basket
