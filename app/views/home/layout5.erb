@@ -30,7 +30,7 @@
                     </div>
                 </div>
     
-                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:30px; margin-left:-15px;">
+                <div class="col-md-6 col-xs-12 detail"  id="<%=@product.num%>" style="padding-top:30px; margin-left:-15px;">
                 <h4>[<%=@product.brand %>]</h4><br>
                 <h4><%=@product.name %></h3><br> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
                 <h4><%=@product.size %> / <%=@product.price %>원</h4><br>
@@ -195,32 +195,34 @@
       alert("로그인 후 이용해주세요!");
     });	
     
-    
-   $('.like-button').on('click',function() {
-                            
-    
+   // Like/Unlike 버튼 클릭 시 메세지 뜨게 하기 
+  /* $('.fa-heart-o').on('click',function() {
+   
+   
         var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
 
         if(result) {
            //yes
-            location.replace('/home/basket');
+            location.replace('/basket');
         } else {
             //no
+                     
             location.reload();
+        
         }
            
      });
     
-    $('.unlike-button').on('click',function() {
+    $('.fa-heart').on('click',function() {
                             
-    
-        var result = confirm('관심상품 리스트에서 제거 되었습니다.');
-
-        if(result) {
-           //확인
-            location.reload();
-        } 
-           
+      var product_num = $('.detail').attr('id');
+      
+      alert('관심상품 리스트에서 제거 되었습니다.');
+       location.reload(); 
+       
+       
+      
+  
      });                      
-        
+        */
 </script>

@@ -270,7 +270,7 @@ class HomeController < ApplicationController
         format.js
         
       end
-    
+     
   end  
 
   def unlike
@@ -284,14 +284,16 @@ class HomeController < ApplicationController
     
      @product.unliked_by current_user
       respond_to do |format|
-        #format.html { redirect_to :back }
+        # format.html { redirect_to :back }
         format.js 
  
       end
-    
-  # ============== 좋아요 기능 컨트롤러 끝   
+      
+      
+     
     
   end
+  # ============== 좋아요 기능 컨트롤러 끝
   
   # =============== 후기 쓰기 페이지
   def write_review
@@ -355,6 +357,8 @@ class HomeController < ApplicationController
     redirect_to "/home/basket"
     
   end
+  
+
   
   def userseason_update
      @user = current_user
