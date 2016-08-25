@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824083419) do
+ActiveRecord::Schema.define(version: 20160825080043) do
 
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20160824083419) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer  "review_id"
+    t.string   "light"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string   "num"
     t.string   "content"
@@ -60,8 +67,6 @@ ActiveRecord::Schema.define(version: 20160824083419) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "userseason",             default: "없음"
-    t.string   "username",               default: "",   null: false
     t.string   "email",                  default: "",   null: false
     t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
@@ -74,10 +79,13 @@ ActiveRecord::Schema.define(version: 20160824083419) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.string   "username"
+    t.string   "userseason",             default: "없음"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

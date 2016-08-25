@@ -143,28 +143,41 @@
             <div>
             <ul class="media-list forum">
                   
-                <!-- from Review db -->
+                <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
                 <% @review.each do |p| %>
                 <li class="media well">
                
-                    <!-- User info -->
+                    <!-- 후기작성자정보(왼쪽) -->
                     <div class="pull-left user-info" href="#" float="left">
+                        <!-- 프로필사진(계절타입) -->
                         <img class="avatar img-circle img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%= p.userseason %>.png"
                                  width="64" alt="Generic placeholder image">
                         <br/>
+                        <!-- 작성자닉네임-->
                         <strong><center><a href="user.html"><%=p.username%></a></center></strong>
+                        <!-- 작성자계절타입-->
                         <small><center><%=p.userseason%></center></small>
                     </div>
-                    <!-- User info END-->
                           
-                    <!-- Review -->
+                    <!-- 리뷰본문(오른쪽) -->
                     <div class="media-body">
-                        <!-- Image -->  
+                        <!-- 첨부된사진 -->  
                         <img width="150px" src="<%= p.img_url %>">
-        
+                        
                         <br><br>
+                        <!-- 후기내용 -->
                         <p><%=p.content %></p>
+                        <!-- 작성날짜 -->
                         <p><%= p.created_at.strftime("%Y-%m-%d") %></p>
+                        <!-- 수정하는 페이지로 이동-->
+                        <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
+                        <!-- 삭제버튼-->
+                        <% if p.username = current_user.username %>
+                            <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                        <% else %>
+                            <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                        <% end %>
+                        
                     </div>
                     <!-- Review END -->
                 </li>
@@ -176,14 +189,12 @@
             </div>
         </div>
               
-            <% if user_signed_in? %>
+            <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
               <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
-            <% else %>
+            <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
               <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
             <% end %>
-            <!--후기작성버튼
-            <!--<center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
-            <!--후기작성버튼  끝-->           
+                      
                         
          </div>
         
@@ -215,32 +226,5 @@
       alert("로그인 후 이용해주세요!");
     });	
     
-    
-   $('.like-button').on('click',function() {
-                            
-    
-        var result = confirm('관심상품 리스트에 추가 되었습니다. 목록으로 이동 하시겠습니까?');
-
-        if(result) {
-           //yes
-            location.replace('/home/basket');
-        } else {
-            //no
-            location.reload();
-        }
-           
-     });
-    
-    $('.unlike-button').on('click',function() {
-                            
-    
-        var result = confirm('관심상품 리스트에서 제거 되었습니다.');
-
-        if(result) {
-           //확인
-            location.reload();
-        } 
-           
-     });                      
-        
+   
 </script>

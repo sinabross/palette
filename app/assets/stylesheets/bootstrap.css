@@ -1129,8 +1129,8 @@ img {
 }
 .img-thumbnail {
   display: inline-block;
-  max-width: 100%;
-  height: auto;
+  
+  
   padding: 4px;
   line-height: 1.42857143;
   background-color: #fff;
@@ -1487,6 +1487,15 @@ dt {
 dd {
   margin-left: 0;
 }
+@media (min-width: 200px) and (max-width: 767px) {
+  .example {
+  width: 100px;
+  height: 100px;
+  
+ 
+}
+}
+
 @media (min-width: 768px) {
   .dl-horizontal dt {
     float: left;
@@ -5035,7 +5044,7 @@ a.badge:focus {
 .jumbotron .container {
   max-width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-device-width: 768px) {
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px;
@@ -5062,6 +5071,7 @@ a.badge:focus {
        -o-transition: border .2s ease-in-out;
           transition: border .2s ease-in-out;
 }
+
 .thumbnail > img,
 .thumbnail a > img {
   margin-right: auto;
@@ -6021,6 +6031,8 @@ button.close {
   overflow: scroll;
 }
 @media (min-width: 768px) {
+  /*768 이상 사이즈 */
+  
   .modal-dialog {
     width: 600px;
     margin: 30px auto;
@@ -6034,6 +6046,16 @@ button.close {
   }
 }
 @media (min-width: 992px) {
+  /* 992 이상 사이즈 */
+  
+  .example {
+  width: 300px;
+  height: 270px;
+  text-align: center;
+  padding-left: 15px;
+  
+}
+
   .modal-lg {
     width: 900px;
   }
