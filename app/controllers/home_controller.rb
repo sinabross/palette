@@ -359,6 +359,12 @@ class HomeController < ApplicationController
    
   end
   
+  def destroy #리뷰삭제
+   @one_review=Review.find(params[:review_id])
+   @one_review.destroy
+   redirect_to :root
+  end
+  
   
   # My page
   def basket
