@@ -48,7 +48,7 @@
                         <div class="col-sm-1 unlike-button">
                         <%= link_to '', unlike_home_path(@product.num), remote: true,
                                                 id: "#{@product.num}_like", 
-                                                class: "like glyphicon glyphicon-heart" %>
+                                                class: "like fa fa-heart" %>
                         </div>
                        </div>  
                    
@@ -58,7 +58,7 @@
                          <div class="col-sm-1 like-button">
                         <%= link_to '', like_home_path(@product.num), remote: true,
                                                 id: "#{@product.num}_like",
-                                                class: "like glyphicon glyphicon-heart-empty" %> 
+                                                class: "like fa fa-heart-o" %> 
                          </div>
                         </div>  
                          
@@ -71,7 +71,7 @@
                           <div class="col-sm-1 fake-like-button">
                           <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },
                                                           id: "fake-like",
-                                                          class: "glyphicon glyphicon-heart-empty"%>
+                                                          class: "fa fa-heart-o"%>
                           </div>
                         </div>
                     <%end%>      

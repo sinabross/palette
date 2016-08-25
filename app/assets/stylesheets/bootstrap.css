@@ -1428,11 +1428,13 @@ a.bg-danger:focus {
   font-size: 13px;
   color:black;
 }
-.like{
+a.fa-heart, a.fa-heart-o{
   text-decoration: none;
   color: red;
   font-size:30px;
 }
+
+
 #fake-like{
   color: red;
   font-size:30px;
