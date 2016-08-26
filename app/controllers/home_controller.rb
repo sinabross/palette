@@ -392,6 +392,10 @@ class HomeController < ApplicationController
    redirect_to '/home/layout5/' + @post.pro_num
   end
   
+  def show_feedback
+   @post=Feedback.all
+  end
+  
   # My page
   def basket
     

@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   
   get 'home/feedback/:product_num' => "home#feedback"
   post 'home/feedback_submit'
+  get 'home/show_feedback'
   get 'home/layout5/:product_num' => "home#layout5"
 
   # 좋아요 기능

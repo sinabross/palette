@@ -1,0 +1,11 @@
+<div class="container">
+    <% @post.each do |p| %>
+        
+            <div>제품:<%=p.pro_num%></div>
+            <div>작성자이메일:<%=p.emailaddress%></div>
+            <div>제목:<%=p.title%></div>
+            <div>내용:<%=p.content%></div>
+            <img width="150px" src="<%= p.img_url %>">
+        
+    <%end%>
+</div>
