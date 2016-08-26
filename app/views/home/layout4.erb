@@ -58,8 +58,10 @@
                       </div>
                     </a>
                     
-                    <div class="col-md-12 col-xs-7" > <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
-                        <a class="product_name" style="text-height:300%" href="/home/layout5/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
+                    <div class="col-md-12 col-xs-7"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+                      <div style="height:60px"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
+                        <a class="product_name" style="background-color:pink; href="/home/layout5/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
+                      </div>
                         <p class="product_price"><%=w.size%> / <%=w.price%>원</p>
                     </div>
                     
@@ -67,7 +69,7 @@
                        <p class="product_tone"> <%=w.wc%> / <%=w.tone%> </p>
                     </div>
                     <!-- LikeBtn.com BEGIN -->
-                      <div class="col-md-3 col-xs-3">
+                      <div class="col-md-3 col-xs-3" style="text-align:right">
                     <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
                       width="20" ><%=display_likes(w)%></p>       
                       </div>
