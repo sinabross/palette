@@ -1,11 +1,6 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      
-      ## 회원의 계절타입을 저장.
-      t.string :userseason,         default: "없음"
-      ## 회원 닉네임
-      t.string :username,           null: false, default: ""
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

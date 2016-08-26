@@ -240,10 +240,11 @@ class HomeController < ApplicationController
     
      # 좋아요 수를 lip,eye db의 zzim에 저장
      @product.zzim = @product.votes_for.up.by_type(User).size
+     
+
+     @review=Review.where(num:params[:product_num])
+     
      @product.save
-     
-     
-     
      
   end
   
@@ -267,7 +268,7 @@ class HomeController < ApplicationController
         format.js
         
       end
-    
+     
   end  
 
   def unlike
@@ -281,17 +282,19 @@ class HomeController < ApplicationController
     
      @product.unliked_by current_user
       respond_to do |format|
-        #format.html { redirect_to :back }
+        # format.html { redirect_to :back }
         format.js 
  
       end
-    
-  # ============== 좋아요 기능 컨트롤러 끝   
+      
+      
+     
     
   end
+  # ============== 좋아요 기능 컨트롤러 끝
   
   # =============== 후기 쓰기 페이지
-  def write_review
+  def write_review #리뷰를쓰는페이지
     
     #립
      if params[:product_num].start_with?("L")
@@ -302,9 +305,64 @@ class HomeController < ApplicationController
      if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
      end
+     
+    
+  end
+  
+  def review_submit #리뷰를등록
+   @review = Review.new
+   @review.num = params[:pro_submit]
+   @review.content = params[:content]
+   @review.username = current_user.username
+   @review.userseason = current_user.userseason
    
+   uploader = LightUploader.new
+   uploader.store!(params[:pic])
+   @review.img_url=uploader.url
+   @review.save
+   
+   redirect_to :root
    
   end
+  
+  def update_view #리뷰를수정하는페이지
+   #립
+   if params[:product_num].start_with?("L")
+      @product = Lipdb.find_by_num(params[:product_num])
+   end
+     
+   #섀도우
+   if params[:product_num].start_with?("S")
+      @product = Eyedb.find_by_num(params[:product_num])
+   end
+   
+   #리뷰
+   @one_review=Review.find(params[:review_id])
+   
+  end
+  
+  def review_edit #수정한리뷰를 등록
+   @one_review=Review.find(params[:review_id])
+   @one_review.content = params[:content]
+   #사진업로드
+    if params[:pic] != nil
+     uploader = LightUploader.new
+     uploader.store!(params[:pic])
+     @one_review.img_url = uploader.url
+    end
+   
+   @one_review.save
+   
+   redirect_to :root
+   
+  end
+  
+  def destroy #리뷰삭제
+   @one_review=Review.find(params[:review_id])
+   @one_review.destroy
+   redirect_to :back
+  end
+  
   
   # My page
   def basket
@@ -315,22 +373,27 @@ class HomeController < ApplicationController
   
   def basket_delete
     
-    if params[:list_num].start_with?("L")
-    @delete_item = Lipdb.find_by_num(params[:list_num])
-     else if params[:list_num].start_with?("S")
-      @delete_item = Eyedb.find_by_num(params[:list_num])
-     end
-    end
-    
-    @delete_item.unliked_by current_user
-    
-    @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
-    @delete_item.save
-    
-    
+   # 개별 제품 삭제
+   if params[:list_num]
+     
+      if params[:list_num].start_with?("L")
+      @delete_item = Lipdb.find_by_num(params[:list_num])
+       else if params[:list_num].start_with?("S")
+        @delete_item = Eyedb.find_by_num(params[:list_num])
+       end
+      end
+      
+      @delete_item.unliked_by current_user
+      
+      @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+      @delete_item.save
+   end 
+
     redirect_to "/home/basket"
     
   end
+  
+
   
   def userseason_update
      @user = current_user
