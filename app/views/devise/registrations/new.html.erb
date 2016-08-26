@@ -7,14 +7,19 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-  <div>
+  
+  <div class="field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
   </div>
-  <div>
+  
+  <div class="field">
     <%= f.label :userseason %><br />
-    <%= f.text_field :userseason %>
+    <%= f.select :userseason, 
+    options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울']], params[:userseason]),
+    {}, { :class => 'span3 controls controls-row' } %>
   </div>
+ 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
