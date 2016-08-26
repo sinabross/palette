@@ -21,11 +21,6 @@ Rails.application.routes.draw do
   post 'home/userseason_update'
   
   
-  
-  
-  
-  get 'home/basket_test'
-
   get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
   get 'home/layout4_sha/:colors'  => "home#layout4_sha"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
   
@@ -41,7 +36,6 @@ Rails.application.routes.draw do
   post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
   get  'destroy/:review_id' => "home#destroy" #리뷰삭제
   
-  #layout5 뒤에 오는 값들을 w.id 라는 비둘기에 담아서 home#layout5_test에 전달하겠다.
   get 'home/layout5/:product_num' => "home#layout5"
 
   # 좋아요 기능

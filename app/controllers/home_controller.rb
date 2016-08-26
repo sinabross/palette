@@ -310,18 +310,20 @@ class HomeController < ApplicationController
   end
   
   def review_submit #리뷰를등록
+   
    @review = Review.new
    @review.num = params[:pro_submit]
    @review.content = params[:content]
    @review.username = current_user.username
    @review.userseason = current_user.userseason
-   
+  
    uploader = LightUploader.new
    uploader.store!(params[:pic])
    @review.img_url=uploader.url
    @review.save
    
-   redirect_to :root
+    
+   redirect_to '/home/layout5/' + @review.num
    
   end
   
@@ -339,6 +341,7 @@ class HomeController < ApplicationController
    #리뷰
    @one_review=Review.find(params[:review_id])
    
+   
   end
   
   def review_edit #수정한리뷰를 등록
@@ -352,8 +355,8 @@ class HomeController < ApplicationController
     end
    
    @one_review.save
-   
-   redirect_to :root
+    
+   redirect_to '/home/layout5/' + @one_review.num
    
   end
   
