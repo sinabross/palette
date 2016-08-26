@@ -393,7 +393,7 @@ class HomeController < ApplicationController
   end
   
   def show_feedback
-   @post=Feedback.all
+   @post=Feedback.all.reverse
   end
   
   # My page
