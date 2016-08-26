@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>후기 작성하기</h1>
+                    
+        <!--상품정보 출력-->
+        <div class="media well">
+            <div class="pull-left user-info" href="#" float="left" >
+                <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg" style="width:140px;height:auto;">
+                <br>
+            </div>
+            <div class="media-body">
+                <p>[<%=@product.brand %>] <strong><%=@product.name %></strong></p>
+                <p><%=@product.size %> / <%=@product.price %>원</p>
+                <p><%=@product.tone %> <%=@product.wc %></p>
+            </div>
+        </div>
+        
+    <form style="margin-top:40px" action="/home/feedback_submit" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<%=current_user.email%>">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">제목</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">내용</label>
+        <textarea class="form-control" name="content" rows="10"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" name="pic" id="exampleInputFile" accept="image/*">
+      </div>
+      
+      <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-default">문의보내기</button>
+    </form>
+</div>

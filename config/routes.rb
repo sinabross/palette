@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
   get  'destroy/:review_id' => "home#destroy" #리뷰삭제
   
+  get 'home/feedback/:product_num' => "home#feedback"
+  post 'home/feedback_submit'
   get 'home/layout5/:product_num' => "home#layout5"
 
   # 좋아요 기능
