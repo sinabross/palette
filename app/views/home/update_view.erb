@@ -23,44 +23,36 @@
                     <form style="margin-top:40px" action="/home/review_update_submit/<%=@one_review.id%>" method="POST" enctype="multipart/form-data">
                         <textarea class="form-control" rows="8" id="content" name="content"><%=@one_review.content%></textarea>
                         <br>
-                        <input type="file" name="pic" accept="image/*">
-                        <br>
-                        <button type="submit" class="btn btn-default">수정하기</button>
+
+                        <div class="filebox col-md-2" style="padding:0px">
+                            <label for="cma_file">사진 변경</label>
+                            <input type="file" name="pic" id="cma_file" accept="image/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
+                            
+                        </div>
+                        
+                        
+                        <br><br><br>
+                        <!-- 사진 변경된거 보여주는 줄-->
+                        <div class="row col-md-12 col-xs-12">
+                            <div class="picture col-md-4">변경전이미지<br>
+                                <img src="<%= @one_review.img_url %>">
+                            </div>
+                            
+                            <div class="col-md-4">변경후이미지
+                                <div id="cma_image" class="picture"><!-- 이부분에 사진첨부하면 첨부된사진이 들어감! --></div>
+                            </div>
+                            <!--<input type="file" name="pic" accept="image/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))">-->
+                            
+                        </div>
+                        <br><br>
+                        <div class="row col-md-12 col-xs-12" style="text-align:center">
+                            <button type="submit" class="btn btn-default">수정하기</button><br>
+                        </div>
+                        <br /><br />
+                        <!--사진미리보기-->
+                        
                     </form>
                     <br>
-                    <!-- 첨부된이미지 확인-->
-                     <div class="container">
-                          <div class="panel panel-default">
-                            <div class="panel-heading">첨부된 이미지</div>
-                            <div class="panel-body">
-                                <img src="<%= @one_review.img_url %>" width="150px">
-                            </div>
-                          </div>
-                     </div>
-                    
-                    <br>
-                    
-<!--원래있던코드
-                    
-                    <textarea class="form-control" rows="8" id="comment" placeholder="후기를 작성해주세요!"></textarea>
-                    
-                    <div class="form-group">
-                        <input type="file" id="exampleInputFile">
-                    </div><br>
-                    <div class="container">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">첨부된 이미지</div>
-                            <div class="panel-body">
-                                <img src="http://mblogthumb4.phinf.naver.net/20160403_295/milsi0502_1459668361752NjK4J_JPEG/SAM_5182.JPG?type=w2"
-                                width="150px">
-                            </div>
-                        </div>
-                    </div>
-                    <center><a href="/home/write_review" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">작성하기</a></center>
--->
-                    
-                    
-               
                </div>
           </div>
      </div>
@@ -69,10 +61,57 @@
  
  
 <style>
- #write h1 {
+    #write h1 {
     color: #6E6E6E;
     font-size: 18px;
     font-weight: bold;
-}
-
+    }
+    .filebox label {
+        display: inline-block;
+        padding: 10px;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #fdfdfd;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        width:100%;
+        max-width:100%;
+    }
+     
+    .filebox input[type="file"] {  /* 파일 필드 숨기기 */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+    }
+    
+    .picture img{
+        width:80%;   
+    }
 </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+    function getThumbnailPrivew(html, $target) {
+        if (html.files && html.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $target.css('display', '');
+                //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+                $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+            }
+            reader.readAsDataURL(html.files[0]);
+        }
+    }
+</script>
