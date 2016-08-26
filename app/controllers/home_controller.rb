@@ -366,6 +366,35 @@ class HomeController < ApplicationController
    redirect_to :back
   end
   
+  def feedback #문의글 작성페이지
+    #립
+   if params[:product_num].start_with?("L")
+      @product = Lipdb.find_by_num(params[:product_num])
+   end
+     
+   #섀도우
+   if params[:product_num].start_with?("S")
+      @product = Eyedb.find_by_num(params[:product_num])
+   end
+  end
+  
+  def feedback_submit #문의글 전송
+   @post=Feedback.new
+   @post.title=params[:title]
+   @post.content=params[:content]
+   @post.emailaddress=params[:email]
+   uploader = LightUploader.new
+   uploader.store!(params[:pic])
+   @post.img_url=uploader.url
+   @post.pro_num=params[:feed_pro_num]
+   @post.save
+   
+   redirect_to '/home/layout5/' + @post.pro_num
+  end
+  
+  def show_feedback
+   @post=Feedback.all.reverse
+  end
   
   # My page
   def basket

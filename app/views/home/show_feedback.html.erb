@@ -1,0 +1,12 @@
+<div class="container">
+    <% @post.each do |p| %>
+        
+            <div>제품:<%=p.pro_num%></div>
+            <div>작성자이메일:<%=p.emailaddress%></div>
+            <div>제목:<%=p.title%></div>
+            <div>내용:<%=p.content%></div>
+            <img width="150px" src="<%= p.img_url %>">
+            <div>날짜:<%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></div>
+            <hr>
+    <%end%>
+</div>

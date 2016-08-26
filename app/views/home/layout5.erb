@@ -130,8 +130,12 @@
         <!-- 수정요청 버튼 들어갈 부분 -->
         <hr style="border: solid 0.2px lightgray;">
         <button type="button" class="btn btn-secondary" style="float: right;">목록</button>
-        <button type="button" class="btn btn-secondary" style="float: right; margin-right:10px">수정요청</button>
-
+        <!--<button type="button" class="btn btn-secondary" style="float: right; margin-right:10px">수정요청</button>-->
+        <% if user_signed_in? %>
+            <a href="/home/feedback/<%=@product.num%>">[수정요청]</a>
+        <% else %>
+            <a href="/users/sign_in">[수정요청]</a>
+        <% end %>
         <!-- 댓글 -->
         <br>
         <br>
