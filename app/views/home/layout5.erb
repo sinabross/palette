@@ -78,16 +78,17 @@
  
                       <hr style="border:solid 1px lightgray;">
                           <div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:5px">
+                              <div class="col-md-6 col-xs-6" style="padding-top:5px;">
                                   
                                   <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
-                                  <img class="p hidden-xs" src="/images/p.png">
+                                  <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
                                   
                               </div>
                               <div class="col-md-6 col-xs-6" style="padding-top:5px">
                                   
                                   <h4 style="text-align: center"> <strong>타입</strong>   <%=@product.wc %></h4><br>
-                                  <img class="c hidden-xs" src="/images/c.png">
+                                  
+                                  <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/<%=@product.wc %>.png" width="95%"style="margin-left:10px" >
                               </div>    
                               
                           </div>
@@ -145,13 +146,16 @@
                   
                 <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
                 <% @review.each do |p| %>
-                <li class="media well">
-               
+               <!-- <li class="media well">-->
+               <li>
                     <!-- 후기작성자정보(왼쪽) -->
                     <div class="pull-left user-info" href="#" float="left">
                         <!-- 프로필사진(계절타입) -->
-                        <img class="avatar img-circle img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%= p.userseason %>.png"
-                                 width="64" alt="Generic placeholder image">
+<!--                        <img class="avatar img-circle img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%= p.userseason %>.png"
+                                 width="64" alt="Generic placeholder image">-->
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/seasonicon/<%= p.userseason %>.png"
+                                 width="64" style="margin-left:15px" >                        
+                        
                         <br/>
                         <!-- 작성자닉네임-->
                         <strong><center><a href="user.html"><%=p.username%></a></center></strong>
@@ -160,7 +164,8 @@
                     </div>
                           
                     <!-- 리뷰본문(오른쪽) -->
-                    <div class="media-body">
+                  <!--  <div class="media-body">-->
+                    <div class="media well">
                         <!-- 첨부된사진 -->  
                         <img width="150px" src="<%= p.img_url %>">
                         
