@@ -321,7 +321,7 @@ class HomeController < ApplicationController
    @review.img_url=uploader.url
    @review.save
    
-   redirect_to :root
+   redirect_to '/home/layout5/' + @review.num
    
   end
   
@@ -353,7 +353,7 @@ class HomeController < ApplicationController
    
    @one_review.save
    
-   redirect_to :root
+   redirect_to '/home/layou5/' + @one_review.num
    
   end
   
