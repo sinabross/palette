@@ -9,11 +9,11 @@
                     <!--상품정보 출력-->
                     <div class="media well">
                       <div class="pull-left user-info" href="#" float="left">
-                            <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg" width="84">
+                            <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg" style="width:140px;height:auto;">
                           <br>
                       </div>
                       <div class="media-body">
-                        <p>[<%=@product.brand %>] <%=@product.name %></p>
+                        <p>[<%=@product.brand %>]<strong> <%=@product.name %></strong></p>
                         <p><%=@product.size %> / <%=@product.price %>원</p>
                         <p><%=@product.tone %> <%=@product.wc %></p>
                       </div>
@@ -22,10 +22,12 @@
                     <!-- 후기글 작성폼. 내용,사진첨부 -->
                     <form style="margin-top:40px" action="/home/review_update_submit/<%=@one_review.id%>" method="POST" enctype="multipart/form-data">
                         <textarea class="form-control" rows="8" id="content" name="content"><%=@one_review.content%></textarea>
+                        <br>
                         <input type="file" name="pic" accept="image/*">
+                        <br>
                         <button type="submit" class="btn btn-default">수정하기</button>
                     </form>
-                    
+                    <br>
                     <!-- 첨부된이미지 확인-->
                      <div class="container">
                           <div class="panel panel-default">
