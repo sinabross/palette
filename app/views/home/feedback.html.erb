@@ -35,7 +35,7 @@
         <input type="file" name="pic" id="exampleInputFile" accept="image/*">
       </div>
       <% if @product == nil %>
-        <button type="submit" name="feed_pro_num" value="all" class="btn btn-default">문의보내기</button>
+        <button type="submit" name="feed_pro_num" value="home" class="btn btn-default">문의보내기</button>
       <% else %>
         <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-default">문의보내기</button>
       <% end %>

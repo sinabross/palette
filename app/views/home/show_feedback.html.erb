@@ -1,12 +1,20 @@
-<div class="container">
+<div class="container" style="margin-top:30px">
+    <ul class="media-list forum">
     <% @post.each do |p| %>
-        
-            <div>제품:<%=p.pro_num%></div>
-            <div>작성자이메일:<%=p.emailaddress%></div>
-            <div>제목:<%=p.title%></div>
-            <div>내용:<%=p.content%></div>
-            <img width="150px" src="<%= p.img_url %>">
-            <div>날짜:<%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></div>
-            <hr>
+        <li>
+            <div class="row col-md-12" style="margin:10px; border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
+                <div class="col-md-3">
+                    <p>제품:<%=p.pro_num%></p>
+                    <p>작성자이메일:<%=p.emailaddress%></p>
+                    <p>날짜:<%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y/%m/%d/ %H:%M:%S") %></p>
+                </div>
+                <div class="col-md-9">
+                    <p>제목:<%=p.title%></p>
+                    <p>내용:<%=p.content%></p>
+                    <img width="150px" src="<%= p.img_url %>">
+                </div>
+            </div>
+        </li>
     <%end%>
+    </ul>
 </div>
