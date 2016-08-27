@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <br>
 
-<div class="container content col-md-3 col-xs-12" style="text-align:center; margin-bottom:40px" >
+<div class="container content col-md-3">
+<div id="one"style="text-align:center; margin-bottom:40px" >
   <div style="background-color:#F2F2F2">
     <hr style="border: solid 1.0px lightgray;">
       <h3><strong>마이페이지</strong></h3>
@@ -14,8 +15,13 @@
   <p style="font-size:15px"><strong><%=current_user.username%></strong> 님</p>
   <p style="font-size:15px">계절타입: <strong><%=current_user.userseason%></strong></p>
   
-  <button class="btn btn-default" type="button"><a href="/home/season_update" style="font-size:15px;color:black">타입 변경</a></button> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
 
+
+</div>
+
+ <div id="two" style="text-align:center; margin-bottom:40px;">
+   <a href="/home/season_update" style="font-size:15px;color:black;" class="btn btn-default" role="button">타입 변경</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+</div>
 
 </div>
   
@@ -73,7 +79,7 @@
            
 <style>
   .seasons{width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px;}
-  
+.btn 
 
 </style>
 
