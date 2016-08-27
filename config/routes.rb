@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   post 'home/feedback_submit'
   get 'home/show_feedback'
   get 'home/layout5/:product_num' => "home#layout5"
+  
+  get 'home/seasontalk'
+  get 'home/contents'
 
   # 좋아요 기능
   resources :home do 

@@ -444,4 +444,14 @@ class HomeController < ApplicationController
      redirect_to "/basket"
   end
   # /My page
+
+ def contents
+  
+ end
+
+ def seasontalk
+  
+ end
+
+
 end
