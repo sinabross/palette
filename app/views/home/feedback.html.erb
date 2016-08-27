@@ -1,10 +1,17 @@
 <div class="container">
-    <h1>문의하기</h1>
+    
+    <br>
+      <div style="background-color:#ffffff;">
+        <hr style="border: solid 1.0px;color:#333333">
+           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>문의하기</strong></p>
+        <hr style="border: solid 1.0px;color:#333333">  
+      </div>         
+    
         <% if @product == nil %>
           ..
         <% else %>
         <!--상품정보 출력-->
-        <div class="media well">
+        <div class="media panel-body container" style="border: solid 2.0px lightgray; margin-top:20px">
             <div class="pull-left user-info" href="#" float="left" >
                 <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg" style="width:140px;height:auto;">
                 <br>
@@ -34,10 +41,26 @@
         <label for="exampleInputFile">File input</label>
         <input type="file" name="pic" id="exampleInputFile" accept="image/*">
       </div>
-      <% if @product == nil %>
-        <button type="submit" name="feed_pro_num" value="home" class="btn btn-default">문의보내기</button>
-      <% else %>
-        <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-default">문의보내기</button>
-      <% end %>
+      <center>
+        <% if @product == nil %>
+          <button type="submit" name="feed_pro_num" value="home" class="btn btn-black" style="color:#ffffff;" >문의보내기</button>
+        <% else %>
+          <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-black" style="color:#ffffff;" align="center">문의보내기</button>
+        <% end %>
+      </center>
     </form>
+    <br><br><br>
 </div>
+
+<style>
+      .btn-black {
+          width:100px;
+          height:40px;
+          font-size:15px;
+          text-align:center;
+          cursor:pointer;
+          color:#000000;
+          background:#333333;
+      }  
+
+</style>
