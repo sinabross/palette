@@ -1,6 +1,8 @@
 <div class="container">
-    <h1>후기 작성하기</h1>
-                    
+    <h1>문의하기</h1>
+        <% if @product == nil %>
+          ..
+        <% else %>
         <!--상품정보 출력-->
         <div class="media well">
             <div class="pull-left user-info" href="#" float="left" >
@@ -13,6 +15,7 @@
                 <p><%=@product.tone %> <%=@product.wc %></p>
             </div>
         </div>
+        <% end %>
         
     <form style="margin-top:40px" action="/home/feedback_submit" method="post" enctype="multipart/form-data">
       <div class="form-group">
@@ -31,7 +34,10 @@
         <label for="exampleInputFile">File input</label>
         <input type="file" name="pic" id="exampleInputFile" accept="image/*">
       </div>
-      
-      <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-default">문의보내기</button>
+      <% if @product == nil %>
+        <button type="submit" name="feed_pro_num" value="all" class="btn btn-default">문의보내기</button>
+      <% else %>
+        <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-default">문의보내기</button>
+      <% end %>
     </form>
 </div>
