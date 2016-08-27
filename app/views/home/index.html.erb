@@ -207,23 +207,35 @@
     </div> <!--/div.row-->
 
     <hr>
+    <div class="col-lg-12">
+        <% if user_signed_in? %>
+            <div id="two" style="text-align:center; margin-bottom:40px;">
+                <a href="/home/feedback/all" style="color:#ffffff;" class="btn btn-black" role="button">문의하기</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+            </div>
+        <% else %>
+            <div id="two" style="text-align:center; margin-bottom:40px;">
+                <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">문의하기</a>
+            </div>
+        <% end %>
+    </div>
 </div>
     <!-- /.container -->
-
-    <% if user_signed_in? %>
-      <p>현재 로그인된 유저의 이메일 : <%= current_user.email %></p>
-      <p><%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %></p>
-    <% else %>
-  
-    <% end %>
-    
-    
+<style>
+     .btn-black{
+        width:relative;
+        height:40px;
+        font-size:15px;
+        text-align:center;
+        cursor:pointer;
+        background:#333333;
+    }
+</style>
     <!-- Script to Activate the Carousel -->
-    <script>
-        $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        })
-    </script>
+<script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+</script>
 
 
 
