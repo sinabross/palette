@@ -376,6 +376,11 @@ class HomeController < ApplicationController
    if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
    end
+   
+   if params[:product_num].start_with?("a")
+      @product = nil
+   end
+     
   end
   
   def feedback_submit #문의글 전송
@@ -389,7 +394,11 @@ class HomeController < ApplicationController
    @post.pro_num=params[:feed_pro_num]
    @post.save
    
-   redirect_to '/home/layout5/' + @post.pro_num
+   if @post.pro_num = "all"
+    redirect_to '/'
+   else
+    redirect_to '/home/layout5/' + @post.pro_num
+   end
   end
   
   def show_feedback

@@ -4,5 +4,29 @@
         <div class="col-lg-12">
             <p style="text-align:center">Copyright &copy; 멋쟁이사자처럼4기:최영진,송성호,김예현,김현희 2016</p>
         </div>
+        <div class="col-lg-12">
+            <% if user_signed_in? %>
+                <div id="two" style="text-align:center; margin-bottom:40px;">
+                    <a href="/home/feedback/all" style="color:#ffffff;" class="btn btn-black" role="button">문의하기</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+                </div>
+            <% else %>
+                <div id="two" style="text-align:center; margin-bottom:40px;">
+                    <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">문의하기</a>
+                </div>
+            <% end %>
+        </div>
     </div>
 </footer>
+
+<style>
+  
+    .btn-black{
+        width:relative;
+        height:40px;
+        font-size:15px;
+        text-align:center;
+        cursor:pointer;
+        background:#333333;
+    }
+</style>
+   

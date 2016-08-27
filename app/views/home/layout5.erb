@@ -121,7 +121,11 @@
                   <div class="col-md-12" style="top:0px; right:0px; text-align:right;"><%= p.created_at.strftime("%Y-%m-%d") %></div>
                     <!-- 첨부된사진 -->  
                     <div class="col-md-3" style="margin-top:20px;">
-                      <img width="100%" src="<%= p.img_url %>">
+                      <% if p.img_url == nil %>
+                        <img width="100%" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/noimages.jpg">
+                      <% else %>
+                        <img width="100%" src="<%= p.img_url %>">
+                      <% end %>
                     </div>
                     <br><br>
                     <!-- 후기내용 -->

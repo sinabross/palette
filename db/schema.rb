@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160826130813) do
     t.string   "title"
     t.string   "content"
     t.string   "emailaddress"
-    t.string   "pro_num"
+    t.string   "pro_num",      default: ""
     t.string   "img_url",      default: ""
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
