@@ -1,221 +1,172 @@
- 
-
-    
-    
 <!-- 상세페이지 -->
-    
-    <div class="container">
-
+<div class="container">
+  <div style = "margin-top:40px">
+    <div class="row">
       
-        <!-- /.row -->
-        <div style = "margin-top:40px">
-        <!-- Portfolio Item Row -->
-            <div class="row">
+      <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
+        <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
+      </div>
     
-                <div class="col-md-6 col-xs-12" >
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
+        <h4>[<%=@product.brand %>]</h4>
+        <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
+        <h4><%=@product.size %> / <%=@product.price %>원</h4>
     
-    
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner">
-                            <div class="item active "  style="padding-right:50px; padding-left:50px">
-                               
-                                <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
-                            </div>
-    
-                        </div>
-    
-                        <!-- Controls -->
-    
-                    </div>
-                </div>
-    
-                <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
-                <h4>[<%=@product.brand %>]</h4>
-                <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
-                <h4><%=@product.size %> / <%=@product.price %>원</h4>
-    
-                    <!-- 좋아요버튼 BEGIN
-                    <span class="likebtn-wrapper" data-theme="custom" data-btn_size="45" data-f_size="20" data-icon_l="hrt2" data-icon_size="36" data-icon_l_c="#e81339"  data-f_family="Arial Black" data-i18n_like="  찜하기" data-identifier="item_1" data-dislike_enabled="false"></span>
-                    <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-                    --> 
-                    
-                    
-                      <!--좋아요 기능 작동하는 하트 버튼 노출-->
-                  <%if user_signed_in?%>    
-                      <% if current_user.voted_up_on? @product %>
-                       <div class="row">  
-                        <div class="col-sm-1 unlike-button" align="right">
-                        <%= link_to '', unlike_home_path(@product.num), remote: true,
-                                                id: "#{@product.num}_like", 
-                                                class: "like fa fa-heart" %>
-                        </div>
-                       </div>  
-                   
-                      <% else %>
-                       
-                        <div class="row"> 
-                         <div class="col-sm-1 like-button" align="right">
-                        <%= link_to '', like_home_path(@product.num), remote: true,
-                                                id: "#{@product.num}_like",
-                                                class: "like fa fa-heart-o" %> 
-                         </div>
-                        </div>  
-                         
-                      <% end %>
-                      <!--/좋아요 기능 작동하는 하트 버튼 -->
+        <!--좋아요 기능 작동하는 하트 버튼 노출-->
+        <%if user_signed_in?%>    
+          <% if current_user.voted_up_on? @product %>
+            <div class="row" style="text-align:right">  
+              <div class="col-sm-1 col-sm-offset-10 unlike-button" style="position:right">
+                <%= link_to '', unlike_home_path(@product.num), remote: true, id: "#{@product.num}_like", 
+                    class: "like fa fa-heart" %>
+              </div>
+            </div>  
+          <% else %>
+            <div class="row" style="text-align:right"> 
+              <div class="col-sm-1 col-sm-offset-10 like-button" style="position:right">
+                <%= link_to '', like_home_path(@product.num), remote: true, id: "#{@product.num}_like",
+                    class: "like fa fa-heart-o" %> 
+              </div>
+            </div>  
+          <% end %>
+          <!--/좋아요 기능 작동하는 하트 버튼 -->
                       
-                      <%else%>
-                      <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
-                        <div class="row">
-                          <div class="col-sm-1 fake-like-button" align="right">
-                          <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },
-                                                          id: "fake-like",
-                                                          class: "fa fa-heart-o"%>
-                          </div>
-                        </div>
-                    <%end%>      
+        <%else%>
+          <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
+          <div class="row">
+            <div class="col-sm-1 col-sm-offset-10 fake-like-button" align="right">
+              <%= link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
+                  class: "fa fa-heart-o"%>
+            </div>
+          </div>
+        <%end%>      
  
-                      <hr style="border:solid 1px lightgray;">
-                          <div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:5px;">
-                                  
-                                  <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
-                                  <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
-                                  
-                              </div>
-                              <div class="col-md-6 col-xs-6" style="padding-top:5px">
-                                  
-                                  <h4 style="text-align: center"> <strong>타입</strong>   <%=@product.wc %></h4><br>
-                                  
-                                  <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/<%=@product.wc %>.png" width="95%"style="margin-left:10px" >
-                              </div>    
-                              
-                          </div>
-                </div>
+        <hr style="border:solid 1px lightgray;">
+        <div>
+          <div class="col-md-6 col-xs-6" style="padding-top:5px;">
+            <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
+            <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
+          </div>
+          <div class="col-md-6 col-xs-6" style="padding-top:5px">
+            <h4 style="text-align: center"> <strong>타입</strong> <%=@product.wc %></h4><br>
+            <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/<%=@product.wc %>.png" width="95%"style="margin-left:10px" >
+          </div>    
+        </div>
+      </div>
                 
     
-            </div>
-        </div>
-        <!-- /.row -->
-        
-        <br> 
-        <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
-        <br>
-        
-        <!-- 제품군, 펄유무, 텍스쳐-->
-        <div style="margin-right:-20px; margin-top:-20px">
-        <div class="panel panel-default col-md-4 col-xs-4">
-            <div class="panel-body" align="center">
-                <span style="font-size:12px; text-align:center">
-                    <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/product_lip.png" width="30"><br><%=@product.pro_type %></span>
-            </div>
-        </div>
-        <div class="panel panel-default col-md-4 col-xs-4">    
-            <div class="panel-body" align="center">
-                <span style="font-size:12px; text-align:center">
-                     <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/glitter.png" width="30"><br><%=@product.glitter %></span>
-            </div>
-        </div>
-        <div class="panel panel-default col-md-4 col-xs-4">
-            <div class="panel-body" align="center">
-                <span style="font-size:12px; text-align:right">
-                      <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/texture.png" width="30"><br><%=@product.texture %></span>
-            </div>
-        </div>
-        </div>
-
-        <br>
-        <br>
-        <!-- 수정요청 버튼 들어갈 부분 -->
-        <hr style="border: solid 0.2px lightgray;">
-        <button type="button" class="btn btn-secondary" style="float: right;">목록</button>
-        <!--<button type="button" class="btn btn-secondary" style="float: right; margin-right:10px">수정요청</button>-->
-        <% if user_signed_in? %>
-            <a href="/home/feedback/<%=@product.num%>">[수정요청]</a>
-        <% else %>
-            <a href="/users/sign_in">[수정요청]</a>
-        <% end %>
-        <!-- 댓글 -->
-        <br>
-        <br>
-        
-        
-        <div class="container">
-            <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
-            <p class="lead">후기를 작성해보세요!</p>
-              
-            <div>
-            <ul class="media-list forum">
-                  
-                <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
-                <% @review.each do |p| %>
-               <!-- <li class="media well">-->
-               <li>
-                    <!-- 후기작성자정보(왼쪽) -->
-                    <div class="pull-left user-info" href="#" float="left">
-                        <!-- 프로필사진(계절타입) -->
-<!--                        <img class="avatar img-circle img-thumbnail" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%= p.userseason %>.png"
-                                 width="64" alt="Generic placeholder image">-->
-                        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/seasonicon/<%= p.userseason %>.png"
-                                 width="64" style="margin-left:15px" >                        
-                        
-                        <br/>
-                        <!-- 작성자닉네임-->
-                        <strong><center><a href="user.html"><%=p.username%></a></center></strong>
-                        <!-- 작성자계절타입-->
-                        <small><center><%=p.userseason%></center></small>
-                    </div>
-                          
-                    <!-- 리뷰본문(오른쪽) -->
-                  <!--  <div class="media-body">-->
-                    <div class="media well">
-                        <!-- 첨부된사진 -->  
-                        <img width="150px" src="<%= p.img_url %>">
-                        
-                        <br><br>
-                        <!-- 후기내용 -->
-                        <p><%=p.content %></p>
-                        <!-- 작성날짜 -->
-                        <p><%= p.created_at.strftime("%Y-%m-%d") %></p>
-                        <!-- 수정하는 페이지로 이동-->
-                        <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
-                        <!-- 삭제버튼-->
-                        <% if p.username = current_user.username %>
-                            <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
-                        <% else %>
-                            <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
-                        <% end %>
-                        
-                    </div>
-                    <!-- Review END -->
-                </li>
-                <%end%>
-                <!--from Review db 끝--> 
-
-            
-            </ul>
-            </div>
-        </div>
-              
-            <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
-              <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
-            <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
-              <center><a href="/users/sign_in" id="review_login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">후기 작성하기</a></center>
-            <% end %>
-                      
-                        
-         </div>
-        
-                    
     </div>
-                <!-- /.container -->
-                
-                
-   
+  </div>
+        
+  <br> 
+  <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
+  <br>
+        
+  <!-- 제품군, 펄유무, 텍스쳐-->
+  <div style="margin-right:-20px; margin-top:-20px">
+    <div class="panel panel-default col-md-4 col-xs-4">
+      <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:center">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+      </div>
+    </div>
+    <div class="panel panel-default col-md-4 col-xs-4">    
+      <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:center">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/glitter.png" width="30"><br><%=@product.glitter %></span>
+      </div>
+    </div>
+    <div class="panel panel-default col-md-4 col-xs-4">
+      <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:right">
+          <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/texture.png" width="30"><br><%=@product.texture %></span>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+  <!-- 수정요청 버튼 들어갈 부분 -->
+  <hr style="border: solid 0.2px lightgray;">
+    <% if user_signed_in? %>
+      <div id="two" style="text-align:right; margin-bottom:40px;">
+        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+      </div>
+    <% else %>
+      <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">[수정요청]</a>
+    <% end %>
+        
+  <br><br>
+        
+  <div class="container">
+    <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
+    <p class="lead">후기를 작성해보세요!</p>
+    <div>
+      <ul class="media-list forum">
+        <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
+        <% @review.each do |p| %>
+          <li>
+            <!-- 후기작성자정보(왼쪽)-->
+            <div class="pull-left user-info" href="#" float="left">
+              <!-- 프로필사진(계절타입) -->
+              <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/seasonicon/<%= p.userseason %>.png" width="64" style="margin-left:15px" >                        
+              <br/>
+              <!-- 작성자닉네임-->
+              <strong><center><a href="user.html"><%=p.username%></a></center></strong>
+              <!-- 작성자계절타입-->
+              <small><center><%=p.userseason%></center></small>
+            </div>
+            <!-- 리뷰본문(오른쪽) -->
+            <div class="media" style="border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
+                <div class="col-md-12">
+                  <div class="col-md-12" style="top:0px; right:0px; text-align:right;"><%= p.created_at.strftime("%Y-%m-%d") %></div>
+                    <!-- 첨부된사진 -->  
+                    <div class="col-md-3" style="margin-top:20px;">
+                      <img width="100%" src="<%= p.img_url %>">
+                    </div>
+                    <br><br>
+                    <!-- 후기내용 -->
+                    <div class="col-md-9"><%=p.content %></div>
+                </div><br>
+                  <!-- 작성날짜 -->
+                  <div class="col-md-12" style="text-align:right;">
+                    <!-- 수정하는 페이지로 이동-->
+                    <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
+                    <!-- 삭제버튼-->
+                    <% if p.username = current_user.username %>
+                      <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                    <% else %>
+                      <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                   <% end %>
+                  </div>
+            </div>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+  <br><br>
+  
+  <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
+    <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a></center>
+  <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
+    <center><a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a></center>
+  <% end %>
+                      
+</div>
+
+
 <style>
-      @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
-      h4 {font-family: 'Hanna';}
+    @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+    h4 {font-family: 'Hanna';}
+    
+    .btn-black{
+        width:relative;
+        height:40px;
+        font-size:15px;
+        text-align:center;
+        cursor:pointer;
+        background:#333333;
+    }
 </style>
    
 <script>
@@ -234,6 +185,4 @@
     $("#review_login").click(function(){
       alert("로그인 후 이용해주세요!");
     });	
-    
-   
 </script>
