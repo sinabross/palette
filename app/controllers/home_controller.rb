@@ -393,12 +393,12 @@ class HomeController < ApplicationController
    @post.img_url=uploader.url
    @post.pro_num=params[:feed_pro_num]
    @post.save
-   
-   if @post.pro_num = "all"
+   if @post.pro_num == "home"
     redirect_to '/'
    else
     redirect_to '/home/layout5/' + @post.pro_num
    end
+   
   end
   
   def show_feedback
