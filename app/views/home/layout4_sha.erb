@@ -89,12 +89,12 @@
     
     //제품 드롭다운
     $('#divNewNotifications li').on('click', function() { 
-          $('#dropdown_title').html($(this).find('a').html());
+          $('#dropdown_title').hide().html($(this).find('a').html());
         });
         
     //세부톤 드롭다운
     $('#divNewNotifications2 li').on('click', function() {
-          $('#dropdown_title2').html($(this).find('a').html());
+          $('#dropdown_title2').hide().html($(this).find('a').html());
         });    
     
 </script>
