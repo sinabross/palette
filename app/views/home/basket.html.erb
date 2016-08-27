@@ -3,11 +3,11 @@
 
 <div class="container content col-md-3">
 <div id="one"style="text-align:center; margin-bottom:40px" >
-  <div style="background-color:#F2F2F2">
-    <hr style="border: solid 1.0px lightgray;">
-      <h3><strong>마이페이지</strong></h3>
-    <hr style="border: solid 1.0px lightgray;">
-  </div>
+     <div style="background-color:#ffffff">
+       <hr style="border: solid 1.0px;color:#333333">
+         <p align="center" style="margin-bottom:10px; font-size:16px;color:#000000"><strong>MY PAGE</strong></p>
+       <hr style="border: solid 1.0px;color:#333333">  
+     </div>
   
  <!--  <img src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/<%=current_user.userseason %>.png" class="img-circle" style="width: 50%; border-radius: 50%">-->
  <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/seasonicon/<%=current_user.userseason%>.png" style="width: 50%;">
@@ -20,7 +20,7 @@
 </div>
 
  <div id="two" style="text-align:center; margin-bottom:40px;">
-   <a href="/home/season_update" style="font-size:15px;color:black;" class="btn btn-default" role="button">타입 변경</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+   <a href="/home/season_update" style="font-size:15px;color:white;" class="btn btn-black" role="button">타입 변경</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
 </div>
 
 </div>
@@ -30,11 +30,11 @@
 
 
    <!-- <div class="table-responsive"> 이건 테이블 움직여서 주석처리함-->
-  <div style="background-color:#F2F2F2">
-      <hr style="border: solid 1.0px lightgray;">   
-       <h4><center><strong>찜한 목록</strong></center></h4>
-      <hr style="border: solid 1.0px lightgray;">
-  </div>
+     <div style="background-color:#ffffff">
+       <hr style="border: solid 1.0px;color:#333333">
+         <p align="center" style="margin-bottom:10px; font-size:16px;color:#000000"><strong>찜한 상품</strong></p>
+       <hr style="border: solid 1.0px;color:#333333">  
+     </div>
   
      <div class="table">
       <table class="table">
@@ -79,7 +79,16 @@
            
 <style>
   .seasons{width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px;}
-.btn 
+
+  .btn-black{
+          width:100px;
+          height:40px;
+          font-size:15px;
+          text-align:center;
+          cursor:pointer;
+          color:#000000;
+          background:#333333;
+      }
 
 </style>
 

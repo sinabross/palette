@@ -3,11 +3,20 @@
 
           <div class="row" >
           	   <div class="col-md-12 col-xs-12">
-                    <h1>후기 작성하기</h1>
+                    
+                    
+                   <div style="background-color:#ffffff;">
+                       <hr style="border: solid 1.0px;color:#333333">
+                         <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>후기 작성하기</strong></p>
+                       <hr style="border: solid 1.0px;color:#333333">  
+                   </div>                  
+                    
+                    
+                    
                     
                     
                     <!--상품정보 출력-->
-                    <div class="media well">
+                    <div class="media panel-body container" style="border: solid 2.0px lightgray; margin-top:20px">
                       <div class="pull-left user-info" href="#" float="left" >
                             <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg" style="width:140px;height:auto;">
                           <br>
@@ -30,10 +39,14 @@
                         </div>
                         <!--<input type="file" name="pic" accept="image/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))">-->
                         <br><br>
-                        <button name="pro_submit" value="<%=@product.num%>" type="submit" class="btn btn-default review_submit" style="position:absolute; right:15px">Submit</button>
+
                         <br /><br />
                         <!--사진미리보기-->
                         <div id="cma_image" class="picture"></div>
+                        
+                                                    <div align="center" style="position:center;">
+                                <button name="pro_submit" value="<%=@product.num%>" type="submit" class="btn btn-black review_submit" style="color:#ffffff">작성하기</button>
+                            </div>
                     </form>
                     <br>
                     <br>
@@ -45,6 +58,18 @@
  
  
 <style>
+
+    .btn-black {
+          width:100px;
+          height:40px;
+          font-size:15px;
+          text-align:center;
+          cursor:pointer;
+          color:#000000;
+          background:#333333;
+      }  
+
+
     #write h1 {
     color: #6E6E6E;
     font-size: 18px;
@@ -80,7 +105,7 @@
     }
     
     .picture img{
-        width:30%;   
+        width:30%;  
         
     }
     
