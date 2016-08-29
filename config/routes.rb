@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  resources :home, only: [:layout4] #for pagination
+  resources :home, only: [:list_lip] #for pagination
   
   
-  root 'home#index'
-  get 'home/index'
-  get 'home/index2'
-  get 'home/layout4_2'
-  
+  root 'home#main'
+  get 'home/main'
   
   get 'home/search'
 
@@ -21,14 +18,14 @@ Rails.application.routes.draw do
   post 'home/userseason_update'
   
   
-  get 'home/layout4/:colors'  => "home#layout4"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
-  get 'home/layout4_sha/:colors'  => "home#layout4_sha"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
+  get 'home/list_lip/:colors'  => "home#list_lip"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
+  get 'home/list_eye/:colors'  => "home#list_eye"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
   
-  get 'home/layout4/:colors/:liplist' => "home#layout4" # 립 pro_type 세부 카테고리 분류
-  get 'home/layout4_sha/:colors/:eyelist' => "home#layout4_sha" # 쉐도우 pro_type 세부 카테고리 분류
+  get 'home/list_lip/:colors/:liplist' => "home#list_lip" # 립 pro_type 세부 카테고리 분류
+  get 'home/list_eye/:colors/:eyelist' => "home#list_eye" # 쉐도우 pro_type 세부 카테고리 분류
   
-  get 'home/layout4/:colors/:liplist/:liptone' => "home#layout4"# 립 tone 세부 카테고리 분류 
-  get 'home/layout4_sha/:colors/:eyelist/:eyetone' => "home#layout4_sha"
+  get 'home/list_lip/:colors/:liplist/:liptone' => "home#list_lip"# 립 tone 세부 카테고리 분류 
+  get 'home/list_eye/:colors/:eyelist/:eyetone' => "home#list_eye"
   
   get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
   post 'home/review_submit' #리뷰등록
@@ -39,7 +36,7 @@ Rails.application.routes.draw do
   get 'home/feedback/:product_num' => "home#feedback"
   post 'home/feedback_submit'
   get 'home/show_feedback'
-  get 'home/layout5/:product_num' => "home#layout5"
+  get 'home/detail/:product_num' => "home#detail"
   
   get 'home/seasontalk'
   get 'home/contents'
