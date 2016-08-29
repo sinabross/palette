@@ -35,7 +35,7 @@
               <div class="form-group">
                 <%= f.label :계절타입 %><br />
                 <%= f.select :userseason, 
-                  options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울']], params[:userseason]),
+                  options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울'],['미정','미정']], params[:userseason]),
                   {}, { :class => 'form-control' }%>
               </div>
               
