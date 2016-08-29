@@ -1,53 +1,47 @@
 <!--로그인 화면-->
-
-
 <section id="login">
-    <div class="container">
-    	<div class="row">
-    	    <div class="col-md-6 col-md-offset-3">
-    	      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        	    <div class="form-wrap">
-                <h1>로그인</h1>
-                <!--Log in with your email account-->
-                    <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
-                        <div class="form-group">
-                              <%= f.label :email %><br/>
-                              <%= f.email_field :email, autofocus: true, class:"form-control" ,placeholder:"이메일을 입력하세요!" %>
-                        </div>
-                        <div class="form-group">
-                              <%= f.label :password %><br/>
-                              <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"비밀번호를 입력하세요!" %>
-                        </div>
+  <div class="container">
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    	  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        	<div class="form-wrap">
+            <h1>로그인</h1>
+            <!--Log in with your email account-->
+            <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+              <div class="form-group">
+                <%= f.label :email %><br/>
+                <%= f.email_field :email, autofocus: true, class:"form-control" ,placeholder:"이메일을 입력하세요!" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :password %><br/>
+                <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"비밀번호를 입력하세요!" %>
+              </div>
                         
-                        <% if devise_mapping.rememberable? -%>
-                        <div class="checkbox">
-                          
-                              <%= f.check_box :remember_me, class:"character-checkbox" %>
-                              <%= f.label :remember_me, class:"label" %>
-
-                        </div>
-                            <% end -%>
-                        <div class="actions" id="btn-login">
-                            <%= f.submit "Log in", class:"btn btn-custom btn-lg btn-block"%>
-                        
-                        </div>
-                        
-                            <% end %>
-                    <!--페북로그인-->        
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
-    
-                    <div id="status"></div> 
-                    <!--페북로그인끝-->
-                    <div style="text-align:center">
-                    <%= render "devise/shared/links"%>
-                    </div>
-                    </form>
-
-                    <hr>
-        	    </div>
-    		</div> <!-- /.col-xs-12 -->
-    	</div> <!-- /.row -->
-    </div> <!-- /.container -->
+              <% if devise_mapping.rememberable? -%>
+                <div class="checkbox">
+                  <%= f.check_box :remember_me, class:"character-checkbox" %>
+                  <%= f.label :remember_me, class:"label" %>
+                </div>
+              <% end %>
+              
+              <div class="actions" id="btn-login">
+                <%= f.submit "Log in", class:"btn btn-custom btn-lg btn-block"%>
+              </div>
+              
+              <!--페북로그인-->        
+              <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+              <div id="status"></div> 
+              <!--페북로그인끝-->
+              <div style="text-align:center">
+                <%= render "devise/shared/links"%>
+              </div>
+            </form>
+          <hr>
+          </div>
+        <% end %>
+    	</div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
 </section>
 
 
