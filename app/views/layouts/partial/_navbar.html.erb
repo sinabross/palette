@@ -1,98 +1,82 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <span class="gLeft" style="float:left">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-              </span>
-               <a href="/">
-                  <div style="float:center">
-                  <span class="gCenter" style="float:center;">
-                    <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/rank/logo_1+(1).png" width="110" style="margin-top:5px">
-                  </span>
-                  </div>
-               </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-           
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    
-                    <li>
-                        <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
-                            
-                            <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
-                            <input type="hidden" name="utf8" value="✓">
-                            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:350px;" class="searchbox-input" >
-          
-                              <button type="submit"class="searchbox-submit">
-                                  <i id="searchbox-icon" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
-                              </button>
-                                
-                        </form>
-                        
-                        <!-- 검색 기능 연습-->
-                                 
-                          
-                    </li>
-                    
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">상품보기<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header">Warm</li>
-                              <li>
-                                  <a href="/home/list_lip/w_lips" style="text-indent:20px">립</a>
-                              </li>
-                              <li>
-                                  <a href="/home/list_eye/w_eyes" style="text-indent:20px">섀도우</a>
-                              </li>
-                            <li class="dropdown-header">Cool</li>
-                              <li>
-                                  <a href="/home/list_lip/c_lips" style="text-indent:20px">립</a>
-                              </li>
-                              <li>
-                                  <a href="/home/list_eye/c_eyes" style="text-indent:20px">섀도우</a>
-                              </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="/home/seasontalk">시즌톡</a>
-                    </li>
-                    <li>
-                        <a href="/home/contents">콘텐츠</a>
-                    </li>
-                     <li>
-                       
-                        <% if user_signed_in? %>
-                          <%= link_to "마이페이지", href="/basket" %>
-                        <% else %>
-                          <%= link_to "마이페이지", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
-                        <% end %>
-                    </li>
-                     <li>
-                        <% if user_signed_in? %>
-                          <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
-                        <% else %>
-                          <%= link_to "로그인", new_user_session_path %>
-                        <% end %>
-                    </li>
-
-                </ul>
-               
-            </div>
-            <!-- /.navbar-collapse1 -->
-            
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <span class="gLeft" style="float:left">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </span>
+      <a href="/">
+        <div style="float:center">
+          <span class="gCenter" style="float:center;">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/rank/logo_1+(1).png" width="110" style="margin-top:5px">
+          </span>
         </div>
-        <!-- /.container -->
-    </nav>
+      </a>
+    </div>
     
-    <style>
-      .searchbox{
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
+            <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
+            <input type="hidden" name="utf8" value="✓">
+            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:350px;" class="searchbox-input">
+            <button type="submit"class="searchbox-submit">
+               <i id="searchbox-icon" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
+            </button>
+           </form>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">상품보기<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Warm</li>
+            <li><a href="/home/list_lip/w_lips" style="text-indent:20px">립</a></li>
+            <li><a href="/home/list_eye/w_eyes" style="text-indent:20px">섀도우</a></li>
+            <li class="dropdown-header">Cool</li>
+            <li><a href="/home/list_lip/c_lips" style="text-indent:20px">립</a></li>
+            <li><a href="/home/list_eye/c_eyes" style="text-indent:20px">섀도우</a></li>
+          </ul>
+        </li>
+        
+        <li>
+          <a href="/home/seasontalk">시즌톡</a>
+        </li>
+        
+        <li>
+          <a href="/home/contents">콘텐츠</a>
+        </li>
+        
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "마이페이지", href="/basket" %>
+          <% else %>
+            <%= link_to "마이페이지", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+          <% end %>
+        </li>
+        
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          <% else %>
+            <%= link_to "로그인", new_user_session_path %>
+          <% end %>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /.navbar-collapse1 -->
+  </div>
+  <!-- /.container -->
+</nav>
+    
+<style>
+  .searchbox{
       position:relative;
       min-width:50px;
       width:0%;
@@ -107,112 +91,108 @@
       transition: width 0.3s;
       }
       
-      .searchbox-input{
-          top:0;
-          right:0;
-          border:0;
-          outline:0;
-          background:#dcddd8;
-          width:100%;
-          height:40px;
-          margin:5px;
-          padding:0px 55px 0px 8px;
-          font-size:1em;
-          color:#000000;
+  .searchbox-input{
+      top:0;
+      right:0;
+      border:0;
+      outline:0;
+      background:#dcddd8;
+      width:100%;
+      height:40px;
+      margin:5px;
+      padding:0px 55px 0px 8px;
+      font-size:1em;
+      color:#000000;
       }
-      .searchbox-input::-webkit-input-placeholder {
-          color: #696969;
+  .searchbox-input::-webkit-input-placeholder {
+      color: #696969;
       }
-      .searchbox-input:-moz-placeholder {
-          color: #696969;
+  .searchbox-input:-moz-placeholder {
+      color: #696969;
       }
-      .searchbox-input::-moz-placeholder {
-          color: #696969;
+  .searchbox-input::-moz-placeholder {
+      color: #696969;
       }
-      .searchbox-input:-ms-input-placeholder {
-          color: #696969;
-          
-      }
-      
-      .searchbox-icon,
-      .searchbox-submit{
-          width:50px;
-          height:50px;
-          display:block;
-          position:absolute;
-          top:0;
-          font-family:verdana;
-          font-size:22px;
-          right:0;
-          padding:0;
-          margin:0;
-          border:0;
-          outline:0;
-          line-height:50px;
-          text-align:center;
-          cursor:pointer;
-          color:#dcddd8;
-          background:#333333;
+  .searchbox-input:-ms-input-placeholder {
+      color: #696969;
       }
       
-      
-      
-      .searchbox-open{
-          width:100%;
+  .searchbox-icon,.searchbox-submit{
+      width:50px;
+      height:50px;
+      display:block;
+      position:absolute;
+      top:0;
+      font-family:verdana;
+      font-size:22px;
+      right:0;
+      padding:0;
+      margin:0;
+      border:0;
+      outline:0;
+      line-height:50px;
+      text-align:center;
+      cursor:pointer;
+      color:#dcddd8;
+      background:#333333;
       }
       
-      .byline{
-        position:absolute;
-        top:150px;
-        left:30%;
-        text-align:center;
-        font-size:18px;
+  .searchbox-open{
+      width:100%;
       }
-      .byline a{
-        text-decoration:none;
-        color: #d74b4b;
+      
+  .byline{
+      position:absolute;
+      top:150px;
+      left:30%;
+      text-align:center;
+      font-size:18px;
       }
-    </style>
+  .byline a{
+      text-decoration:none;
+      color: #d74b4b;
+      }
+</style>
     
-     <script>
-      $(document).ready(function(){
-            var submitIcon = $('.searchbox-icon');
-            var inputBox = $('.searchbox-input');
-            var searchBox = $('.searchbox');
-            var isOpen = true;
-            submitIcon.click(function(){
-                if(isOpen == false){
-                    searchBox.addClass('searchbox-open');
-                    inputBox.focus();
-                    isOpen = true;
-                } else {
-                    searchBox.removeClass('searchbox-open');
-                    inputBox.focusout();
-                    isOpen = false;
-                }
-            });  
-             submitIcon.mouseup(function(){
-                    return false;
-                });
-            searchBox.mouseup(function(){
-                    return false;
-                });
-            $(document).mouseup(function(){
-                    if(isOpen == true){
-                        $('.searchbox-icon').css('display','block');
-                        submitIcon.click();
-                    }
-                });
-        });
-            function buttonUp(){
-                var inputVal = $('.searchbox-input').val();
-                inputVal = $.trim(inputVal).length;
-                if( inputVal !== 0){
-                    $('.searchbox-icon').css('display','none');
-                } else {
-                    $('.searchbox-input').val('');
-                    $('.searchbox-icon').css('display','block');
-                }
-            }
-      </script>
-      
+<script>
+  $(document).ready(function(){
+    var submitIcon = $('.searchbox-icon');
+    var inputBox = $('.searchbox-input');
+    var searchBox = $('.searchbox');
+    var isOpen = true;
+    submitIcon.click(function(){
+      if(isOpen == false){
+        searchBox.addClass('searchbox-open');
+        inputBox.focus();
+        isOpen = true;
+      } else {
+        searchBox.removeClass('searchbox-open');
+        inputBox.focusout();
+        isOpen = false;
+      }
+    });  
+    submitIcon.mouseup(function(){
+        return false;
+    });
+    searchBox.mouseup(function(){
+        return false;
+    });
+    $(document).mouseup(function(){
+      if(isOpen == true){
+        $('.searchbox-icon').css('display','block');
+          submitIcon.click();
+      }
+    });
+  });
+  
+  function buttonUp(){
+    var inputVal = $('.searchbox-input').val();
+    inputVal = $.trim(inputVal).length;
+    if( inputVal !== 0){
+      $('.searchbox-icon').css('display','none');
+    } else {
+      $('.searchbox-input').val('');
+      $('.searchbox-icon').css('display','block');
+    }
+  }
+</script>
