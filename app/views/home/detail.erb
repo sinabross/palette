@@ -4,7 +4,8 @@
     <div class="row">
       
       <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
-        <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">
+        <!--<img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=@product.num%>.jpg">-->
+        <img class="img1 img-thumbnail" width=400 src="images/capture.png">
       </div>
     
       <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
@@ -133,14 +134,19 @@
                 </div><br>
                   <!-- 작성날짜 -->
                   <div class="col-md-12" style="text-align:right;">
-                    <!-- 수정하는 페이지로 이동-->
-                    <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
+                    
                     <!-- 삭제버튼-->
-                    <% if p.username = current_user.username %>
-                      <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                    <% if user_signed_in? %> 
+                      <% if p.username = current_user.username %>
+                        <!-- 수정하는 페이지로 이동-->
+                        <a href="/update_view/<%=@product.num%>/<%=p.id%>">[수정하기]</a>
+                        <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                      <% else %>
+                        <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                      <% end %>
                     <% else %>
-                      <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
-                   <% end %>
+                      <!-- 로그인안했어도 detail페이지들어갈수있게.. 로그인안한상태에서 current_user 찾을수없어서 오류떴었던거 수정-->
+                    <% end %>
                   </div>
             </div>
           </li>

@@ -1,0 +1,111 @@
+
+<div class="container"> 
+  <div class="row" style="margin-top:30px">
+    <!-- 제품선택버튼 -->
+    <div class="btn-group col-md-3 col-md-offset-3 col-xs-6">
+      <button type="button" class="btn btn-black dropdown-toggle" style="width:100%;background-color:#EBEBEB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="dropdown_title"><%=@liplist%></span> <span class="caret"></span>
+      </button>
+      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
+        <li><a href="/home/list_lip/<%=@colors%>">전체보기</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/home/list_lip/<%=@colors%>/립스틱">립스틱</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/립틴트">립틴트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/립글로즈">립글로즈</a></li>
+      </ul>
+    </div>
+                      
+    <!-- 세부톤선택버튼 -->
+    <div class="btn-group col-md-3 col-xs-6" >
+      <button type="button" class="btn btn-black dropdown-toggle" style="width:100%; background-color:#EBEBEB"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span id="dropdown_title2"><%=@liptone%></span> <span class="caret"></span>
+      </button>
+      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/비비드">비비드</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/브라이트">브라이트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/스트롱">스트롱</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/딥">딥</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/라이트">라이트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/소프트">소프트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/덜">덜</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/다크">다크</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/페일">페일</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/라이트그레이쉬">라이트그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/그레이쉬">그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/다크그레이쉬">다크그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>">무채색</a></li>
+      </ul>
+    </div>
+  </div>        
+
+
+  <!-- Projects Row -->
+  <% @list.each_slice(3) do |slice| %>
+    <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
+      <% slice.each do |w|%>
+        <div class="col-md-4 col-xs-12"  style="display:inline;">
+          <br>
+          <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+          <a class="col-md-12 col-xs-5" href="/home/detail/<%=w.num%>">
+            <div style="margin-bottom:40px">
+              <!--<img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
+                   alt="" style="border: 1px solid lightgray;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
+              <img class="example" src="capture.png" alt="" style="border: 1px solid lightgray;">      
+            </div>
+          </a>
+                      
+          <div class="col-md-12 col-xs-7"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+            <div style="height:60px"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
+              <a class="product_name" href="/home/detail/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
+            </div>
+            <p class="product_price"><%=w.size%> / <%=w.price%>원</p>
+          </div>
+                      
+          <div class="col-md-8 col-xs-4">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
+            <p class="product_tone"> <%=w.wc%> / <%=w.tone%> </p>
+          </div>
+          <!-- LikeBtn.com BEGIN -->
+          <div class="col-md-3 col-xs-3" style="text-align:right">
+            <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png" width="20"><%=display_likes(w)%></p>       
+          </div>
+                      
+          <hr class="col-xs-12" style="border: solid 1.0px lightgray; margin-right: 20px"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
+        </div>
+      <%end%>
+    </div>
+  <% end %>
+      
+  <!-- pagination -->
+  <%= render :partial => "layouts/partial/pagination" %> 
+</div><!-- /.container -->
+
+<style>
+  
+  .btn-black{
+          width:100px;
+          height:40px;
+          font-size:15px;
+          text-align:center;
+          cursor:pointer;
+          color:#000000;
+          background:#F5F5F5;
+      }
+  
+</style>
+
+<script>
+    
+    //제품 드롭다운
+    $('#divNewNotifications li').on('click', function() { 
+      $('#dropdown_title').hide().html($(this).find('a').html());
+    });
+        
+    //세부톤 드롭다운
+    $('#divNewNotifications2 li').on('click', function() {
+      $('#dropdown_title2').hide().html($(this).find('a').html());
+    });    
+        
+</script>
+
+
+
