@@ -12,7 +12,7 @@ class CreateEyedbs < ActiveRecord::Migration
       t.integer :zzim, default:"0"
       t.string  :pro_type
       t.string  :glitter
-      t.string  :texture, default:""
+      t.string  :texture, default:"매트"
       t.string :image_url, default:""
       
       t.timestamps null: false

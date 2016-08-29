@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160826130813) do
     t.integer  "zzim",       default: 0
     t.string   "pro_type"
     t.string   "glitter"
-    t.string   "texture",    default: ""
+    t.string   "texture",    default: "매트"
     t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "feedbacks", force: :cascade do |t|
