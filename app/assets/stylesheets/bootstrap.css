@@ -1419,6 +1419,11 @@ a.bg-danger:focus {
   color: black;
   
 }
+.product_name>a:hover,
+.product_name>a:focus
+{
+  text-decoration: none;
+}
 .product_price {
   font-size: 13px;
   color:black;
