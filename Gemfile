@@ -11,7 +11,8 @@ gem 'acts_as_votable', '~> 0.10.0' #찜하기 기능을 위한 젬 파일 (별�
 
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', :group => :development
+gem 'pg', :group => :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
