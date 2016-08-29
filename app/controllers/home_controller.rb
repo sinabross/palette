@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
-  def index
+  def main
     # 웜 립 TOP3
      @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
     # 웜 섀도 TOP3
@@ -11,79 +11,9 @@ class HomeController < ApplicationController
      @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
      
   end
-  def index2
-     # 웜 립 TOP3
-     @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
-    # 웜 섀도 TOP3
-     @w_best_sha = Eyedb.get_w_eye.order('zzim desc').first(3)
-    # 쿨 립 TOP3
-     @c_best_lip = Lipdb.get_c_lip.order('zzim desc').first(3)
-    # 쿨 섀도 TOP3
-     @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
-  end
   
-  def layout4_2
-   
-    # 웜톤 립 출력
-    
-     if params[:colors] == "w_lips"
-      #웜립일때
-      @colors = "w_lips"
-      @liplist = params[:liplist]
-      @liptone = params[:liptone]
-      #웝립/제품군/세부톤
-      @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
-      if params[:liplist] == nil
-      @liplist = "제품"
-      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
-       if params[:liptone] == nil
-        @liptone = "세부톤"
-        @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21) 
-       end
-      end
-      #세부톤 선택안했을때
-      if params[:liptone] == nil
-       @liptone = "세부톤"
-       #웜립/제품군에 따라 출력
-       @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
-        #세부톤,제품군 선택안했을때 웜립 전체출력
-        if params[:liplist] == nil 
-         @liplist = "제품"
-         @list = Lipdb.get_w_lip.paginate(page: params[:page], per_page: 21)
-        end
-      end
-     end
 
-     # 쿨톤 립 출력
-     if params[:colors] == "c_lips"
-      @colors = "c_lips"
-      @liplist = params[:liplist]
-      @liptone = params[:liptone]
-      @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
-      if params[:liplist] == nil
-       @liplist = "제품"
-       @list = Lipdb.get_c_lip.where(tone:params[:liptone]).paginate(page: params[:page], per_page: 21)
-       if params[:liptone] == nil
-        @liptone = "세부톤"
-        @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21) 
-       end
-      end
-       if params[:liptone] == nil
-        @liptone = "세부톤"
-       @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).paginate(page: params[:page], per_page: 21)
-        if params[:liplist] == nil 
-         @liplist = "제품"
-         @list = Lipdb.get_c_lip.paginate(page: params[:page], per_page: 21)
-        end
-       end
-     end
-    
-  end
-  
   def search
-     
-     
-     
      # splitting the search key word
      
        if params[:search].include?(" ") == true
@@ -110,7 +40,7 @@ class HomeController < ApplicationController
   end
   
   
-  def layout4
+  def list_lip
     
     # 웜톤 립 출력
     
@@ -170,7 +100,7 @@ class HomeController < ApplicationController
   end
 
 
-  def layout4_sha
+  def list_eye
    
     if params[:colors] == "w_eyes"
      
@@ -225,7 +155,7 @@ class HomeController < ApplicationController
 
   end
   
-  def layout5
+  def detail
     
      #립 상세페이지
      if params[:product_num].start_with?("L")
@@ -323,7 +253,7 @@ class HomeController < ApplicationController
    @review.save
    
     
-   redirect_to '/home/layout5/' + @review.num
+   redirect_to '/home/detail/' + @review.num
    
   end
   
@@ -356,7 +286,7 @@ class HomeController < ApplicationController
    
    @one_review.save
     
-   redirect_to '/home/layout5/' + @one_review.num
+   redirect_to '/home/detail/' + @one_review.num
    
   end
   
@@ -396,7 +326,7 @@ class HomeController < ApplicationController
    if @post.pro_num == "home"
     redirect_to '/'
    else
-    redirect_to '/home/layout5/' + @post.pro_num
+    redirect_to '/home/detail/' + @post.pro_num
    end
    
   end
@@ -445,13 +375,6 @@ class HomeController < ApplicationController
   end
   # /My page
 
- def contents
-  
- end
-
- def seasontalk
-  
- end
 
 
 end
