@@ -1,107 +1,94 @@
-
-
- <!-- if there is no search result, show this message-->
+<!-- if there is no search result, show this message-->
 <% if @result.blank? && @result2.blank? %>
   <div style="margin-top:200px;margin-bottom:200px">
     
-      <h3 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h3>
-      <br>
-      <h4 style="text-align:center; font-weight:bold">보다 자세한 검색을 위한 Tip</h4>
-      <br>
-      <p style="text-align:center">1. 띄어쓰기를 하면 보다 정확한 검색 결과를 보실 수 있습니다.</p>
-      <p style="text-align:center">2. 브랜드명, 제품명, 세부톤 등으로 다양하게 검색해보세요.<br><strong>예)</strong>바비브라운 쿨 섀도우</p>
-    
+    <h3 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h3>
+    <br>
+    <h4 style="text-align:center; font-weight:bold">보다 자세한 검색을 위한 Tip</h4>
+    <br>
+    <p style="text-align:center">1. 띄어쓰기를 하면 보다 정확한 검색 결과를 보실 수 있습니다.</p>
+    <p style="text-align:center">2. 브랜드명, 제품명, 세부톤 등으로 다양하게 검색해보세요.<br><strong>예)</strong>바비브라운 쿨 섀도우</p>
   </div>
 <% end %>
 
 
-
 <!--제품 출력 목록 -->
- <% @result.each_slice(3) do |slice| %>
-    <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
-        <% slice.each do |w|%>
-            <div class="col-md-4 col-xs-12"  style="display:inline">
-                    <br>
-                    <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+<% @result.each_slice(3) do |slice| %>
+  <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
+    <% slice.each do |w|%>
+      <div class="col-md-4 col-xs-12"  style="display:inline">
+        <br>
+        <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+        <a class="col-md-12 col-xs-5" href="/home/detail/<%=w.num%>">
+          <div style="margin-bottom:40px">
+          <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
+               alt="" style="border: 1px solid lightgray;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
+          </div>
+        </a>
                     
-                    <a class="col-md-12 col-xs-5" href="/home/detail/<%=w.num%>">
-                      <div style="margin-bottom:40px">
-                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
-                        alt="" style="border: 1px solid lightgray;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
-                      </div>
-                    </a>
+        <div class="col-md-12 col-xs-7"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+          <div style="height:60px"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
+            <a class="product_name" href="/home/detail/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
+          </div>
+          <p class="product_price"><%=w.size%> / <%=w.price%>원</p>
+        </div>
                     
-                    <div class="col-md-12 col-xs-7"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
-                      <div style="height:60px"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
-                        <a class="product_name" href="/home/detail/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
-                      </div>
-                        <p class="product_price"><%=w.size%> / <%=w.price%>원</p>
-                    </div>
-                    
-                    <div class="col-md-8 col-xs-4">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
-                       <p class="product_tone"> <%=w.wc%> / <%=w.tone%> </p>
-                    </div>
-                    <!-- LikeBtn.com BEGIN -->
-                      <div class="col-md-3 col-xs-3" style="text-align:right">
-                    <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                      width="20" ><%=display_likes(w)%></p>       
-                      </div>
-                    
-                    <!-- LikeBtn.com END -->
-                    
-                  
-              
-                    <hr class="col-xs-12" style="border: solid 1.0px lightgray; margin-right: 20px"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
-             </div>
-        <%end%>
-    </div>
-    <% end %>
+        <div class="col-md-8 col-xs-4">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
+          <p class="product_tone"> <%=w.wc%> / <%=w.tone%> </p>
+        </div>
+        <!-- LikeBtn.com BEGIN -->
+        <div class="col-md-3 col-xs-3" style="text-align:right">
+          <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                  width="20" ><%=display_likes(w)%></p>       
+        </div>
+        <!-- LikeBtn.com END -->
+        <hr class="col-xs-12" style="border: solid 1.0px lightgray; margin-right: 20px"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
+      </div>
+    <%end%>
+  </div>
+<% end %>
 
 <!--제품 출력 목록2 -->
- <% @result2.each_slice(3) do |slice| %>
-    <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
-        <% slice.each do |w|%>
-            <div class="col-md-4 img-portfolio"  style="display:inline;">
-                    <br>
-                    <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
-                    <a class="col-md-12 col-xs-6" style="img align=center" href="/home/detail/<%=w.num%>">
-                        
-                        <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
-                        alt="" style="width: 100%;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
-                    </a>
-                    <p class="col-md-12 col-xs-6" > <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
-                        <a href="/home/detail/<%=w.num%>" ><p>[<%=w.brand%>]<%=w.name%></p></a>
-                        <span> <%=w.size%> / <%=w.price%>원</span><br>
-                        <span> <%=w.wc%> / <%=w.tone%> </span>
-                        
-                        <!-- LikeBtn.com BEGIN -->
-                        <div style="text-align:right">
-                        <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
-                          width="20" ><%=display_likes(w)%></p>                  
-                        </div>
-                        <!-- LikeBtn.com END -->
-                    </p>
-                    <br>
-                    <hr style="border: solid 1.0px lightgray;"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
-             </div>
-        <%end%>
-    </div>
-    <% end %>
-    
-    <!-- pagination -->
-    
-    <%= render :partial => "layouts/partial/pagination" %>
+<% @result2.each_slice(3) do |slice| %>
+  <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
+    <% slice.each do |w|%>
+      <div class="col-md-4 img-portfolio"  style="display:inline;">
+        <br>
+        <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+        <a class="col-md-12 col-xs-6" style="img align=center" href="/home/detail/<%=w.num%>">
+          <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/lip/<%=w.num%>.jpg"
+               alt="" style="width: 100%;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
+        </a>
+        <p class="col-md-12 col-xs-6"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+          <a href="/home/detail/<%=w.num%>" ><p>[<%=w.brand%>]<%=w.name%></p></a>
+          <span> <%=w.size%> / <%=w.price%>원</span><br>
+          <span> <%=w.wc%> / <%=w.tone%> </span>
+          <!-- LikeBtn.com BEGIN -->
+          <div style="text-align:right">
+            <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png"
+                    width="20" ><%=display_likes(w)%></p>                  
+          </div>
+          <!-- LikeBtn.com END -->
+        </p>
+        <br>
+        <hr style="border: solid 1.0px lightgray;"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
+      </div>
+    <%end%>
+  </div>
+<% end %>
+<!-- pagination -->
+<%= render :partial => "layouts/partial/pagination" %>
     
 <script>
     
-    //제품 드롭다운
-    $('#divNewNotifications li').on('click', function() { 
-          $('#dropdown_title').html($(this).find('a').html());
-        });
+  //제품 드롭다운
+  $('#divNewNotifications li').on('click', function() { 
+    $('#dropdown_title').html($(this).find('a').html());
+  });
         
-    //세부톤 드롭다운
-    $('#divNewNotifications2 li').on('click', function() {
-          $('#dropdown_title2').html($(this).find('a').html());
-        });    
+  //세부톤 드롭다운
+  $('#divNewNotifications2 li').on('click', function() {
+    $('#dropdown_title2').html($(this).find('a').html());
+  });    
     
 </script>
