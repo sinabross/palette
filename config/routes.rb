@@ -38,9 +38,8 @@ Rails.application.routes.draw do
   post 'home/feedback_submit'
   get 'home/show_feedback'
   get 'home/detail/:product_num' => "home#detail"
-  
-  get 'home/seasontalk'
-  get 'home/contents'
+
+  get 'home/about'
 
   # 좋아요 기능
   resources :home do 

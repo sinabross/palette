@@ -335,5 +335,9 @@ class HomeController < ApplicationController
   
     redirect_to "/basket"
   end
+  
+  def about
+    
+  end
 
 end
