@@ -45,11 +45,19 @@
         </li>
         
         <li>
-          <a href="/home/seasontalk">시즌톡</a>
+          <a href="/home/about">팔레트란?</a>
         </li>
         
         <li>
-          <a href="/home/contents">콘텐츠</a>
+          <!------------------------------------------------->
+   
+              <% if user_signed_in? %>
+                  <a href="/home/feedback/all">피드백</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+              <% else %>
+                  <a href="/users/sign_in">피드백</a>
+              <% end %>
+
+          <!------------------------------------------------->
         </li>
         
         <li>
