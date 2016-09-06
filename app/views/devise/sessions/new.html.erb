@@ -28,11 +28,17 @@
                 <%= f.submit "Log in", class:"btn btn-custom btn-lg btn-block"%>
               </div>
               
-             
               <div style="text-align:center">
+              <%= render "devise/shared/links" %>
+              </div>
+             
+             <!-- 페이스북 로그인 살리려면 주석해제
+             
+              
+               <div style="text-align:center">
                 <%= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path, class: "loginBtn loginBtn_facebook" %></br>
                 <%= render "devise/shared/links" %>
-              </div>
+              </div> -->
             </form>
           <hr>
           </div>
