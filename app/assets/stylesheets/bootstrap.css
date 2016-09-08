@@ -1494,8 +1494,8 @@ dd {
 }
 @media (min-width: 200px) and (max-width: 767px) {
   .example {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   
  
 }
