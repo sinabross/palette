@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'figaro' # 환경 변수 보호용 gem
 gem 'devise' #로그인
 
 #facebook login  
