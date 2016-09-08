@@ -7,7 +7,8 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'fe02060ef837fb683acabbfe5c2b96becb70c3ea8b37b9ecf820df6808da9c0a48d3a038a47c992c4ab693cae3c46438c07b0a25888738f3c94898fd0e110afa'
-
+  config.secret_key= 'c7fbd63be2dff8e07d5eb9f5327a4a54c2af8cd2a24eb75a187338e4668cb59880bd32898f23b397c2199a3718b7907d4782ef6ac2497e0a52b8d35c13d0a01d'
+  #이건 아마존 ec2 서버세팅시에 putty가 시켜서 추가함
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
