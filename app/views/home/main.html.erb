@@ -46,9 +46,11 @@
       <%@w_best_lip.each do |best|%>
         <div class="col-xs-12 col-sm-4 col-md-4"> 
           <a href="/home/detail/<%=best.num%>" class="col-xs-5 col-md-12">
-            <img class="img-responsive img-portfolio img-hover img-thumbnail" 
-               src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" width="300" height="280">
-            
+          <div>  
+            <img class="example" class="img-responsive img-portfolio img-hover img-thumbnail" 
+               src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" style="border: 1px solid lightgray; margin-bottom: 20px">
+           <!-- 클래스 지정으로 모바일/ Pc에 따라 이미지 크기 설정 -->
+          </div>  
           </a>
                   
           <div class="col-xs-7 col-md-12">
@@ -78,10 +80,10 @@
     <%@w_best_sha.each do |best|%>
       <div class="col-xs-12 col-sm-4 col-md-4"> 
         <a href="/home/detail/<%=best.num%>" class="col-xs-5 col-md-12">
-          <div style="position:relative;">
-            <img class="img-responsive img-portfolio img-hover img-thumbnail" 
-                 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" width="300" height="280">
-            
+          <div>
+            <img class="example" class="img-responsive img-portfolio img-hover img-thumbnail" 
+                 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" style="border: 1px solid lightgray; margin-bottom: 20px">
+            <!-- 클래스 지정으로 모바일/ Pc에 따라 이미지 크기 설정 -->
           </div>
         </a>  
                    
@@ -117,9 +119,11 @@
     <%@c_best_lip.each do |best|%>
       <div class="col-xs-12 col-sm-4 col-md-4"> 
         <a href="/home/detail/<%=best.num%>" class="col-xs-5 col-md-12">
-          <img class="img-responsive img-portfolio img-hover img-thumbnail" 
-               src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" width="300" height="280">
-          
+        <div>  
+          <img class="example" class="img-responsive img-portfolio img-hover img-thumbnail" 
+               src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" style="border: 1px solid lightgray; margin-bottom: 20px;">
+        <!-- 클래스 지정으로 모바일/ Pc에 따라 이미지 크기 설정 -->
+        </div>  
         </a>
               
         <div class="col-xs-7 col-md-12">
@@ -148,9 +152,11 @@
     <%@c_best_sha.each do |best|%>
       <div class="col-xs-12 col-sm-4 col-md-4"> 
         <a href="/home/detail/<%=best.num%>" class="col-xs-5 col-md-12">
-          <img class="img-responsive img-portfolio img-hover img-thumbnail" 
-               src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" alt="" width="300" height="280">
-             
+        <div>
+          <img class="example" class="img-responsive img-portfolio img-hover img-thumbnail" 
+               alt="" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=best.num%>.jpg" style="border: 1px solid lightgray; margin-bottom: 20px">
+        <!-- 클래스 지정으로 모바일/ Pc에 따라 이미지 크기 설정 -->
+        </div>     
         </a>
               
         <div class="col-xs-7 col-md-12">
