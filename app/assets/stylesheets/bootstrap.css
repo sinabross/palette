@@ -1502,6 +1502,17 @@ dd {
     width: 400px;
     height: 1200px;
   }
+  
+  .about2 {
+    width: 200px;
+    height: auto;
+  } 
+  /*모바일버전 이미지 불러오기*/
+  
+  #about-img{
+    display:none !important;  
+  }
+  /*웹버전 이미지 숨기기*/
 }
 
 @media (min-width: 768px) {
@@ -1531,7 +1542,10 @@ dd {
     padding-top: 15px;
   }
   
-
+  #about-img2{
+    display:none !important;
+  }
+  /*모바일버전 이미지 숨기기*/
   
 }
 abbr[title],
@@ -2987,10 +3001,7 @@ select[multiple].input-lg {
     margin-bottom: 0;
     vertical-align: middle;
   }
-  .about {
-    height: auto;
-    width: 1200px;
-  }
+
   
   
   .form-inline .form-control {
