@@ -1496,9 +1496,12 @@ dd {
   .example {
   width: 110px;
   height: 110px;
-  
- 
 }
+
+  .about {
+    width: 400px;
+    height: 1200px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -2984,6 +2987,12 @@ select[multiple].input-lg {
     margin-bottom: 0;
     vertical-align: middle;
   }
+  .about {
+    height: auto;
+    width: 1200px;
+  }
+  
+  
   .form-inline .form-control {
     display: inline-block;
     width: auto;
