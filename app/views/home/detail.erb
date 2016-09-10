@@ -89,10 +89,10 @@
   <hr style="border: solid 0.2px lightgray;">
     <% if user_signed_in? %>
       <div id="two" style="text-align:right; margin-bottom:40px;">
-        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">재확인요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">검토요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
       </div>
     <% else %>
-      <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">[재확인요청]</a>
+      <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">[검토요청]</a>
     <% end %>
         
   <br><br>
