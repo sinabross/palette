@@ -33,7 +33,7 @@
            </form>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">추천보기<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">제품추천<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li class="dropdown-header">Warm</li>
             <li><a href="/home/list_lip/w_lips" style="text-indent:20px">립</a></li>
@@ -52,9 +52,9 @@
           <!------------------------------------------------->
    
               <% if user_signed_in? %>
-                  <a href="/home/feedback/all">피드백</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+                  <a href="/home/feedback/all">고객의소리</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
-                  <a href="/users/sign_in">피드백</a>
+                  <a href="/users/sign_in">고객의소리</a>
               <% end %>
 
           <!------------------------------------------------->
