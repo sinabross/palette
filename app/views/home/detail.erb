@@ -58,9 +58,7 @@
     </div>
   </div>
         
-  <br> 
-  <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
-  <br>
+  <br><br>
         
   <!-- 제품군, 펄유무, 텍스쳐-->
   <div style="margin-right:-20px; margin-top:-20px">
@@ -86,7 +84,7 @@
 
   <br><br>
   <!-- 수정요청 버튼 들어갈 부분 -->
-  <hr style="border: solid 0.2px lightgray;">
+  
     <% if user_signed_in? %>
       <div id="two" style="text-align:right; margin-bottom:40px;">
         <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">검토요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
