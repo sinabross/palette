@@ -158,9 +158,8 @@ class HomeController < ApplicationController
     
     # 좋아요 수를 lip,eye db의 zzim에 저장
     @product.zzim = @product.votes_for.up.by_type(User).size
-    @review=Review.where(num:params[:product_num])
     @product.save
-     
+    @review=Review.where(num:params[:product_num])
   end
   
   #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
