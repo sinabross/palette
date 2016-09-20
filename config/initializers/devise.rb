@@ -249,7 +249,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook,"1775986029325742","42dcc263366f511b4f139f8d83f4b39ae"
+  config.omniauth :facebook,"1775986029325742","42dcc263366f511b4f139f8d83f4b39a"
 
   #  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
                   #callback_url: "https://palette-repo-fork2-garsong.c9users.io/users/auth/facebook/callback"
