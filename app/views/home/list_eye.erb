@@ -38,14 +38,14 @@
 
   <!-- Projects Row -->
   <% @list.each_slice(3) do |slice| %>
-    <div class="row" style="margin-top:20px; margin-left:20px; margin-right:20px">
+    <div class="row" style="margin-top:20px">
       <% slice.each do |w|%>
         <div class="col-md-4 col-xs-12"  style="display:inline;">
           <br>
           <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-6 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
           <a class="col-md-12 col-xs-5" style="img align=center" href="/home/detail/<%=w.num%>">
             <div style="margin-bottom:50px">
-              <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.num%>.jpg"
+              <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/product/<%=w.num%>-min.jpg"
                    alt="" style="border: 1px solid lightgray;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
                  
             </div>

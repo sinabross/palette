@@ -156,11 +156,12 @@ class HomeController < ApplicationController
       @product = Eyedb.find_by_num(params[:product_num])
     end
     
-    # 좋아요 수를 lip,eye db의 zzim에 저장
-    @product.zzim = @product.votes_for.up.by_type(User).size
+   # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
+   # @product.zzim = @product.votes_for.up.by_type(User).size
+   # @product.save
+    
+    # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
     @review=Review.where(num:params[:product_num])
-    @product.save
-     
   end
   
   #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
@@ -174,7 +175,9 @@ class HomeController < ApplicationController
     end
     
     @product.liked_by current_user
-     
+  
+    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    @product.save
     respond_to do |format|
       #format.html { redirect_to :back }
       format.js
@@ -191,6 +194,8 @@ class HomeController < ApplicationController
     end
     
     @product.unliked_by current_user
+    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    @product.save
     respond_to do |format|
         # format.html { redirect_to :back }
       format.js 

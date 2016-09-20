@@ -2,9 +2,8 @@
 <div class="container">
   <div style = "margin-top:40px">
     <div class="row">
-      
       <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
-        <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.num%>.jpg">
+        <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/product/<%=@product.num%>-min.jpg">
       </div>
     
       <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
@@ -45,11 +44,11 @@
         <div>
           <div class="col-md-6 col-xs-6" style="padding-top:5px;">
             <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
-            <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
+            <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
           </div>   
           <div class="col-md-6 col-xs-6" style="padding-top:5px">
             <h4 style="text-align: center"> <strong>타입</strong> <%=@product.wc %></h4><br>
-            <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.wc %>.png" width="95%"style="margin-left:10px" >
+            <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/type/<%=@product.wc%>.png" width="95%"style="margin-left:10px" >
           </div>  
         </div>
       </div>
@@ -58,41 +57,39 @@
     </div>
   </div>
         
-  <br> 
-  <hr style="border: solid 0.2px lightgray;"> <!--가로선-->
-  <br>
+  <br><br>
         
   <!-- 제품군, 펄유무, 텍스쳐-->
   <div style="margin-right:-20px; margin-top:-20px">
     <div class="panel panel-default col-md-4 col-xs-4">
       <div class="panel-body" align="center">
         <span style="font-size:12px; text-align:center">
-        <img src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/icon/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/product_lip.png" width="30"><br><%=@product.pro_type %></span>
       </div>
     </div>
     <div class="panel panel-default col-md-4 col-xs-4">    
       <div class="panel-body" align="center">
         <span style="font-size:12px; text-align:center">
-        <img src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/icon/glitter.png" width="30"><br><%=@product.glitter %></span>
+        <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/glitter.png" width="30"><br><%=@product.glitter %></span>
       </div>
     </div>
     <div class="panel panel-default col-md-4 col-xs-4">
       <div class="panel-body" align="center">
         <span style="font-size:12px; text-align:right">
-          <img src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/icon/texture.png" width="30"><br><%=@product.texture %></span>
+          <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/texture.png" width="30"><br><%=@product.texture %></span>
       </div>
     </div>
   </div>
 
   <br><br>
   <!-- 수정요청 버튼 들어갈 부분 -->
-  <hr style="border: solid 0.2px lightgray;">
+  
     <% if user_signed_in? %>
       <div id="two" style="text-align:right; margin-bottom:40px;">
-        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">검토요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
       </div>
     <% else %>
-      <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">[수정요청]</a>
+      <a href="/users/sign_in" style="color:#ffffff;" class="btn btn-black" role="button">[검토요청]</a>
     <% end %>
         
   <br><br>
@@ -108,7 +105,7 @@
             <!-- 후기작성자정보(왼쪽)-->
             <div class="pull-left user-info" href="#" float="left">
               <!-- 프로필사진(계절타입) -->
-              <img src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/season_update/<%=p.userseason%>.png" width="64" style="margin-left:15px" >                        
+              <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/seasonicon/<%=p.userseason%>.png" width="64" style="margin-left:15px" >                        
               <br/>
               <!-- 작성자닉네임-->
               <strong><center><a href="user.html"><%=p.username%></a></center></strong>
@@ -120,16 +117,15 @@
                 <div class="col-md-12">
                   <div class="col-md-12" style="top:0px; right:0px; text-align:right;"><%= p.created_at.strftime("%Y-%m-%d") %></div>
                     <!-- 첨부된사진 -->  
-                    <div class="col-md-3" style="margin-top:20px;">
-                      <% if p.img_url == nil %>
-                        <img width="100%" src="https://s3.ap-northeast-2.amazonaws.com/likelion1111/uploads/noimages.jpg">
-                      <% else %>
+                    <div class="col-md-12" style="margin-top:20px;">
+                      <div class="col-md-9"><%=p.content %></div> 
+                      <% unless p.img_url.nil? %>
                         <img width="100%" src="<%= p.img_url %>">
                       <% end %>
+                     
                     </div>
-                    <br><br>
                     <!-- 후기내용 -->
-                    <div class="col-md-9"><%=p.content %></div>
+
                 </div><br>
                   <!-- 작성날짜 -->
                   <div class="col-md-12" style="text-align:right;">
