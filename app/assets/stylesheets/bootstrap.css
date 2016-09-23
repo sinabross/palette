@@ -1499,13 +1499,14 @@ dd {
   height: 110px;
 }
 
-
-/*pc버전 이미지 크기 적용이 안되서 보류*/
-
+  .about {
+    width: 400px;
+    height: 1200px;
+  }
+  
   .about2 {
     width: 370px;
     height: auto;
-    
   } 
   /*모바일버전 이미지 불러오기*/
   
