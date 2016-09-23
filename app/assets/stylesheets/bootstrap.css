@@ -1498,15 +1498,13 @@ dd {
   width: 110px;
   height: 110px;
 }
-
-  .about {
-    width: 400px;
-    height: 1200px;
-  }
+  /*pc버전 이미지 크기 적용이 안되서 보류*/
+  
   
   .about2 {
-    width: 200px;
+    width: 370px;
     height: auto;
+    margin-left: -20px;
   } 
   /*모바일버전 이미지 불러오기*/
   
