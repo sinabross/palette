@@ -7,7 +7,7 @@ gem 'devise' #로그인
 gem 'omniauth-facebook'
 gem 'omniauth' 
 
-gem 'rails_12factor', group: :production #for google analytics with Turbolinks
+
 
 gem 'roo' #엑셀을 db로 슝
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
