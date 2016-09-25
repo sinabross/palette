@@ -1499,21 +1499,21 @@ dd {
   height: 110px;
 }
 
-  .about {
-    width: 400px;
-    height: 1200px;
+  #about-img img  {
+    width: 100%; /*400px;*/
+    height: 100%; /* 1200px */  
+    display: block;
+    margin: auto;
   }
   
-  .about2 {
-    width: 200px;
-    height: auto;
-  } 
+  
+    
   /*모바일버전 이미지 불러오기*/
   
-  #about-img{
+  /*#about-img{
     display:none !important;  
   }
-  /*웹버전 이미지 숨기기*/
+  /*웹버전 이미지 숨기기*/ 
 }
 
 @media (min-width: 768px) {
@@ -1542,8 +1542,13 @@ dd {
   .product_price {
     padding-top: 15px;
   }
-  
-  #about-img2{
+  #about-img img  {
+    width: 100%; /*400px;*/
+    height: 100%; /* 1200px */  
+    display: block;
+    margin: auto;
+  }
+ /* #about-img2{
     display:none !important;
   }
   /*모바일버전 이미지 숨기기*/
