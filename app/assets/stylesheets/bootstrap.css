@@ -1494,20 +1494,30 @@ dd {
   margin-left: 0;
 }
 
- #about-img img  {
-    width: 100%; 
-    height: 100%;  
-    display: block;
-    margin: auto;
-  }
+
 @media (min-width: 200px) and (max-width: 767px) {
   .example {
   width: 110px;
   height: 110px;
 }
 
- 
+ #about-img img  {
+    width: 100%; 
+    height: 100%;  
+    display: block;
+    margin: auto;
+  }
+  #about-img2 img  {
+    width: 100%; 
+    height: 100%;  
+    display: block;
+    margin: auto;
+  }
   
+ #about-img{
+     display:none !important;  
+   }
+   /*웹버전 이미지 숨기기*/ 
 }
 
 @media (min-width: 768px) {
@@ -1537,6 +1547,10 @@ dd {
     padding-top: 15px;
   }
   
+  #about-img2{
+     display:none !important;
+   }
+   /*모바일버전 이미지 숨기기*/
 
 }
 abbr[title],
