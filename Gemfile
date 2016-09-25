@@ -7,6 +7,8 @@ gem 'devise' #로그인
 gem 'omniauth-facebook'
 gem 'omniauth' 
 
+
+
 gem 'roo' #엑셀을 db로 슝
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "fog-aws" #이것도역시^^ https://github.com/carrierwaveuploader/carrierwave
