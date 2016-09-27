@@ -1,0 +1,44 @@
+<div class="container">
+    
+    <br>
+      <div style="background-color:#ffffff;">
+        <hr style="border: solid 1.0px;color:#333333">
+           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>고객의 소리</strong></p>
+        <hr style="border: solid 1.0px;color:#333333">  
+      </div>         
+            <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등에 대해 자유롭게 말씀해주세요. </p>
+            <p>빠른 시일 내에 반영하도록 하겠습니다 :)</p>
+       
+    <form style="margin-top:40px" action="/home/askfor_submit" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<%=current_user.email%>">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="10"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">사진첨부</label>
+        <input type="file" name="pic" id="exampleInputFile" accept="image/*">
+      </div>
+      <center>
+        
+          <button type="submit" name="feed_pro_num" value="추가 요청" class="btn btn-black" style="color:#ffffff;" >문의보내기</button>
+ 
+      </center>
+    </form>
+    <br><br><br>
+</div>
+
+<style>
+      .btn-black {
+          width:100px;
+          height:40px;
+          font-size:15px;
+          text-align:center;
+          cursor:pointer;
+          color:#000000;
+          background:#333333;
+      }  
+
+</style>

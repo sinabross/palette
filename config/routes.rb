@@ -34,13 +34,22 @@ Rails.application.routes.draw do
   post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
   get  'destroy/:review_id' => "home#destroy" #리뷰삭제
   
+  
+  #제품검토요청
   get 'home/admin_reply' #admin_리뷰모아보기
   get 'home/admin_user' #admin_회원모아보기
   
   get 'home/feedback/:product_num' => "home#feedback"
+  
   post 'home/feedback_submit'
+  
+  # 제품 검토요청 모아보기
   get 'home/show_feedback'
   get 'home/detail/:product_num' => "home#detail"
+  
+  #ask for new products
+  get 'home/askfor'
+  post 'home/askfor_submit'
 
   get 'home/about'
 

@@ -52,9 +52,9 @@
           <!------------------------------------------------->
    
               <% if user_signed_in? %>
-                  <a href="/home/feedback/all">고객의소리</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+                   <%= link_to "고객의소리", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
-                  <a href="/users/sign_in">고객의소리</a>
+                  <%= link_to "고객의소리", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
               <% end %>
 
           <!------------------------------------------------->

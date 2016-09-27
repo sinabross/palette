@@ -7,9 +7,6 @@
         <hr style="border: solid 1.0px;color:#333333">  
       </div>         
     
-        <% if @product == nil %>
-          요청사항을 남겨주세요. 적극적으로 검토하도록 하겠습니다.
-        <% else %>
         <!--상품정보 출력-->
         <div class="media panel-body container" style="border: solid 2.0px lightgray; margin-top:20px">
             <div class="pull-left user-info" href="#" float="left" >
@@ -22,7 +19,7 @@
                 <p><%=@product.tone %> <%=@product.wc %></p>
             </div>
         </div>
-        <% end %>
+       
         
     <form style="margin-top:40px" action="/home/feedback_submit" method="post" enctype="multipart/form-data">
       <div class="form-group">
@@ -38,15 +35,13 @@
         <textarea class="form-control" name="content" rows="10"></textarea>
       </div>
       <div class="form-group">
-        <label for="exampleInputFile">File input</label>
+        <label for="exampleInputFile">사진첨부</label>
         <input type="file" name="pic" id="exampleInputFile" accept="image/*">
       </div>
       <center>
-        <% if @product == nil %>
-          <button type="submit" name="feed_pro_num" value="home" class="btn btn-black" style="color:#ffffff;" >문의보내기</button>
-        <% else %>
+        
           <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn btn-black" style="color:#ffffff;" align="center">문의보내기</button>
-        <% end %>
+        
       </center>
     </form>
     <br><br><br>

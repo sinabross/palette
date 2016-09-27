@@ -276,16 +276,12 @@ class HomeController < ApplicationController
     #립
     if params[:product_num].start_with?("L")
       @product = Lipdb.find_by_num(params[:product_num])
-    end
-     
+
     #섀도우
-    if params[:product_num].start_with?("S")
+    elsif params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])
     end
    
-    if params[:product_num].start_with?("a")
-      @product = nil
-    end   
   end
   
   def feedback_submit #문의글 전송
@@ -297,12 +293,13 @@ class HomeController < ApplicationController
     uploader.store!(params[:pic])
     @post.img_url=uploader.url
     @post.pro_num=params[:feed_pro_num]
-    @post.save
-    if @post.pro_num == "home"
-      redirect_to '/'
-    else
-      redirect_to '/home/detail/' + @post.pro_num
-    end
+   if @post.save
+   flash[:success] ="작성이 완료되었습니다:)"
+   
+   end
+   
+   redirect_to '/home/detail/' + @post.pro_num
+    
   end
   
   def show_feedback
@@ -310,6 +307,28 @@ class HomeController < ApplicationController
   end
   # =============== 문의글 관련끝
   
+  #제품 등록 요청
+  def askfor
+  
+  end
+  
+  def askfor_submit
+    
+    @post=Feedback.new
+    @post.content=params[:content]
+    @post.emailaddress=params[:email]
+    @post.pro_num=params[:feed_pro_num]
+    uploader = LightUploader.new
+    uploader.store!(params[:pic])
+    @post.img_url=uploader.url
+    
+     if @post.save
+      
+      flash[:success] ="작성이 완료되었습니다:)"
+      
+     end
+     redirect_to :back
+  end
   # My page
   def basket
     @like_list = current_user.find_liked_items
