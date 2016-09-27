@@ -232,7 +232,6 @@ class HomeController < ApplicationController
    @review.save
 
    redirect_to '/home/detail/' + @review.num
-   
   end
   
   def update_view #리뷰를수정하는페이지
@@ -269,6 +268,7 @@ class HomeController < ApplicationController
     @one_review.destroy
     redirect_to :back
   end
+  
   # =============== 후기 관련끝
   
   # =============== 문의글 관련
@@ -359,6 +359,19 @@ class HomeController < ApplicationController
   
     redirect_to "/basket"
   end
+  
+  #=============== admin page
+  
+  def admin_reply #admin 댓글모아보기
+    @review= Review.all.order("created_at DESC")
+  end
+  
+  def admin_user
+    @user= User.all.order("created_at DESC")
+  end
+  
+  
+  #===============
   
   def about
     

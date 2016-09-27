@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   
   
   #제품검토요청
+  get 'home/admin_reply' #admin_리뷰모아보기
+  get 'home/admin_user' #admin_회원모아보기
+  
   get 'home/feedback/:product_num' => "home#feedback"
   
   post 'home/feedback_submit'
