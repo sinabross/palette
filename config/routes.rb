@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
   #deivse, 페북로그인
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'users/registrations'}
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'users/registrations' ,:sessions => 'users/sessions'}
   resources :home, only: [:list_lip] #for pagination
-  
+
   
   root 'home#main'
   get 'home/main'
