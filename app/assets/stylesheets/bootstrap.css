@@ -4270,6 +4270,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
 }
+@media (max-width: 767px) {
+  .navbar-header {
+
+  }
+}
 .navbar-collapse {
   padding-right: 15px;
   padding-left: 15px;
@@ -4618,6 +4623,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #ccc;
   background-color: transparent;
 }
+
 .navbar-default .navbar-toggle {
   border-color: #ddd;
 }
@@ -4680,11 +4686,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: #ffffff;
+  border-color: #e4e4e4;
 }
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: #ffffff;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
