@@ -102,15 +102,11 @@
           <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
             <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
             <input type="hidden" name="utf8" value="✓">
-            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:290px;float:left;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
-            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:290px;float:right;" class="searchbox-input searchbox-input-web searchbox-web">
+            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:310px;float:left;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
 
-            <button type="submit"class="searchbox-submit searchbox-submit-mobile" style="float:right;">
-               <i id="searchbox-icon" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
+            <button type="submit"class="searchbox-submit searchbox-submit-mobile">
+               <i id="searchbox-icon-mobile" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
             </button>
-            <button type="submit"class="searchbox-submit searchbox-submit-web">
-               <i id="searchbox-icon-web" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
-            </button>             
            </form>
         </li>
         
@@ -152,33 +148,8 @@
       transition: width 0.3s;
       }
       
-  .searchbox-input-mobile{
-      top:0;
-      right:0;
-      border:0;
-      outline:0;
-      background:#dcddd8;
-      width:100%;
-      height:40px;
-      margin:5px;
-      padding:0px 55px 0px 8px;
-      font-size:1em;
-      color:#000000;
-      }
-  .searchbox-input-web{
-      top:0;
-      right:0;
-      border:0;
-      outline:0;
-      background:#ffffff;
-      width:166px;
-      height:30px;
-      margin:5px;
-      padding:0px 55px 0px 8px;
-      font-size:1em;
-      color:#000000;
-      border: solid 1px #e4e4e4;
-      }      
+
+     
   .searchbox-input::-webkit-input-placeholder {
       color: #696969;
       }
@@ -192,45 +163,8 @@
       color: #696969;
       }
       
-  .searchbox-icon-mobile,.searchbox-submit-mobile{
-      width:50px;
-      height:50px;
-      display:block;
-      position:absolute;
-      top:0;
-      font-family:verdana;
-      font-size:22px;
-      right:0;
-      padding:0;
-      margin:0;
-      border:0;
-      outline:0;
-      line-height:50px;
-      text-align:center;
-      cursor:pointer;
-      color:#dcddd8;
-      background:#333333;
-      }
-  .searchbox-icon-web,.searchbox-submit-web{
-      width:30px;
-      height:30px;
-      display:block;
-      position:absolute;
-      top:0;
-      font-family:verdana;
-      font-size:20px;
-      right:0;
-      padding:0;
-      margin-top:5px;
-      margin-right:15px;
-      border:1px solid #DEDEDE;
-      outline:0;
-      line-height:10px;
-      text-align:center;
-      cursor:pointer;
-      color:#696969;
-      background-color:#ffffff;
-      }      
+
+
       
   .searchbox-open{
       width:100%;
@@ -258,6 +192,40 @@
   .navbar a { outline:0; text-decoration:none; color:#38393b; }  
 
 @media (min-width: 768px) {
+  .searchbox-input-mobile{
+      top:0;
+      right:0;
+      border:0;
+      outline:0;
+      background:#ffffff;
+      width:166px;
+      height:30px;
+      margin:5px;
+      padding:0px 55px 0px 8px;
+      font-size:1em;
+      color:#000000;
+      border: solid 1px #e4e4e4;
+      }   
+  .searchbox-icon-mobile,.searchbox-submit-mobile{
+      width:30px;
+      height:30px;
+      display:block;
+      position:absolute;
+      top:0;
+      font-family:verdana;
+      font-size:20px;
+      right:0;
+      padding:0;
+      margin-top:5px;
+      margin-right:15px;
+      border:1px solid #DEDEDE;
+      outline:0;
+      line-height:10px;
+      text-align:center;
+      cursor:pointer;
+      color:#696969;
+      background-color:#ffffff;
+      }        
 
   .searchbot-web{
     width: 166px;
@@ -313,12 +281,8 @@
   .gCenter-mobile{
     display:none;     
   }
-  .searchbox-mobile{
-    display:none;
-  }
-  .searchbox-icon-mobile,.searchbox-submit-mobile{
-    display:none;
-  }    
+
+
   .display-web{
     float:left;
     
@@ -337,6 +301,39 @@
 }
 
 @media (max-width:767px){
+  .searchbox-input-mobile{
+      top:0;
+      right:0;
+      border:0;
+      outline:0;
+      background:#dcddd8;
+      width:100%;
+      height:40px;
+      margin:5px;
+      padding:0px 55px 0px 8px;
+      font-size:1em;
+      color:#000000;
+      }  
+  .searchbox-icon-mobile,.searchbox-submit-mobile{
+      width:50px;
+      height:50px;
+      display:block;
+      position:absolute;
+      top:0;
+      font-family:verdana;
+      font-size:22px;
+      right:0;
+      padding:0;
+      margin:0;
+      border:0;
+      outline:0;
+      line-height:50px;
+      text-align:center;
+      cursor:pointer;
+      color:#dcddd8;
+      background:#333333;
+      float:right;      
+      }  
     .navbar-top {
       height:0px;
     }
