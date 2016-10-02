@@ -44,12 +44,11 @@ class HomeController < ApplicationController
     if params[:colors] == "w_lips"
       #웜립일때
       @colors = "w_lips"
-      @color_tone = "웜"
+      @color_tone = "웜"      
       @liplist = params[:liplist]
       @liptone = params[:liptone]
       #웝립/제품군/세부톤
       @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-      @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
     if params[:liplist] == nil
        @liplist = "제품"
        @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
@@ -74,7 +73,7 @@ class HomeController < ApplicationController
     # 쿨톤 립 출력
     if params[:colors] == "c_lips"
       @colors = "c_lips"
-      @color_tone = "쿨"
+      @color_tone = "쿨"      
       @liplist = params[:liplist]
       @liptone = params[:liptone]
       @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
