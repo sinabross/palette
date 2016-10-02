@@ -1,7 +1,8 @@
 
 <div class="container"> 
-  <div class="row" style="margin-top:30px">
+  <div class="row list-display">
     <!-- 제품선택버튼 -->
+    <!--
     <div class="btn-group col-md-3 col-md-offset-3 col-xs-6">
       <button type="button" class="btn btn-black dropdown-toggle" style="width:100%;background-color:#EBEBEB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span id="dropdown_title"><%=@liplist%></span> <span class="caret"></span>
@@ -14,13 +15,20 @@
         <li><a href="/home/list_lip/<%=@colors%>/립글로즈">립글로즈</a></li>
       </ul>
     </div>
+    -->
+    
+    <div class="title-web" style="margin-right:10px;">
+      <h3><%=@color_tone%> 립</h3>
+      <p><%=@color_tone%> 톤에 어울리는 추천 립</p>
+
+    </div>
                       
     <!-- 세부톤선택버튼 -->
-    <div class="btn-group col-md-3 col-xs-6" >
-      <button type="button" class="btn btn-black dropdown-toggle" style="width:100%; background-color:#EBEBEB"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="btn-group col-md-3 col-xs-6 btn-web" >
+      <button type="button" class="btn btn-black dropdown-toggle" style="text-align:left;color: #787878;border: solid 1px #e4e4e4; width:90%; background-color:#ffffff"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span id="dropdown_title2"><%=@liptone%></span> <span class="caret"></span>
       </button>
-      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:100%">
+      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:82%;margin-left:15px">
         <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/비비드">비비드</a></li>
         <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/브라이트">브라이트</a></li>
         <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/스트롱">스트롱</a></li>
@@ -36,45 +44,45 @@
         <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>">무채색</a></li>
       </ul>
     </div>
+  
   </div>        
-
+      <hr style="border: 2px solid #38393b">  
 
   <!-- Projects Row -->
   <% @list.each_slice(3) do |slice| %>
-    <div class="row" style="margin-top:20px">
+    <div class="row">
       <% slice.each do |w|%>
-        <div class="col-md-4 col-xs-12"  style="display:inline;">
+        <div class="col-md-4 col-xs-12" style="margin-top:-10px">
           <br>
-          <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
-          <a class="col-md-12 col-xs-5" href="/home/detail/<%=w.num%>">
-            <div style="margin-bottom:40px">
-              <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/product/<%=w.num%>-min.jpg"
-                   alt="" style="border: 1px solid lightgray;"> <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
-                   
+          <div class="product-container">
+            <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+            <a class="col-md-12 col-xs-4" href="/home/detail/<%=w.num%>">
+                <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/product/<%=w.num%>-min.jpg"
+                     alt="" > <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
+  
+            </a>
+                        
+            <div class="col-md-12 col-xs-8"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+              <div class="product-name" style="height:50px;"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
+                <a class="product_name" href="/home/detail/<%=w.num%>" ><strong>[<%=w.brand%>]<%=w.name%></strong></a>
+              </div>
             </div>
-          </a>
-                      
-          <div class="col-md-12 col-xs-7"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
-            <div style="height:60px"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->  
-              <a class="product_name" href="/home/detail/<%=w.num%>" >[<%=w.brand%>]<%=w.name%></a>
+                        
+            <div class="col-md-8 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
+              <p class="product_tone" style="float:left"> <%=w.wc%> / <%=w.tone%> </p>
+              <p class="product_price" style="float:left"> | <%=w.size%> <p class="product_price"style="color:#ff709b;float:left; margin-left:2px;"> <%=w.price%>원</style> </p>
             </div>
-            <p class="product_price"><%=w.size%> / <%=w.price%>원</p>
-          </div>
-                      
-          <div class="col-md-8 col-xs-4">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
-            <p class="product_tone"> <%=w.wc%> / <%=w.tone%> </p>
-          </div>
-          <!-- LikeBtn.com BEGIN -->
-          <div class="col-md-3 col-xs-3" style="text-align:right">
-            <p><img src="http://image.flaticon.com/icons/png/128/189/189671.png" width="20"><%=display_likes(w)%></p>       
-          </div>
-                      
-          <hr class="col-xs-12" style="border: solid 1.0px lightgray; margin-right: 20px"> <!-- 모바일화면에서 제품마다 가로선으로 구분짓고 싶어서 추가했는데 큰화면에서 안보이게 하는법을 모르겠음. hidden-md 써도 보임.. -->
+                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>   
+      
+
+
+         </div>
         </div>
       <%end%>
     </div>
   <% end %>
       
+  <br><br>    
   <!-- pagination -->
   <%= render :partial => "layouts/partial/pagination" %> 
 </div><!-- /.container -->
@@ -90,7 +98,101 @@
           color:#000000;
           background:#F5F5F5;
       }
+  .title-web h3 {
+	    font-family: 'NanumGothic';  
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+  }  
+  .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+  }      
+  .product-name{
+    margin-top:7px;
+    font-family: NanumGothic;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.29;
+    color: #38393b;   
+  }
+  .product_name{
+    color:#38393b;    
+  }
+  .product-name a:hover,
+  .product-name a:focus{
+    text-decoration: none;    
+    color: #000000;
+  }
+  .product_price .product_tone{
+    color:#38393b;
+  }
+  .fa-heart{
+   color: #ff709b;    
+  }
+  .product_price{
+    margin-right:3px;
+  }
+@media (min-width: 768px) {
+  .list-display {
+      margin-top:70px;
+    }
+  .title-web {
+    float:left;
+    margin-left:25px;
+  }
+
+  .title-web hr{
+    
+      width: 1015.5px;
+      border: solid 2px #38393b;
+
+  }    
+  .btn-web {
+    float:right;
+    margin-top:40px;
+  }  
+  .product-container{
+    margin-top:20px;
+    height:400px;
+  }  
+  .product-name{
+    margin-bottom:10px;
+  }
+
+  }  
   
+@media (max-width:767px){      
+  .list-display {
+      margin-top:10px;
+    }  
+  .title-web {
+    float:left;
+    margin-left:20px;
+  }    
+  
+  .btn-web {
+    float:right;
+    width:100%;
+  }
+  .product-container{
+    border: 1px solid lightgray;
+    height:110px;
+  }
+  .example{
+  margin-top:7px;
+  width: 94px;
+  height: 94px;    
+  }
+    
+
+  }
 </style>
 
 <script>

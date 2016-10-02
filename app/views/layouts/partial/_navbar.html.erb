@@ -1,8 +1,56 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<head>
+  		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+
+<nav class="navbar navbar-fixed-top navbar-design" role="navigation">
+  <div class="navbar-top" style="padding-right:50px;">
+        <li>
+          <a href="/home/about">팔레트란?</a>
+        </li>
+        
+        <li>
+          <!------------------------------------------------->
+   
+              <% if user_signed_in? %>
+                  <a href="/home/feedback/all">고객의소리</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+              <% else %>
+                  <a href="/users/sign_in">고객의소리</a>
+              <% end %>
+
+          <!------------------------------------------------->
+        </li>
+        
+        <li style="float:right">
+          <% if user_signed_in? %>
+            <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          <% else %>
+            <%= link_to "로그인", new_user_session_path %>
+          <% end %>
+        </li>  
+
+        <li style="float:right">
+          <% if user_signed_in? %>
+            <%= link_to "마이팔레트", href="/basket" %>
+          <% else %>
+            <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+          <% end %>
+        </li>
+      
+  </div>
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <span class="gLeft" style="float:left">
+      <a href="/">
+          <span class="gCenter-mobile" style="float:left;">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/mobile.png" width="120">
+          </span>          
+          <span class="gCenter" style="float:left;margin-top:10px;" >
+            <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/logo_new.png" width="130">
+          </span>
+
+      </a>    
+    
+    <div class="navbar-header navbar-icon">
+      <span class="gLeft">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -10,45 +58,20 @@
           <span class="icon-bar"></span>
         </button>
       </span>
-      <a href="/">
-        <div style="float:center">
-          <span class="gCenter" style="float:center;">
-            <img src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/logo/logo_1+(1).png" width="110" style="margin-top:5px">
-          </span>
-        </div>
-      </a>
+
     </div>
-    
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" >
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
-            <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
-            <input type="hidden" name="utf8" value="✓">
-            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:350px;" class="searchbox-input">
-            <button type="submit"class="searchbox-submit">
-               <i id="searchbox-icon" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
-            </button>
-           </form>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">제품추천<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-header">Warm</li>
-            <li><a href="/home/list_lip/w_lips" style="text-indent:20px">립</a></li>
-            <li><a href="/home/list_eye/w_eyes" style="text-indent:20px">섀도우</a></li>
-            <li class="dropdown-header">Cool</li>
-            <li><a href="/home/list_lip/c_lips" style="text-indent:20px">립</a></li>
-            <li><a href="/home/list_eye/c_eyes" style="text-indent:20px">섀도우</a></li>
-          </ul>
-        </li>
-        
-        <li>
+  
+        <li class="hidden-web">
           <a href="/home/about">팔레트란?</a>
         </li>
+
+        <li style="font-color:#ffffff; text-indent:10px;"><a href="/home/list_lip/w_lips">Warm 립</a></li>        
+        <li class="grid-web"style="font-color:#ffffff; text-indent:10px;"><a href="/home/list_lip/c_lips" >Cool 립</a></li>
         
-        <li>
+        <li class="hidden-web">
           <!------------------------------------------------->
    
               <% if user_signed_in? %>
@@ -60,7 +83,7 @@
           <!------------------------------------------------->
         </li>
         
-        <li>
+        <li class="hidden-web">
           <% if user_signed_in? %>
             <%= link_to "마이팔레트", href="/basket" %>
           <% else %>
@@ -68,13 +91,39 @@
           <% end %>
         </li>
         
-        <li>
+        <li class="hidden-web">
           <% if user_signed_in? %>
             <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
           <% else %>
             <%= link_to "로그인", new_user_session_path %>
           <% end %>
+        </li>        
+        <li style="margin-top:5px;">
+          <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
+            <!-- xs화면에서 검색바 오른쪽에 여백 있던거 margin-right가 100px이었는데 0px로 바꿔서 여백 제거! -->
+            <input type="hidden" name="utf8" value="✓">
+            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:310px;float:left;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
+
+            <button type="submit"class="searchbox-submit searchbox-submit-mobile">
+               <i id="searchbox-icon-mobile" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
+            </button>
+           </form>
         </li>
+        
+        <!-- 셰도우 포함 menu box 
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">제품추천<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header">Warm</li>
+            <li><a href="/home/list_lip/w_lips" style="text-indent:20px">립</a></li>
+            <li><a href="/home/list_eye/w_eyes" style="text-indent:20px">섀도우</a></li>
+            <li class="dropdown-header">Cool</li>
+            <li><a href="/home/list_lip/c_lips" style="text-indent:20px">립</a></li>
+            <li><a href="/home/list_eye/c_eyes" style="text-indent:20px">섀도우</a></li>
+          </ul>
+        </li>
+        -->
+
 
       </ul>
     </div>
@@ -99,19 +148,8 @@
       transition: width 0.3s;
       }
       
-  .searchbox-input{
-      top:0;
-      right:0;
-      border:0;
-      outline:0;
-      background:#dcddd8;
-      width:100%;
-      height:40px;
-      margin:5px;
-      padding:0px 55px 0px 8px;
-      font-size:1em;
-      color:#000000;
-      }
+
+     
   .searchbox-input::-webkit-input-placeholder {
       color: #696969;
       }
@@ -125,7 +163,158 @@
       color: #696969;
       }
       
-  .searchbox-icon,.searchbox-submit{
+
+
+      
+  .searchbox-open{
+      width:100%;
+      }
+      
+  .byline{
+      position:absolute;
+      top:150px;
+      left:30%;
+      text-align:center;
+      font-size:18px;
+      }
+  .byline a{
+      text-decoration:none;
+      color: #d74b4b;
+      }
+      
+  .navbar-design {
+      text-decoration: none;
+      border: 1px solid #e4e4e4;
+  }
+  
+  
+  .navbar ol,ul { list-style: none; }
+  .navbar a { outline:0; text-decoration:none; color:#38393b; }  
+
+@media (min-width: 768px) {
+  .searchbox-input-mobile{
+      top:0;
+      right:0;
+      border:0;
+      outline:0;
+      background:#ffffff;
+      width:166px;
+      height:30px;
+      margin:5px;
+      padding:0px 55px 0px 8px;
+      font-size:1em;
+      color:#000000;
+      border: solid 1px #e4e4e4;
+      }   
+  .searchbox-icon-mobile,.searchbox-submit-mobile{
+      width:30px;
+      height:30px;
+      display:block;
+      position:absolute;
+      top:0;
+      font-family:verdana;
+      font-size:20px;
+      right:0;
+      padding:0;
+      margin-top:5px;
+      margin-right:15px;
+      border:1px solid #DEDEDE;
+      outline:0;
+      line-height:10px;
+      text-align:center;
+      cursor:pointer;
+      color:#696969;
+      background-color:#ffffff;
+      }        
+
+  .searchbot-web{
+    width: 166px;
+    height: 32px;
+    background-color: #ffffff;
+    border: solid 1px #e4e4e4;    
+  }
+  .navbar {
+    background-color:#ffffff;
+    height:85px;
+  }  
+  .nav>li>a:focus,.nav>li>a:hover {
+	text-decoration:none;
+	background-color:#ffffff;
+	color:#ff709b;
+  }
+	.navbar-top>li>a:focus,.navbar-top>li>a:hover{
+	text-decoration:none;	 
+	color:#ADADAD;	
+	}
+  .navbar-top {
+    width:100%;
+    height:32px;
+    background:#38393b;
+	  font-family: 'NanumGothic', cursive;  
+	  font-size: 12px;
+  }
+  
+  .navbar-top ul {
+    float:left;
+
+  }
+  .navbar-top ol,ul { list-style: none; }
+  .navbar-top a { outline:0; text-decoration:none; color:#fff; }  
+  
+  .navbar-top li {
+    float:left;
+    margin-top:8px;    
+    margin-left:23px;
+  }
+  
+  .navbar .navbar-design {
+    background-color:#ffffff;
+  }
+  
+  .navbar-inverse {
+    background-color:#ffffff;
+  }
+  
+  .gCenter {
+    margin-top:9px;
+  }
+  .gCenter-mobile{
+    display:none;     
+  }
+
+
+  .display-web{
+    float:left;
+    
+  }
+
+  .display-web li{
+    float:left;
+    margin:10px;
+  }
+  li.hidden-web{
+    display:none;
+  }
+  li.grid-web{
+    margin-right:500px;
+  }
+}
+
+@media (max-width:767px){
+  .searchbox-input-mobile{
+      top:0;
+      right:0;
+      border:0;
+      outline:0;
+      background:#dcddd8;
+      width:100%;
+      height:40px;
+      margin:5px;
+      padding:0px 55px 0px 8px;
+      font-size:1em;
+      color:#000000;
+      }  
+  .searchbox-icon-mobile,.searchbox-submit-mobile{
       width:50px;
       height:50px;
       display:block;
@@ -143,23 +332,82 @@
       cursor:pointer;
       color:#dcddd8;
       background:#333333;
-      }
-      
-  .searchbox-open{
-      width:100%;
-      }
-      
-  .byline{
-      position:absolute;
-      top:150px;
-      left:30%;
-      text-align:center;
-      font-size:18px;
-      }
-  .byline a{
-      text-decoration:none;
-      color: #d74b4b;
-      }
+      float:right;      
+      }  
+    .navbar-top {
+      height:0px;
+    }
+    .navbar-top li{
+    display:none;
+    }
+  .navbar {
+    background-color:#38393b;
+    
+  } 
+  .navbar-color{
+    color:#ffffff;
+  }
+  
+  .gCenter-mobile img {
+
+    display:block;
+    margin-top:13px;
+    
+  }  
+  .gCenter {
+    display:none; 
+  }  
+
+  
+  .navbar-icon .navbar-toggle {
+    border-color: #333;
+    
+  }
+  .navbar-icon .navbar-toggle:hover,
+  .navbar-icon .navbar-toggle:focus {
+    background-color: #333;
+  }
+  .navbar-icon .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+  .navbar-icon .navbar-collapse,
+  .navbar-icon .navbar-form {
+    border-color: #101010;
+  }
+  .navbar-icon .navbar-nav > .open > a,
+  .navbar-icon .navbar-nav > .open > a:hover,
+  .navbar-icon .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #080808;
+  }  
+  .searchbox-web{
+    display:none;
+  }
+  .searchbox-icon-web,.searchbox-submit-web{
+    display:none;
+  }  
+  .display-web{
+    display
+    
+  }
+
+  .display-web li{
+    float:left;
+    margin:10px;
+  }  
+  .navbar-brand, .navbar-nav>li>a  {
+    color:#9C9C9C;
+		box-shadow:none 
+  }
+  .navbar-brand, .navbar-nav>li>a:hover,
+  .navbar-brand, .navbar-nav>li>a:focus  {
+    color:#ffffff;
+		box-shadow:none; 
+		background-color:#696969;
+  }  
+
+}
+}
 </style>
     
 <script>
