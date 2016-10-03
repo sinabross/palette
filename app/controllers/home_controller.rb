@@ -287,6 +287,10 @@ class HomeController < ApplicationController
   end
   
   def feedback_submit #문의글 전송
+
+
+
+
     @post=Feedback.new
     @post.title=params[:title]
     @post.content=params[:content]
@@ -295,10 +299,12 @@ class HomeController < ApplicationController
     uploader.store!(params[:pic])
     @post.img_url=uploader.url
     @post.pro_num=params[:feed_pro_num]
-   if @post.save
-   flash[:success] ="작성이 완료되었습니다:)"
-   
-   end
+
+    if @post.save
+      flash[:success] = "작성이 완료되었습니다 :)"
+    end
+
+
    
    redirect_to '/home/detail/' + @post.pro_num
     
@@ -315,7 +321,9 @@ class HomeController < ApplicationController
   end
   
   def askfor_submit
-    
+
+
+
     @post=Feedback.new
     @post.content=params[:content]
     @post.emailaddress=params[:email]
@@ -324,11 +332,10 @@ class HomeController < ApplicationController
     uploader.store!(params[:pic])
     @post.img_url=uploader.url
     
-     if @post.save
-      
-      flash[:success] ="작성이 완료되었습니다:)"
-      
-     end
+    if @post.save
+      flash[:success] = "작성이 완료되었습니다 :)"
+    end
+
      redirect_to :back
   end
   # My page

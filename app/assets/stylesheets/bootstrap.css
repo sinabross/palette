@@ -5151,6 +5151,7 @@ a.thumbnail.active {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
+  margin-top: 50px;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;

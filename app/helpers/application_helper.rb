@@ -6,4 +6,6 @@ module ApplicationHelper
         flash.now[:error].uniq!
       end
     end
+
+
 end
