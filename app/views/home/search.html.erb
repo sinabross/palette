@@ -10,13 +10,13 @@
     <p style="text-align:center">1. 띄어쓰기를 하면 보다 정확한 검색 결과를 보실 수 있습니다.</p>
     <p style="text-align:center">2. 브랜드명, 제품명, 세부톤 등으로 다양하게 검색해보세요.<br><strong>예)</strong>바비브라운 쿨 섀도우</p>
     <p style="text-align:center">3. 원하는 제품이 없으신가요? 아래 버튼을 통해 요청해주세요.</p>  
-    <center>
+    <div style="text-align: center;">
      <% if user_signed_in? %> 
-      <a href="/home/askfor"class="btn-black btn">요청하기</a>
+      <a href="/home/askfor"class="btn-black btn" onclick="ga('send', 'pageview', '/askfor');">요청하기</a>
      <%else%>
-      <a href="/users/sign_in"class="btn-black btn">요청하기</a>  
+      <a href="/users/sign_in"class="btn-black btn" onclick="ga('send', 'pageview', '/askfor');">요청하기</a>
     <%end%>
-    </center>
+    </div>
     </div>
 <% end %>
 
@@ -92,16 +92,18 @@
 </div>
 
 <style>
-  
-  .btn-black{
-          width:100px;
-          height:40px;
-          font-size:15px;
-          text-align:center;
-          cursor:pointer;
-          color:#000000;
-          background:#F5F5F5;
-      }
+
+  .btn-black {
+    width:100px;
+    height:40px;
+    font-size:15px;
+    text-align:center;
+    cursor:pointer;
+    color:#000000;
+    background:#333333;
+    margin-top:2%;
+    color:#ffffff;
+  }
   .title-web h3 {
 	    font-family: 'NanumGothic';  
       font-size: 22px;
@@ -209,19 +211,6 @@
   //세부톤 드롭다운
   $('#divNewNotifications2 li').on('click', function() {
     $('#dropdown_title2').html($(this).find('a').html());
-  });    
-    
+  });
+
 </script>
-<style>
-  .btn-black {
-          width:100px;
-          height:40px;
-          font-size:15px;
-          text-align:center;
-          cursor:pointer;
-          color:#000000;
-          background:#333333;
-          margin-top:2%;
-          color:#ffffff;
-      }  
-</style>
