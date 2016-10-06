@@ -93,13 +93,14 @@
     <% end %>
         
   <br><br>
-        
+
+  <!-- 후기 작성 페이지는 잠시 봉인합니다
   <div class="container">
     <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
     <p class="lead">후기를 작성해보세요!</p>
     <div>
       <ul class="media-list forum">
-        <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
+        <!-- 리뷰db에서 상품num으로 불러오기 -->
         <% @review.each do |p| %>
           <li>
             <!-- 후기작성자정보(왼쪽)-->
@@ -149,16 +150,16 @@
         <%end%>
       </ul>
     </div>
-  </div>
+
   <br><br>
-  
+
+  <!-- 후기 작성 버튼 역시 잠시 봉인합니다 -->
   <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
-    <center><a href="/home/write_review/<%=@product.num%>" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a></center>
+    <!--<a href="/home/write_review/<%=@product.num%>" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a> -->
   <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
-    <center><a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a></center>
+    <!--<a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a> -->
   <% end %>
-                      
-</div>
+
 
 
 <style>
