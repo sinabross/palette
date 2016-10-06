@@ -46,3 +46,5 @@
     
     
     User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
+    User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
+    Admin.create(email: 'admin@gmail.com', password: 'adminadmin')

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :admins
   #deivse, 페북로그인
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'users/registrations' ,:sessions => 'users/sessions'}
   resources :home, only: [:list_lip] #for pagination
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
   
   
   #제품검토요청
+  get '/admin' => 'home#admin_user'
   get 'home/admin_reply' #admin_리뷰모아보기
   get 'home/admin_user' #admin_회원모아보기
   
