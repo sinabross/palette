@@ -11,10 +11,12 @@
         <li>
           <!------------------------------------------------->
    
-              <% if user_signed_in? %>
+              <% if user_signed_in? && current_user.admin == nil%>
                   <a href="/home/askfor">문의/건의</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+              <% elsif user_signed_in? && current_user.admin?%>
+                  <a href="/home/show_feedback">문의/건의</a>
               <% else %>
-                  <a href="/users/sign_in">문의/건의ㅇ</a>
+                  <a href="/users/sign_in">문의/건의</a>
               <% end %>
 
           <!------------------------------------------------->
