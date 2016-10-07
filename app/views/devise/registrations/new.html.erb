@@ -32,13 +32,21 @@
                 <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control" %>
               </div>
               
+            <!-- 계절타입 주석처리(16.10.07)
               <div class="form-group">
                 <%= f.label :계절타입 %><br />
                 <%= f.select :userseason, 
                   options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울'],['미정','미정']], params[:userseason]),
                   {}, { :class => 'form-control' }%>
               </div>
-              
+              -->
+              <div class="form-group">
+                <%= f.label :생년월일 %><br />
+                <%= f.date_select :birthday,  { class: 'form-control', order: [:year, :month, :day],
+                                            prompt: { year: '년', month: '월', day: '일' },
+                                            start_year: Date.today.year - 12, end_year: Date.today.year - 100}, {required: true}%>
+              </div>
+
               <div class="actions">
                 <%= f.submit "Sign up", class:"btn btn-custom btn-lg btn-block" %>
               </div>

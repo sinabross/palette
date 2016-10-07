@@ -394,6 +394,29 @@ class HomeController < ApplicationController
       flash[:error] = "접근권한이 없습니다."
     end
   end
+
+  def admin_write   #관리자 계정으로 공지등록
+
+  end
+
+  def notice_edit   #관리자 계정으로 공지글 수정
+
+    @edit=Notice.find(params[:notice_id])
+
+
+
+  end
+
+  def notice_edit_back
+
+    @edit=Notice.find(params[:notice_id])
+    @edit.title = params[:title]
+    @edit.name = params[:name]
+    @edit.content = params[:content]
+    @edit.save
+
+    redirect_to '/home/notice'
+  end
   
   
   #===============
@@ -401,5 +424,21 @@ class HomeController < ApplicationController
   def about
     
   end
+
+  def notice  #제품 업데이트 등 공지사항 알리기 위한 게시판
+    @notices = Notice.all.order('id desc')
+  end
+
+  def notice_write
+    @notices = Notice.new
+    @notices.title = params[:title]
+    @notices.content = params[:content]
+    @notices.name = params[:name]
+    @notices.save
+
+
+    redirect_to "/home/notice"
+  end
+
 
 end

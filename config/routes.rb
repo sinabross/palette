@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/admin' => 'home#admin_user'
   get 'home/admin_reply' #admin_리뷰모아보기
   get 'home/admin_user' #admin_회원모아보기
+  get 'home/admin_write'
   
   get 'home/feedback/:product_num' => "home#feedback"
   
@@ -55,6 +56,15 @@ Rails.application.routes.draw do
 
   get 'home/about'
 
+  # 공지사항 게시판
+
+  get 'home/notice'
+  post 'home/notice_write'
+
+  # 공지 글 수정
+  get 'home/notice_edit/:notice_id' => 'home#notice_edit'
+  post 'home/notice_edit_back/:notice_id' => 'home#notice_edit_back'
+
   # 좋아요 기능
   resources :home do 
     member do
@@ -62,12 +72,23 @@ Rails.application.routes.draw do
       get "unlike"
     end
   end
+
   
   resources :home do 
     member do
       get "basket_delete"
       
     end
+
+
+
+
+
+
+
+
+
+
   end
 
  

@@ -1,8 +1,9 @@
 <!--admin page : 댓글모아보기-->
     <div float="left" style="margin-top:30px; margin-left:30px;">
-            <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
-            <input type="button" value="회원리뷰" class="button" float="left" onclick="window.location='/home/admin_reply';" >
-            <input type="button" value="회원문의" class="button" float="left" onclick="window.location='/home/show_feedback';" >
+     <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
+     <input type="button" value="회원리뷰" class="button" float="left" onclick="window.location='/home/admin_reply';" >
+     <input type="button" value="회원문의" class="button" float="left" onclick="window.location='/home/show_feedback';" >
+     <input type="button" value="공지 작성" class="button" float="left" onclick="window.location='/home/admin_write';" >
     </div>
     
     <h3 align="center">회원 모아보기</h3>
@@ -22,10 +23,10 @@
                                 <tr>
                                 <th><span>회원</span></th>
                                 <th><span>가입일자</span></th>
-                                <th><span>최근 접속일자</span></th>
+                                <th><span>마지막 접속일자</span></th>
                                 <th class="text-center"><span>방문 횟수</span></th>
                                 <th><span>계절 타입</span></th>
-                                <th>&nbsp;</th>
+                                <th><span>생년 월일</span></th>
                                 </tr>
                             </thead>
                             <tbody>    
@@ -45,6 +46,10 @@
                                         <a href="#"><%=p.userseason %></a>
                                     </td>
                                     <td style="width: 20%;">
+
+                                      <a href="#"><%=p.birthday %></a>
+
+                                      <!-- 버튼들 주석처리(혹시 몰라서 내비둠)
                                         <a href="#" class="table-link">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
@@ -62,7 +67,7 @@
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                             </span>
-                                        </a>
+                                        </a> -->
                                     </td>
                                 </tr>
                                 <% end %>

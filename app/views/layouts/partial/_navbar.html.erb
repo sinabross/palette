@@ -4,9 +4,11 @@
 
 <nav class="navbar navbar-fixed-top navbar-design" role="navigation">
   <div class="navbar-top" style="padding-right:50px;">
+      <ul>
+        <!-- 팔레트란? 주석처리! (16.10.07)
         <li>
           <a href="/home/about">팔레트란?</a>
-        </li>
+        </li> -->
         
         <li>
           <!------------------------------------------------->
@@ -16,13 +18,16 @@
               <% elsif user_signed_in? && current_user.admin?%>
                   <a href="/home/show_feedback">문의/건의</a>
               <% else %>
-                  <a href="/users/sign_in">문의/건의</a>
+                  <a href="/home/askfor">문의/건의</a>
               <% end %>
 
           <!------------------------------------------------->
         </li>
+        <li>
+            <a href="/home/notice">공지사항</a>
+        </li>
         
-        <li style="float:right">
+        <li >
           <% if user_signed_in? %>
             <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
           <% else %>
@@ -30,14 +35,15 @@
           <% end %>
         </li>  
 
+       <!-- 마이팔레트 주석처리 (16.10.07)
         <li style="float:right">
           <% if user_signed_in? %>
             <%= link_to "마이팔레트", href="/basket" %>
           <% else %>
             <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
-        </li>
-      
+        </li> -->
+      </ul>
   </div>
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,9 +83,12 @@
             </button>
           </form>
         </li>
+
+        <!-- 팔레트란? 주석처리 (16.10.07)
         <li class="hidden-web">
           <a href="/home/about">팔레트란?</a>
         </li>
+        -->
 
         <li style="font-color:#ffffff; text-indent:10px;"><a href="/home/list_lip/w_lips">Warm 립</a></li>        
         <li class="grid-web" style="font-color:#ffffff; text-indent:10px;"><a href="/home/list_lip/c_lips" >Cool 립</a></li>
@@ -88,21 +97,23 @@
           <!------------------------------------------------->
    
               <% if user_signed_in? %>
-                   <%= link_to "고객의소리", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+                  <%= link_to "문의/건의", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
-                  <%= link_to "고객의소리", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+                  <%= link_to "문의/건의", href="/home/askfor" %>
+                <!-- <%= link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
               <% end %>
 
           <!------------------------------------------------->
         </li>
-        
+
+        <!-- 마이팔레트 주석처리 (16.10.07
         <li class="hidden-web">
           <% if user_signed_in? %>
             <%= link_to "마이팔레트", href="/basket" %>
           <% else %>
             <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
-        </li>
+        </li> -->
         
         <li class="hidden-web">
           <% if user_signed_in? %>
@@ -265,7 +276,7 @@
   }
   
   .navbar-top ul {
-    float:left;
+    float:right;
 
   }
   .navbar-top ol,ul { list-style: none; }
@@ -305,9 +316,7 @@
   li.hidden-web{
     display:none;
   }
-  li.grid-web{
-    margin-right:100px;
-  }
+
 }
 
 @media (max-width:767px){

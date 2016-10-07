@@ -1,0 +1,125 @@
+<div class="table-responsive" style="margin-top:100px;text-align:center;">
+  <table class="table user-list">
+    <thead>
+    <tr>
+      <th><span>번호</span></th>
+      <th><span>제목</span></th>
+      <th><span>작성자</span></th>
+      <th><span>작성일자</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @notices.each do |p| %>
+        <tr>
+          <td >
+            <p><%=p.id%></p>
+          </td>
+          <td>
+            <%if user_signed_in? && current_user.admin != nil%>
+               <a href="/home/notice_edit/<%=p.id%>"><%=p.title%></a>
+            <%else%>
+                <%=p.title%>
+            <%end%>
+            <div>
+              <button href="#collapse1" class="notice-toggle">보기</button>
+            </div>
+
+            <div id="collapse1" style="display:none">
+              <p><%=p.content%></p>
+            </div>
+          </td>
+          <td>
+            <%=p.name %>
+          </td>
+          <td>
+            <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %>
+          </td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <style>
+
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    body{
+      background:#eee;
+    }
+
+    .table a.table-link.danger {
+      color: #e74c3c;
+    }
+
+    .user-list tbody td .user-subhead {
+      font-size: 0.875em;
+      font-style: italic;
+    }
+    .user-list tbody td .user-link {
+      display: block;
+      font-size: 1.25em;
+      padding-top: 3px;
+      margin-left: 60px;
+    }
+    a {
+      color: #3498db;
+      outline: none!important;
+    }
+    .user-list tbody td>img {
+      position: relative;
+      max-width: 50px;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .table thead tr th {
+      text-transform: uppercase;
+      font-size: 0.875em;
+    }
+    .table thead tr th {
+      border-bottom: 2px solid #e7ebee;
+    }
+    .table tbody tr td:first-child {
+      font-size: 1.125em;
+      font-weight: 300;
+    }
+    .table tbody tr td {
+      font-size: 0.875em;
+      vertical-align: middle;
+      border-top: 1px solid #e7ebee;
+      padding: 12px 8px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function() {
+
+        $('.notice-toggle').click(function(){
+        //get collapse content selector
+        var collapse_content_selector = $(this).attr('href');
+
+        //make the collapse content to be shown or hide
+        var toggle_switch = $(this);
+        $(collapse_content_selector).toggle(function(){
+        if($(this).css('display')=='none'){
+        //change the button label to be 'Show'
+        toggle_switch.html('보기');
+        }else{
+        //change the button label to be 'Hide'
+        toggle_switch.html('접기');
+        }
+        });
+     });
+
+    });
+  </script>
