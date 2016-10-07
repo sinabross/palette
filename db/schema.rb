@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20161006051524) do
     t.string   "userseason",             default: "봄"
     t.string   "provider"
     t.string   "uid"
+    t.string   "birthday"
     t.boolean  "admin"
   end
 

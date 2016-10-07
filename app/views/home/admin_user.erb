@@ -22,10 +22,10 @@
                                 <tr>
                                 <th><span>회원</span></th>
                                 <th><span>가입일자</span></th>
-                                <th><span>최근 접속일자</span></th>
+                                <th><span>마지막 접속일자</span></th>
                                 <th class="text-center"><span>방문 횟수</span></th>
                                 <th><span>계절 타입</span></th>
-                                <th>&nbsp;</th>
+                                <th><span>생년 월일</span></th>
                                 </tr>
                             </thead>
                             <tbody>    
@@ -45,6 +45,10 @@
                                         <a href="#"><%=p.userseason %></a>
                                     </td>
                                     <td style="width: 20%;">
+
+                                      <a href="#"><%=p.birthday %></a>
+
+                                      <!-- 버튼들 주석처리(혹시 몰라서 내비둠)
                                         <a href="#" class="table-link">
                                             <span class="fa-stack">
                                                 <i class="fa fa-square fa-stack-2x"></i>
@@ -62,7 +66,7 @@
                                                 <i class="fa fa-square fa-stack-2x"></i>
                                                 <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                             </span>
-                                        </a>
+                                        </a> -->
                                     </td>
                                 </tr>
                                 <% end %>
