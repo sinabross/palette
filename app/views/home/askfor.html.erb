@@ -14,7 +14,8 @@
     <form style="margin-top:40px" action="/home/askfor_submit" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" value="<%=current_user.email%>">
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+        <!-- 로그인한 유저 이메일 뜨게 하려면 위 input 태그에 value="< % =current_user.email%>" 입력-->
       </div>
       <div class="form-group">
         <textarea class="form-control" name="content" rows="10"></textarea>
@@ -23,11 +24,11 @@
         <label for="exampleInputFile">사진첨부</label>
         <input type="file" name="pic" id="exampleInputFile" accept="image/*">
       </div>
-      <center>
+      <div>
         
-          <button type="submit" name="feed_pro_num" value="추가 요청" class="btn btn-black" style="color:#ffffff;" >문의보내기</button>
+          <button type="submit" name="feed_pro_num"  class="btn btn-black" style="color:#ffffff;" >문의보내기</button>
  
-      </center>
+      </div>
     </form>
     <br><br><br>
 </div>
@@ -37,7 +38,6 @@
           width:100px;
           height:40px;
           font-size:15px;
-          text-align:center;
           cursor:pointer;
           color:#000000;
           background:#333333;

@@ -4,12 +4,13 @@
 
 <nav class="navbar navbar-fixed-top navbar-design" role="navigation">
   <div class="navbar-top" style="padding-right:50px;">
+      <ul>
         <!-- 팔레트란? 주석처리! (16.10.07)
         <li>
           <a href="/home/about">팔레트란?</a>
         </li> -->
         
-        <li style="float:right;">
+        <li>
           <!------------------------------------------------->
    
               <% if user_signed_in? && current_user.admin == nil%>
@@ -17,13 +18,16 @@
               <% elsif user_signed_in? && current_user.admin?%>
                   <a href="/home/show_feedback">문의/건의</a>
               <% else %>
-                  <a href="/users/askfor">문의/건의</a>
+                  <a href="/home/askfor">문의/건의</a>
               <% end %>
 
           <!------------------------------------------------->
         </li>
+        <li>
+            <a href="/home/notice">공지사항</a>
+        </li>
         
-        <li style="float:right">
+        <li >
           <% if user_signed_in? %>
             <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
           <% else %>
@@ -39,7 +43,7 @@
             <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
         </li> -->
-      
+      </ul>
   </div>
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -93,9 +97,10 @@
           <!------------------------------------------------->
    
               <% if user_signed_in? %>
-                   <%= link_to "문의/건의", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+                  <%= link_to "문의/건의", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
-                  <%= link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+                  <%= link_to "문의/건의", href="/home/askfor" %>
+                <!-- <%= link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
               <% end %>
 
           <!------------------------------------------------->
@@ -271,7 +276,7 @@
   }
   
   .navbar-top ul {
-    float:left;
+    float:right;
 
   }
   .navbar-top ol,ul { list-style: none; }
@@ -311,9 +316,7 @@
   li.hidden-web{
     display:none;
   }
-  li.grid-web{
-    margin-right:100px;
-  }
+
 }
 
 @media (max-width:767px){
