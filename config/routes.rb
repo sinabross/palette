@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :home, only: [:list_lip] #for pagination
 
   
-  root 'home#main'
+  root 'home#index'
+  get 'home/index'
   get 'home/main'
   
   get 'home/search'
@@ -64,6 +65,10 @@ Rails.application.routes.draw do
   # 공지 글 수정
   get 'home/notice_edit/:notice_id' => 'home#notice_edit'
   post 'home/notice_edit_back/:notice_id' => 'home#notice_edit_back'
+
+  # 공지 글 삭제
+
+  get 'home/notice_delete/:notice_id/' => 'home#notice_delete'
 
   # 좋아요 기능
   resources :home do 

@@ -1,5 +1,13 @@
 class HomeController < ApplicationController
-  
+
+  def index
+
+
+  end
+
+
+
+
   def main
     # 웜 립 TOP3
     @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
@@ -269,6 +277,7 @@ class HomeController < ApplicationController
     @one_review=Review.find(params[:review_id])
     @one_review.destroy
     redirect_to :back
+
   end
   
   # =============== 후기 관련끝
@@ -287,9 +296,6 @@ class HomeController < ApplicationController
   end
   
   def feedback_submit #문의글 전송
-
-
-
 
     @post=Feedback.new
     @post.title=params[:title]
@@ -403,8 +409,6 @@ class HomeController < ApplicationController
 
     @edit=Notice.find(params[:notice_id])
 
-
-
   end
 
   def notice_edit_back
@@ -416,6 +420,12 @@ class HomeController < ApplicationController
     @edit.save
 
     redirect_to '/home/notice'
+  end
+
+  def notice_delete #공지글 삭제
+    @notices=Notice.find(params[:notice_id])
+    @notices.destroy
+    redirect_to :back
   end
   
   
@@ -430,6 +440,7 @@ class HomeController < ApplicationController
   end
 
   def notice_write
+
     @notices = Notice.new
     @notices.title = params[:title]
     @notices.content = params[:content]
