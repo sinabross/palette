@@ -1,23 +1,38 @@
-<a name="about"></a>
+
 <div class="intro-header">
   <div class="container">
 
     <div class="row">
-      <div class="col-lg-12 col-md-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="intro-message">
           <h1>Landing Page</h1>
           <h3>A Template by Start Bootstrap</h3>
+          <h3>내 컬러에 맞는 화장품을 찾아보세요!</h3>
           <hr class="intro-divider">
-         <div class ="col-lg-8 col-md-8 col-xs-8">
-              <form class="middle" id="search-form" action="/home/search" method="get" accept-charset="UTF-8">
+         <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+              <form class="middle"  action="/home/search" method="get" accept-charset="UTF-8">
 
-                <input type="hidden" name="utf8" value="✓">
-                <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="height:40px; width:80%; font-size: 30px;" class="">
-
-                <button type="submit" style="display: inline; height:40px; width:40px;">
-                  <i id="" class="fa fa-search" aria-hidden="true" style="font-size: 30px;"></i>
-                </button>
+                <div class="col-md-11 col-xs-11" style="padding:0px;">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input type="search" placeholder="원하는 상품을 검색해보세요"  name="search"
+                         class="mainsearch">
+                </div>
+                <div class="col-md-1 col-xs-1" style="padding:0px; margin-bottom:40px;">
+                  <button type="submit" class="searchbutton">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
               </form>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h3><%=@product_count%></h3>
+            <p>전체 상품 수</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <h3><%=@update_count%></h3>
+            <p>이번주 등록 상품 </p>
+
           </div>
         </div>
       </div>
@@ -36,14 +51,19 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6" >
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <h2 class="section-heading">상품 업데이트 소식</h2>
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-        <h2 class="section-heading">제품 업데이트 소식</h2>
-        <h3 class="section-heading">총 제품 개수: <%=@product_count%><br>이번 주 업데이트 제품 수: <%=@update_count%></h3>
-        <%@news.each do |n|%>
-          <a href="#"><%=n.title%></a> <br>
-        <%end%>
+        <div class="notice">
+          <%@news.each do |n|%>
+
+              <a href="/home/notice_view/<%=n.id%>"><h3><%=n.title%></h3></a>
+
+              <p>(<%=n.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일")%>)</p>
+
+          <%end%>
+        </div>
 
       </div>
 
@@ -152,9 +172,7 @@
     font-weight: 700;
   }
 
-  .topnav {
-    font-size: 14px;
-  }
+
 
   .lead {
     font-size: 18px;
@@ -165,7 +183,7 @@
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
-    color: #f8f8f8;
+    color: #56565d;
     background: url(../img/intro-bg.jpg) no-repeat center center;
     background-size: cover;
   }
@@ -191,6 +209,38 @@
   .intro-message > h3 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
   }
+
+  .mainsearch{
+    height:40px;
+    width:100%;
+    font-size: 20px;
+    text-align: center;
+    border:solid 1px #e4e4e4;
+
+  }
+
+  .searchbutton {
+    position:relative;
+    display: inline;
+    height:40px;
+    width:40px;
+
+  }
+  .fa-search{
+    font-size:20px;
+  }
+  .notice a{
+    color:#56565d;
+  }
+  .notice a:hover{
+    text-decoration:none;
+  }
+  .notice p{
+
+    font-size:1em;
+  }
+
+
 
   @media(max-width:767px) {
     .intro-message {
@@ -226,6 +276,7 @@
   .content-section-a {
     padding: 50px 0;
     background-color: #f8f8f8;
+    text-align: center;
   }
 
   .content-section-b {
@@ -236,10 +287,11 @@
 
   .section-heading {
     margin-bottom: 30px;
+    text-align: center;
   }
 
   .section-heading-spacer {
-    float: left;
+    float: center;
     width: 200px;
     border-top: 3px solid #e7e7e7;
   }
@@ -266,37 +318,41 @@
     margin-top: 0;
   }
 
-  @media(max-width:1199px) {
+
+
+  @media(min-width:767px) {
+
+
+    .mainsearch{
+      height:40px;
+      width:100%;
+      font-size: 30px;
+      text-align: center;
+      border:solid 1px #e4e4e4;
+
+    }
+    .searchbutton {
+      display: inline;
+      height:40px;
+      width:40px;
+    }
+    .fa-search{
+      font-size:30px;
+    }
+
+    .product-count{
+      display:inline;
+    }
+
     ul.banner-social-buttons {
       float: left;
       margin-top: 15px;
-    }
-  }
 
-  @media(max-width:767px) {
-    .banner h2 {
-      margin: 0;
-      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-      font-size: 3em;
     }
 
-    ul.banner-social-buttons > li {
-      display: block;
-      margin-bottom: 20px;
-      padding: 0;
     }
 
-    ul.banner-social-buttons > li:last-child {
-      margin-bottom: 0;
-    }
-  }
 
-  footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-  }
 
-  p.copyright {
-    margin: 15px 0 0;
-  }
+
 </style>
