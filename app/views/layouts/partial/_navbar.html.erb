@@ -30,9 +30,9 @@
        <!-- 잠시봉인(16.10.08)
         <li >
           <% if user_signed_in? %>
-            <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+            <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
           <% else %>
-            <%= link_to "로그인", new_user_session_path %>
+            <% link_to "로그인", new_user_session_path %>
           <% end %>
         </li>  
         -->
@@ -51,10 +51,10 @@
     <!-- Brand and toggle get grouped for better mobile display -->
       <a href="/">
           <span class="gCenter-mobile" style="float:left;">
-            <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/mobile.png" width="120">
+            <%= image_tag "/images/mobile.png", style:"width:120px;"%>
           </span>          
           <span class="gCenter" style="float:left;margin-top:10px;" >
-            <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/logo_new.png" width="130">
+            <%= image_tag "/images/logo_new.png",style:"width:120px;" %>
           </span>
 
       </a>    
@@ -119,9 +119,9 @@
         
        <!--잠시 봉인(16.10.08) <li class="hidden-web">
           <% if user_signed_in? %>
-            <%= link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+            <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
           <% else %>
-            <%= link_to "로그인", new_user_session_path %>
+            <% link_to "로그인", new_user_session_path %>
           <% end %>
         </li>
         -->
