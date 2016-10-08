@@ -61,6 +61,7 @@ Rails.application.routes.draw do
 
   get 'home/notice'
   post 'home/notice_write'
+  get 'home/notice_view/:notice_id' => 'home#notice_view'
 
   # 공지 글 수정
   get 'home/notice_edit/:notice_id' => 'home#notice_edit'

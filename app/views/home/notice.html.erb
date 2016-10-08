@@ -1,108 +1,88 @@
-<div class="table-responsive" style="margin-top:100px;text-align:center;">
-  <table class="table user-list">
-    <thead>
-    <tr>
-      <th><span>번호</span></th>
-      <th><span>제목</span></th>
-      <th><span>작성자</span></th>
-      <th><span>작성일자</span></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @notices.each do |p| %>
-        <tr>
-          <td >
-            <p><%=p.id%></p>
-          </td>
-          <td>
-            <%if user_signed_in? && current_user.admin != nil%>
-               <a href="/home/notice_edit/<%=p.id%>"><%=p.title%></a>
-            <%else%>
-                <%=p.title%>
-            <%end%>
-            <div>
-              <button href="#collapse1" class="notice-toggle">보기</button>
-            </div>
-            <%if user_signed_in? && current_user.admin?%>
-                <a href="/home/notice_delete/<%=p.id%>">삭제</a>
-            <%end%>
+<div class="table-responsive" style="margin-top:100px;">
 
+  <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-            <div id="collapse1" style="display:none">
-              <p><%=p.content%></p>
-            </div>
-          </td>
-          <td>
-            <%=p.name %>
-          </td>
-          <td>
-            <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %>
-          </td>
+      <div class="title-web" style="margin-right:10px;">
+        <h3>공지사항</h3>
+        <p>업데이트 되는 제품 소식을 확인하세요</p>
 
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </div>
+
+      <hr style="border: 2px solid #38393b">
+      <br>
+
+        <table class="table user-list">
+          <thead>
+          <tr>
+            <th><span>번호</span></th>
+            <th><span>제목</span></th>
+            <th><span>작성자</span></th>
+            <th><span>작성일자</span></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @notices.each do |p| %>
+              <tr>
+                <td>
+                  <p><%=p.id%></p>
+                </td>
+                <td>
+                  <a href="/home/notice_view/<%=p.id%>"><%=p.title%></a>
+                </td>
+                <td>
+                  <%=p.name %>
+                </td>
+                <td>
+                  <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %>
+                </td>
+
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <%if user_signed_in? && current_user.admin !=nil%>
+          <a href="/home/admin_write" style="font-size:13px;color:white;" class="btn btn-black" role="button">글쓰기</a>
+         <%end%>
+      </div>
+  </div>
 
   <style>
+    table a {
+      color:#000000;
+    }
+    table a:hover{
 
-    .button {
-      background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
+      text-decoration:none;
     }
-
-    body{
-      background:#eee;
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:15px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#000000;
+      background:#333333;
     }
-
-    .table a.table-link.danger {
-      color: #e74c3c;
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
     }
-
-    .user-list tbody td .user-subhead {
-      font-size: 0.875em;
-      font-style: italic;
-    }
-    .user-list tbody td .user-link {
-      display: block;
-      font-size: 1.25em;
-      padding-top: 3px;
-      margin-left: 60px;
-    }
-    a {
-      color: #3498db;
-      outline: none!important;
-    }
-    .user-list tbody td>img {
-      position: relative;
-      max-width: 50px;
-      float: left;
-      margin-right: 15px;
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
     }
 
-    .table thead tr th {
-      text-transform: uppercase;
-      font-size: 0.875em;
-    }
-    .table thead tr th {
-      border-bottom: 2px solid #e7ebee;
-    }
-    .table tbody tr td:first-child {
-      font-size: 1.125em;
-      font-weight: 300;
-    }
-    .table tbody tr td {
-      font-size: 0.875em;
-      vertical-align: middle;
-      border-top: 1px solid #e7ebee;
-      padding: 12px 8px;
-    }
   </style>
 
   <script>

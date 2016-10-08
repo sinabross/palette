@@ -42,12 +42,12 @@ class HomeController < ApplicationController
     else
       @result = Lipdb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
     end
-    # 1-2. searching from Eyedb 
-    if params[:search]
-      @result2 = Eyedb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
-    else
-      @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
-    end
+    # 1-2. searching from Eyedb  (당분간 봉인)
+  #  if params[:search]
+   #   @result2 = Eyedb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
+   # else
+    #  @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
+    #end
     
   end
   
@@ -455,6 +455,11 @@ class HomeController < ApplicationController
 
 
     redirect_to "/home/notice"
+  end
+
+  def notice_view
+    @one_notice = Notice.find(params[:notice_id])
+
   end
 
 
