@@ -1,16 +1,16 @@
 <% if @list %>
-  <%= will_paginate @list, :class => "flickr_pagination"%>
+  <%= will_paginate @list, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
 <% end %>
 
 <% unless @result.blank? && @result2.blank?%>
-  <%= will_paginate @result, :class => "flickr_pagination"%>
+  <%= will_paginate @result, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
 <%else%>
   <% if @result %>
-    <%= will_paginate @result, :class => "flickr_pagination"%>
+    <%= will_paginate @result, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
   <% end %>
   
   <% if @result2 %>
-    <%= will_paginate @result2, :class => "flickr_pagination"%>
+    <%= will_paginate @result2, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
   <% end %>
 <%end%>
   
