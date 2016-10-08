@@ -70,12 +70,13 @@
               </div>
             </div>
                         
-            <div class="col-md-8 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->   
+            <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
               <p class="product_tone" style="float:left"> <%=w.wc%> / <%=w.tone%> </p>
-              <p class="product_price" style="float:left"> | <%=w.size%> <p class="product_price"style="color:#ff709b;float:left; margin-left:2px;"> <%=w.price%>원</style> </p>
+              <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
             </div>
-                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>   
-      
+               <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
+                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>
+                -->
 
 
          </div>
@@ -86,7 +87,9 @@
       
   <br><br>    
   <!-- pagination -->
+
   <%= render :partial => "layouts/partial/pagination" %> 
+
 </div><!-- /.container -->
 
 <style>

@@ -23,6 +23,10 @@
             <div>
               <button href="#collapse1" class="notice-toggle">보기</button>
             </div>
+            <%if user_signed_in? && current_user.admin?%>
+                <a href="/home/notice_delete/<%=p.id%>">삭제</a>
+            <%end%>
+
 
             <div id="collapse1" style="display:none">
               <p><%=p.content%></p>
@@ -104,6 +108,7 @@
   <script>
     $(document).ready(function() {
 
+      //글 보기,접기 버튼
         $('.notice-toggle').click(function(){
         //get collapse content selector
         var collapse_content_selector = $(this).attr('href');
@@ -120,6 +125,8 @@
         }
         });
      });
+
+
 
     });
   </script>
