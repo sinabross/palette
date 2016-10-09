@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
+
     xlsx_lip = Roo::Excelx.new("xlsx/lipdb.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 wc: 'wc',
@@ -47,4 +50,10 @@
     
     User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
     User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
-    Admin.create(email: 'admin@gmail.com', password: 'adminadmin')
+    #Admin.create(email: 'admin@gmail.com', password: 'adminadmin')
+   
+   
+   # test_lip = Lipdb.find_or_initialize_by(num: 'L560')
+   # test_lip.wc = '웜'
+   # test_lip.tone = '뮤트'
+   # test_lip.save!
