@@ -3,3 +3,7 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
+
+#네이버 검색 노출
+User-agent: Yeti
+Allow: /

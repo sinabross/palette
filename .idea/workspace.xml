@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/detail.erb" afterPath="$PROJECT_DIR$/app/views/home/detail.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/list_lip.erb" afterPath="$PROJECT_DIR$/app/views/home/list_lip.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/search.html.erb" afterPath="$PROJECT_DIR$/app/views/home/search.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/partial/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/partial/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/robots.txt" afterPath="$PROJECT_DIR$/public/robots.txt" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +101,28 @@
       <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="90">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="robots.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/robots.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_navbar.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -148,12 +165,13 @@
         <option value="$PROJECT_DIR$/app/views/home/notice.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/askfor.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/detail.erb" />
         <option value="$PROJECT_DIR$/app/views/home/list_lip.erb" />
         <option value="$PROJECT_DIR$/app/views/home/search.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/partial/_footer.html.erb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/public/robots.txt" />
+        <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
@@ -598,7 +616,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="robots&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -793,16 +811,16 @@
       <workItem from="1475476639542" duration="7707000" />
       <workItem from="1475494643208" duration="4445000" />
       <workItem from="1475723450861" duration="17528000" />
-      <workItem from="1475815569430" duration="54629000" />
+      <workItem from="1475815569430" duration="55752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93568000" />
+    <option name="totallyTimeSpent" value="94691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2912254" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -812,7 +830,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40408805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40408805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -839,13 +857,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/environment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3115">
-          <caret line="214" column="3" selection-start-line="214" selection-start-column="3" selection-end-line="214" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1174,19 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684">
-          <caret line="124" column="19" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#a#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <marker date="1476025991143" expanded="false" signature="1298:1309" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/askfor.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -1258,10 +1256,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/robots.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="90">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
