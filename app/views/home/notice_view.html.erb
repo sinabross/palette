@@ -34,7 +34,7 @@
           <td>
             <a href="/home/notice" style="font-size:13px;color:white;" class="btn btn-black" role="button">목록</a>
             <%if user_signed_in? && current_user.admin?%>
-               <a href="/home/notice_view/<%=@one_notice.id%>" style="font-size:13px;color:white;" class="btn btn-black" role="button">수정</a>
+               <a href="/home/notice_edit/<%=@one_notice.id%>" style="font-size:13px;color:white;" class="btn btn-black" role="button">수정</a>
                <a href="/home/notice_delete/<%=@one_notice.id%>" style="font-size:13px;color:white;" class="btn btn-black" role="button">삭제</a>
             <%end%>
           </td>
