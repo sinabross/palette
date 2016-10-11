@@ -1,16 +1,28 @@
 <% if @list %>
-  <%= will_paginate @list, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
+  <%= will_paginate @list,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
 <% end %>
 
 <% unless @result.blank? && @result2.blank?%>
-  <%= will_paginate @result, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
+  <%= will_paginate @result,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
 <%else%>
   <% if @result %>
-    <%= will_paginate @result, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
+        <%= will_paginate @result,
+                          :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                          inner_window: 2, outer_window: 0,
+                          :previous_label => '<', :next_label => '>'%>
   <% end %>
   
   <% if @result2 %>
-    <%= will_paginate @result2, :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12"%>
+        <%= will_paginate @result2,
+                          :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                          inner_window: 2, outer_window: 0,
+                          :previous_label => '<', :next_label => '>'%>
   <% end %>
 <%end%>
   
@@ -26,14 +38,14 @@
   .flickr_pagination .current {
     font-style: normal;
     font-weight: bold;
-    color: #ff0084; }
+    color: #ff6666; }
   .flickr_pagination a {
     border: 1px solid #dddddd;
-    color: #0063dc;
+    color: #56565d;
     text-decoration: none; }
   .flickr_pagination a:hover, .flickr_pagination a:focus {
-    border-color: #003366;
-    background: #0063dc;
+    border-color: lightgray;
+    background: #ff6666;
     color: white; }
   .flickr_pagination .page_info {
     color: #aaaaaa;

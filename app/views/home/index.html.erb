@@ -58,7 +58,7 @@
           <ul style="list-style: none;">
            <%@news.each do |n|%>
 
-              <li class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-9 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+              <li class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-xs-10">
                 <a href="/home/notice_view/<%=n.id%>" style="font-size:13px;color:white;" class="btn btn-pink" role="button"><h3><%=n.title%></h3></a>
               </li>
 
@@ -256,6 +256,7 @@
   .notice ul li h3{
     font-size:1.5em;
     color:#ffffff;
+    white-space: pre-line;
   }
   .notice ul li p{
     color: #56565d;
@@ -278,6 +279,7 @@
     cursor:pointer;
     color:#ffffff;
     background:#ffaaa3;
+
   }
 
 
@@ -335,6 +337,7 @@
   .lead{
     text-align:center;
     font-size:1em;
+    word-break:break-all;
   }
   .banner {
     padding: 100px 0;
