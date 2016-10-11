@@ -16,17 +16,18 @@
            <th>
              <p><%=@one_notice.title%></p>
            </th>
+
          </tr>
          <tr>
            <th>
-             <p><%=@one_notice.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초")%></p>
+             <p><%=@one_notice.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")%></p>
            </th>
          </tr>
        </thead>
 
        <tbody>
         <tr>
-          <td>
+          <td class="notice_content">
            <p><%=@one_notice.content%></p>
           </td>
         </tr>
@@ -66,8 +67,12 @@
     height:100%;
     padding:5px;
   }
-  td{
+  .notice_content{
     padding:10px;
+    text-align:left;
+    word-break:break-all;
+    white-space: pre-line;
+
   }
   .title-web h3 {
     font-family: 'NanumGothic';
