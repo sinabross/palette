@@ -48,11 +48,12 @@
     end
     
     
-    User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
+   # User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
     User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
     #Admin.create(email: 'admin@gmail.com', password: 'adminadmin')
    
-   
+
+  # 제품 DB 업데이트 할 때 이거 주석해제하고 위에 roo 코드는 임시로 주석처리
    # test_lip = Lipdb.find_or_initialize_by(num: 'L560')
    # test_lip.wc = '웜'
    # test_lip.tone = '뮤트'
