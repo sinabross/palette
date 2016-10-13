@@ -38,9 +38,9 @@ class HomeController < ApplicationController
     end   
     # 1-1. searching from Lipdb
     if params[:search]
-      @result = Lipdb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
+      @result = Lipdb.all.search(@search,@search2,@search3).order("brand").paginate(page: params[:page], per_page: 21)
     else
-      @result = Lipdb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
+      @result = Lipdb.all.order("brand").paginate(page: params[:page], per_page: 21)
     end
     # 1-2. searching from Eyedb  (당분간 봉인)
   #  if params[:search]
@@ -62,24 +62,24 @@ class HomeController < ApplicationController
       @liplist = params[:liplist]
       @liptone = params[:liptone]
       #웝립/제품군/세부톤
-      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
     if params[:liplist] == nil
        @liplist = "제품"
-       @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+       @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
         if params[:liptone] == nil
           @liptone = "세부톤"
-          @list = Lipdb.get_w_lip.order('zzim desc').paginate(page: params[:page], per_page: 21) 
+          @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
         end
     end
       #세부톤 선택안했을때
      if params[:liptone] == nil
         @liptone = "세부톤"
         #웜립/제품군에 따라 출력
-        @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+        @list = Lipdb.get_w_lip.where(pro_type:params[:liplist]).order('brand').paginate(page: params[:page], per_page: 21)
          #세부톤,제품군 선택안했을때 웜립 전체출력
         if params[:liplist] == nil 
           @liplist = "제품"
-          @list = Lipdb.get_w_lip.order('zzim desc').paginate(page: params[:page], per_page: 21)
+          @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
         end
       end
     end
@@ -90,21 +90,21 @@ class HomeController < ApplicationController
       @color_tone = "쿨"      
       @liplist = params[:liplist]
       @liptone = params[:liptone]
-      @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+      @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
       if params[:liplist] == nil
         @liplist = "제품"
-        @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+        @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
         if params[:liptone] == nil
           @liptone = "세부톤"
-          @list = Lipdb.get_c_lip.order('zzim desc').paginate(page: params[:page], per_page: 21) 
+          @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
         end
       end
       if params[:liptone] == nil
         @liptone = "세부톤"
-        @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
+        @list = Lipdb.get_c_lip.where(pro_type:params[:liplist]).order('brand').paginate(page: params[:page], per_page: 21)
         if params[:liplist] == nil 
           @liplist = "제품"
-          @list = Lipdb.get_c_lip.order('zzim desc').paginate(page: params[:page], per_page: 21)
+          @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
         end
       end
     end
