@@ -14,13 +14,13 @@
         <li>
             <div class="row col-md-12" style="margin:10px; border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
                 <div class="col-md-3">
-                    <p>제품:<%=p.pro_num%></p>
-                    <p>작성자이메일:<%=p.emailaddress%></p>
+                    <p>제품:<a style="text-decoration: none;" href="/home/detail/<%=p.pro_num%>"><%=p.pro_num%></a></p>
+                    <p>이메일:<%=p.emailaddress%></p>
                     <p>날짜:<%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y/%m/%d/ %H:%M:%S") %></p>
                 </div>
                 <div class="col-md-9">
                     <p>제목:<%=p.title%></p>
-                    <p>내용:<%=p.content%></p>
+                    <p class="feedback_content">내용:<%=p.content%></p>
                     <img width="150px" src="<%= p.img_url %>">
                 </div>
             </div>
@@ -41,4 +41,9 @@
     display: inline-block;
     font-size: 16px;
   }
+  .feedback_content{
+    word-break:break-all;
+    white-space: pre-line;
+  }
+
 </style>
