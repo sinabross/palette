@@ -324,7 +324,7 @@ class HomeController < ApplicationController
   
   def show_feedback
    @post=Feedback.all.reverse
-   @product = Lipdb.find_by_num(params[:@post.pro_num])
+
   end
   # =============== 문의글 관련끝
   
