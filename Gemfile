@@ -7,7 +7,8 @@ gem 'devise' #로그인
 gem 'omniauth-facebook'
 gem 'omniauth'
 
-gem 'impressionist' #조회수 설정을 위한 gem
+gem 'impressionist' # 조회수 집계 (동일 ip 중복 집계 x)
+gem 'punching_bag'  # 조회수 집계 (중복 집계 o)
 
 gem 'roo' #엑셀을 db로 슝
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

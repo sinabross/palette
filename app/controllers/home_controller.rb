@@ -463,8 +463,11 @@ class HomeController < ApplicationController
   def notice_view
     @one_notice = Notice.find(params[:notice_id])
 
+    unless user_signed_in? && current_user.admin == true
+    @one_notice.punch(request)
+    end
 
-    @one_notice.impressions.create(ip_address: request.remote_ip)
+    #@one_notice.impressions.create(ip_address: request.remote_ip)
 
 
 
