@@ -463,9 +463,9 @@ class HomeController < ApplicationController
   def notice_view
     @one_notice = Notice.find(params[:notice_id])
 
-    unless Impressions.where(ip_address: request.remote_ip).exists?
+
     @one_notice.impressions.create(ip_address: request.remote_ip)
-    end
+
 
 
   end
