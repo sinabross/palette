@@ -7,3 +7,6 @@
 #네이버 검색 노출
 User-agent: Yeti
 Allow: /
+
+#네이버 사이트맵
+Sitemap: /sitemap.xml
