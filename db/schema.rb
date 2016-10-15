@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007071508) do
+ActiveRecord::Schema.define(version: 20161015091819) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20161007071508) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
     t.string   "wc"
@@ -81,8 +90,9 @@ ActiveRecord::Schema.define(version: 20161007071508) do
     t.string   "title"
     t.text     "content"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "hit_num",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "reviews", force: :cascade do |t|

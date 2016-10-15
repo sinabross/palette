@@ -442,6 +442,7 @@ class HomeController < ApplicationController
     
   end
 
+
   def notice  #제품 업데이트 등 공지사항 알리기 위한 게시판
     @notices = Notice.all.order('id desc')
   end
@@ -458,8 +459,13 @@ class HomeController < ApplicationController
     redirect_to "/home/notice"
   end
 
+  before_filter :notice_view, :only=> [:show]
   def notice_view
     @one_notice = Notice.find(params[:notice_id])
+
+
+    @one_notice.impressions.create(ip_address: request.remote_ip)
+
 
   end
 
