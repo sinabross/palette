@@ -1,8 +1,9 @@
 class Notice < ActiveRecord::Base
 
-  has_many :impressions, :as=>:impressionable ,counter_cache: true
+  has_many :impressions, :as=>:impressionable
+ # is_impressionable :counter_cache => true
 
-  def impression_count
+ def impression_count
     impressions.size
   end
 
