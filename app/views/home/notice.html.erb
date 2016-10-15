@@ -11,13 +11,13 @@
 
       <hr style="border: 2px solid #38393b">
       <br>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
         <table class="table user-list">
           <thead>
           <tr>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>번호</span></th>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>제목</span></th>
-            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성자</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-3 hidden-sm col-xs-3 hidden-xs"><span>작성자</span></th>
             <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성일</span></th>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>조회수</span></th>
           </tr>
@@ -31,14 +31,14 @@
                 <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                   <a href="/home/notice_view/<%=p.id%>"><%=p.title%></a>
                 </td>
-                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <td class="col-lg-3 col-md-3 col-sm-3 hidden-sm col-xs-3 hidden-xs">
                   <%=p.name %>
                 </td>
                 <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                  <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%m-%d") %>
+                  <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
                 </td>
                 <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                  <%=p.unique_impression_count %>
+                  <%=p.hits %>
                 </td>
 
               </tr>
