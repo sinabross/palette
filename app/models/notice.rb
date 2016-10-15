@@ -7,7 +7,7 @@ class Notice < ActiveRecord::Base
   end
 
   def unique_impression_count
-    impressions.group(:ip_address).size #UNTESTED: might not be correct syntax
+    impressions.group(:ip_address).length #UNTESTED: might not be correct syntax
   end
 
 
