@@ -33,6 +33,16 @@
             <p>이번주 등록 상품 </p>
 
           </div>
+
+          <div class="notice col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+            <h3>새로운 소식</h3>
+
+              <%@news.each do |n|%>
+                <a href="/home/notice_view/<%=n.id%>" style="font-size:13px;color:white;" class="btn btn-pink" role="button"><h3><%=n.title%></h3></a>
+              <%end%>
+
+          </div>
+
         </div>
       </div>
     </div>
@@ -45,6 +55,8 @@
 
 <!-- Page Content -->
 
+
+<!-- 봉인 (16.10.15
 <a  name="services"></a>
 <div class="content-section-a">
 
@@ -54,17 +66,7 @@
         <h2 class="section-heading">상품 업데이트 소식</h2>
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-        <div class="notice">
-          <ul style="list-style: none;">
-           <%@news.each do |n|%>
 
-              <li class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-xs-10">
-                <a href="/home/notice_view/<%=n.id%>" style="font-size:13px;color:white;" class="btn btn-pink" role="button"><h3><%=n.title%></h3></a>
-              </li>
-
-            <%end%>
-          </ul>
-        </div>
 
       </div>
 
@@ -246,22 +248,20 @@
   .fa-search-main{
     font-size:20px;
   }
-  .notice ul li a {
+
+  .notice a {
     color:#56565d;
 
   }
   .notice a:hover{
     text-decoration:none;
   }
-  .notice ul li h3{
+  .notice h3{
     font-size:1.5em;
     color:#ffffff;
     white-space: pre-line;
   }
-  .notice ul li p{
-    color: #56565d;
-    font-size:1em;
-  }
+
   .counts>p,h3 {
     color: #ffffff;
   }
@@ -279,7 +279,9 @@
     cursor:pointer;
     color:#ffffff;
     background:#ffaaa3;
-
+    margin:auto;
+    display:block;
+    padding:0px;
   }
 
 
