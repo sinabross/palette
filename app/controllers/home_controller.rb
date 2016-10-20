@@ -10,7 +10,16 @@ class HomeController < ApplicationController
     #이번주 등록 제품 개수
     @update_count = Lipdb.where(:id => 200..236).count
   end
+  def index2
+    #공지사항 최신글 보여주기
+    @news = Notice.order('id desc').first(1)
 
+    #총 제품 개수
+    @product_count = Lipdb.count
+    #이번주 등록 제품 개수
+    @update_count = Lipdb.where(:id => 200..236).count
+
+  end
 
 
 
