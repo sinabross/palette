@@ -9,19 +9,16 @@
           <h3 style="margin-bottom:50px;">내 톤에 맞는 제품을 편리하게 찾아보세요</h3>
          <!-- <hr class="intro-divider">-->
          <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
-              <form class="middle"  action="/home/search" method="get" accept-charset="UTF-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:0px;">
 
-                <div class="col-md-11 col-xs-11" style="padding:0px;">
-                  <input type="hidden" name="utf8" value="✓">
-                  <input type="search" placeholder="원하는 상품을 검색해보세요"  name="search"
-                         class="mainsearch">
+                  <a href="/home/list_lip/w_lips" class="btn-lip btn-lipmobile">Warm립</a>
+
                 </div>
-                <div class="col-md-1 col-xs-1" style="padding:0px;">
-                  <button type="submit" class="searchbutton">
-                    <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
-                  </button>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:0px;">
+
+                  <a href="/home/list_lip/c_lips" class="btn-lip btn-lipmobile">Cool립</a>
+
                 </div>
-              </form>
           </div>
 
         </div>
@@ -35,6 +32,9 @@
 <!-- /.intro-header -->
 
 <!-- Page Content -->
+
+
+
 
 <div class="content-section-a">
 
@@ -168,6 +168,8 @@
 
 
 <style>
+
+
   body,
   html {
     width: 100%;
@@ -225,30 +227,9 @@
 
   }
 
-  .mainsearch{
-    height:40px;
-    width:100%;
-    font-size: 15px;
-    text-align: center;
-    border:solid 1px #e4e4e4;
-
-
-  }
-
-  .searchbutton {
-    display: inline;
-    height:40px;
-    width:40px;
-    background-color:#ffffff;
-
-  }
-  .fa-search-main{
-    font-size:20px;
-    color:#ffaaa3;
-  }
 
   .notice a {
-    color:#56565d;
+    color:#ffffff;
 
   }
   .notice a:hover{
@@ -280,6 +261,14 @@
     margin:auto;
     display:block;
     padding:0px;
+  }
+  .btn-lip:hover{
+    text-decoration: none;
+    background-color:#ff6666;
+    color:#ffffff;
+  }
+  .btn-lip:active{
+    transform:translateY(3px);
   }
 
 
@@ -360,24 +349,27 @@
     float: right;
     margin-top: 0;
   }
+  .btn-lipmobile{
 
+    text-decoration: none;
+    color:#ffffff;
+    font-size:16px;
+    display:inline-block;
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+    background-color:#ffaaa3;
+    line-height:80px;
+    text-align:center;
+    transition: all 0.4s;
+
+  }
 
 
   @media(min-width:767px) {
 
 
-    .mainsearch{
-      height:40px;
-      width:100%;
-      font-size: 20px;
-      text-align: center;
-      border:solid 1px #e4e4e4;
 
-    }
-
-    .fa-search-main{
-      font-size:30px;
-    }
 
     .product-count{
       display:inline;
@@ -404,6 +396,21 @@
 
     }
 
+    .btn-lip{
+
+      text-decoration: none;
+      color:#ffffff;
+      font-size:25px;
+      display:inline-block;
+      width:150px;
+      height:150px;
+      border-radius: 50%;
+      background-color:#ffaaa3;
+      line-height:150px;
+      text-align:center;
+      transition: all 0.4s;
+
+    }
 
    }
 

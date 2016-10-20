@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :home, only: [:list_lip] #for pagination
 
   
-  root 'home#index'
+  root 'home#index' #랜딩페이지 메인
   get 'home/index'
+
+  get 'home/index2' #랜딩페이지 메인 B버전
   get 'home/main'
   
   get 'home/search'
