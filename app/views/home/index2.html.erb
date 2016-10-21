@@ -11,15 +11,27 @@
          <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:0px;">
 
-                  <a href="/home/list_lip/w_lips" class="btn-lip btn-lipmobile">Warm립</a>
+                  <a href="/home/list_lip/w_lips" class="btn-lip btn-lipmobile">Warm립 보러가기</a>
 
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding:0px;">
 
-                  <a href="/home/list_lip/c_lips" class="btn-lip btn-lipmobile">Cool립</a>
+                  <a href="/home/list_lip/c_lips" class="btn-lip btn-lipmobile">Cool립 보러가기</a>
 
                 </div>
+
+               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
+                 <h3><%=@product_count%></h3>
+                 <p>전체 상품 수</p>
+               </div>
+
+               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
+                 <h3><%=@update_count%></h3>
+                 <p>이번주 등록 상품 </p>
+               </div>
           </div>
+
+
 
         </div>
       </div>
@@ -41,39 +53,62 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
-        <h2 class="section-heading">팔레트 뉴스</h2>
+        <h2 class="section-heading">새 소식</h2>
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
 
-        <div class="notice col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
-          <%@news.each do |n|%>
-              <a href="/home/notice_view/<%=n.id%>" style="margin-bottom:20px;" class="btn btn-pink" role="button"><h3><%=n.title%></h3></a>
-          <%end%>
+        <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+            <table class="table user-list">
+              <thead>
+              <tr>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>번호</span></th>
+                <th class="col-lg-5 col-md-5 col-sm-3 col-xs-3"><span>제목</span></th>
+                <th class="col-lg-2 col-md-2 col-sm-1 hidden-sm col-xs-1 hidden-xs"><span>작성자</span></th>
+                <th class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><span>작성일</span></th>
+                <th class="col-lg-1 col-md-1 col-sm-2 col-xs-2"><span>조회수</span></th>
+              </tr>
+              </thead>
+              <tbody style="text-align: left;">
+              <% @news.each do |p| %>
+                  <tr>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                      <p><%=p.id%></p>
+                    </td>
+                    <td class="col-lg-5 col-md-5 col-sm-3 col-xs-3">
+                      <a href="/home/notice_view/<%=p.id%>"><%=p.title%></a>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-sm-1 hidden-sm col-xs-1 hidden-xs">
+                      <%=p.name %>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                      <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                      <%=p.hits %>
+                    </td>
+
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
-          <h3><%=@product_count%></h3>
-          <p>전체 상품 수</p>
+        <div style="text-align: center;">
+          <a href="/home/notice" class="btn-black">전체보기</a>
         </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
-          <h3><%=@update_count%></h3>
-          <p>이번주 등록 상품 </p>
-
-        </div>
-
-
-
-
       </div>
 
     </div>
 
   </div>
-  <!-- /.container -->
+
+</div>
+<!-- /.container -->
 
 </div>
 <!-- /.content-section-a -->
+
 
 
 <div class="content-section-b">
@@ -81,30 +116,35 @@
   <div class="container">
 
     <div class="row">
-     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+          <h2 class="section-heading">서비스 소개</h2>
+          <hr class="section-heading-spacer">
+        </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <img src="/images/feature1.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
           <div class="clearfix"></div>
-          <h2 class="section-heading">다양한 브랜드</h2>
-          <p class="lead">백화점, 로드샵 등 현재 500여개의 상품이 분류되어 있어요. 매주 추가되는 상품을 확인해보세요.</p>
+          <h4>다양한 브랜드</h4>
+          <p class="lead">백화점, 로드샵 등 다양한 브랜드의 상품이 분류되어 있어요. 매주 추가되는 상품을 확인해보세요.</p>
         </div>
 
-       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-         <img src="/images/feature2.png" alt="화장품 퍼스널컬러 검색" class="feature_img">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">상품 추가요청</h2>
-         <p class="lead">톤 진단이 필요한 상품을 요청하세요. 추가된 상품 소식을 공지사항으로 알려드려요.</p>
-       </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <img src="/images/feature2.png" alt="화장품 퍼스널컬러 검색" class="feature_img">
+          <div class="clearfix"></div>
+          <h4>상품 추가요청</h4>
+          <p class="lead">톤 진단이 필요한 상품을 요청하세요. 추가된 상품 소식을 공지사항으로 알려드려요.</p>
+        </div>
 
-       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-         <img src="/images/feature3.png" alt="퍼스널컬러 진단" class="feature_img">
-         <div class="clearfix"></div>
-         <h2 class="section-heading">전문성</h2>
-         <p class="lead">발색한 컬러를 기준으로 퍼스널컬러 전문가가 직접 테스트해보고 추천해드려요.</p>
-       </div>
-     </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <img src="/images/feature3.png" alt="퍼스널컬러 진단" class="feature_img">
+          <div class="clearfix"></div>
+          <h4>전문성</h4>
+          <p class="lead">발색한 컬러를 기준으로 퍼스널컬러 전문가가 직접 테스트해보고 추천해드려요.</p>
+        </div>
+
+      </div>
     </div>
-
   </div>
   <!-- /.container -->
 
@@ -242,7 +282,7 @@
   }
 
   .counts>p,h3 {
-    color: #56565d;
+    color: #ffffff;
   }
   .feature_img{
     width:40%;
@@ -250,7 +290,7 @@
     margin:auto;
     display:block;
   }
-  .btn-pink{
+  /*.btn-pink{
     width:100%;
     height:100%;
     font-size:13px;
@@ -261,6 +301,25 @@
     margin:auto;
     display:block;
     padding:0px;
+  }
+  */
+
+  .btn-black{
+    display:inline-block;
+    line-height: 30px;
+    width:100px;
+    height:30px;
+    border-radius: 5px;
+    font-size:13px;
+    text-align:center;
+    color:#ffffff;
+    background-color:#333333;
+    margin-bottom:50px;
+  }
+
+  .btn-black:hover{
+    text-decoration:none;
+    color:#ffffff;
   }
   .btn-lip:hover{
     text-decoration: none;
@@ -301,15 +360,23 @@
   }
 
   .content-section-a {
-    padding: 50px 0;
+    padding-top: 30px;
     background-color: #f8f8f8;
     text-align: center;
+  }
+  .content-section-a td>a{
+    color:black;
   }
 
   .content-section-b {
     padding: 50px 0;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+  }
+  .content-section-b h4{
+    color:#56565d;
+    text-align: center;
+    font-weight: bold;
   }
 
   .section-heading {
@@ -321,7 +388,7 @@
   .section-heading-spacer {
     float: center;
     width: 200px;
-    border-top: 3px solid #e7e7e7;
+    border-top: 3px solid #ffaaa3;
   }
   .lead{
     text-align:center;
@@ -353,13 +420,13 @@
 
     text-decoration: none;
     color:#ffffff;
-    font-size:16px;
+    font-size:15px;
     display:inline-block;
-    width:80px;
-    height:80px;
-    border-radius: 50%;
+    width:140px;
+    height:50px;
+    border-radius: 10px;
     background-color:#ffaaa3;
-    line-height:80px;
+    line-height:50px;
     text-align:center;
     transition: all 0.4s;
 
@@ -400,13 +467,13 @@
 
       text-decoration: none;
       color:#ffffff;
-      font-size:25px;
+      font-size:20px;
       display:inline-block;
-      width:150px;
-      height:150px;
-      border-radius: 50%;
+      width:200px;
+      height:60px;
+      line-height: 60px;
+      border-radius: 10px;
       background-color:#ffaaa3;
-      line-height:150px;
       text-align:center;
       transition: all 0.4s;
 
