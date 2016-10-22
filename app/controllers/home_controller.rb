@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
   def index2
     #공지사항 최신글 보여주기
-    @news = Notice.order('id desc').first(1)
+    @news = Notice.order('id desc').first(5)
 
     #총 제품 개수
     @product_count = Lipdb.count
