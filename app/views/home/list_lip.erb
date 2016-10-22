@@ -16,7 +16,17 @@
       </ul>
     </div>
     -->
-    
+
+    <div class="page-navigation">
+      <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+      <%if @color_tone == "웜"%>
+      <a href="/home/list_lip/w_lips">Warm 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+      <%else%>
+      <a href="/home/list_lip/c_lips">Cool 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+      <%end%>
+      <a href="/home/list_lip/<%=@colors%>/<%=@liptone%>"><%=@liptone%></a>
+    </div>
+
     <div class="title-web" style="margin-right:10px;">
       <h3><%=@color_tone%> 립</h3>
       <p><%=@color_tone%> 톤에 어울리는 추천 립</p>
@@ -29,20 +39,20 @@
         <span id="dropdown_title2"><%=@liptone%></span> <span class="caret"></span>
       </button>
       <ul ID="divNewNotifications2" class="dropdown-menu" style="width:82%;margin-left:15px">
-        <li><a href="/home/list_lip/<%=@colors%>">전체보기</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>">세부톤 전체보기</a></li>
         <li role="separator" class="divider"></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/비비드">비비드</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/브라이트">브라이트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/스트롱">스트롱</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/딥">딥</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/라이트">라이트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/소프트">소프트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/덜">덜</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/다크">다크</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/페일">페일</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/라이트그레이쉬">라이트그레이쉬</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/그레이쉬">그레이쉬</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/<%=@liplist%>/다크그레이쉬">다크그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/비비드">비비드</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/브라이트">브라이트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/스트롱">스트롱</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/딥">딥</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/라이트">라이트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/소프트">소프트</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/덜">덜</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/다크">다크</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/페일">페일</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/라이트그레이쉬">라이트그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/그레이쉬">그레이쉬</a></li>
+        <li><a href="/home/list_lip/<%=@colors%>/다크그레이쉬">다크그레이쉬</a></li>
 
       </ul>
     </div>
@@ -95,112 +105,118 @@
 
 
 <style>
-  .btn-black{
-          width:100px;
-          height:40px;
-          font-size:15px;
-          text-align:center;
-          cursor:pointer;
-          color:#000000;
-          background:#F5F5F5;
-      }
-  .title-web h3 {
-	    font-family: 'NanumGothic';
-      font-size: 22px;
-      font-weight: bold;
-      font-style: normal;
-      font-stretch: normal;
-      color: #38393b;
-  }
-  .title-web p{
+
+    .title-web h3 {
+        font-family: 'NanumGothic';
+        font-size: 22px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        color: #38393b;
+    }
+    .title-web p{
+        font-family: NanumGothic;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        color: #787878;
+    }
+    .product-name{
+      margin-top:7px;
       font-family: NanumGothic;
       font-size: 14px;
-      font-weight: normal;
-      font-style: normal;
-      font-stretch: normal;
-      color: #787878;
-  }
-  .product-name{
-    margin-top:7px;
-    font-family: NanumGothic;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.29;
-    color: #38393b;
-  }
-  .product_name{
-    color:#38393b;
-  }
-  .product-name a:hover,
-  .product-name a:focus{
-    text-decoration: none;
-    color: #000000;
-  }
-  .product_price .product_tone{
-    color:#38393b;
-  }
-  .fa-heart{
-   color: #ff709b;
-  }
-  .product_price{
-    margin-right:3px;
-    margin-left:2px;
-  }
-@media (min-width: 768px) {
-  .list-display {
-      margin-top:70px;
+      font-weight: bold;
+      line-height: 1.29;
+      color: #38393b;
     }
-  .title-web {
-    float:left;
-    margin-left:25px;
-  }
+    .product_name{
+      color:#38393b;
+    }
+    .product-name a:hover,
+    .product-name a:focus{
+      text-decoration: none;
+      color: #000000;
+    }
+    .product_price .product_tone{
+      color:#38393b;
+    }
 
-  .title-web hr{
-    
-      width: 1015.5px;
-      border: solid 2px #38393b;
+    .product_price{
+      margin-right:3px;
+      margin-left:2px;
+    }
 
-  }    
-  .btn-web {
-    float:right;
-    margin-top:40px;
-  }  
-  .product-container{
-    margin-top:20px;
-    height:400px;
-  }  
-  .product-name{
-    margin-bottom:10px;
-  }
+    .page-navigation>a{
+      color:#56565d;
+    }
 
-  }  
-  
-@media (max-width:767px){      
-  .list-display {
-      margin-top:10px;
-    }  
-  .title-web {
-    float:left;
-    margin-left:20px;
-  }    
-  
-  .btn-web {
-    float:right;
-    width:100%;
-  }
-  .product-container{
-    border: 1px solid lightgray;
-    height:110px;
-  }
-  .example{
-  margin-top:7px;
-  width: 94px;
-  height: 94px;    
-  }
-    
+  @media (min-width: 768px) {
+    .list-display {
+        margin-top:70px;
+      }
+    .title-web {
+      float:left;
+      margin-left:25px;
+    }
 
+    .title-web hr{
+
+        width: 1015.5px;
+        border: solid 2px #38393b;
+
+    }
+    .btn-web {
+      float:right;
+      margin-top:40px;
+    }
+    .product-container{
+      margin-top:20px;
+      height:400px;
+    }
+    .product-name{
+      margin-bottom:10px;
+    }
+
+    .page-navigation{
+      text-align:right;
+      margin-right:45px;
+
+    }
+
+    }
+
+  @media (max-width:767px){
+    .list-display {
+        margin-top:10px;
+      }
+    .title-web {
+      float:left;
+      margin-left:20px;
+    }
+
+    .btn-web {
+      float:right;
+      width:100%;
+    }
+    .product-container{
+      border: 1px solid lightgray;
+      height:110px;
+    }
+    .example{
+    margin-top:7px;
+    width: 94px;
+    height: 94px;
+    }
+
+    .page-navigation{
+      text-align:right;
+      margin: 20px 10px 0px 0px;
+
+    }
   }
 </style>
+
 
 <script>
     

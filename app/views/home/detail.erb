@@ -1,11 +1,21 @@
 <!-- 상세페이지 -->
 <div class="container">
-  <div style = "margin-top:60px">
     <div class="row">
+      <div class="page-navigation">
+        <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+        <%if @product.wc == "웜"%>
+            <a href="/home/list_lip/w_lips">Warm 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+            <a href="/home/list_lip/w_lips/<%=@product.tone%>"><%=@product.tone%></a>
+        <%else%>
+            <a href="/home/list_lip/c_lips">Cool 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+            <a href="/home/list_lip/c_lips/<%=@product.tone%>"><%=@product.tone%></a>
+        <%end%>
+
+      </div>
+
       <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
         <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.num%>-min.JPG">
       </div>
-    
       <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
         <h4>[<%=@product.brand %>]</h4>
         <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
@@ -56,7 +66,6 @@
                 
     
     </div>
-  </div>
         
   <br><br>
         
@@ -87,7 +96,7 @@
   
     
       <div id="two" style="float:right; margin-bottom:40px;">
-        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">검토요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
       </div>
     
         
@@ -172,6 +181,25 @@
         text-align:center;
         cursor:pointer;
         background:#333333;
+    }
+    .page-navigation>a{
+      color:#56565d;
+    }
+    @media (max-width: 768px){
+
+      .page-navigation{
+        text-align:right;
+        margin: 30px 10px 20px 0px;
+      }
+
+    }
+
+    @media (min-width: 768px){
+      .page-navigation{
+        text-align:right;
+        margin-right:45px;
+
+      }
     }
 </style>
    
