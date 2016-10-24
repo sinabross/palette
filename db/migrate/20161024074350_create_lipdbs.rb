@@ -13,8 +13,9 @@ class CreateLipdbs < ActiveRecord::Migration
       t.string  :pro_type
       t.string  :glitter
       t.string  :texture
+      t.string  :keyword
       t.string :image_url, default:""
-      
+
       t.timestamps null: false
     end
   end

@@ -19,7 +19,8 @@
                                 zzim: 'zzim',
                                 pro_type: 'pro_type',
                                 glitter: 'glitter',
-                                texture: 'texture')
+                                texture: 'texture',
+                                keyword: 'keyword')
      input_lip.each_with_index do |item, index|
         next if index == 0
         Lipdb.create(item)
