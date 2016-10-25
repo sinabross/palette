@@ -9,20 +9,8 @@
           <h3 style="margin-bottom:50px;">내 톤에 맞는 제품을 편리하게 찾아보세요</h3>
          <!-- <hr class="intro-divider">-->
          <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
-              <form class="middle"  action="/home/search" method="get" accept-charset="UTF-8">
-
-                <div class="col-md-11 col-xs-11" style="padding:0px;margin-bottom:10px;">
-                  <input type="hidden" name="utf8" value="✓">
-                  <input type="search" placeholder="원하는 상품을 검색해보세요"  name="search"
-                         class="mainsearch">
-                </div>
-                <div class="col-md-1 col-xs-1" style="padding:0px;">
-                  <button type="submit" class="searchbutton">
-                    <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </form>
-          </div>
+             <a href="#" class="btn-manual btn-manualM">사이트 이용방법</a>
+         </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
@@ -263,7 +251,7 @@
 
   }
 
-  .mainsearch{
+ /* .mainsearch{
     height:40px;
     width:100%;
     font-size: 15px;
@@ -284,7 +272,7 @@
     font-size:20px;
     color:#ffaaa3;
   }
-
+*/
   .notice a {
     color:#56565d;
 
@@ -335,6 +323,14 @@
   .btn-black:hover{
     text-decoration:none;
     color:#ffffff;
+  }
+  .btn-manual:hover{
+    text-decoration: none;
+    background-color:#ff6666;
+    color:#ffffff;
+  }
+  .btn-manual:active{
+    transform:translateY(3px);
   }
 
   @media(max-width:767px) {
@@ -427,7 +423,23 @@
     float: right;
     margin-top: 0;
   }
+  .btn-manualM{
 
+    text-decoration: none;
+    color:#ffaaa3;
+    font-size:15px;
+    font-weight:bold;
+    display:inline-block;
+    width:130px;
+    height:50px;
+    border-radius: 10px;
+    background-color:#fafafa;
+    line-height:50px;
+    text-align:center;
+    transition: all 0.4s;
+
+
+  }
 
 
   @media(min-width:767px) {
@@ -470,9 +482,25 @@
       margin-bottom:30px;
 
     }
+    .btn-manual{
+
+      text-decoration: none;
+      color:#ffaaa3;
+      font-size:20px;
+      font-weight:bold;
+      display:inline-block;
+      width:200px;
+      height:60px;
+      line-height: 60px;
+      border-radius: 10px;
+      background-color:#fafafa;
+      text-align:center;
+      transition: all 0.4s;
+
+    }
 
 
-   }
+  }
 
 
 
