@@ -5,12 +5,85 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="intro-message">
-          <h1>내 입에 착 붙는 인생립 찾기</h1>
+          <h1>내 입에 착 붙는 인생템 찾기</h1>
           <h3 style="margin-bottom:50px;">내 톤에 맞는 제품을 편리하게 찾아보세요</h3>
          <!-- <hr class="intro-divider">-->
-         <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
-             <a href="#" class="btn-manual btn-manualM">사이트 이용방법</a>
+
+          <!-- Trigger/Open The Modal -->
+          <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+             <button class="btn-manual btn-manualM" id="btnModal">사이트 이용방법</button>
          </div>
+
+          <!-- The Modal -->
+          <div id="guideModal" class="guideModal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h3>사이트 이용방법</h3>
+              </div>
+              <div class="modal-body">
+
+
+                  <div class="guideSlides">
+                    <img class="guide_img" src="/images/p1.png" style="width:90%;height:90%;">
+                    <img class="guideM_img" src="/images/m1.png" style="width:90%;height:90%;" >
+                    <p></p>
+                  </div>
+
+                  <div class="guideSlides">
+                    <img class="guide_img" src="/images/p2.png" style="width:90%;height:90%;">
+                    <img class="guideM_img" src="/images/m2.png" style="width:90%;height:90%;">
+                    <p></p>
+                  </div>
+
+                  <div class="guideSlides">
+                    <img class="guide_img" src="/images/p3.png" >
+                    <img class="guideM_img" src="/images/m3.png" >
+                    <p><br>웜/쿨톤에 맞는 추천 상품을 살펴보세요</p>
+                  </div>
+
+                  <div class="guideSlides">
+                    <img class="guide_img" src="/images/p4.png" >
+                    <img class="guideM_img" src="/images/m4.png" >
+                    <p><br>상품명, 브랜드에 따라 검색해보세요</p>
+                  </div>
+
+                  <div class="guideSlides">
+                    <img class="guide_img" src="/images/p5.png" style="width:90%;height:90%;">
+                    <img class="guideM_img" src="/images/m5.png" style="width:90%;height:90%;">
+                    <p>원하시는 상품이 없을 경우 요청해주세요</p>
+                  </div>
+                  <div class="guideSlides guideSlides_mobile">
+                    <img class="guide_img" src="/images/p6.png" style="width:90%;height:90%;">
+                    <img class="guideM_img" src="/images/m6.png" style="width:90%;height:90%;">
+                    <p>오류가 있는 상품은 제보해주세요</p>
+                  </div>
+
+
+                </div>
+
+                <div class="guide-center">
+                  <div class="guide-section">
+                    <button class="btn-guide" onclick="plusDivs(-1)">❮ Prev</button>
+                    <button class="btn-guide" onclick="plusDivs(1)">Next ❯</button>
+                  </div>
+
+                  <!--
+                  <button class="btn-guide demo" onclick="currentDiv(1)">1</button>
+                  <button class="btn-guide demo" onclick="currentDiv(2)">2</button>
+                  <button class="btn-guide demo" onclick="currentDiv(3)">3</button>
+                  <button class="btn-guide demo" onclick="currentDiv(4)">4</button>
+                  <button class="btn-guide demo" onclick="currentDiv(5)">5</button>
+                  -->
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <!--/Modal-->
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
@@ -333,25 +406,21 @@
     transform:translateY(3px);
   }
 
-  @media(max-width:767px) {
-    .intro-message {
-      padding-bottom: 15%;
-    }
 
+  .btn-guide{
+    background-color:#333333;
+    border-radius:5px;
+    color:#ffffff;
+    height:auto;
+    width:auto;
+    font-size:20px;
+    transition:all 0.4s;
+    margin:20px;
+  }
+  .btn-guide:hover{
+    background-color: black;
+    color:#fafafa;
 
-    ul.intro-social-buttons > li {
-      display: block;
-      margin-bottom: 20px;
-      padding: 0;
-    }
-
-    ul.intro-social-buttons > li:last-child {
-      margin-bottom: 0;
-    }
-
-    .intro-divider {
-      width: 100%;
-    }
   }
 
   .network-name {
@@ -423,29 +492,155 @@
     float: right;
     margin-top: 0;
   }
-  .btn-manualM{
 
-    text-decoration: none;
-    color:#ffaaa3;
-    font-size:15px;
-    font-weight:bold;
-    display:inline-block;
-    width:130px;
-    height:50px;
-    border-radius: 10px;
-    background-color:#fafafa;
-    line-height:50px;
-    text-align:center;
-    transition: all 0.4s;
+  @media(max-width:767px) {
+    .intro-message {
+      padding-bottom: 15%;
+    }
+
+
+    ul.intro-social-buttons > li {
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-divider {
+      width: 100%;
+    }
+    .btn-manualM{
+
+      text-decoration: none;
+      color:#ffaaa3;
+      font-size:15px;
+      font-weight:bold;
+      display:inline-block;
+      width:130px;
+      height:50px;
+      border-radius: 10px;
+      background-color:#fafafa;
+      line-height:50px;
+      text-align:center;
+      transition: all 0.4s;
+
+    }
+
+    /*modal css*/
+
+    /* The Modal (background) */
+    .guideModal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      margin-top: 60px;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 100%; /* Could be more or less, depending on screen size */
+
+    }
+
+    /* The Close Button */
+    .close {
+      color: #000000;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    /* Modal Header */
+    .modal-header {
+      padding: 1px;
+      background-color: #ffaaa3;
+      color: white;
+    }
+    .modal-header>h3{
+      font-size:20px;
+    }
+
+    /* Modal Body */
+    .modal-body {
+      padding: 2px;
+      width:100%;
+      height:100%;
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 100%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+    .guideSlides{
+      width:100%;
+      height:100%;
+    }
+    .guideSlides p{
+
+      font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: bold;
+      font-size:20px;
+    }
+    .guide_img{
+      display:none;
+    }
+    .guideM_img{
+      width:100%;
+      height:80%;
+      border:1px solid #e4e4e4;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+    /*modal css end */
 
 
   }
 
 
+
   @media(min-width:767px) {
 
 
-    .mainsearch{
+    /*.mainsearch{
       height:40px;
       width:100%;
       font-size: 20px;
@@ -467,6 +662,7 @@
       margin-top: 15px;
 
     }
+    */
     .intro-message > h1 {
       margin: 0;
       /*text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
@@ -498,11 +694,152 @@
       transition: all 0.4s;
 
     }
+    /*modal css*/
+
+    /* The Modal (background) */
+    .guideModal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      margin-top: 85px;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+      color: #000000;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    /* Modal Header */
+    .modal-header {
+      padding: 2px;
+      background-color: #ffaaa3;
+      color: white;
+    }
+
+    /* Modal Body */
+    .modal-body {
+      padding: 2px;
+
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      width: 80%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+    }
+    .guideSlides p{
+
+      font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: bold;
+      font-size:20px;
+
+    }
+    .guide_img{
+      margin:auto;
+      width:70%;
+      height:70%;
+    }
+    .guideM_img{
+      display:none;
+    }
+
 
 
   }
 
-
-
-
 </style>
+
+<script>
+
+  // Get the modal
+  var modal = document.getElementById('guideModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("btnModal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+
+  //for slideshow in modal
+
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("guideSlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+    }
+
+    //next,prev 버튼 밑에 있던 숫자 버튼 색 변하게 하기
+    // for (i = 0; i < dots.length; i++) {
+   //   dots[i].className = dots[i].className.replace(" w3-red", "");
+   // }
+    x[slideIndex-1].style.display = "block";
+    //dots[slideIndex-1].className += " w3-red";
+  }
+</script>
