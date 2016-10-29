@@ -1,11 +1,11 @@
 <div class="table-responsive" >
 
-  <div class="container-fluid" style="margin-top:50px;">
+  <div class="container-fluid" >
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
       <div class="title-web" style="margin-right:10px;">
-        <h3>공지사항</h3>
-        <p>업데이트 되는 제품 소식을 확인하세요</p>
+        <h3>새 소식</h3>
+        <p>새롭게 업데이트 되는 소식을 확인하세요</p>
 
       </div>
 
@@ -47,12 +47,15 @@
         </table>
        </div>
         <%if user_signed_in? && current_user.admin !=nil%>
-          <a href="/home/admin_write" style="font-size:13px;color:white;" class="btn btn-black" role="button">글쓰기</a>
+          <a href="/home/admin_write"  class="btn btn-black" role="button">글쓰기</a>
          <%end%>
       </div>
   </div>
 
   <style>
+    .container-fluid{
+      margin-top:40px;
+    }
     table a {
       color:#000000;
     }
@@ -63,12 +66,15 @@
     .btn-black{
       width:60px;
       height:30px;
-      font-size:15px;
+      font-size:13px;
       text-align:center;
       float:right;
       cursor:pointer;
-      color:#000000;
+      color:#ffffff;
       background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
     }
     .title-web h3 {
       font-family: 'NanumGothic';
@@ -85,6 +91,14 @@
       font-style: normal;
       font-stretch: normal;
       color: #787878;
+    }
+
+
+    @media(min-width:767px) {
+
+      .container-fluid{
+        margin-top:50px;
+      }
     }
 
   </style>
