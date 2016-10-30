@@ -7,6 +7,8 @@ class HomeController < ApplicationController
 
     #총 제품 개수
     @product_count = Lipdb.count
+    @w_lip_count = Lipdb.get_w_lip.count
+    @c_lip_count = Lipdb.get_c_lip.count
     #이번주 등록 제품 개수
     @update_count = 0
     #@update_count = Lipdb.where(:id => 200..236).count

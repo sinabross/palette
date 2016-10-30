@@ -87,14 +87,19 @@
           </div>
           <!--/Modal-->
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts" style="margin-bottom:10px">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts count1" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
             <p>전체 상품 수</p>
           </div>
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
-            <h3><%=@update_count%></h3>
-            <p>이번주 등록 상품 </p>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
+            <h3><%=@w_lip_count%></h3>
+            <p>웜톤 상품 수 </p>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
+            <h3><%=@c_lip_count%></h3>
+            <p>쿨톤 상품 수 </p>
           </div>
 
 
@@ -363,6 +368,7 @@
 
   .counts>p,h3 {
     color: #ffffff;
+    text-align:center;
   }
   .feature_img{
     width:40%;
@@ -637,6 +643,10 @@
     }
     /*modal css end */
 
+   /*메인 상품 수*/
+    .counts{
+      margin-top:20px;
+    }
 
   }
 
