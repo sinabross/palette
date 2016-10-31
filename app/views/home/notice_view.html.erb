@@ -33,10 +33,24 @@
         </tr>
         <tr>
           <td>
-            <a href="/home/notice" style="font-size:13px;color:white;" class="btn btn-black" role="button">목록</a>
+
+            <!--이전글이 없을 때 클릭이 되지 않도록-->
+            <%if @one_notice.id == 1%>
+                <button class="btn-inactive">이전 글</button>
+            <%else%>
+                <a href="/home/notice_view/<%=@pre_view_id%>" class="btn_black" role="button">이전 글</a>
+            <%end%>
+
+                <a href="/home/notice" class="btn_black" role="button">목록</a>
+            <%if @one_notice.id == @last_view_id%>
+                <button class="btn-inactive">다음 글</button>
+            <%else%>
+                <a href="/home/notice_view/<%=@next_view_id%>" class="btn_black" role="button">다음 글</a>
+            <%end%>
+
             <%if user_signed_in? && current_user.admin?%>
-               <a href="/home/notice_edit/<%=@one_notice.id%>" style="font-size:13px;color:white;" class="btn btn-black" role="button">수정</a>
-               <a href="/home/notice_delete/<%=@one_notice.id%>" style="font-size:13px;color:white;" class="btn btn-black" role="button">삭제</a>
+               <a href="/home/notice_edit/<%=@one_notice.id%>" class="btn_black" role="button">수정</a>
+               <a href="/home/notice_delete/<%=@one_notice.id%>" class="btn_black" role="button">삭제</a>
             <%end%>
           </td>
         </tr>
@@ -51,14 +65,32 @@
     font-size:15px;
 
   }
-  .btn-black{
+  .btn_black{
+    display:inline-block;
     width:60px;
     height:30px;
-    font-size:15px;
+    line-height: 30px;
+    font-size:13px;
     text-align:center;
-    cursor:pointer;
-    color:#000000;
+    color:#ffffff;
     background:#333333;
+    border-radius: 5px;
+  }
+  .btn_black:hover{
+    color:#ffffff;
+    text-decoration: none;
+  }
+  .btn-inactive{
+    width:60px;
+    height:30px;
+    border-radius: 5px;
+    line-height:30px;
+    font-size:13px;
+    text-align:center;
+    cursor:initial;
+    color:#ffffff;
+    background:#333333;
+  }
   }
   table, th{
     border:1px solid #e4e4e4;
