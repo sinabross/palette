@@ -1,15 +1,14 @@
 <div class="container" style="margin-top: 50px; ">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-     <div class="title-web" style="margin-right:10px;">
-       <h3>공지사항</h3>
-       <p>업데이트 되는 제품 소식을 확인하세요</p>
+     <div class="title-web col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-right:10px;">
+       <h3>새 소식</h3>
+       <p>새롭게 업데이트 되는 소식을 확인하세요</p>
 
      </div>
      <hr style="border: 2px solid #38393b">
-     <br>
 
-    <table align="center">
+    <table align="center" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
 
        <thead>
          <tr>
@@ -32,7 +31,7 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td class="notice_buttons">
 
             <!--이전글이 없을 때 클릭이 되지 않도록-->
             <%if @one_notice.id == 1%>
@@ -71,6 +70,7 @@
     height:30px;
     line-height: 30px;
     font-size:13px;
+    margin:auto;
     text-align:center;
     color:#ffffff;
     background:#333333;
@@ -81,30 +81,38 @@
     text-decoration: none;
   }
   .btn-inactive{
+    display:inline-block;
     width:60px;
     height:30px;
     border-radius: 5px;
     line-height:30px;
     font-size:13px;
     text-align:center;
+    margin:auto;
     cursor:initial;
     color:#ffffff;
     background:#333333;
   }
   }
-  table, th{
-    border:1px solid #e4e4e4;
-    text-align:center;
+  table {
     width:100%;
     height:100%;
     padding:5px;
   }
+  thead th{
+    text-align: center;
+  }
+
   .notice_content{
+    border-top:2px solid #e4e4e4;
     padding:10px;
     text-align:left;
     word-break:break-all;
     white-space: pre-line;
 
+  }
+  .notice_buttons{
+    text-align: center;
   }
   .title-web h3 {
     font-family: 'NanumGothic';
