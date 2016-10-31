@@ -485,6 +485,9 @@ class HomeController < ApplicationController
     @one_notice.punch(request)
     end
 
+    @pre_view_id = @one_notice.id - 1
+    @next_view_id= @one_notice.id + 1
+    @last_view_id= Notice.order("created_at").last.id
     #@one_notice.impressions.create(ip_address: request.remote_ip)
 
 
