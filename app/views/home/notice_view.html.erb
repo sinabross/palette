@@ -35,16 +35,16 @@
 
             <!--이전글이 없을 때 클릭이 되지 않도록-->
             <%if @one_notice.id == 1%>
-                <button class="btn-inactive">이전 글</button>
+                <button class="btn-inactive">이전</button>
             <%else%>
-                <a href="/home/notice_view/<%=@pre_view_id%>" class="btn_black" role="button">이전 글</a>
+                <a href="/home/notice_view/<%=@pre_view_id%>" class="btn_black" role="button">이전</a>
             <%end%>
 
                 <a href="/home/notice" class="btn_black" role="button">목록</a>
             <%if @one_notice.id == @last_view_id%>
-                <button class="btn-inactive">다음 글</button>
+                <button class="btn-inactive">다음</button>
             <%else%>
-                <a href="/home/notice_view/<%=@next_view_id%>" class="btn_black" role="button">다음 글</a>
+                <a href="/home/notice_view/<%=@next_view_id%>" class="btn_black" role="button">다음</a>
             <%end%>
 
             <%if user_signed_in? && current_user.admin?%>
