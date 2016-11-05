@@ -489,8 +489,12 @@ class HomeController < ApplicationController
     @next_view_id= @one_notice.id + 1
     @last_view_id= Notice.order("created_at").last.id
     #@one_notice.impressions.create(ip_address: request.remote_ip)
-
-
+    unless @one_notice.id==1
+    @notice_previous = Notice.find(@pre_view_id)
+    end
+    unless @last_view_id == @one_notice.id
+    @notice_next = Notice.find(@next_view_id)
+    end
 
   end
 
