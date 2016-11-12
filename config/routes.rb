@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   get 'season_update' => 'home#season_update'
   post 'home/userseason_update'
   
-  
-  get 'home/list_lip/:colors'  => "home#list_lip"  # 상품카테고리에서 립 리스트로 이동하게 하는 코드
-  get 'home/list_lip/:colors/:liptone' =>'home#list_lip'
+  get 'home/list_lip'
+  get 'home/list_lip/:colors'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
+ # get 'home/list_lip/:colors/:liptone' =>'home#list_lip'
   #get 'home/list_eye/:colors'  => "home#list_eye"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
   
   #get 'home/list_lip/:colors/:liplist' => "home#list_lip" # 립 pro_type 세부 카테고리 분류

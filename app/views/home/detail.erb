@@ -3,13 +3,10 @@
     <div class="row">
       <div class="page-navigation">
         <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
-        <%if @product.wc == "웜"%>
-            <a href="/home/list_lip/w_lips">Warm 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
-            <a href="/home/list_lip/w_lips/<%=@product.tone%>"><%=@product.tone%></a>
-        <%else%>
-            <a href="/home/list_lip/c_lips">Cool 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
-            <a href="/home/list_lip/c_lips/<%=@product.tone%>"><%=@product.tone%></a>
-        <%end%>
+
+        <a href="/home/list_lip/">추천 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+
+        <a href="/home/list_lip/">봄 브라이트</a>
 
       </div>
 
@@ -54,53 +51,111 @@
         <hr style="border:solid 1px lightgray;">
         <div>
           <div class="col-md-6 col-xs-6" style="padding-top:5px;">
-            <h4 style="text-align: center"> <strong>톤</strong> <%=@product.tone %></h4><br>
-            <img class="p hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.tone%>.png" width="80%" style="margin-left:18px">
+            <h4 style="text-align: center"> <strong>계절</strong> <%=@product.tone %></h4><br>
+
           </div>   
-          <div class="col-md-6 col-xs-6" style="padding-top:5px">
-            <h4 style="text-align: center"> <strong>타입</strong> <%=@product.wc %></h4><br>
-            <img class="c hidden-xs" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.wc%>.png" width="95%"style="margin-left:10px" >
-          </div>  
+          <div class="col-md-6 col-xs-6" style="padding-top:5px;">
+            <h4 style="text-align: center"> <strong>세부톤</strong> <%=@product.wc %></h4><br>
+          </div>
         </div>
+
+        <!-- 제품군, 펄유무, 텍스쳐-->
+        <div style="margin-right:-20px; margin-top:-20px">
+          <div class="panel panel-default col-md-4 col-xs-4">
+            <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:center">
+        <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+            </div>
+          </div>
+          <div class="panel panel-default col-md-4 col-xs-4">
+            <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:center">
+        <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+            </div>
+          </div>
+          <div class="panel panel-default col-md-4 col-xs-4">
+            <div class="panel-body" align="center">
+        <span style="font-size:12px; text-align:right">
+          <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+            </div>
+          </div>
+        </div>
+
+
+
       </div>
                 
     
     </div>
-        
-  <br><br>
-        
-  <!-- 제품군, 펄유무, 텍스쳐-->
-  <div style="margin-right:-20px; margin-top:-20px">
-    <div class="panel panel-default col-md-4 col-xs-4">
-      <div class="panel-body" align="center">
-        <span style="font-size:12px; text-align:center">
-        <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
-      </div>
-    </div>
-    <div class="panel panel-default col-md-4 col-xs-4">    
-      <div class="panel-body" align="center">
-        <span style="font-size:12px; text-align:center">
-        <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
-      </div>
-    </div>
-    <div class="panel panel-default col-md-4 col-xs-4">
-      <div class="panel-body" align="center">
-        <span style="font-size:12px; text-align:right">
-          <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
-      </div>
-    </div>
-  </div>
+  <hr style="border: 1px solid lightgray;">
 
-  <br><br>
   <!-- 수정요청 버튼 들어갈 부분 -->
   
     
-      <div id="two" style="float:right; margin-bottom:40px;">
-        <a href="/home/feedback/<%=@product.num%>" style="color:#ffffff;" class="btn btn-black" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+      <div>
+        <a href="/home/feedback/<%=@product.num%>" class="btn-edit" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
       </div>
-    
-        
-  <br><br>
+  <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
+  <div class="container">
+
+      <div class="color_intro">
+
+          <p>
+            팔레트에 소개된 모든 제품의 퍼스널컬러 정보는 일정한 조명 환경 아래에서 전문가 분들의 의견을 모아 분류 되었습니다.
+          </p>
+          <p>
+            분류 과정에 대한 보다 자세한 소개를 원하신다면 <a href="/home/about" style="color:#000;text-decoration:underline;"><strong>여기</strong></a> 를 눌러주세요.
+          </p>
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+          <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-6" style="padding:0;" >
+              <img src="http://pds26.egloos.com/pds/201603/13/49/b0203749_56e579e9a3aa8.jpg"  class="color-image">
+          </div>
+
+          <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6" style="padding:0;">
+              <img src="http://pds14.egloos.com/pds/200901/20/50/a0107250_49751b9ad6329.jpg"  class="color-image">
+          </div>
+
+         </div>
+      </div>
+      <div class="partner_comments" style="margin-top: 30px;">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 partner_profile" style="padding:0;">
+                   <a href="/#partners">
+                     <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
+                   </a>
+                   <a href="/#partners" class="partner_name">
+                     민새봄<br>(색담비컬러컨설팅)
+                   </a>
+                 </div>
+
+
+                 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
+                   <p class="partner_comment">"가을뮤트분들께 단비와 같은 소식"</p>
+                 </div>
+             </div>
+          </div>
+          <!--/.row-->
+
+       </div>
+        <!--/.partner_comments-->
+  </div>
+      <!--/.container-->
+
+
+
+
+
+
+</div>
+<!--/.container_맨위-->
+
+
+
 
   <!-- 후기 작성 페이지는 잠시 봉인합니다
   <div class="container">
@@ -172,26 +227,104 @@
 
 <style>
     @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
     h4 {font-family: 'Hanna';}
     
-    .btn-black{
-        width:relative;
-        height:40px;
-        font-size:15px;
-        text-align:center;
-        cursor:pointer;
-        background:#333333;
-    }
+
     .page-navigation>a{
       color:#56565d;
     }
+    .partner_name:hover{
+      text-decoration: none;
+    }
+
+
     @media (max-width: 768px){
 
       .page-navigation{
         text-align:right;
         margin: 30px 10px 20px 0px;
       }
+      .btn-edit{
+        height:40px;
+        width:80px;
+        line-height:40px;
+        color:#56565d;
+        font-size:13px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:12px;
+        clear:both;
+        text-align:left;
+      }
+      .color-image{
+        display:inline;
+        width:100%;
+        height:100%;
+      }
+      /*전문가 코멘트 부분*/
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        display:inline-block;
+        font-size:20px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        padding: 0px;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
 
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 12px 17px 12px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -12px;
+        left: -16px;
+        top: 50%;
+
+      }
+      .partner_profile{
+
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:10px;
+        margin-top:10px;
+
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:50px;
+        height:50px;
+        display:inline-block;
+      }
     }
 
     @media (min-width: 768px){
@@ -202,6 +335,89 @@
       }
       body{
         margin-top:60px;
+      }
+      .btn-edit{
+        height:50px;
+        width:100px;
+        padding:10px;
+        line-height:30px;
+        color:#56565d;
+        font-size:15px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:14px;
+        clear:both;
+        text-align:center;
+        margin-bottom:30px;
+      }
+      .color-image{
+        display:inline;
+        width:55%;
+        height:40%;
+        margin-bottom:20px;
+      }
+      /*전문가 코멘트 부분*/
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        display:inline-block;
+        font-size:28px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        padding: 0px;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 12px 17px 12px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -12px;
+        left: -16px;
+        top: 50%;
+
+      }
+
+      .partner_profile{
+
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:12px;
+        margin-top:20px;
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:80px;
+        height:80px;
+        display:inline-block;
       }
     }
 </style>

@@ -5,9 +5,10 @@
 <nav class="navbar navbar-fixed-top navbar-design" role="navigation">
   <div class="navbar-top" style="padding-right:50px;">
       <ul>
-        <!-- 팔레트란? 주석처리! (16.10.07)
+
+       <!--
         <li>
-          <a href="/home/about">팔레트란?</a>
+          <a href="/home/about">서비스 소개</a>
         </li> -->
         
         
@@ -89,14 +90,17 @@
           </form>
         </li>
 
-        <!-- 팔레트란? 주석처리 (16.10.07)
-        <li class="hidden-web">
-          <a href="/home/about">팔레트란?</a>
+        <!-- li class="hidden-web"으로 하면 분홍색 navbar에 위치-->
+        <li>
+          <a href="#" id="introduce" onclick="jumpTo()">서비스 소개</a>
         </li>
-        -->
 
-        <li><a href="/home/list_lip/w_lips">Warm 립</a></li>
-        <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>
+        <li>
+          <a href="/#process">분류 과정</a>
+        </li>
+
+        <li><a href="/home/list_lip">추천 립 보기</a></li>
+       <!-- <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>-->
         
          <li class="hidden-web">
             <a href="/home/notice">새 소식</a>
@@ -221,13 +225,14 @@
   
   
   .navbar ol,ul { list-style: none; }
-  .navbar a { outline:0; text-decoration:none; color:#38393b; }  
+  .navbar a { outline:0; text-decoration:none; color:#38393b; }
+  ul.navbar-right>a:last-child { margin-right:-20px;}
 
 @media (min-width: 768px) {
 
   .searchbar {
     margin-top:5px;
-    margin-right:100px;
+    margin-right:30px;
   }
 
   .searchbox-input-mobile{
@@ -274,7 +279,8 @@
   .navbar {
     background-color:#fafafa;
     height:85px;
-  }  
+  }
+
   .nav>li>a:focus,.nav>li>a:hover {
 	text-decoration:none;
 	background-color:#ff6666;
@@ -294,7 +300,6 @@
   
   .navbar-top ul {
     float:right;
-
   }
   .navbar-top ol,ul { list-style: none; }
   .navbar-top a { outline:0; text-decoration:none; color:#fff; }  
@@ -499,4 +504,9 @@
       $('.searchbox-icon').css('display','block');
     }
   }
+
+
+
+
+
 </script>

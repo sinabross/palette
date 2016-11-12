@@ -8,16 +8,21 @@
           <h1>내 입에 착 붙는 인생템 찾기</h1>
           <h3 style="margin-bottom:50px;">내 톤에 맞는 제품을 편리하게 찾아보세요</h3>
          <!-- <hr class="intro-divider">-->
+         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+           <a href="/home/list_lip" class="btn-manual btn-manualM">추천 립 제품 보기</a>
+         </div>
 
-          <!-- Trigger/Open The Modal -->
+
+  <!-- 사용자 메뉴얼 주석처리 (16.11.08
+          <!-- Trigger/Open The Modal --
           <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
              <button class="btn-manual btn-manualM" id="btnModal">사이트 이용방법</button>
          </div>
 
-          <!-- The Modal -->
+          <!-- The Modal --
           <div id="guideModal" class="guideModal">
 
-            <!-- Modal content -->
+            <!-- Modal content --
             <div class="modal-content">
               <div class="modal-header">
                 <div class="modal-close">
@@ -78,29 +83,26 @@
                   <button class="btn-guide demo" onclick="currentDiv(3)">3</button>
                   <button class="btn-guide demo" onclick="currentDiv(4)">4</button>
                   <button class="btn-guide demo" onclick="currentDiv(5)">5</button>
-                  -->
+                  --
                 </div>
               </div>
 
             </div>
 
           </div>
-          <!--/Modal-->
+          <!--/Modal--
+          -->
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts count1" style="margin-bottom:10px">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts count1" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
             <p>전체 상품 수</p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
-            <h3><%=@w_lip_count%></h3>
-            <p>웜톤 상품 수 </p>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
+            <h3><%=@update_count%></h3>
+            <p>이번주 등록상품 수</p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
-            <h3><%=@c_lip_count%></h3>
-            <p>쿨톤 상품 수 </p>
-          </div>
 
 
         </div>
@@ -162,7 +164,7 @@
            </div>
         </div>
           <div style="text-align: center;">
-           <a href="/home/notice" class="btn-black">전체보기</a>
+           <a href="/home/notice" class="btn-list">전체보기</a>
           </div>
         </div>
 
@@ -177,7 +179,7 @@
 <!-- /.content-section-a -->
 
 
-<div class="content-section-b">
+<div class="content-section-b" id="introduce">
 
   <div class="container">
 
@@ -187,26 +189,30 @@
 
          <h2 class="section-heading">서비스 소개</h2>
          <hr class="section-heading-spacer">
+         <h4 class="section-heading-second"><em>인생립을 찾는 가장 빠른 방법!</em></h4>
+         <p class="section-heading-second">
+           팔레트는 퍼스널컬러 전문가그룹과 함께<br>어울리는 립 제품을 추천하는 서비스입니다.
+         </p>
        </div>
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <img src="/images/feature1.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
           <div class="clearfix"></div>
-          <h4>다양한 브랜드</h4>
-          <p class="lead">백화점, 로드샵 등 다양한 브랜드의 상품이 분류되어 있어요. 매주 추가되는 상품을 확인해보세요.</p>
+          <h4>세분화 추천</h4>
+          <p class="lead">8가지 퍼스널컬러에 맞는 제품을 알려드려요. 더 세부적인 추천을 받아보세요</p>
         </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
          <img src="/images/feature2.png" alt="화장품 퍼스널컬러 검색" class="feature_img">
          <div class="clearfix"></div>
-         <h4>상품 추가요청</h4>
-         <p class="lead">톤 진단이 필요한 상품을 요청하세요. 추가된 상품 소식을 공지사항으로 알려드려요.</p>
+         <h4>다양한 정보</h4>
+         <p class="lead">로드샵부터 백화점브랜드까지 다양한 브랜드가 있어요. 신상품 정보도 빠르게 확인하세요.</p>
        </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
          <img src="/images/feature3.png" alt="퍼스널컬러 진단" class="feature_img">
          <div class="clearfix"></div>
-         <h4>전문성</h4>
-         <p class="lead">발색한 컬러를 기준으로 퍼스널컬러 전문가가 직접 테스트해보고 추천해드려요.</p>
+         <h4>전문가 의견</h4>
+         <p class="lead">다양한 전문가들의 의견을 참고해보세요. 내게 맞는 팁도 얻을 수 있어요.</p>
        </div>
 
      </div>
@@ -217,25 +223,166 @@
 </div>
 <!-- /.content-section-b -->
 
-<!--
-<div class="content-section-a">
+<div class="content-section-c" id="process">
+
+    <div class="container">
+
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="section-heading">PCI 진단 분류 시스템</h2>
+                    <p style="font-size:1em;text-align:center;">*PCI는 Personal Color Image의 약자입니다.</p>
+                    <hr class="section-heading-spacer">
+                  </div>
+               </div>
+             <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                  <div class="row">
+                    <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                      <img src="/images/feature1.png" alt="퍼스널컬러 진단">
+                    </div>
+
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <h4 class="pci_title">1. 제품 진단환경 최적화</h4>
+                      <p class="pci_explain">톤 분류는 컬러 진단하기 가장 효과적인 환경에서 진행됩니다.<br>
+                      현재 3000~5000kw의 최적화된 조명 환경을 유지하며, 실제 퍼스널컬러를 진단하는 고정된 장소에서만 진단합니다.</p>
+                    </div>
+                   </div>
+                   <div class="row">
+                     <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                       <img src="/images/feature1.png" alt="">
+                     </div>
+
+
+
+                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <h4 class="pci_title">2. 퍼스널컬러 컨설턴트 그룹</h4>
+                       <p class="pci_explain">다양한 이력을 가진 퍼스널컬러 전문가들이 함께 합니다.<br>
+                       각 전문가들은 PCCS 색채이론을 바탕으로 일정한 환경에서 제품진단에 참여하고 있습니다.</p>
+                     </div>
+                    </div>
+
+                    <div class="row">
+                       <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                         <img src="/images/feature1.png" alt="웜톤 쿨톤 립스틱 발색">
+                       </div>
+
+
+                       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                         <h4 class="pci_title">3. 일관된 발색기준 선정</h4>
+                         <p class="pci_explain">발색 시 피부색 마다 차이를 보이는 변수를 막기 위해, 피부를 대신할 새로운 형태가 필요했습니다.<br>
+                         여러 차례의 실험을 거쳐 피부발색과 가장 근사치에 가까운 미색계열의 아크릴판을 선정하였습니다.</p>
+                       </div>
+                    </div>
+              </div>
+             </div>
+            <!-- /.row2 -->
+            </div>
+          </div>
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.row -->
+   </div>
+  <!-- /.container -->
+</div>
+<!-- /.content-section-b -->
+
+<div class="content-section-d" id="partners1">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="section-heading">파트너 소개</h2>
+              <p class="lead">함께 하고 있는 퍼스널컬러 전문 업체들을 소개합니다.</p>
+              <hr class="section-heading-spacer">
+            </div>
+        </div>
+
+      <!-- 전문가1-->
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <img class="img-responsive" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="">
+        </div>
+
+        <div class="col-lg-5 col-sm-6">
+          <div class="clearfix"></div>
+          <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+          <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+</div>
+  <!-- /.content-section-d -->
+<div class="content-section-d" id="partners2">
 
   <div class="container">
 
+    <!-- 전문가2-->
     <div class="row">
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+        <img class="img-responsive" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="">
+      </div>
+
       <div class="col-lg-5 col-sm-6">
-        <hr class="section-heading-spacer">
         <div class="clearfix"></div>
         <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
         <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
       </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /.content-section-d -->
+<div class="content-section-d" id="partners3">
+
+  <div class="container">
+    <!-- 전문가3-->
+    <div class="row">
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-        <img class="img-responsive" src="img/phones.png" alt="">
+        <img class="img-responsive" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="">
+      </div>
+
+      <div class="col-lg-5 col-sm-6">
+        <div class="clearfix"></div>
+        <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+        <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
       </div>
     </div>
 
   </div>
-  <!-- /.container -->
+
+</div>
+<!-- /.content-section-d -->
+
+
+
+  <!--
+  <div class="content-section-a">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-5 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+          <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+        </div>
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <img class="img-responsive" src="img/phones.png" alt="">
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
 
 </div>
 <!-- /.content-section-a -->
@@ -376,9 +523,10 @@
     margin:auto;
     display:block;
   }
-  /*.btn-pink{
-    width:100%;
-    height:100%;
+ /*
+  .btn-pink{
+    width:100px;
+    height:50px;
     font-size:13px;
     text-align:center;
     cursor:pointer;
@@ -387,28 +535,32 @@
     margin:auto;
     display:block;
     padding:0px;
-  }*/
-
-  .btn-black{
+  }
+*/
+  .btn-list{
     display:inline-block;
     line-height: 30px;
     width:100px;
     height:30px;
-    border-radius: 5px;
     font-size:13px;
+    font-weight:bold;
     text-align:center;
-    color:#ffffff;
-    background-color:#333333;
+    color:black;
+    background-color:#ffffff;
+    border:2px solid black;
     margin-bottom:30px;
   }
-  .btn-black:hover{
+  .btn-list:hover{
     text-decoration:none;
-    color:#ffffff;
+    color:#ffa291;
+    border:2px solid #ffa291;
   }
+
   .btn-manual:hover{
     text-decoration: none;
-    background-color:#ff6666;
-    color:#ffffff;
+    background-color:rgba(255,255,255,0.1);
+    color:#ffa291;
+    border:2px solid #ffa291;
   }
   .btn-manual:active{
     transform:translateY(3px);
@@ -437,7 +589,7 @@
     font-weight: 400;
     letter-spacing: 2px;
   }
-
+ */
   .content-section-a {
     padding-top: 20px;
     background-color: #f8f8f8;
@@ -452,7 +604,7 @@
   }
 
   .content-section-b {
-    padding-top: 20px;
+    padding-top: 10px;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
   }
@@ -462,12 +614,46 @@
     font-weight: bold;
   }
 
+  /* PCI 컬러 분류 과정 소개 */
+  .content-section-c {
+    padding-top: 10px;
+  }
+
+  .content-section-c img{
+
+    display:inline-block;
+    width:20%;
+    height:20%;
+  }
+  .pci_title{
+    display:inline-block;
+
+  }
+  .pci_explain{
+    display:inline-block;
+    text-align:left;
+    font-size:1em;
+    word-break:break-all;
+
+  }
+  /*전문가 소개 페이지*/
+
+  .content-section-d{
+    margin-top:20px;
+    padding-top: 20px;
+    border-top: 1px solid #e7e7e7;
+
+  }
+
   .section-heading {
-    margin-bottom: 10px;
     text-align: center;
     font-size:2em;
   }
+  .section-heading-second{
+    text-align:center;
+    margin-bottom:10px;
 
+  }
   .section-heading-spacer {
     float: center;
     width: 200px;
@@ -523,14 +709,14 @@
     .btn-manualM{
 
       text-decoration: none;
-      color:#ffaaa3;
+      color:#ffffff;
       font-size:15px;
       font-weight:bold;
       display:inline-block;
       width:130px;
       height:50px;
-      border-radius: 10px;
-      background-color:#fafafa;
+      border:2px solid #ffffff;
+      background-color:rgba(255,255,255,0.1);
       line-height:50px;
       text-align:center;
       transition: all 0.4s;
@@ -696,15 +882,15 @@
     .btn-manual{
 
       text-decoration: none;
-      color:#ffaaa3;
+      color:#ffffff;
       font-size:20px;
       font-weight:bold;
       display:inline-block;
       width:200px;
       height:60px;
       line-height: 60px;
-      border-radius: 10px;
-      background-color:#fafafa;
+      background-color:rgba(255,255,255,0.1);
+      border:2px solid #ffffff;
       text-align:center;
       transition: all 0.4s;
 
@@ -802,60 +988,61 @@
 <script>
 
   // Get the modal
-  var modal = document.getElementById('guideModal');
+//  var modal = document.getElementById('guideModal');
 
   // Get the button that opens the modal
-  var btn = document.getElementById("btnModal");
+//  var btn = document.getElementById("btnModal");
 
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+//  var span = document.getElementsByClassName("close")[0];
 
   // When the user clicks on the button, open the modal
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
+//  btn.onclick = function() {
+//    modal.style.display = "block";
+//  }
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+//  span.onclick = function() {
+//    modal.style.display = "none";
+//  }
 
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+//  window.onclick = function(event) {
+//    if (event.target == modal) {
+//      modal.style.display = "none";
+//    }
+ // }
 
 
   //for slideshow in modal
 
-  var slideIndex = 1;
-  showDivs(slideIndex);
+//  var slideIndex = 1;
+//  showDivs(slideIndex);
 
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
+//  function plusDivs(n) {
+//    showDivs(slideIndex += n);
+//  }
 
-  function currentDiv(n) {
-    showDivs(slideIndex = n);
-  }
+//  function currentDiv(n) {
+//    showDivs(slideIndex = n);
+//  }
 
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("guideSlides");
-    var dots = document.getElementsByClassName("demo");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+//  function showDivs(n) {
+//    var i;
+//    var x = document.getElementsByClassName("guideSlides");
+//    var dots = document.getElementsByClassName("demo");
+//    if (n > x.length) {slideIndex = 1}
+//   if (n < 1) {slideIndex = x.length}
+//    for (i = 0; i < x.length; i++) {
+//      x[i].style.display = "none";
+//    }
 
     //next,prev 버튼 밑에 있던 숫자 버튼 색 변하게 하기
     // for (i = 0; i < dots.length; i++) {
    //   dots[i].className = dots[i].className.replace(" w3-red", "");
    // }
-    x[slideIndex-1].style.display = "block";
+//    x[slideIndex-1].style.display = "block";
     //dots[slideIndex-1].className += " w3-red";
-  }
+//  }
+
 </script>
