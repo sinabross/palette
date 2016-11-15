@@ -48,7 +48,9 @@
      </form>
    </div>
 
-
+<%unless @result.blank? && @result2.blank?%>
+<p style="text-align:center">총 <strong><%=@result.count%></strong>개의 제품이 검색되었습니다.</p>
+<%end%>
 
 <!--제품 출력 목록 -->
 <% @result.each_slice(3) do |slice| %>
@@ -71,7 +73,7 @@
             </div>
 
             <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
-              <p class="product_tone" style="float:left"> <%=w.wc%> / <%=w.tone%> </p>
+              <p class="product_tone" style="float:left"> 봄 브라이트 </p>
               <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
             </div>
                <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
@@ -160,6 +162,7 @@
 @media (min-width: 768px) {
   .mobilesearch{
     margin-top:50px;
+    margin-bottom:20px;
   }
   .list-display {
       margin-top:70px;

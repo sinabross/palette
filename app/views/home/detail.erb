@@ -6,7 +6,7 @@
 
         <a href="/home/list_lip/">추천 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-        <a href="/home/list_lip/">봄 브라이트</a>
+        <a href="/home/list_lip/">여름 뮤트</a>
 
       </div>
 
@@ -16,7 +16,7 @@
       <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
         <h4>[<%=@product.brand %>]</h4>
         <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
-        <h4><%=@product.size %> / <%=@product.price %>원</h4>
+        <h4 style="text-align:right;"><%=@product.size %> / <%=@product.price %>원</h4>
 
 
         <!--좋아요 기능 작동하는 하트 버튼 노출 / 잠시 봉인함(16.10.07)-->
@@ -50,17 +50,13 @@
  
         <hr style="border:solid 1px lightgray;">
         <div>
-          <div class="col-md-6 col-xs-6" style="padding-top:5px;">
-            <h4 style="text-align: center"> <strong>계절</strong> <%=@product.tone %></h4><br>
-
-          </div>   
-          <div class="col-md-6 col-xs-6" style="padding-top:5px;">
-            <h4 style="text-align: center"> <strong>세부톤</strong> <%=@product.wc %></h4><br>
+          <div class="col-md-12 col-xs-12" style="padding-top:5px;">
+            <h3 class="season_info"> 여름 뮤트</h3><br>
           </div>
         </div>
 
         <!-- 제품군, 펄유무, 텍스쳐-->
-        <div style="margin-right:-20px; margin-top:-20px">
+        <div>
           <div class="panel panel-default col-md-4 col-xs-4">
             <div class="panel-body" align="center">
         <span style="font-size:12px; text-align:center">
@@ -104,7 +100,7 @@
             팔레트에 소개된 모든 제품의 퍼스널컬러 정보는 일정한 조명 환경 아래에서 전문가 분들의 의견을 모아 분류 되었습니다.
           </p>
           <p>
-            분류 과정에 대한 보다 자세한 소개를 원하신다면 <a href="/home/about" style="color:#000;text-decoration:underline;"><strong>여기</strong></a> 를 눌러주세요.
+            분류 과정에 대한 보다 자세한 소개를 원하신다면 <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.
           </p>
 
       </div>
@@ -122,27 +118,79 @@
          </div>
       </div>
       <div class="partner_comments" style="margin-top: 30px;">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 partner_profile" style="padding:0;">
+                  <a href="/#partners1" class="quick_tab" onClick="return false;">
+                    <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
+                  </a>
+                  <a href="/#partners1" class="partner_name quick_tab" onClick="return false;">
+                    김보민<br>(컬러AD)
+                  </a>
+                </div>
+
+
+                <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
+                  <p class="partner_comment">"하하하하하하하 이 제품은 탁한 끼가 좀 도는 편이고 발색했을 때는 밝은색으로 변하는 느낌이에요."</p>
+                </div>
+              </div>
+            </div>
+            <!--/.row-->
+      </div>
+      <!--/.partner_comments-->
+
+
+        <div class="partner_comments" style="margin-top: 30px;">
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 partner_profile" style="padding:0;">
-                   <a href="/#partners">
-                     <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
-                   </a>
-                   <a href="/#partners" class="partner_name">
-                     민새봄<br>(색담비컬러컨설팅)
-                   </a>
-                 </div>
+              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 partner_profile" style="padding:0;">
+                <a href="/#partners2" class="quick_tab" onClick="return false;">
+                  <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
+                </a>
+                <a href="/#partners2" class="partner_name quick_tab" onClick="return false;">
+                  민새봄<br>(색담비컬러컨설팅)
+                </a>
+              </div>
 
 
-                 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
-                   <p class="partner_comment">"가을뮤트분들께 단비와 같은 소식"</p>
-                 </div>
-             </div>
+              <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
+                <p class="partner_comment">"가나다라마바사아자차카타파하가나다라마바사아자차카타"</p>
+              </div>
+            </div>
           </div>
           <!--/.row-->
 
-       </div>
+        </div>
         <!--/.partner_comments-->
+
+
+          <div class="partner_comments" style="margin-top: 30px;">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 partner_profile" style="padding:0;">
+                       <a href="/#partners3" class="quick_tab" onClick="return false;">
+                         <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
+                       </a>
+                       <a href="/#partners3" class="partner_name quick_tab" onClick="return false;">
+                         천예슬<br>(예슬이미지)
+                       </a>
+                     </div>
+
+
+                     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
+                       <p class="partner_comment">"가을뮤트분들께 단비와 같은 소식"</p>
+                     </div>
+                 </div>
+              </div>
+              <!--/.row-->
+
+           </div>
+            <!--/.partner_comments-->
+
+
+
+
+
   </div>
       <!--/.container-->
 
@@ -237,7 +285,10 @@
     .partner_name:hover{
       text-decoration: none;
     }
-
+    .season_info{
+      font-family:'Hanna';
+      text-align:center;
+    }
 
     @media (max-width: 768px){
 
@@ -275,17 +326,24 @@
         width:100%;
         height:100%;
       }
+      /*제품 상세페이지*/
+      .panel-body{
+        padding:10px;
+      }
+
+
       /*전문가 코멘트 부분*/
       .partner_comment {
         position: relative;
         width: 100%;
-        height: 80px;
-        line-height: 80px;
+        height: auto;
+        padding:10px;
+        word-break:break-all;
+        white-space: pre-line;
         display:inline-block;
         font-size:20px;
         font-family: 'Nanum Brush Script', serif;
         text-align:center;
-        padding: 0px;
         background: #ffe6e6;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -297,12 +355,12 @@
         content: '';
         position: absolute;
         border-style: solid;
-        border-width: 12px 17px 12px 0;
+        border-width: 7px 21px 7px 0;
         border-color: transparent #ffe6e6;
         display: block;
         width: 0;
         z-index: 1;
-        margin-top: -12px;
+        margin-top: -7px;
         left: -16px;
         top: 50%;
 
@@ -437,5 +495,13 @@
     //로그인 안한상태에서 후기쓰기 누르면 뜨는 안내메세지    
     $("#review_login").click(function(){
       alert("로그인 후 이용해주세요!");
-    });	
+    });
+
+      //page navigation scrolling
+
+      $(".quick_tab").click(function(){
+        var currentId = $(this).attr('href');
+        window.location = currentId;
+
+      });
 </script>
