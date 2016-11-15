@@ -1,22 +1,25 @@
-<head>
-  		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-</head>
 
-<nav class="navbar navbar-fixed-top navbar-design" role="navigation">
+<nav class="navbar navbar-fixed-top navbar-design">
+
   <div class="navbar-top" style="padding-right:50px;">
       <ul>
-        <!-- 팔레트란? 주석처리! (16.10.07)
+
+       <!--
         <li>
-          <a href="/home/about">팔레트란?</a>
+          <a href="/home/about">서비스 소개</a>
         </li> -->
         
-        
+     <!--
         <li>
-            <a href="/home/notice">새 소식</a>
+            <a href="/home/notice">새 소식
+            <%if Notice.last.created_at + 7.day>Time.current%>
+              <span class="badge badge_notice">New</span>
+            <%end%>
+            </a>
         </li>
         
         <li>
-          <!------------------------------------------------->
+
    
               <% if user_signed_in? && current_user.admin == nil%>
                   <a href="/home/askfor">문의/건의</a>
@@ -26,7 +29,7 @@
                   <a href="/home/askfor">문의/건의</a>
               <% end %>
 
-          <!------------------------------------------------->
+
         </li>
         
         
@@ -47,9 +50,11 @@
           <% else %>
             <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
-        </li> -->
+        </li>-->
       </ul>
   </div>
+
+
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
           <a href="/">
@@ -74,7 +79,7 @@
 
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" style="background-color:#fafafa;" >
+    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" style="background-color:#fafafa;">
       <ul class="nav navbar-nav navbar-right">
 
         <li class="searchbar">
@@ -89,30 +94,66 @@
           </form>
         </li>
 
-        <!-- 팔레트란? 주석처리 (16.10.07)
-        <li class="hidden-web">
-          <a href="/home/about">팔레트란?</a>
-        </li>
-        -->
+        <!-- li class="hidden-web"으로 하면 분홍색 navbar에 위치-->
 
-        <li><a href="/home/list_lip/w_lips">Warm 립</a></li>
-        <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>
+        <!-- dropdown for Desktop-->
+        <li class="dropdown">
+          <a href="#" class="dropbtn" onclick="return false;">팔레트란?</a>
+            <div class="dropdown-content">
+              <a href="/#explain" class="quick_tab" onClick="return false;">서비스 소개</a>
+              <a href="/#process" class="quick_tab" onClick="return false;">분류 과정</a>
+              <a href="/#partners1" class="quick_tab" onClick="return false;">파트너 소개</a>
+            </div>
+        </li>
+
+        <!-- dropdown for Mobile-->
+        <li class="dropdownM">
+          <i class="fa fa-question-circle iconForMobile" aria-hidden="true"></i>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">팔레트란?<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="quick_tabM" href="/#explain" onClick="return false;" style="text-indent:20px">서비스 소개</a>
+            </li>
+
+            <li>
+              <a class="quick_tabM" href="/#process"  onClick="return false;" style="text-indent:20px">분류 과정</a>
+            </li>
+
+            <li>
+              <a class="quick_tabM" href="/#partners1" onClick="return false;" style="text-indent:20px">파트너 소개</a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
+          <a href="/home/list_lip">립 추천</a>
+        </li>
+       <!-- <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>-->
         
-         <li class="hidden-web">
-            <a href="/home/notice">새 소식</a>
+         <li>
+           <i class="fa fa-bullhorn iconForMobile" aria-hidden="true"></i>
+            <a href="/home/notice">새 소식
+              <%if Notice.last.created_at + 7.day>Time.current%>
+                  <span class="badge badge_notice">New</span>
+              <%end%>
+            </a>
         </li> 
-        <li class="hidden-web">
+        <li>
           <!------------------------------------------------->
+
           <% if user_signed_in? && current_user.admin == nil%>
+              <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
               <a href="/home/askfor">문의/건의</a>
           <% elsif user_signed_in? && current_user.admin?%>
               <a href="/admin">Admin</a>
           <% else %>
+              <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
               <a href="/home/askfor">문의/건의</a>
           <% end %>
 
               <% if user_signed_in? %>
-                  <% link_to "문의/건의", href="/home/askfor" %> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+               <!--   <% link_to "문의/건의", href="/home/askfor" %>--> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
                   <% link_to "문의/건의", href="/home/askfor" %>
                 <!-- <% link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
@@ -140,21 +181,6 @@
         </li>
         -->
 
-        
-        <!-- 셰도우 포함 menu box 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">제품추천<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-header">Warm</li>
-            <li><a href="/home/list_lip/w_lips" style="text-indent:20px">립</a></li>
-            <li><a href="/home/list_eye/w_eyes" style="text-indent:20px">섀도우</a></li>
-            <li class="dropdown-header">Cool</li>
-            <li><a href="/home/list_lip/c_lips" style="text-indent:20px">립</a></li>
-            <li><a href="/home/list_eye/c_eyes" style="text-indent:20px">섀도우</a></li>
-          </ul>
-        </li>
-        -->
-
 
       </ul>
     </div>
@@ -162,7 +188,12 @@
   </div>
   <!-- /.container -->
 </nav>
-    
+  <!--/.nav-->
+
+
+
+
+
 <style>
  /* .searchbox{
       position:relative;
@@ -221,19 +252,24 @@
   
   
   .navbar ol,ul { list-style: none; }
-  .navbar a { outline:0; text-decoration:none; color:#38393b; }  
+  .navbar a { outline:0; text-decoration:none; color:#38393b; }
+  ul.navbar-right>a:last-child { margin-right:-20px;}
+
+  /* 새소식 new badge*/
+ .badge_notice{
+   background-color:red;
+ }
 
 @media (min-width: 768px) {
 
   .searchbar {
     margin-top:5px;
-    margin-right:100px;
+    margin-right:30px;
   }
 
   .searchbox-input-mobile{
       top:0;
       right:0;
-      border:0;
       outline:0;
       background:#ffffff;
       width:166px;
@@ -271,10 +307,14 @@
     background-color: #ffffff;
     border: solid 1px #e4e4e4;    
   }
+  .iconForMobile{
+    display:none;
+  }
   .navbar {
     background-color:#fafafa;
-    height:85px;
-  }  
+    height:auto;
+  }
+
   .nav>li>a:focus,.nav>li>a:hover {
 	text-decoration:none;
 	background-color:#ff6666;
@@ -282,11 +322,11 @@
   }
 	.navbar-top>li>a:focus,.navbar-top>li>a:hover{
 	text-decoration:none;	 
-	color:#3d3d3d;
+	color:#ffffff;
 	}
   .navbar-top {
     width:100%;
-    height:32px;
+    height:20px;
     background:#ffaaa3;
 	  font-family: 'NanumGothic', cursive;  
 	  font-size: 12px;
@@ -294,7 +334,6 @@
   
   .navbar-top ul {
     float:right;
-
   }
   .navbar-top ol,ul { list-style: none; }
   .navbar-top a { outline:0; text-decoration:none; color:#fff; }  
@@ -303,6 +342,7 @@
     float:left;
     margin-top:8px;    
     margin-left:23px;
+
   }
   
   .navbar .navbar-design {
@@ -312,7 +352,43 @@
   .navbar-inverse {
     background-color:#ffffff;
   }
-  
+
+  /*navbar 드롭다운부분*/
+  li.dropdownM {
+    display:none;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #ff6666;
+    color:#ffffff;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-content a:hover {
+
+    background-color: #f1f1f1;
+    color:#ffa291;
+
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /*dropdown for Mobile 끝 */
+
+
   .gCenter {
     margin-top:9px;
   }
@@ -374,7 +450,18 @@
       color:#ffaaa3;
       background:#fafafa;
       float:right;      
-      }  
+      }
+
+   .iconForMobile{
+      font-size:15px;
+      color:#ffaaa3;
+      text-indent:10px;
+
+    }
+   .nav>li>a{
+     display:inline-block;
+     padding-left:10px;
+   }
     .navbar-top {
       height:0px;
     }
@@ -388,7 +475,40 @@
   .navbar-color{
     color:#ffffff;
   }
-  
+
+  /*navbar 드롭다운부분*/
+  li.dropdown {
+    display:none;
+  }
+  .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background-color: #ff6666;
+    color:#ffffff;
+  }
+  .dropdownM:hover .dropbtn {
+    background-color: #ff6666;
+    color:#ffffff;
+  }
+
+  .dropdown-contentM a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-contentM a:hover {
+
+    background-color: #f1f1f1;
+    color:#ffa291;
+
+  }
+
+  .dropdownM:hover {
+    display: block;
+  }
+  /*dropdown for Mobile 끝 */
+
+
   .gCenter-mobile img {
 
     display:block;
@@ -459,7 +579,7 @@
       $("#bs-example-navbar-collapse-1").toggle();
     });
 
-
+    //검색창
     var submitIcon = $('.searchbox-icon');
     var inputBox = $('.searchbox-input');
     var searchBox = $('.searchbox');
@@ -487,6 +607,23 @@
           submitIcon.click();
       }
     });
+
+    //page navigation scrolling
+
+    $(".quick_tab").click(function(){
+      var currentId = $(this).attr('href');
+      window.location = currentId;
+
+    });
+
+    //drop down for Mobile
+    $(".quick_tabM").click(function(){
+      var currentId = $(this).attr('href');
+      window.location = currentId;
+      $("#bs-example-navbar-collapse-1").toggle();
+
+    });
+
   });
   
   function buttonUp(){
@@ -499,4 +636,9 @@
       $('.searchbox-icon').css('display','block');
     }
   }
+
+
+
+
+
 </script>

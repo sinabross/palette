@@ -7,11 +7,11 @@ class HomeController < ApplicationController
 
     #총 제품 개수
     @product_count = Lipdb.count
-    @w_lip_count = Lipdb.get_w_lip.count
-    @c_lip_count = Lipdb.get_c_lip.count
+    #@w_lip_count = Lipdb.get_w_lip.count
+    #@c_lip_count = Lipdb.get_c_lip.count
     #이번주 등록 제품 개수
-    @update_count = 0
-    #@update_count = Lipdb.where(:id => 200..236).count
+
+    @update_count = Lipdb.where(:id => 200..236).count
   end
   def index2
     #공지사항 최신글 보여주기
@@ -66,24 +66,46 @@ class HomeController < ApplicationController
   
   
   def list_lip
-    
+
+  @list = Lipdb.where(wc:'웜'&&'쿨').order('brand').paginate(page: params[:page], per_page: 21)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # 12분류 기준일때는 봉인 (16.11.08)
+
     # 웜톤 립 출력
-    if params[:colors] == "w_lips"
+ #   if params[:colors] == "w_lips"
       #웜립일때
-      @colors = "w_lips"
-      @color_tone = "웜"      
+ #     @colors = "w_lips"
+ #     @color_tone = "웜"
      # @liplist = params[:liplist]
-      @liptone ||= params[:liptone]
+ #     @liptone ||= params[:liptone]
       #웝립/제품군/세부톤
-      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
+ #     @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
    # if params[:liplist] == nil
     #   @liplist = "제품"
      #  @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
-      if params[:liptone] == nil
-          @liptone = "세부톤 전체보기"
-          @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
-      end
-     end
+  #    if params[:liptone] == nil
+  #        @liptone = "세부톤 전체보기"
+  #        @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
+  #    end
+  #   end
       #세부톤 선택안했을때
   #   if params[:liptone] == nil
   #      @liptone = "세부톤"
@@ -97,21 +119,21 @@ class HomeController < ApplicationController
   #    end
   #  end
 
-    # 쿨톤 립 출력
-    if params[:colors] == "c_lips"
-      @colors = "c_lips"
-      @color_tone = "쿨"      
+  #  # 쿨톤 립 출력
+  #  if params[:colors] == "c_lips"
+  #    @colors = "c_lips"
+  #    @color_tone = "쿨"
     #  @liplist = params[:liplist]
-      @liptone = params[:liptone]
-      @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
+  #    @liptone = params[:liptone]
+  #    @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
     #  if params[:liplist] == nil
     #    @liplist = "제품"
     #    @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
-        if params[:liptone] == nil
-          @liptone = "세부톤 전체보기"
-          @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
-        end
-    end
+  #      if params[:liptone] == nil
+  #        @liptone = "세부톤 전체보기"
+  #        @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
+  #      end
+  #  end
 
    #   if params[:liptone] == nil
    #     @liptone = "세부톤"
@@ -122,6 +144,7 @@ class HomeController < ApplicationController
    #     end
    #   end
    # end
+
   end
 
 
