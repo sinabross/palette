@@ -21,74 +21,115 @@
        <div class="season-category-wrapper">
         <ul class="season-category" >
           <li>
-            <a href="/home/list_lip" class="btn-season">봄 브라이트</a>
+            <a href="/home/list_lip/봄 브라이트" class="btn-season active">봄 브라이트</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">봄 라이트</a>
+            <a href="/home/list_lip/봄 라이트" class="btn-season">봄 라이트</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">여름 라이트</a>
+            <a href="/home/list_lip/여름 라이트" class="btn-season">여름 라이트</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">여름 뮤트</a>
+            <a href="/home/list_lip/여름 뮤트" class="btn-season">여름 뮤트</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">가을 뮤트</a>
+            <a href="/home/list_lip/가을 뮤트" class="btn-season">가을 뮤트</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">가을 딥</a>
+            <a href="/home/list_lip/가을 딥" class="btn-season">가을 딥</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">겨울 딥</a>
+            <a href="/home/list_lip/겨울 딥" class="btn-season">겨울 딥</a>
           </li>
 
           <li>
-            <a href="/home/list_lip" class="btn-season">겨울 브라이트</a>
+            <a href="/home/list_lip/겨울 브라이트" class="btn-season">겨울 브라이트</a>
           </li>
          </ul>
         </div>
+
           <!-- for Mobile ver -->
 
           <div class="season-category-wrapperM">
             <ul class="season-categoryM">
               <li>
-                <a href="/home/list_lip" class="btn-season">봄 브라이트</a>
+                <a href="/home/list_lip/봄 브라이트" class="btn-season">봄 브라이트</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">봄 라이트</a>
+                <a href="/home/list_lip/봄 라이트" class="btn-season">봄 라이트</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">여름 라이트</a>
+                <a href="/home/list_lip/여름 라이트" class="btn-season">여름 라이트</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">여름 뮤트</a>
+                <a href="/home/list_lip/여름 뮤트" class="btn-season">여름 뮤트</a>
               </li>
              </ul>
 
              <ul class="season-categoryM">
               <li>
-                <a href="/home/list_lip" class="btn-season">가을 뮤트</a>
+                <a href="/home/list_lip/가을 뮤트" class="btn-season">가을 뮤트</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">가을 딥</a>
+                <a href="/home/list_lip/가을 딥" class="btn-season">가을 딥</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">겨울 딥</a>
+                <a href="/home/list_lip/겨울 딥" class="btn-season">겨울 딥</a>
               </li>
 
               <li>
-                <a href="/home/list_lip" class="btn-season">겨울 브라이트</a>
+                <a href="/home/list_lip/겨울 브라이트" class="btn-season">겨울 브라이트</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <div class="season-category-wrapperM2">
+            <ul class="season-categoryM2">
+              <li>
+                <a href="/home/list_lip/봄 브라이트" class="btn-season2">봄 브라이트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/봄 라이트" class="btn-season2">봄 라이트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/여름 라이트" class="btn-season2">여름 라이트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/여름 뮤트" class="btn-season2">여름 뮤트</a>
+              </li>
+             </ul>
+
+             <ul class="season-categoryM2">
+              <li>
+                <a href="/home/list_lip/가을 뮤트" class="btn-season2">가을 뮤트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/가을 딥" class="btn-season2">가을 딥</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/겨울 딥" class="btn-season2">겨울 딥</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip/겨울 브라이트" class="btn-season2">겨울 브라이트</a>
               </li>
 
             </ul>
@@ -101,15 +142,15 @@
     <div class="page-navigation">
       <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-      <a href="/home/list_lip/">추천 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+      <a href="/home/list_lip/">립 추천</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-      <a href="/home/list_lip/">봄 브라이트</a>
+      <a href="/home/list_lip/<%=@current_season%>"><%=@current_season%></a>
     </div>
 
     <!--페이지 제목-->
     <div class="title-web" style="margin-right:10px;">
-      <h3>봄 브라이트 립</h3>
-      <p>봄 브라이트 타입에게 어울리는 추천 립스틱/립틴트 등</p>
+      <h3><%=@current_season%> 립</h3>
+      <p><%=@current_season%> 타입에게 어울리는 추천 립스틱/립틴트 등</p>
 
     </div>
 
@@ -167,7 +208,7 @@
             </div>
                         
             <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
-              <p class="product_tone" style="float:left"> 봄 브라이트 </p>
+              <p class="product_tone" style="float:left"><%=w.season_total%></p>
               <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
             </div>
                <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
@@ -369,7 +410,10 @@
     .season-category, .season-category-wrapper{
       display:none;
     }
-
+    /*.season-categoryM2, .season-category-wrapperM2{
+      display:none;
+    }
+    */
     .season-category-wrapperM{
       margin-top:10px;
       border-top:1px solid #b2b2b2;
@@ -397,7 +441,7 @@
       padding: 8px 6px;
       text-decoration: none;
       font-weight:700;
-      font-size:15px;
+      font-size:14px;
 
       -webkit-transition:background 0.15s ease-in-out,color 0.15s ease;
     }
@@ -417,6 +461,57 @@
     /*계절타입 선택 필터 끝*/
 
 
+    /* filter button test */
+
+     .season-category-wrapperM2{
+      margin-top:10px;
+
+    }
+    .season-categoryM2{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+    }
+
+    .season-categoryM2>li {
+      display:inline;
+
+    }
+
+    .season-categoryM2>li a {
+
+      display: inline-block;
+      color: #000;
+      height:auto;
+      width:80px;
+      border:1px solid black;
+      background-color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-weight:700;
+      font-size:14px;
+      -webkit-transition:background 0.15s ease-in-out,color 0.15s ease;
+    }
+    .season-categoryM2>li a:hover:not(.active){
+      color:#ffa291;
+      text-decoration:none;
+      background-color: #ffffff;
+      border:1px solid #ffa291;
+
+    }
+    .season-categoryM2 .active{
+
+      background-color: #ffffff;
+      border:1px solid #ffa291;
+      color:#ffa291;
+      font-weight:bold;
+    }
+
+    /* filter button test end*/
+
+
   }
 </style>
 
@@ -434,10 +529,17 @@
  //     $('#dropdown_title2').hide().html($(this).find('a').html());
  //   });
 
+// 현재 클릭된 메뉴 보여주기
+
+    $(".btn-season").each(function() {
+  if (this.href == window.location.href) {
+    $(this).addClass("active");
+  }
 
 
+
+});
 
 </script>
-
 
 
