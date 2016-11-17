@@ -11,7 +11,8 @@ class HomeController < ApplicationController
     #@c_lip_count = Lipdb.get_c_lip.count
     #이번주 등록 제품 개수
 
-    @update_count = Lipdb.where(:id => 200..236).count
+    #@update_count = Lipdb.where(:id => 200..236).count
+    @update_count = 42
   end
   def index2
     #공지사항 최신글 보여주기
@@ -69,21 +70,20 @@ class HomeController < ApplicationController
 
   @list = Lipdb.where(wc:'웜'&&'쿨').order('brand').paginate(page: params[:page], per_page: 21)
 
+  #빵부스러기 목록
+#  if params[:colors]
+#    @current_season = params[:colors]
+#  else
+#    @current_season = "봄 브라이트"
+#  end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  # 8 분류에 따른 립 카테고리 설정
+ # if params[:colors]
+ #   @list=Lipdb.where(season_total: params[:colors]).order('brand').paginate(page: params[:page], per_page: 21)
+ # else
+ #   @list = Lipdb.where(season_total:'봄 브라이트').order('brand').paginate(page: params[:page], per_page: 21)
+ # end
 
 
 
@@ -203,7 +203,7 @@ class HomeController < ApplicationController
     if params[:product_num].start_with?("L")
       @product = Lipdb.find_by_num(params[:product_num])
     end
-     
+
     #섀도우 상세페이지
     if params[:product_num].start_with?("S")
       @product = Eyedb.find_by_num(params[:product_num])

@@ -4,9 +4,9 @@
       <div class="page-navigation">
         <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-        <a href="/home/list_lip/">추천 립</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+        <a href="/home/list_lip/">립 추천</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-        <a href="/home/list_lip/">여름 뮤트</a>
+        <a href="/home/list_lip/"><%=@product.season_total%></a>
 
       </div>
 
@@ -51,7 +51,7 @@
         <hr style="border:solid 1px lightgray;">
         <div>
           <div class="col-md-12 col-xs-12" style="padding-top:5px;">
-            <h3 class="season_info"> 여름 뮤트</h3><br>
+            <h3 class="season_info"><%=@product.season_total%></h3><br>
           </div>
         </div>
 
@@ -94,17 +94,27 @@
   <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
   <div class="container">
 
-      <div class="color_intro">
-
-          <p>
-            팔레트에 소개된 모든 제품의 퍼스널컬러 정보는 일정한 조명 환경 아래에서 전문가 분들의 의견을 모아 분류 되었습니다.
-          </p>
-          <p>
-            분류 과정에 대한 보다 자세한 소개를 원하신다면 <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.
-          </p>
-
+    <!-- 유의사항 -->
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
+        <h4 style="text-align: center;">유의사항</h4>
+          <ul>
+            <li>
+              팔레트에 소개된 모든 제품의 퍼스널컬러 정보는 일정한 조명 환경 아래에서 전문가 분들의 의견을 모아 분류 되었습니다.
+              분류 과정에 대한 보다 자세한 소개를 원하신다면
+              <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.
+            </li>
+            <li>
+              퍼스널컬러에 절대적인 기준은 없습니다. 전문가의 의견들도 제품에 따라 다소 상이할 수 있음을 유념해주세요.
+            </li>
+            <li>
+              제품의 퍼스널컬러 정보가 개인에게 적합한 정도는 개인차가 날 수 있습니다.
+            </li>
+          </ul>
       </div>
+    </div>
 
+      <!-- pccs 및 색상환 이미지
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
           <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-xs-6" style="padding:0;" >
@@ -117,6 +127,8 @@
 
          </div>
       </div>
+        -->
+
       <div class="partner_comments" style="margin-top: 30px;">
             <div class="row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -125,13 +137,13 @@
                     <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
                   </a>
                   <a href="/#partners1" class="partner_name quick_tab" onClick="return false;">
-                    김보민<br>(컬러AD)
+                    민새봄<br>(colorbyBOM)
                   </a>
                 </div>
 
 
                 <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
-                  <p class="partner_comment">"하하하하하하하 이 제품은 탁한 끼가 좀 도는 편이고 발색했을 때는 밝은색으로 변하는 느낌이에요."</p>
+                  <p class="partner_comment">"<%=@product.comment_BY%>"</p>
                 </div>
               </div>
             </div>
@@ -148,13 +160,13 @@
                   <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
                 </a>
                 <a href="/#partners2" class="partner_name quick_tab" onClick="return false;">
-                  민새봄<br>(색담비컬러컨설팅)
+                  천예슬<br>(예슬이미지)
                 </a>
               </div>
 
 
               <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
-                <p class="partner_comment">"가나다라마바사아자차카타파하가나다라마바사아자차카타"</p>
+                <p class="partner_comment">"<%=@product.comment_YS%>"</p>
               </div>
             </div>
           </div>
@@ -172,13 +184,13 @@
                          <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
                        </a>
                        <a href="/#partners3" class="partner_name quick_tab" onClick="return false;">
-                         천예슬<br>(예슬이미지)
+                         최영진<br>(팔레트)
                        </a>
                      </div>
 
 
                      <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8" style="padding:0;">
-                       <p class="partner_comment">"가을뮤트분들께 단비와 같은 소식"</p>
+                       <p class="partner_comment">"<%=@product.comment_PA%>"</p>
                      </div>
                  </div>
               </div>
@@ -320,6 +332,13 @@
         font-size:12px;
         clear:both;
         text-align:left;
+        border:2px solid black;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
       }
       .color-image{
         display:inline;
@@ -418,8 +437,15 @@
       .color_intro{
         font-size:14px;
         clear:both;
-        text-align:center;
-        margin-bottom:30px;
+        text-align:left;
+        border:2px solid black;
+        height:200px;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
       }
       .color-image{
         display:inline;
