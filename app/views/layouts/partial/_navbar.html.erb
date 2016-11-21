@@ -86,7 +86,7 @@
           <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
 
             <input type="hidden" name="utf8" value="✓">
-            <input type="search" placeholder="원하는 상품을 검색해보세요" id="search" name="search" style="padding-right:100px; width:400px;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
+            <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요" id="search" name="search" style="padding-right:100px; width:400px;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
 
             <button type="submit"class="searchbox-submit searchbox-submit-mobile">
               <i id="searchbox-icon-mobile" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
@@ -122,13 +122,20 @@
             <li>
               <a class="quick_tabM" href="/#partners1" onClick="return false;" style="text-indent:20px">파트너 소개</a>
             </li>
-          </ul>
+           </ul>
         </li>
 
         <li>
           <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
-          <a href="/home/list_lip">립 추천</a>
+          <a href="/home/list_lip/봄 브라이트">립 추천</a>
         </li>
+        
+        <%if user_signed_in? && current_user.admin?%>
+          <li>
+            <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
+            <a href="/home/list_lip2/봄 브라이트">립 추천(영진)</a>
+          </li>
+        <%end%>
        <!-- <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>-->
         
          <li>
@@ -139,6 +146,7 @@
               <%end%>
             </a>
         </li> 
+        
         <li>
           <!------------------------------------------------->
 
@@ -161,6 +169,8 @@
 
           <!------------------------------------------------->
         </li>
+        
+        <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>
        
 
         <!-- 마이팔레트 주석처리 (16.10.07
@@ -575,6 +585,13 @@
     //메뉴바 toggling
     $(".navbar-toggle").click(function(){
       $("#bs-example-navbar-collapse-1").toggle();
+    });
+    
+    // Close after clicking on a li
+
+    $('#toggle_close').on('click', function(){
+        $("#bs-example-navbar-collapse-1").hide();
+        
     });
 
     //검색창

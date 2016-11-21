@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   
   get 'home/list_lip'
   get 'home/list_lip/:colors'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
+  
+  get 'home/list_lip2'
+  get 'home/list_lip2/:colors'  => "home#list_lip2"  # 립 리스트에서 카테고리 값 부여
  # get 'home/list_lip/:colors/:liptone' =>'home#list_lip'
   #get 'home/list_eye/:colors'  => "home#list_eye"  # 상품카테고리에서 셰도우 리스트로 이동하게 하는 코드
   
@@ -33,6 +36,10 @@ Rails.application.routes.draw do
 
   #get 'home/list_lip/:colors/:liplist/:liptone' => "home#list_lip"# 립 tone 세부 카테고리 분류
   #get 'home/list_eye/:colors/:eyelist/:eyetone' => "home#list_eye"
+  
+  
+  
+  
   
   get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
   post 'home/review_submit' #리뷰등록

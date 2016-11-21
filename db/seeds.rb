@@ -7,11 +7,24 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb0.5.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
-                                wc: 'wc',
-                                season: 'season',
-                                tone: 'tone',
+                                image: 'image',
+                                color_PA: 'color_PA',
+                                season_PA: 'season_PA',
+                                tone_PA: 'tone_PA',
+                                color_BY: 'color_BY',
+                                season_BY: 'season_BY',
+                                tone_BY: 'tone_BY',
+                                color_YS: 'color_YS',
+                                season_YS: 'season_YS',
+                                tone_YS: 'tone_YS',
+                                color_total: 'color_total',
+                                season_total: 'season_total',
+                                tone_total: 'tone_total',
+                                comment_PA: 'comment_PA',
+                                comment_BY: 'comment_BY',
+                                comment_YS: 'comment_YS',
                                 brand: 'brand',
                                 name: 'name',
                                 price: 'price',
@@ -48,7 +61,7 @@
     
     
    # User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
-    User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
+   # User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
     #Admin.create(email: 'admin@gmail.com', password: 'adminadmin')
    
 

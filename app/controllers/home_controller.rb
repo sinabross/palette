@@ -6,7 +6,8 @@ class HomeController < ApplicationController
     @news = Notice.order('id desc').first(5)
 
     #총 제품 개수
-    @product_count = Lipdb.count
+    #@product_count = Lipdb.count
+    @product_count = 42
     #@w_lip_count = Lipdb.get_w_lip.count
     #@c_lip_count = Lipdb.get_c_lip.count
     #이번주 등록 제품 개수
@@ -68,23 +69,22 @@ class HomeController < ApplicationController
   
   def list_lip
 
-  @list = Lipdb.where(wc:'웜'&&'쿨').order('brand').paginate(page: params[:page], per_page: 21)
+ # @list = Lipdb.where(wc:'웜'&&'쿨').order('brand').paginate(page: params[:page], per_page: 21)
 
   #빵부스러기 목록
-#  if params[:colors]
-#    @current_season = params[:colors]
-#  else
-#    @current_season = "봄 브라이트"
-#  end
+  if params[:colors]
+    @current_season = params[:colors]
+  else
+    @current_season = "봄 브라이트"
+  end
 
 
   # 8 분류에 따른 립 카테고리 설정
- # if params[:colors]
- #   @list=Lipdb.where(season_total: params[:colors]).order('brand').paginate(page: params[:page], per_page: 21)
- # else
- #   @list = Lipdb.where(season_total:'봄 브라이트').order('brand').paginate(page: params[:page], per_page: 21)
- # end
-
+  if params[:colors]
+    @list=Lipdb.where(season_total: params[:colors]).order('brand').paginate(page: params[:page], per_page: 21)
+  else
+    @list = Lipdb.where(season_total:'봄 브라이트').order('brand').paginate(page: params[:page], per_page: 21)
+  end
 
 
   # 12분류 기준일때는 봉인 (16.11.08)
@@ -146,7 +146,27 @@ class HomeController < ApplicationController
    # end
 
   end
+  
+  def list_lip2
+  
+   # @list = Lipdb.where(wc:'웜'&&'쿨').order('brand').paginate(page: params[:page], per_page: 21)
+  
+    #빵부스러기 목록
+    if params[:colors]
+      @current_season = params[:colors]
+    else
+      @current_season = "봄 브라이트"
+    end
+  
+  
+    # 8 분류에 따른 립 카테고리 설정
+    if params[:colors]
+      @list=Lipdb.where(season_PA: params[:colors]).order('brand').paginate(page: params[:page], per_page: 21)
+    else
+      @list = Lipdb.where(season_PA:'봄 브라이트').order('brand').paginate(page: params[:page], per_page: 21)
+    end
 
+  end
 
   def list_eye
    
@@ -201,13 +221,13 @@ class HomeController < ApplicationController
     
     #립 상세페이지
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lipdb.find_by_image(params[:product_num])
     end
 
     #섀도우 상세페이지
-    if params[:product_num].start_with?("S")
-      @product = Eyedb.find_by_num(params[:product_num])
-    end
+   # if params[:product_num].start_with?("S")
+  #    @product = Eyedb.find_by_num(params[:product_num])
+   # end
     
    # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
    # @product.zzim = @product.votes_for.up.by_type(User).size
@@ -333,7 +353,7 @@ class HomeController < ApplicationController
   def feedback #문의글 작성페이지
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lipdb.find_by_image(params[:product_num])
 
     #섀도우
     elsif params[:product_num].start_with?("S")
