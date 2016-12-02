@@ -8,61 +8,61 @@
 
 
 # 팔목디비
-#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb161201.xlsx")
-#    input_lip= xlsx_lip.parse(  num: 'num',
-#                                image: 'image',
-#                                wc: 'wc',
-#                                season: 'season',
-#                                tone: 'tone',
-#                                brand: 'brand',
-#                                name: 'name',
-#                                price: 'price',
-#                                size: 'size',
-#                                color: 'color',
-#                                pro_type: 'pro_type',
-#                                glitter: 'glitter',
-#                                texture: 'texture',
-#                                keyword: 'keyword',
-#                                level: 'level')
-#     input_lip.each_with_index do |item, index|
-#        next if index == 0
-#        Lip.create(item)
-#    end
-    
-    
-    
-#지우지 말것
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb0.6.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb161201.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 image: 'image',
-                                color_PA: 'color_PA',
-                                season_PA: 'season_PA',
-                                tone_PA: 'tone_PA',
-                                color_BY: 'color_BY',
-                                season_BY: 'season_BY',
-                                tone_BY: 'tone_BY',
-                                color_YS: 'color_YS',
-                                season_YS: 'season_YS',
-                                tone_YS: 'tone_YS',
-                                color_total: 'color_total',
-                                season_total: 'season_total',
-                                tone_total: 'tone_total',
-                                comment_PA: 'comment_PA',
-                                comment_BY: 'comment_BY',
-                                comment_YS: 'comment_YS',
+                                wc: 'wc',
+                                season: 'season',
+                                tone: 'tone',
                                 brand: 'brand',
                                 name: 'name',
                                 price: 'price',
                                 size: 'size',
-                                zzim: 'zzim',
+                                color: 'color',
                                 pro_type: 'pro_type',
                                 glitter: 'glitter',
                                 texture: 'texture',
-                                keyword: 'keyword')
+                                keyword: 'keyword',
+                                level: 'level')
      input_lip.each_with_index do |item, index|
         next if index == 0
-        Lipdb.create(item)
+        Lip.create(item)
     end
+    
+    
+    
+#지우지 말것
+#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb0.6.xlsx")
+#    input_lip= xlsx_lip.parse(  num: 'num',
+#                                image: 'image',
+#                                color_PA: 'color_PA',
+#                                season_PA: 'season_PA',
+#                                tone_PA: 'tone_PA',
+#                                color_BY: 'color_BY',
+#                                season_BY: 'season_BY',
+#                                tone_BY: 'tone_BY',
+#                                color_YS: 'color_YS',
+#                                season_YS: 'season_YS',
+#                                tone_YS: 'tone_YS',
+#                                color_total: 'color_total',
+#                                season_total: 'season_total',
+#                                tone_total: 'tone_total',
+#                                comment_PA: 'comment_PA',
+#                                comment_BY: 'comment_BY',
+#                                comment_YS: 'comment_YS',
+#                                brand: 'brand',
+#                                name: 'name',
+#                                price: 'price',
+#                                size: 'size',
+#                                zzim: 'zzim',
+#                                pro_type: 'pro_type',
+#                                glitter: 'glitter',
+#                                texture: 'texture',
+#                                keyword: 'keyword')
+#     input_lip.each_with_index do |item, index|
+#        next if index == 0
+#        Lipdb.create(item)
+#    end
                          
    # xlsx_eye = Roo::Excelx.new("xlsx/eyedb.xlsx")
     #input_eye= xlsx_eye.parse(  num: 'num',
