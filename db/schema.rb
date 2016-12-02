@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024074350) do
+ActiveRecord::Schema.define(version: 20161202165806) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,19 @@ ActiveRecord::Schema.define(version: 20161024074350) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
 
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
@@ -70,21 +83,53 @@ ActiveRecord::Schema.define(version: 20161024074350) do
 
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
+    t.string   "image"
+    t.string   "color_PA"
+    t.string   "season_PA"
+    t.string   "tone_PA"
+    t.string   "color_BY"
+    t.string   "season_BY"
+    t.string   "tone_BY"
+    t.string   "color_YS"
+    t.string   "season_YS"
+    t.string   "tone_YS"
+    t.string   "color_total"
+    t.string   "season_total"
+    t.string   "tone_total"
+    t.string   "comment_PA"
+    t.string   "comment_BY"
+    t.string   "comment_YS"
+    t.string   "brand"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "size"
+    t.integer  "zzim",         default: 0
+    t.string   "pro_type"
+    t.string   "glitter"
+    t.string   "texture"
+    t.string   "keyword"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "lips", force: :cascade do |t|
+    t.string   "num"
+    t.string   "image"
     t.string   "wc"
     t.string   "season"
     t.string   "tone"
     t.string   "brand"
     t.string   "name"
-    t.integer  "price"
+    t.string   "price"
     t.string   "size"
-    t.integer  "zzim",       default: 0
+    t.string   "color"
     t.string   "pro_type"
     t.string   "glitter"
     t.string   "texture"
     t.string   "keyword"
-    t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notices", force: :cascade do |t|

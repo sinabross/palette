@@ -1,3 +1,4 @@
+require 'rails_autolink'
 class HomeController < ApplicationController
 
   def index
@@ -6,12 +7,14 @@ class HomeController < ApplicationController
     @news = Notice.order('id desc').first(5)
 
     #총 제품 개수
-    @product_count = Lipdb.count
-    @w_lip_count = Lipdb.get_w_lip.count
-    @c_lip_count = Lipdb.get_c_lip.count
+    @product_count = Lip.count
+    #@product_count = 42
+    #@w_lip_count = Lipdb.get_w_lip.count
+    #@c_lip_count = Lipdb.get_c_lip.count
     #이번주 등록 제품 개수
-    @update_count = 0
+
     #@update_count = Lipdb.where(:id => 200..236).count
+    @update_count = Lip.count
   end
   def index2
     #공지사항 최신글 보여주기
@@ -51,9 +54,9 @@ class HomeController < ApplicationController
     end   
     # 1-1. searching from Lipdb
     if params[:search]
-      @result = Lipdb.all.search(@search,@search2,@search3).order("brand").paginate(page: params[:page], per_page: 21)
+      @result = Lip.all.search(@search,@search2,@search3).order("brand").paginate(page: params[:page], per_page: 21)
     else
-      @result = Lipdb.all.order("brand").paginate(page: params[:page], per_page: 21)
+      @result = Lip.all.order("brand").paginate(page: params[:page], per_page: 21)
     end
     # 1-2. searching from Eyedb  (당분간 봉인)
   #  if params[:search]
@@ -66,24 +69,57 @@ class HomeController < ApplicationController
   
   
   def list_lip
-    
+
+
+
+  #빵부스러기 목록
+  if params[:tone]
+    @current_season = params[:tone]
+    @list = Lipdb.where(season_total: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
+  else
+    @current_season = "봄 브라이트"
+  end
+  
+  
+  # 8 분류에 따른 립 카테고리 설정
+#  if params[:tone]
+#    @list=Lipdb.where(season_total: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
+
+#    @list=Lipdb.where(season_total: params[:tone])
+#    .where(color: params[:color]).where(texture: params[:texture])
+#    .where(brand: params[:brand]).order('brand').paginate(page: params[:page], per_page: 21)
+# end
+
+
+  
+#  if params[:tone] || params[:texture] 
+  
+#   @list=Lipdb.where(season_total: params[:tone]).where(texture: params[:texture]).order('brand').paginate(page: params[:page], per_page: 21)
+   ## @list=Lipdb.where(season_total: params[:tone])
+    ##.where(texture: params[:texture]).where("brand LIKE ?","%#{params[:brand]}%").order('brand').paginate(page: params[:page], per_page: 21)
+#  end
+  
+
+
+  # 12분류 기준일때는 봉인 (16.11.08)
+
     # 웜톤 립 출력
-    if params[:colors] == "w_lips"
+ #   if params[:colors] == "w_lips"
       #웜립일때
-      @colors = "w_lips"
-      @color_tone = "웜"      
+ #     @colors = "w_lips"
+ #     @color_tone = "웜"
      # @liplist = params[:liplist]
-      @liptone ||= params[:liptone]
+ #     @liptone ||= params[:liptone]
       #웝립/제품군/세부톤
-      @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
+ #     @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
    # if params[:liplist] == nil
     #   @liplist = "제품"
      #  @list = Lipdb.get_w_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
-      if params[:liptone] == nil
-          @liptone = "세부톤 전체보기"
-          @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
-      end
-     end
+  #    if params[:liptone] == nil
+  #        @liptone = "세부톤 전체보기"
+  #        @list = Lipdb.get_w_lip.order('brand').paginate(page: params[:page], per_page: 21)
+  #    end
+  #   end
       #세부톤 선택안했을때
   #   if params[:liptone] == nil
   #      @liptone = "세부톤"
@@ -97,21 +133,21 @@ class HomeController < ApplicationController
   #    end
   #  end
 
-    # 쿨톤 립 출력
-    if params[:colors] == "c_lips"
-      @colors = "c_lips"
-      @color_tone = "쿨"      
+  #  # 쿨톤 립 출력
+  #  if params[:colors] == "c_lips"
+  #    @colors = "c_lips"
+  #    @color_tone = "쿨"
     #  @liplist = params[:liplist]
-      @liptone = params[:liptone]
-      @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
+  #    @liptone = params[:liptone]
+  #    @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
     #  if params[:liplist] == nil
     #    @liplist = "제품"
     #    @list = Lipdb.get_c_lip.where(tone:params[:liptone]).order('brand').paginate(page: params[:page], per_page: 21)
-        if params[:liptone] == nil
-          @liptone = "세부톤 전체보기"
-          @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
-        end
-    end
+  #      if params[:liptone] == nil
+  #        @liptone = "세부톤 전체보기"
+  #        @list = Lipdb.get_c_lip.order('brand').paginate(page: params[:page], per_page: 21)
+  #      end
+  #  end
 
    #   if params[:liptone] == nil
    #     @liptone = "세부톤"
@@ -122,8 +158,89 @@ class HomeController < ApplicationController
    #     end
    #   end
    # end
-  end
 
+  end
+  
+  def list_lip2
+  
+    
+  
+    #빵부스러기 목록
+    if params[:tone]
+      @current_season = params[:tone]
+    else
+      @current_season = "봄 브라이트"
+    end
+  
+#  
+    if params[:tone] 
+      @list = Lip.where(season: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+##
+    if params[:tone] && params[:pro_type]
+      @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21)
+    end  
+    
+    if params[:tone] && params[:color]
+      @list = Lip.where(season: params[:tone]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
+    end 
+    
+    if params[:tone] && params[:level]
+      @list = Lip.where(season: params[:tone]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:texture]
+### 
+      @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:pro_type] && params[:texture]
+      @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(texture: params[:texture]).order('brand').paginate(page: params[:page], per_page: 21)
+    end 
+    
+    if params[:tone] && params[:pro_type] && params[:color]
+     @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:pro_type] && params[:level]
+     @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)  
+    end
+    
+    if params[:tone] && params[:texture] && params[:color]
+     @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:texture] && params[:level]
+     @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:color] && params[:level]
+####    
+     @list = Lip.where(season: params[:tone]).where(color: params[:color]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    if params[:tone] && params[:texture] && params[:color]&& params[:pro_type] && params[:level]
+      @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(color: params[:color]).where(pro_type: params[:pro_type]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
+    end
+    
+    
+# gave up temporariy..
+
+#    if params[:tone]
+#     @list = Lip.where(season: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
+#   end
+#   
+#    unless params[:tone].blank? && params[:pro_type].blank? && params[:texture].blank? && params[:color].blank? && params[:level].blank?
+#       @list = Lip.where(season: params[:tone])
+##      .where(pro_type: params[:pro_type]).where(color: params[:color]).where(texture: params[:texture]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
+#    else
+#      @list=Lip.where(season: "봄 브라이트").order('brand').paginate(page: params[:page], per_page: 21)
+#    end  
+  
+  
+  
+  
+  end
 
   def list_eye
    
@@ -178,13 +295,13 @@ class HomeController < ApplicationController
     
     #립 상세페이지
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lipdb.find_by_image(params[:product_num])
     end
-     
+
     #섀도우 상세페이지
-    if params[:product_num].start_with?("S")
-      @product = Eyedb.find_by_num(params[:product_num])
-    end
+   # if params[:product_num].start_with?("S")
+  #    @product = Eyedb.find_by_num(params[:product_num])
+   # end
     
    # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
    # @product.zzim = @product.votes_for.up.by_type(User).size
@@ -195,9 +312,15 @@ class HomeController < ApplicationController
 
     #for page-navigation
 
-
   end
-  
+
+  def detail2
+    #립 상세페이지
+    if params[:product_num]
+      @product = Lip.find_by_image(params[:product_num])
+    end
+      
+  end  
   #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
   def like 
     
@@ -310,7 +433,7 @@ class HomeController < ApplicationController
   def feedback #문의글 작성페이지
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lip.find_by_image(params[:product_num])
 
     #섀도우
     elsif params[:product_num].start_with?("S")
@@ -427,7 +550,8 @@ class HomeController < ApplicationController
   end
 
   def admin_write   #관리자 계정으로 공지등록
-
+   
+     
   end
 
   def notice_edit   #관리자 계정으로 공지글 수정
@@ -450,7 +574,7 @@ class HomeController < ApplicationController
   def notice_delete #공지글 삭제
     @notices=Notice.find(params[:notice_id])
     @notices.destroy
-    redirect_to :back
+    redirect_to '/home/notice'
   end
   
   

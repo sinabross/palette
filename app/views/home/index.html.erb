@@ -5,19 +5,27 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="intro-message">
-          <h1>내 입에 착 붙는 인생템 찾기</h1>
-          <h3 style="margin-bottom:50px;">내 톤에 맞는 제품을 편리하게 찾아보세요</h3>
+          <h1>나만의 인생템 찾기</h1>
+          <h3 style="margin-bottom:50px;">퍼스널컬러에 맞는 립스틱을 찾아보세요!</h3>
          <!-- <hr class="intro-divider">-->
+         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
+           <a href="/home/list_lip2/봄 브라이트" class="btn-manual btn-manualM">추천 립 보기</a>
+         </div>
+<%
+=begin
+%>
 
-          <!-- Trigger/Open The Modal -->
+
+  <!-- 사용자 메뉴얼 주석처리 (16.11.08
+          <!-- Trigger/Open The Modal --
           <div class ="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
              <button class="btn-manual btn-manualM" id="btnModal">사이트 이용방법</button>
          </div>
 
-          <!-- The Modal -->
+          <!-- The Modal --
           <div id="guideModal" class="guideModal">
 
-            <!-- Modal content -->
+            <!-- Modal content --
             <div class="modal-content">
               <div class="modal-header">
                 <div class="modal-close">
@@ -78,29 +86,30 @@
                   <button class="btn-guide demo" onclick="currentDiv(3)">3</button>
                   <button class="btn-guide demo" onclick="currentDiv(4)">4</button>
                   <button class="btn-guide demo" onclick="currentDiv(5)">5</button>
-                  -->
+                  --
                 </div>
               </div>
 
             </div>
 
           </div>
-          <!--/Modal-->
+          <!--/Modal--
+          -->
+<%
+=end
+%>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts count1" style="margin-bottom:10px">
+
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts count1" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
             <p>전체 상품 수</p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
-            <h3><%=@w_lip_count%></h3>
-            <p>웜톤 상품 수 </p>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
+            <h3><%=@update_count%></h3>
+            <p>이번주 등록상품 수</p>
           </div>
 
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 counts">
-            <h3><%=@c_lip_count%></h3>
-            <p>쿨톤 상품 수 </p>
-          </div>
 
 
         </div>
@@ -161,52 +170,97 @@
             </table>
            </div>
         </div>
-          <div style="text-align: center;">
-           <a href="/home/notice" class="btn-black">전체보기</a>
+          <div style="text-align: center;" >
+            
+           <a href="/home/notice" class="btn-list" id="story">전체보기</a>
+           <!-- id story is for navigation -->
           </div>
         </div>
-
+           
       </div>
-
+         
     </div>
-
+           
   </div>
   <!-- /.container -->
-
+                    
 </div>
 <!-- /.content-section-a -->
 
 
-<div class="content-section-b">
+<div class="content-section-c palette_story">
 
+    <div class="container">
+
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2 class="section-heading" >팔레트 소개</h2>
+            <hr class="section-heading-spacer">
+            <p class="story_content">
+              
+              <span class="content_mark">“</span>
+              
+              <span class="content_first">저에게 가장 잘 어울리는 제품이 무엇인가요?</span>
+              
+              <span class="content_mark">”</span> <br>
+              <br>
+              많은 분들께서 퍼스널컬러 진단 이후에 <br>
+              어울리는 제품을 찾는 것을 어려워하셨습니다.<br>
+              <br>
+              팔레트는 그런 분들을 위해<br>
+              <br>
+              퍼스널컬러에 맞는 립 제품을<br>
+              추천하는 것부터 시작하려고 합니다.<br>
+              <br>
+              팔레트에서 나에게 가장 잘 어울리는 립스틱을 찾아보세요.
+              <span id="howto" ></span>     
+            </p>
+          </div>
+        </div>
+        <!-- /.row -->
+       
+      </div>
+       <!-- /.container -->
+   
+</div>
+<!-- /.content-section-b -->
+
+
+
+
+<div class="content-section-b">
   <div class="container">
 
     <div class="row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-         <h2 class="section-heading">서비스 소개</h2>
+         <h2 class="section-heading">팔레트 이용방법</h2>
          <hr class="section-heading-spacer">
+         <h4 class="section-heading-second">인생립을 찾는 가장 빠른 방법!</h4>
+         <p class="section-heading-second" style="margin-bottom:40px;">
+           팔레트는 퍼스널컬러 전문가와 <br>함께 만들어가는 서비스입니다.
+         </p>
        </div>
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <img src="/images/feature1.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
+          <img src="/images/step1.png" alt="퍼스널컬러 웜톤 쿨톤 립스틱" class="feature_img">
           <div class="clearfix"></div>
-          <h4>다양한 브랜드</h4>
-          <p class="lead">백화점, 로드샵 등 다양한 브랜드의 상품이 분류되어 있어요. 매주 추가되는 상품을 확인해보세요.</p>
+          <h4>맞춤형 추천</h4>
+          <p class="lead">내 진단결과를 선택하고 원하는 정보만 골라서 보세요.</p>
         </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-         <img src="/images/feature2.png" alt="화장품 퍼스널컬러 검색" class="feature_img">
+         <img src="/images/step2.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
          <div class="clearfix"></div>
-         <h4>상품 추가요청</h4>
-         <p class="lead">톤 진단이 필요한 상품을 요청하세요. 추가된 상품 소식을 공지사항으로 알려드려요.</p>
+         <h4>브랜드 선택</h4>
+         <p class="lead">로드샵, 백화점 브랜드 중 자주 가는 브랜드를 선택하세요.</p>
        </div>
 
-       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-         <img src="/images/feature3.png" alt="퍼스널컬러 진단" class="feature_img">
+       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
+         <img src="/images/step3.png" alt="" class="feature_img">
          <div class="clearfix"></div>
-         <h4>전문성</h4>
-         <p class="lead">발색한 컬러를 기준으로 퍼스널컬러 전문가가 직접 테스트해보고 추천해드려요.</p>
+         <h4 id="process">캡처하기</h4>
+         <p class="lead">마음에 드는 제품을 캡처! 이제 매장에서 테스트해보세요</p>
        </div>
 
      </div>
@@ -217,25 +271,393 @@
 </div>
 <!-- /.content-section-b -->
 
+
+<%
+=begin
+%>
+
+<div class="content-section-c" >
+
+    <div class="container">
+
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2 class="section-heading">PCI 진단 분류 시스템</h2>
+                    <p style="font-size:1em;text-align:center;">*PCI는 Personal Color Image의 약자입니다.</p>
+                    <hr class="section-heading-spacer">
+                  </div>
+               </div>
+             <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                  <div class="row">
+                   <!--
+                    <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                      <img src="/images/feature1.png" alt="퍼스널컬러 진단">
+                    </div> -->
+
+                    <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12">
+                    <h4 class="pci_title">1. 제품 진단환경 최적화</h4>
+                      <p class="pci_explain">톤 분류는 컬러 진단하기 가장 효과적인 환경에서 진행됩니다.<br>
+                      현재 3000~5000lux의 최적화된 조명 환경을 유지하며, 실제 퍼스널컬러를 진단하는 고정된 장소에서만 진단합니다.</p>
+                    </div>
+                   </div>
+
+                   <div class="row">
+                    <!--
+                     <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                       <img src="/images/feature1.png" alt="">
+                     </div>
+                     -->
+
+                     <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12">
+                        <h4 class="pci_title">2. 퍼스널컬러 컨설턴트 그룹</h4>
+                       <p class="pci_explain">다양한 이력을 가진 퍼스널컬러 전문가들이 함께 합니다.<br>
+                       각 전문가들은 PCCS 색채이론을 바탕으로 일정한 환경에서 제품진단에 참여하고 있습니다.</p>
+                     </div>
+                    </div>
+
+                    <div class="row">
+                      <!--
+                       <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-xs-12">
+                         <img src="/images/feature1.png" alt="웜톤 쿨톤 립스틱 발색">
+                       </div> -->
+
+
+                       <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-12 col-xs-12">
+                         <h4 class="pci_title">3. 일관된 발색기준 선정</h4>
+                         <p class="pci_explain" id="partners1">발색 시 피부색 마다 차이를 보이는 변수를 막기 위해, 피부를 대신할 새로운 형태가 필요했습니다.<br>
+                         여러 차례의 실험을 거쳐 피부발색과 가장 근사치에 가까운 미색계열의 아크릴판을 선정하였습니다.</p>
+                       </div>
+                    </div>
+              </div>
+             </div>
+            <!-- /.row2 -->
+            </div>
+          </div>
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.row -->
+   </div>
+  <!-- /.container -->
+</div>
+<!-- /.content-section-b -->
+
+
+
+<div class="content-section-d">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="section-heading">파트너 소개</h2>
+              <p class="lead">함께 하고 있는 퍼스널컬러 전문 업체들을 소개합니다.</p>
+              <hr class="section-heading-spacer">
+            </div>
+        </div>
+
+      <!-- 전문가1-->
+        
+      <div class="row" id="partners">
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <div class="palette_logo">
+             <img id="palette_logo" src="/images/logo_new.png" alt="">
+          </div>
+        </div>
+  
+        <div class="col-lg-5 col-sm-6"  id="partners2">
+          <div class="clearfix"></div>
+          <h4 class="partner_title">팔레트</h4>
+          <p class="partner_name">최영진 대표</p>
+          <hr>
+          <div class="partner_content">
+            <p><strong>[이력 사항]</strong><p>
+              <ul>
+                <li>
+                  팔레트 대표
+                </li>
+                 <li>
+                  前) 비전인스타일 대표 
+                </li>
+                <li>
+                  前) 제이컬러이미지 전임강사
+                </li>
+              
+                <li>
+                  컬러 컨설턴트 전문가 과정 수료(KCCA)
+                </li>
+              </ul>
+  
+            <p><strong>[강연 및 컨설팅]</strong><p>
+              <ul>
+                <li>
+                  아모레퍼시픽 VIP 뷰티클래스 강의
+                </li>
+                <li>
+                  롯데백화점 강남 문화센터 강연
+                </li>
+                <li>
+                  코오롱스포츠 스타일클래스 컨설팅
+                </li>
+                <li>
+                  경희대 국제캠퍼스 뷰티콘서트 컨설팅
+                </li>
+                <li>
+                  코엑스 맨토링캠프 컬러진단
+                </li>
+                <li>
+                  잡페어 면접 컨설팅 외 다수
+                </li>
+              </ul>
+            <a href="/" class="partner_site">자세히 보기</a>
+          </div>
+        </div>
+     
+  
+      </div>
+      
+  </div>    
+</div>      
+      
+      
+      
+      
 <!--
-<div class="content-section-a">
+      <div class="row">
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+         
+          <div class="partner_img" id="colorbyBOM">
+            <h1 style="font-family:'Poiret One',cursive;color:black;text-align:center;font-weight:bold;margin-bottom:20px;">color by BOM</h1>
+            <h5 style="font-family:'Poiret One',cursive;color:black;text-align:center;">'<strong>B</strong>eauty is your <strong>O</strong>wn color. Find real <strong>M</strong>e!'</h5>
+          </div>
+          
+        </div>
+
+        <div class="col-lg-5 col-sm-6"  id="partners2">
+          <div class="clearfix"></div>
+          <h4 class="partner_title">color by BOM</h4>
+            <p class="partner_name">민새봄 대표</p>
+          <hr>
+          <div class="partner_content">
+
+              <p><strong>[이력 사항]</strong><p>
+
+              <ul>
+                  <li>
+                    color by BOM 대표
+                  </li>
+                  
+                  <li>
+                    컬러리스트 전문가 과정 수료(한국색채교육원)
+                  </li>
+                  <li>
+                    컬러리스트 기사 1급(한국산업인력공단)
+                  </li>
+                  <li>
+                    컬러리스트 산업기사 2급(한국산업인력공단)
+                  </li>
+                  <li>
+                    컬러이미지 컨설턴트 전문가 과정 수료(아샤 아카데미)
+                  </li>
+
+              </ul>
+
+               <p><strong>[강연 및 컨설팅]</strong></p>
+                <ul>
+                  <li>
+                    개인 대상 퍼스널컬러 컨설팅 경험 다수
+                  </li>
+                  <li>
+                    희망플랜비전캠프 직업(컬러이미지컨설턴트) 체험강사
+                  </li>
+                  <li>
+                    진로박람회 직업체험 강사 외 다수
+                  </li>
+                </ul>
+                 <a href="#" class="partner_site">자세히 보기</a>
+           </div>
+        </div>
+      </div>
+
+    </div>
+
+</div> -->
+
+
+  <!-- /.content-section-d -->
+
+<!-- 로고만 노출시키는 버전
+<div class="content-section-d">
+  <div class="partner_logo" >
+  </div>
+</div>
+<!-- /.content-section-d -->
+
+
+<!-- ys commentize 
+<div class="content-section-d">
 
   <div class="container">
 
-    <div class="row">
-      <div class="col-lg-5 col-sm-6">
-        <hr class="section-heading-spacer">
-        <div class="clearfix"></div>
-        <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-        <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
-      </div>
+    <!-- 전문가--
+    <div class="row" id="partners2">
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-        <img class="img-responsive" src="img/phones.png" alt="">
+        <img class="partner_img" src="/images/ys_logo.PNG" alt="예슬이미지">
+      </div>
+
+      <div class="col-lg-5 col-sm-6"  id="partners2">
+
+        <div class="clearfix"></div>
+        <h4 class="partner_title">예슬이미지</h4>
+        <p class="partner_name">천예슬 대표</p>
+        <hr>
+        <div class="partner_content">
+          <p><strong>[이력 사항]</strong></p>
+            <ul>
+                <li>
+                  예슬이미지 대표
+                </li>
+                <li>
+                  London Image Institute 수료<br>
+                  (UK Foundation, Advanced Course and Professional development)
+                </li>
+                 <li>
+                  컬러이미지 컨설턴트 전문가 과정 수료<br>(아샤 아카데미)
+                </li>
+                <li>
+                  이미지 컨설턴트 전문가 과정 수료<br>(정연아 이미지테크)
+                </li>
+                <li>
+                  국제 이미지 컨설턴트 협회(AICI) Skilled member
+                </li>
+                <li>
+                  사단법인 이미지 컨설턴트 협회 GICA 정회원
+                </li>
+                <li>
+                  이미지 컨설턴트 2급 자격증<br>(사단법인 이미지컨설턴트 협회)
+                </li>
+                
+            </ul>
+
+          <p><strong>[강연 및 컨설팅]</strong><p>
+            <ul>
+                
+                <li>
+                  AK Plaza VIP라운지 A Class 전 지점 직원 대상 서비스 Level-up과정 [프로페셔널 이미지메이킹] 강의
+                </li>
+                <li>
+                  매거진 여성중앙 X 덴마크 슈즈브랜드 ECCO 압구정현대백화점 본점 [봄빛 여자되기] 컬러 스타일링 클래스
+                </li>
+                <li>
+                  (주)삼천리 신입사원 입문교육 패션 스타일링 교육 외 다수
+                </li>
+            </ul>
+
+          <a href="http://www.yeaseulimage.com/545324719654596.html" class="partner_site">자세히 보기</a>
+        </div>
+
       </div>
     </div>
 
   </div>
-  <!-- /.container -->
+
+</div>
+<!--/.content-section-d-->
+
+<!-- pa commentize
+<div class="content-section-d">
+
+  <div class="container">
+
+    <!-- 전문가--
+    <div class="row" id="partners3">
+      <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+        <div class="palette_logo">
+           <img id="palette_logo" src="/images/logo_new.png" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-sm-6"  id="partners2">
+        <div class="clearfix"></div>
+        <h4 class="partner_title">팔레트</h4>
+        <p class="partner_name">최영진 대표</p>
+        <hr>
+        <div class="partner_content">
+          <p><strong>[이력 사항]</strong><p>
+            <ul>
+              <li>
+                팔레트 대표
+              </li>
+               <li>
+                前) 비전인스타일 대표 
+              </li>
+              <li>
+                前) 제이컬러이미지 전임강사
+              </li>
+            
+              <li>
+                컬러 컨설턴트 전문가 과정 수료(KCCA)
+              </li>
+            </ul>
+
+          <p><strong>[강연 및 컨설팅]</strong><p>
+            <ul>
+              <li>
+                아모레퍼시픽 VIP 뷰티클래스 강의
+              </li>
+              <li>
+                롯데백화점 강남 문화센터 강연
+              </li>
+              <li>
+                코오롱스포츠 스타일클래스 컨설팅
+              </li>
+              <li>
+                경희대 국제캠퍼스 뷰티콘서트 컨설팅
+              </li>
+              <li>
+                코엑스 맨토링캠프 컬러진단
+              </li>
+              <li>
+                잡페어 면접 컨설팅 외 다수
+              </li>
+            </ul>
+          <a href="/" class="partner_site">자세히 보기</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!--/.content-section-d-->
+
+<%
+=end
+%>
+  <!--
+  <div class="content-section-a">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-5 col-sm-6">
+          <hr class="section-heading-spacer">
+          <div class="clearfix"></div>
+          <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+          <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+        </div>
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <img class="img-responsive" src="img/phones.png" alt="">
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container --
 
 </div>
 <!-- /.content-section-a -->
@@ -274,6 +696,8 @@
 
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
   body,
   html {
     width: 100%;
@@ -371,14 +795,16 @@
     text-align:center;
   }
   .feature_img{
-    width:40%;
-    height:40%;
+    width:240px;
+    height:320px;
+    border:1px solid lightgray;
     margin:auto;
     display:block;
   }
-  /*.btn-pink{
-    width:100%;
-    height:100%;
+ /*
+  .btn-pink{
+    width:100px;
+    height:50px;
     font-size:13px;
     text-align:center;
     cursor:pointer;
@@ -387,28 +813,33 @@
     margin:auto;
     display:block;
     padding:0px;
-  }*/
-
-  .btn-black{
+  }
+*/
+  .btn-list{
     display:inline-block;
     line-height: 30px;
     width:100px;
     height:30px;
-    border-radius: 5px;
     font-size:13px;
+    font-weight:bold;
     text-align:center;
-    color:#ffffff;
-    background-color:#333333;
+    color:black;
+    background-color:#f8f8f8;
+    border:2px solid black;
     margin-bottom:30px;
   }
-  .btn-black:hover{
+  .btn-list:hover{
     text-decoration:none;
-    color:#ffffff;
+    background-color:#f8f8f8;
+    color:#ffa291;
+    border:2px solid #ffa291;
   }
+
   .btn-manual:hover{
     text-decoration: none;
-    background-color:#ff6666;
-    color:#ffffff;
+    background-color:rgba(255,255,255,0.1);
+    color:#ffa291;
+    border:2px solid #ffa291;
   }
   .btn-manual:active{
     transform:translateY(3px);
@@ -439,7 +870,8 @@
   }
 
   .content-section-a {
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom:20px;
     background-color: #f8f8f8;
     text-align: center;
 
@@ -452,7 +884,8 @@
   }
 
   .content-section-b {
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom:20px;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
   }
@@ -462,12 +895,38 @@
     font-weight: bold;
   }
 
-  .section-heading {
-    margin-bottom: 10px;
-    text-align: center;
-    font-size:2em;
+  /* PCI 컬러 분류 과정 소개 */
+  .content-section-c {
+    padding-top: 10px;
+    padding-bottom:20px;
+    background-color: #f8f8f8;
   }
 
+  .content-section-c img{
+
+    display:inline-block;
+    width:20%;
+    height:20%;
+  }
+  .pci_title{
+    text-align:left;
+    font-weight:bold;
+  }
+  .pci_explain{
+
+    text-align:left;
+    word-break:break-all;
+    margin-bottom:20px;
+  }
+  .section-heading {
+    text-align: center;
+    margin-top:30px;
+  }
+  .section-heading-second{
+    text-align:center;
+    margin-bottom:10px;
+
+  }
   .section-heading-spacer {
     float: center;
     width: 200px;
@@ -501,7 +960,42 @@
     margin-top: 0;
   }
 
-  @media(max-width:767px) {
+    /*for test*/
+
+  .partner_logo{
+
+   background-image: url('/images/colorAD.PNG');
+   background-size:contain;
+   backgroun-repeat:no-repeat;
+   width:100%;
+   height:400px;
+  }
+  .partner_logo:after{
+
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background: rgba(0,0,0,.5);
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+  }
+  div:hover:after {
+    opacity: 1;
+    cursor:pointer;
+  }
+  
+  /*전문가 이력소개*/
+  .partner_title{
+      font-weight:bold;
+    }
+  
+  
+  
+  
+@media(max-width:767px) {
     .intro-message {
       padding-bottom: 15%;
     }
@@ -523,14 +1017,14 @@
     .btn-manualM{
 
       text-decoration: none;
-      color:#ffaaa3;
+      color:#ffffff;
       font-size:15px;
       font-weight:bold;
       display:inline-block;
       width:130px;
       height:50px;
-      border-radius: 10px;
-      background-color:#fafafa;
+      border:2px solid #ffffff;
+      background-color:rgba(255,255,255,0.1);
       line-height:50px;
       text-align:center;
       transition: all 0.4s;
@@ -648,11 +1142,101 @@
       margin-top:20px;
     }
 
+    /*전문가 소개 페이지*/
+
+    .content-section-d{
+      padding-top:10px;
+      padding-bottom:20px;
+      border-top: 1px solid #e7e7e7;
+    }
+    .partner_img{
+      width:100%;
+      height:195px;
+      display:block;
+      margin:auto;
+    }
+    .palette_logo{
+     padding:50px;
+     width:100%;
+     height:195px;
+     border:2px solid #ffaaa3;
+     background-color:#fafafa; 
+    }
+    #palette_logo{
+      
+      margin:40px 0 0 30px;
+    }
+    
+    #colorbyBOM{
+      background-color:white;
+      height:195px;
+      width:100%;
+      border:2px solid black;
+      padding:16px;
+    }
+    #colorbyBOM>h1{
+      margin-top:40px;
+    }
+    .partner_title,.partner_name{
+      text-align:center;
+    }
+    
+    
+    .partner_content>ul{
+      list-style-type:disc;
+    }
+    .partner_site{
+      display:block;
+      margin:auto;
+      padding:5px;
+      width:100px;
+      height:auto;
+      text-align:center;
+      border:2px solid black;
+      color:black;
+    }
+    .partner_site:hover, .partner_site:active, .partner_site:focus{
+      color:#ffa291;
+      border:2px solid #ffa291;
+      text-decoration:none;
+    }
+    
+    /*palette story*/
+  .palette_story{
+    background-image:url('/images/story.png');
+    background-size:cover;
+    color:#fafafa;
+    padding-top:10px;
+    padding-bottom:40px;
+    
+  }  
+  .story_content{
+    text-align:center;
+    font-size:14px;
+  }
+  .content_mark{
+    font-size:20px;
+    font-weight:bold;
+  }
+  .content_first{
+    font-size:15px;
+    font-weight:bold;
+  }
+  /*palette story ends*/
+  
+  .section-heading {
+    text-align: center;
+    margin-top:20px;
+    font-size:23px;
   }
 
 
 
-  @media(min-width:767px) {
+} /*media max-width 767px*/
+
+
+
+@media(min-width:767px) {
 
 
     /*.mainsearch{
@@ -696,15 +1280,15 @@
     .btn-manual{
 
       text-decoration: none;
-      color:#ffaaa3;
+      color:#ffffff;
       font-size:20px;
       font-weight:bold;
       display:inline-block;
       width:200px;
       height:60px;
       line-height: 60px;
-      border-radius: 10px;
-      background-color:#fafafa;
+      background-color:rgba(255,255,255,0.1);
+      border:2px solid #ffffff;
       text-align:center;
       transition: all 0.4s;
 
@@ -793,69 +1377,153 @@
       display:none;
     }
 
+    /*전문가 소개 페이지*/
 
+    #colorbyBOM{
+      background-color:white;
+      height:200px;
+      width:auto;
+      border:2px solid black;
+      padding:16px;
+    }
+    #colorbyBOM>h1{
+      margin-top:40px;
+    }
+     #colorbyBOM>h5{
+      font-size:17px;
+    }
+    .content-section-d{
+      padding-top:10px;
+      padding-bottom:20px;
+      border-top: 1px solid #e7e7e7;
+    }
+    .partner_img{
+      width:450px;
+      height:226px;
+      margin-top:100px;
 
+    }
+    .palette_logo{
+     padding:50px;
+     width:450px;
+     height:226px;
+     border:2px solid #ffaaa3;
+     background-color:#fafafa; 
+     margin-top:100px;
+    }
+    #palette_logo{
+      
+      margin:40px 0 0 90px;  
+    }
+    .partner_content>ul{
+      list-style-type:disc;
+    }
+    .partner_name{
+      display:inline-block;
+    }
+    
+    .partner_site{
+      display:block;
+      padding:5px;
+      width:150px;
+      text-align:center;
+      float:right;
+      margin-top:20px;
+      height:auto;
+      border:2px solid black;
+      color:black;
+    }
+    .partner_site:hover, .partner_site:active, .partner_site:focus{
+      color:#ffa291;
+      border:2px solid #ffa291;
+      text-decoration:none;
+    }
+
+    /*palette story*/
+  .palette_story{
+    
+  }  
+  .story_content{
+    text-align:center;
+    font-size:16px;
   }
+  .content_mark{
+    font-size:25px;
+    font-weight:bold;
+  }
+  
+  .content_first{
+    font-size:20px;
+    font-weight:bold;
+  }
+  
+  
+  /*palette story ends*/
+
+
+} /*media min 767px*/
+
 
 </style>
 
 <script>
 
   // Get the modal
-  var modal = document.getElementById('guideModal');
+//  var modal = document.getElementById('guideModal');
 
   // Get the button that opens the modal
-  var btn = document.getElementById("btnModal");
+//  var btn = document.getElementById("btnModal");
 
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
+//  var span = document.getElementsByClassName("close")[0];
 
   // When the user clicks on the button, open the modal
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
+//  btn.onclick = function() {
+//    modal.style.display = "block";
+//  }
 
   // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+//  span.onclick = function() {
+//    modal.style.display = "none";
+//  }
 
   // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+//  window.onclick = function(event) {
+//    if (event.target == modal) {
+//      modal.style.display = "none";
+//    }
+ // }
 
 
   //for slideshow in modal
 
-  var slideIndex = 1;
-  showDivs(slideIndex);
+//  var slideIndex = 1;
+//  showDivs(slideIndex);
 
-  function plusDivs(n) {
-    showDivs(slideIndex += n);
-  }
+//  function plusDivs(n) {
+//    showDivs(slideIndex += n);
+//  }
 
-  function currentDiv(n) {
-    showDivs(slideIndex = n);
-  }
+//  function currentDiv(n) {
+//    showDivs(slideIndex = n);
+//  }
 
-  function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("guideSlides");
-    var dots = document.getElementsByClassName("demo");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
+//  function showDivs(n) {
+//    var i;
+//    var x = document.getElementsByClassName("guideSlides");
+//    var dots = document.getElementsByClassName("demo");
+//    if (n > x.length) {slideIndex = 1}
+//   if (n < 1) {slideIndex = x.length}
+//    for (i = 0; i < x.length; i++) {
+//      x[i].style.display = "none";
+//    }
 
     //next,prev 버튼 밑에 있던 숫자 버튼 색 변하게 하기
     // for (i = 0; i < dots.length; i++) {
    //   dots[i].className = dots[i].className.replace(" w3-red", "");
    // }
-    x[slideIndex-1].style.display = "block";
+//    x[slideIndex-1].style.display = "block";
     //dots[slideIndex-1].className += " w3-red";
-  }
+//  }
+
 </script>
