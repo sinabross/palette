@@ -1,6 +1,6 @@
-class DropLipdb < ActiveRecord::Migration
+class CreateLipdb < ActiveRecord::Migration
   def change
-    drop_table :lipdbs do |t|
+    create_table :lipdbs do |t|
       
       t.string  :num
       t.string  :image
