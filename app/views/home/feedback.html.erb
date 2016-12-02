@@ -16,7 +16,7 @@
             <div class="media-body">
                 <p>[<%=@product.brand %>] <strong><%=@product.name %></strong></p>
                 <p><%=@product.size %> / <%=@product.price %>원</p>
-                <p><%=@product.season_total%></p>
+                <p><%=@product.season%></p>
             </div>
         </div>
        
@@ -44,7 +44,7 @@
       -->
       <center>
         
-          <button type="submit" name="feed_pro_num" value="<%=@product.num%>" class="btn-ask" >보내기</button>
+          <button type="submit" name="feed_pro_num" value="<%=@product.image%>" class="btn-ask" >보내기</button>
         
       </center>
     </form>

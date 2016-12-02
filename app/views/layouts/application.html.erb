@@ -16,6 +16,11 @@
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+        
+        <!--for ckeditor CDN-->
+        <script src="/javascripts/ckeditor/config.js"></script>
+        <!--< % = javascript_include_tag "/javascripts/ckeditor/ckeditor.js" % >  -->
+        
         <%= csrf_meta_tags %>
    
     <!-- Latest compiled and minified CSS-->
@@ -31,8 +36,9 @@
     <!-- font awesome CDN -->
     <script src="https://use.fontawesome.com/aa70db83f8.js"></script>
     <!-- naver 사이트 등록 -->
-      <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
+    <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
 
+  
 
     <!-- Google Analytics -->
     <script>

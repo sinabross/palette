@@ -8,7 +8,7 @@
      </div>
      <hr style="border: 2px solid #38393b">
 
-    <table align="center" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+    <table class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
 
        <thead>
          <tr>
@@ -27,7 +27,9 @@
        <tbody>
         <tr>
           <td class="notice_content">
-           <p><%=@one_notice.content%></p>
+           <p><%= simple_format(auto_link(@one_notice.content, html: { target: '_blank' }), {}, :sanitize => false) %>
+         
+            </p>
           </td>
         </tr>
         <tr>
@@ -113,9 +115,9 @@
   .notice_content{
     border-top:2px solid #e4e4e4;
     padding:10px;
-    text-align:left;
-    word-break:break-all;
-    white-space: pre-line;
+    text-align:initial;
+   /* word-break:break-all;
+    white-space: pre-line;*/
 
   }
   .notice_buttons{

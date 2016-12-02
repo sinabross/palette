@@ -9,8 +9,11 @@
           <h3 style="margin-bottom:50px;">퍼스널컬러에 맞는 립스틱을 찾아보세요!</h3>
          <!-- <hr class="intro-divider">-->
          <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
-           <a href="/home/list_lip/봄 브라이트" class="btn-manual btn-manualM">추천 립 보기</a>
+           <a href="/home/list_lip2/봄 브라이트" class="btn-manual btn-manualM">추천 립 보기</a>
          </div>
+<%
+=begin
+%>
 
 
   <!-- 사용자 메뉴얼 주석처리 (16.11.08
@@ -92,6 +95,10 @@
           </div>
           <!--/Modal--
           -->
+<%
+=end
+%>
+
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts count1" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
@@ -163,55 +170,97 @@
             </table>
            </div>
         </div>
-          <div style="text-align: center;">
-           <a href="/home/notice" class="btn-list" id="explain">전체보기</a>
+          <div style="text-align: center;" >
+            
+           <a href="/home/notice" class="btn-list" id="story">전체보기</a>
+           <!-- id story is for navigation -->
           </div>
         </div>
-
+           
       </div>
-
+         
     </div>
-
+           
   </div>
   <!-- /.container -->
-
+                    
 </div>
 <!-- /.content-section-a -->
 
 
-<div class="content-section-b" >
+<div class="content-section-c palette_story">
+
+    <div class="container">
+
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2 class="section-heading" >팔레트 소개</h2>
+            <hr class="section-heading-spacer">
+            <p class="story_content">
+              
+              <span class="content_mark">“</span>
+              
+              <span class="content_first">저에게 가장 잘 어울리는 제품이 무엇인가요?</span>
+              
+              <span class="content_mark">”</span> <br>
+              <br>
+              많은 분들께서 퍼스널컬러 진단 이후에 <br>
+              어울리는 제품을 찾는 것을 어려워하셨습니다.<br>
+              <br>
+              팔레트는 그런 분들을 위해<br>
+              <br>
+              퍼스널컬러에 맞는 립 제품을<br>
+              추천하는 것부터 시작하려고 합니다.<br>
+              <br>
+              팔레트에서 나에게 가장 잘 어울리는 립스틱을 찾아보세요.
+              <span id="howto" ></span>     
+            </p>
+          </div>
+        </div>
+        <!-- /.row -->
+       
+      </div>
+       <!-- /.container -->
+   
+</div>
+<!-- /.content-section-b -->
+
+
+
+
+<div class="content-section-b">
   <div class="container">
 
     <div class="row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-         <h2 class="section-heading">서비스 소개</h2>
+         <h2 class="section-heading">팔레트 이용방법</h2>
          <hr class="section-heading-spacer">
          <h4 class="section-heading-second">인생립을 찾는 가장 빠른 방법!</h4>
          <p class="section-heading-second" style="margin-bottom:40px;">
-           팔레트는 퍼스널컬러 전문가그룹과 함께<br>어울리는 립 제품을 추천하는 서비스입니다.
+           팔레트는 퍼스널컬러 전문가와 <br>함께 만들어가는 서비스입니다.
          </p>
        </div>
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <img src="/images/intro1.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
+          <img src="/images/step1.png" alt="퍼스널컬러 웜톤 쿨톤 립스틱" class="feature_img">
           <div class="clearfix"></div>
-          <h4>세분화 추천</h4>
-          <p class="lead">8가지 퍼스널컬러에 맞는 제품을 알려드려요. 더 세부적인 추천을 받아보세요</p>
+          <h4>맞춤형 추천</h4>
+          <p class="lead">내 진단결과를 선택하고 원하는 정보만 골라서 보세요.</p>
         </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-         <img src="/images/intro2.png" alt="화장품 퍼스널컬러 검색" class="feature_img">
+         <img src="/images/step2.png" alt="다양한 브랜드의 퍼스널컬러 정보" class="feature_img">
          <div class="clearfix"></div>
-         <h4>다양한 정보</h4>
-         <p class="lead">로드샵부터 백화점브랜드까지 다양한 브랜드가 있어요. 신상품 정보도 빠르게 확인하세요.</p>
+         <h4>브랜드 선택</h4>
+         <p class="lead">로드샵, 백화점 브랜드 중 자주 가는 브랜드를 선택하세요.</p>
        </div>
 
        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" >
-         <img src="/images/intro3.png" alt="퍼스널컬러 진단" class="feature_img">
+         <img src="/images/step3.png" alt="" class="feature_img">
          <div class="clearfix"></div>
-         <h4 id="process">전문가 의견</h4>
-         <p class="lead">다양한 전문가들의 의견을 참고해보세요. 내게 맞는 팁도 얻을 수 있어요.</p>
+         <h4 id="process">캡처하기</h4>
+         <p class="lead">마음에 드는 제품을 캡처! 이제 매장에서 테스트해보세요</p>
        </div>
 
      </div>
@@ -221,6 +270,11 @@
 
 </div>
 <!-- /.content-section-b -->
+
+
+<%
+=begin
+%>
 
 <div class="content-section-c" >
 
@@ -294,6 +348,8 @@
 </div>
 <!-- /.content-section-b -->
 
+
+
 <div class="content-section-d">
 
     <div class="container">
@@ -306,11 +362,75 @@
         </div>
 
       <!-- 전문가1-->
+        
+      <div class="row" id="partners">
+        <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+          <div class="palette_logo">
+             <img id="palette_logo" src="/images/logo_new.png" alt="">
+          </div>
+        </div>
+  
+        <div class="col-lg-5 col-sm-6"  id="partners2">
+          <div class="clearfix"></div>
+          <h4 class="partner_title">팔레트</h4>
+          <p class="partner_name">최영진 대표</p>
+          <hr>
+          <div class="partner_content">
+            <p><strong>[이력 사항]</strong><p>
+              <ul>
+                <li>
+                  팔레트 대표
+                </li>
+                 <li>
+                  前) 비전인스타일 대표 
+                </li>
+                <li>
+                  前) 제이컬러이미지 전임강사
+                </li>
+              
+                <li>
+                  컬러 컨설턴트 전문가 과정 수료(KCCA)
+                </li>
+              </ul>
+  
+            <p><strong>[강연 및 컨설팅]</strong><p>
+              <ul>
+                <li>
+                  아모레퍼시픽 VIP 뷰티클래스 강의
+                </li>
+                <li>
+                  롯데백화점 강남 문화센터 강연
+                </li>
+                <li>
+                  코오롱스포츠 스타일클래스 컨설팅
+                </li>
+                <li>
+                  경희대 국제캠퍼스 뷰티콘서트 컨설팅
+                </li>
+                <li>
+                  코엑스 맨토링캠프 컬러진단
+                </li>
+                <li>
+                  잡페어 면접 컨설팅 외 다수
+                </li>
+              </ul>
+            <a href="/" class="partner_site">자세히 보기</a>
+          </div>
+        </div>
+     
+  
+      </div>
+      
+  </div>    
+</div>      
+      
+      
+      
+      
+<!--
       <div class="row">
         <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-          <!--
-          <img class="partner_img" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="">
-            -->
+         
           <div class="partner_img" id="colorbyBOM">
             <h1 style="font-family:'Poiret One',cursive;color:black;text-align:center;font-weight:bold;margin-bottom:20px;">color by BOM</h1>
             <h5 style="font-family:'Poiret One',cursive;color:black;text-align:center;">'<strong>B</strong>eauty is your <strong>O</strong>wn color. Find real <strong>M</strong>e!'</h5>
@@ -366,7 +486,7 @@
 
     </div>
 
-</div>
+</div> -->
 
 
   <!-- /.content-section-d -->
@@ -378,11 +498,13 @@
 </div>
 <!-- /.content-section-d -->
 
+
+<!-- ys commentize 
 <div class="content-section-d">
 
   <div class="container">
 
-    <!-- 전문가-->
+    <!-- 전문가--
     <div class="row" id="partners2">
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
         <img class="partner_img" src="/images/ys_logo.PNG" alt="예슬이미지">
@@ -447,11 +569,12 @@
 </div>
 <!--/.content-section-d-->
 
+<!-- pa commentize
 <div class="content-section-d">
 
   <div class="container">
 
-    <!-- 전문가-->
+    <!-- 전문가--
     <div class="row" id="partners3">
       <div class="col-lg-5 col-lg-offset-2 col-sm-6">
         <div class="palette_logo">
@@ -512,6 +635,10 @@
 
 </div>
 <!--/.content-section-d-->
+
+<%
+=end
+%>
   <!--
   <div class="content-section-a">
 
@@ -530,7 +657,7 @@
       </div>
 
     </div>
-    <!-- /.container -->
+    <!-- /.container --
 
 </div>
 <!-- /.content-section-a -->
@@ -669,7 +796,8 @@
   }
   .feature_img{
     width:240px;
-    height:240px;
+    height:320px;
+    border:1px solid lightgray;
     margin:auto;
     display:block;
   }
@@ -787,13 +915,11 @@
   .pci_explain{
 
     text-align:left;
-    font-size:1em;
     word-break:break-all;
     margin-bottom:20px;
   }
   .section-heading {
     text-align: center;
-    font-size:2em;
     margin-top:30px;
   }
   .section-heading-second{
@@ -866,7 +992,10 @@
       font-weight:bold;
     }
   
-  @media(max-width:767px) {
+  
+  
+  
+@media(max-width:767px) {
     .intro-message {
       padding-bottom: 15%;
     }
@@ -1071,15 +1200,43 @@
       border:2px solid #ffa291;
       text-decoration:none;
     }
-
-
-
-
+    
+    /*palette story*/
+  .palette_story{
+    background-image:url('/images/story.png');
+    background-size:cover;
+    color:#fafafa;
+    padding-top:10px;
+    padding-bottom:40px;
+    
+  }  
+  .story_content{
+    text-align:center;
+    font-size:14px;
+  }
+  .content_mark{
+    font-size:20px;
+    font-weight:bold;
+  }
+  .content_first{
+    font-size:15px;
+    font-weight:bold;
+  }
+  /*palette story ends*/
+  
+  .section-heading {
+    text-align: center;
+    margin-top:20px;
+    font-size:23px;
   }
 
 
 
-  @media(min-width:767px) {
+} /*media max-width 767px*/
+
+
+
+@media(min-width:767px) {
 
 
     /*.mainsearch{
@@ -1282,8 +1439,30 @@
       text-decoration:none;
     }
 
-
+    /*palette story*/
+  .palette_story{
+    
+  }  
+  .story_content{
+    text-align:center;
+    font-size:16px;
   }
+  .content_mark{
+    font-size:25px;
+    font-weight:bold;
+  }
+  
+  .content_first{
+    font-size:20px;
+    font-weight:bold;
+  }
+  
+  
+  /*palette story ends*/
+
+
+} /*media min 767px*/
+
 
 </style>
 

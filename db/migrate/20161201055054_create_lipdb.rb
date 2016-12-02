@@ -1,4 +1,4 @@
-class Createlipdb < ActiveRecord::Migration
+class CreateLipdb < ActiveRecord::Migration
   def change
     create_table :lipdbs do |t|
       
@@ -33,11 +33,3 @@ class Createlipdb < ActiveRecord::Migration
     end
   end
 end
-
-
-
-
-
-
-
-

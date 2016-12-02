@@ -60,7 +60,7 @@
           <br>
           <div class="product-container">
             <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
-            <a class="col-md-12 col-xs-4" href="/home/detail/<%=w.image%>">
+            <a class="col-md-12 col-xs-4" href="/home/detail2/<%=w.image%>">
                 <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.image%>-min.JPG"
                      alt="<%=w.name%>" > <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
 
@@ -68,16 +68,16 @@
 
             <div class="col-md-12 col-xs-8"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
               <div class="product-name" style="height:50px;"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->
-                <a class="product_name" href="/home/detail/<%=w.num%>" ><strong>[<%=w.brand%>]<%=w.name%></strong></a>
+                <a class="product_name" href="/home/detail2/<%=w.image%>" ><strong>[<%=w.brand%>]<%=w.name%></strong></a>
               </div>
             </div>
 
             <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
-              <p class="product_tone" style="float:left"> 봄 브라이트 </p>
+              <p class="product_tone" style="float:left"> <%=w.season%> </p>
               <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
             </div>
                <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
-                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>
+                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> < %=display_likes(w)%></p>
                 -->
 
         </div>

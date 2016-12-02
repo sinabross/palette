@@ -100,9 +100,11 @@
         <li class="dropdown">
           <a href="#" class="dropbtn" onclick="return false;">팔레트란?</a>
             <div class="dropdown-content">
-              <a href="/#explain" class="quick_tab" onClick="return false;">서비스 소개</a>
-              <a href="/#process" class="quick_tab" onClick="return false;">분류 과정</a>
-              <a href="/#partners1" class="quick_tab" onClick="return false;">파트너 소개</a>
+              <a href="/#story" class="quick_tab" onClick="return false;">팔레트 소개</a>
+              <a href="/#howto" class="quick_tab" onClick="return false;">이용방법</a>
+            <%  
+            #  <a href="/#partners1" class="quick_tab" onClick="return false;">파트너 소개</a>
+            %>
             </div>
         </li>
 
@@ -112,28 +114,30 @@
           <a href="#" class="dropdown-toggle dropbtnM" data-toggle="dropdown">팔레트란?<b class="caret"></b></a>
           <ul class="dropdown-menu dropdown-contentM">
             <li>
-              <a class="quick_tabM" href="/#explain" onClick="return false;" style="text-indent:20px">서비스 소개</a>
+              <a class="quick_tabM" href="/#story" onClick="return false;" style="text-indent:20px">팔레트 소개</a>
             </li>
 
             <li>
-              <a class="quick_tabM" href="/#process"  onClick="return false;" style="text-indent:20px">분류 과정</a>
+              <a class="quick_tabM" href="/#howto"  onClick="return false;" style="text-indent:20px">이용방법</a>
             </li>
 
-            <li>
-              <a class="quick_tabM" href="/#partners1" onClick="return false;" style="text-indent:20px">파트너 소개</a>
-            </li>
+<%
+#            <li>
+#              <a class="quick_tabM" href="/#partners" onClick="return false;" style="text-indent:20px">파트너 소개</a>
+#            </li>
+%>            
            </ul>
         </li>
 
         <li>
           <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
-          <a href="/home/list_lip/봄 브라이트">립 추천</a>
+          <a href="/home/list_lip2/봄 브라이트">립 추천</a>
         </li>
         
         <%if user_signed_in? && current_user.admin?%>
           <li>
             <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
-            <a href="/home/list_lip2/봄 브라이트">립 추천(영진)</a>
+            <a href="/home/list_lip/봄 브라이트">테스트버전</a>
           </li>
         <%end%>
        <!-- <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>-->
@@ -583,16 +587,21 @@
   $(document).ready(function(){
 
     //메뉴바 toggling
-    $(".navbar-toggle").click(function(){
+   
+    // Close when clicking on outside the menu (actually, every document)
+   
+     $(".navbar-toggle").click(function(){
       $("#bs-example-navbar-collapse-1").toggle();
     });
     
-    // Close after clicking on a li
+    // Close after clicking on close button
 
     $('#toggle_close').on('click', function(){
         $("#bs-example-navbar-collapse-1").hide();
-        
     });
+  
+    
+    
 
     //검색창
     var submitIcon = $('.searchbox-icon');
