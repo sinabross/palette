@@ -6,13 +6,14 @@
 
         <a href="/home/list_lip2/봄 브라이트">립 추천</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-        <a href="/home/list_lip2/<%=@product.season_total%>"><%=@product.season_total%></a>
+        <a href="/home/list_lip2/<%=@product.season%>"><%=@product.season%></a>
 
       </div>
 
       <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
         <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.image%>-min.JPG">
       </div>
+      
       <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
         <h4>[<%=@product.brand %>]</h4>
         <h3><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
@@ -51,7 +52,7 @@
         <hr style="border:solid 1px lightgray;">
         <div>
           <div class="col-md-12 col-xs-12" style="padding-top:5px;">
-            <h3 class="season_info"><%=@product.season_total%></h3><br>
+            <h3 class="season_info"><%=@product.season%></h3><br>
           </div>
         </div>
 
@@ -82,7 +83,8 @@
       </div>
                 
     
-    </div>
+    </div> <!--/.row-->
+      
   <hr style="border: 1px solid lightgray;">
 
   <!-- 수정요청 버튼 들어갈 부분 -->
@@ -128,30 +130,13 @@
          </div>
       </div>
         -->
-    <div class="sample_images">  
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h3 style="text-align:center;"><팔목 발색 vs 아크릴 발색></h3>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <img src="/images/color_cut.png" style="display:block; width:180px; height:180px;margin:auto;padding:20px;">
-            <img src="/images/color_cut2.png" style="display:block; width:150px; height:150px;margin:auto;margin-bottom:20px;border:1px solid lightgray;">
-            <img src="/images/color_cut3.png" style="display:block; width:150px; height:150px;margin:auto;padding:20px;">
-            <img src="/images/color_cut4.png" style="display:block; width:150px; height:150px;margin:auto;padding:20px;">
-          </div>
-          
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <img src="/images/sample1.png" style="display:block; width:180px; height:180px;margin:auto;padding:20px;">
-            <img src="/images/sample2.png" style="display:block; width:150px; height:150px;margin:auto;margin-bottom:20px;border:1px solid lightgray;">
-            <img src="/images/sample3.png" style="display:block; width:150px; height:150px;margin:auto;padding:20px;">
-            <img src="/images/sample4.png" style="display:block; width:150px; height:150px;margin:auto;padding:20px;">
-          </div>
-          
-        </div>
-      </div>  
       
+<%
+=begin
+%>
 
-  
-     
+     <!-- special commetns are commentized -->
+     <!--
       <div class="partner_comments" style="margin-top: 30px;">
             
             <div class="row">
@@ -179,9 +164,9 @@
                 </div>
               </div>
             </div>
-            <!--/.row-->
+            <!--/.row--
       </div>
-      <!--/.partner_comments-->
+      <!--/.partner_comments--
 
 
         <div class="partner_comments" style="margin-top: 30px;">
@@ -202,10 +187,10 @@
               </div>
             </div>
           </div>
-          <!--/.row-->
+          <!--/.row--
 
         </div>
-        <!--/.partner_comments-->
+        <!--/.partner_comments--
 
 
           <div class="partner_comments" style="margin-top: 30px;">
@@ -226,7 +211,7 @@
                      </div>
                  </div>
               </div>
-              <!--/.row-->
+              <!--/.row--
 
            </div>
             <!--/.partner_comments-->
@@ -238,6 +223,9 @@
   </div>
       <!--/.container-->
 
+<%
+=end
+%>
 
 
 
@@ -246,7 +234,9 @@
 </div>
 <!--/.container_맨위-->
 
-
+<%
+=begin
+%>
 
 
   <!-- 후기 작성 페이지는 잠시 봉인합니다
@@ -315,7 +305,9 @@
     <!--<a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#ffffff" role="button" aria-pressed="true">후기 작성하기</a> -->
   <% end %>
 
-
+<%
+=end
+%>
 
 <style>
     @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
