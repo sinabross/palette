@@ -171,7 +171,7 @@
    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style="margin:">
     
       <button type="button" class="filter-toggle" data-toggle="collapse" data-target="#detail_filter">
-        <i class="fa fa-sliders filter_icon" aria-hidden="true" style="margin-right:5px;"> </i>상세추천
+        <i class="fa fa-sliders filter_icon" aria-hidden="true" style="margin-right:5px;"> </i>필터
       </button>
     
       <form method="get">
@@ -253,7 +253,7 @@
             </li>
             
             <li>
-               <input type="submit" class="filterbutton" value="필터 적용" onclick="ga('send', 'event', 'filter', 'click', 1)" />
+               <input type="submit" class="filterbutton" value="필터 적용" onclick="ga('send', 'event', 'filter', 'click', 'filter_apply',1);" />
             </li>
         </ul>
        
@@ -478,13 +478,17 @@
       width:40%;
       height:auto;
       display:block;
+      padding:5px 0px 5px 0px;
       margin:auto;
-      border:1px solid #ffa291;
-      background-color:#ffffff;
+      color:#fafafa;
+      background-color:#ffa291;
+    }
+    .filter-toggle:hover{
+     background-color:#ff6666;
     }
     .filter-toggle.wide{
       width:100%;
-      background-color:#e4e4e4;
+      background-color:#ff6666;
     }
     .filter_icon{
       display:inline-block;
