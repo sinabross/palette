@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     #이번주 등록 제품 개수
 
     #@update_count = Lipdb.where(:id => 200..236).count
-    @update_count = Lip.count
+    @update_count = 0
   end
   def index2
     #공지사항 최신글 보여주기
