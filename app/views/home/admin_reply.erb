@@ -11,7 +11,7 @@
     
       <div class="container">
           <ul class="media-list forum">
-            <!-- 리뷰db에서 상품num으로 불러오기 (p.어쩌구는 절대건드리지말것!!! db관련된거임!!) -->
+
             <% @review.each do |p| %>
               <li>
                 <!-- 후기작성자정보(왼쪽)-->
@@ -33,7 +33,7 @@
                         <div class="col-md-12" style="margin-top:20px;">
                           <div class="col-md-9"><%=p.content %></div> 
                           <% unless p.img_url.nil? %>
-                            <img src="<%= p.img_url %>" width="100%"> <!--사진 너무 대문짝만하게 나옴-->
+                            <img src="<%= p.img_url %>" width="100%">
                           <% end %>
                          
                         </div>

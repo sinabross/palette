@@ -58,7 +58,7 @@
       <% slice.each do |w|%>
         <div class="col-md-4 col-xs-12" style="margin-top:-10px">
           <br>
-          <div class="product-container">
+          <div class="product-container" onClick="location.href='/home/detail2/<%=w.image%>'">
             <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
             <a class="col-md-12 col-xs-4" href="/home/detail2/<%=w.image%>">
                 <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.image%>-min.JPG"
@@ -74,7 +74,24 @@
 
             <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
               <p class="product_tone" style="float:left"> <%=w.season%> </p>
-              <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
+              <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</p>
+            </div>
+
+            <div class="col-md-12 col-xs-8">
+
+              <%if w.color=="레드"%>
+                  <span class="product_label label_red"><%=w.color%></span>
+              <%elsif w.color=="오렌지"%>
+                  <span class="product_label label_orange"><%=w.color%></span>
+              <%elsif w.color=="핑크"%>
+                  <span class="product_label label_pink"><%=w.color%></span>
+              <%elsif w.color=="베이지"%>
+                  <span class="product_label label_beige"><%=w.color%></span>
+              <%else%>
+                  <span class="product_label label_purple"><%=w.color%></span>
+              <%end%>
+
+              <span class="product_label label_product"><%=w.pro_type%></span>
             </div>
                <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
                 <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> < %=display_likes(w)%></p>
@@ -158,6 +175,33 @@
     margin-right:3px;
   }
 
+  /*제품 정보 라벨*/
+
+  .label_red{
+    color:#ffffff;
+    background-color:#e50000;
+  }
+  .label_pink{
+    color:#ffffff;
+    background-color:#ffc0cb;
+  }
+  .label_orange{
+    color:#ffffff;
+    background-color:#ffa500;
+  }
+  .label_beige{
+    color:#ffffff;
+    background-color:#f6e4a9;
+  }
+  .label_purple{
+    color:#ffffff;
+    background-color:#8c198c;
+  }
+  .label_product{
+    color:#ffffff;
+    background-color:#87CEEB;
+  }
+  /* 제품정보 라벨 끝 */
 
 @media (min-width: 768px) {
   .mobilesearch{
@@ -178,10 +222,7 @@
       border: solid 2px #38393b;
 
   }    
-  .btn-web {
-    float:right;
-    margin-top:40px;
-  }  
+
   .product-container{
     margin-top:20px;
     height:400px;
@@ -197,7 +238,14 @@
     display:none;
   }
 
+  .product_label{
+    font-size:14px;
+    padding:3px;
+    border-radius:5px;
+    margin-bottom:10px;
   }
+
+}
 
   
 @media (max-width:767px){
@@ -218,7 +266,11 @@
   }
   .product-container{
     border: 1px solid lightgray;
-    height:110px;
+    height:115px;
+  }
+
+  .product-container:hover,.product-container:active{
+    border:1px solid #ffa291;
   }
   .example{
   margin-top:7px;
@@ -249,5 +301,13 @@
 
   }
 
+  .product_label{
+    font-size:13px;
+    padding:3px;
+    border-radius:5px;
+    margin-bottom:10px;
   }
+
+
+}
 </style>

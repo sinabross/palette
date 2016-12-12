@@ -8,39 +8,28 @@ class HomeController < ApplicationController
 
     #총 제품 개수
     @product_count = Lip.count
-    #@product_count = 42
-    #@w_lip_count = Lipdb.get_w_lip.count
-    #@c_lip_count = Lipdb.get_c_lip.count
+
+
     #이번주 등록 제품 개수
 
     #@update_count = Lipdb.where(:id => 200..236).count
     @update_count = 0
-  end
-  def index2
-    #공지사항 최신글 보여주기
-    @news = Notice.order('id desc').first(5)
-
-    #총 제품 개수
-    @product_count = Lipdb.count
-    #이번주 등록 제품 개수
-    @update_count = 0
-   # @update_count = Lipdb.where(:id => 200..236).count
 
   end
 
+# main은 에전에 BEST 제품 노출하던 layout
 
+#  def main
+#    # 웜 립 TOP3
+#    @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
+#    # 웜 섀도 TOP3
+#    @w_best_sha = Eyedb.get_w_eye.order('zzim desc').first(3)
+#    # 쿨 립 TOP3
+#    @c_best_lip = Lipdb.get_c_lip.order('zzim desc').first(3)
+#    # 쿨 섀도 TOP3
+#    @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
 
-  def main
-    # 웜 립 TOP3
-    @w_best_lip = Lipdb.get_w_lip.order('zzim desc').first(3)
-    # 웜 섀도 TOP3
-    @w_best_sha = Eyedb.get_w_eye.order('zzim desc').first(3)
-    # 쿨 립 TOP3
-    @c_best_lip = Lipdb.get_c_lip.order('zzim desc').first(3)
-    # 쿨 섀도 TOP3
-    @c_best_sha = Eyedb.get_c_eye.order('zzim desc').first(3)
-     
-  end
+#  end
   
 
   def search
@@ -52,24 +41,17 @@ class HomeController < ApplicationController
     else
       @search = params[:search]
     end   
-    # 1-1. searching from Lipdb
+
     if params[:search]
       @result = Lip.all.search(@search,@search2,@search3).order("brand").paginate(page: params[:page], per_page: 21)
     else
       @result = Lip.all.order("brand").paginate(page: params[:page], per_page: 21)
     end
-    # 1-2. searching from Eyedb  (당분간 봉인)
-  #  if params[:search]
-   #   @result2 = Eyedb.all.search(@search,@search2,@search3).order("zzim DESC").paginate(page: params[:page], per_page: 21)
-   # else
-    #  @result2 = Eyedb.all.order("zzim desc").paginate(page: params[:page], per_page: 21)
-    #end
-    
+
   end
   
   
   def list_lip
-
 
 
   #빵부스러기 목록
@@ -172,7 +154,8 @@ class HomeController < ApplicationController
       @current_season = "봄 브라이트"
     end
   
-#  
+#누나.............이거 참.........누나가 이 코드를 멋지게 한 줄로 줄일 수 있을거라 믿어....
+
     if params[:tone] 
       @list = Lip.where(season: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
     end
@@ -236,61 +219,10 @@ class HomeController < ApplicationController
 #    else
 #      @list=Lip.where(season: "봄 브라이트").order('brand').paginate(page: params[:page], per_page: 21)
 #    end  
-  
-  
-  
-  
+
   end
 
-  def list_eye
-   
-    if params[:colors] == "w_eyes"
-      @colors = "w_eyes"
-      @eyelist = params[:eyelist]
-      @eyetone = params[:eyetone]
-      @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-      if params[:eyelist] == nil
-        @eyelist = "제품"
-        @list = Eyedb.get_w_eye.where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-        if params[:eyetone] == nil
-          @eyetone = "세부톤"
-          @list = Eyedb.get_w_eye.order('zzim desc').paginate(page: params[:page], per_page: 21) 
-        end
-      end
-      if params[:eyetone] == nil
-        @eyetone = "세부톤"
-        @list = Eyedb.get_w_eye.where(pro_type:params[:eyelist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-        if params[:eyelist] == nil 
-          @eyelist = "제품"
-          @list = Eyedb.get_w_eye.order('zzim desc').paginate(page: params[:page], per_page: 21)
-        end
-      end
-    end
 
-    if params[:colors] == "c_eyes"
-      @colors = "c_eyes"
-      @eyelist = params[:eyelist]
-      @eyetone = params[:eyetone]
-      @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-      if params[:eyelist] == nil
-        @eyelist = "제품"
-        @list = Eyedb.get_c_eye.where(tone:params[:eyetone]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-        if params[:eyetone] == nil
-          @eyetone = "세부톤"
-          @list = Eyedb.get_c_eye.order('zzim desc').paginate(page: params[:page], per_page: 21) 
-        end
-      end
-      if params[:eyetone] == nil
-        @eyetone = "세부톤"
-        @list = Eyedb.get_c_eye.where(pro_type:params[:eyelist]).order('zzim desc').paginate(page: params[:page], per_page: 21)
-        if params[:eyelist] == nil
-          @eyelist = "제품"
-          @list = Eyedb.get_c_eye.order('zzim desc').paginate(page: params[:page], per_page: 21)
-        end
-      end
-    end
-  end
-  
   def detail
     
     #립 상세페이지
@@ -298,10 +230,6 @@ class HomeController < ApplicationController
       @product = Lipdb.find_by_image(params[:product_num])
     end
 
-    #섀도우 상세페이지
-   # if params[:product_num].start_with?("S")
-  #    @product = Eyedb.find_by_num(params[:product_num])
-   # end
     
    # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
    # @product.zzim = @product.votes_for.up.by_type(User).size
@@ -321,14 +249,11 @@ class HomeController < ApplicationController
     end
       
   end  
-  #================= 아래는 좋아요 기능을 위한 노력의 흔적들..........
+  #================= 아래는 좋아요 기능=====================
   def like 
     
     if params[:id].start_with?("L") 
       @product = Lipdb.find_by_num(params[:id])
-    else if params[:id].start_with?("S")
-      @product = Eyedb.find_by_num(params[:id])   
-      end
     end
     
     @product.liked_by current_user
@@ -345,9 +270,6 @@ class HomeController < ApplicationController
     
     if params[:id].start_with?("L") 
       @product = Lipdb.find_by_num(params[:id])
-    else if params[:id].start_with?("S")
-      @product = Eyedb.find_by_num(params[:id])   
-      end
     end
     
     @product.unliked_by current_user
@@ -358,23 +280,20 @@ class HomeController < ApplicationController
       format.js 
     end
   end
-  # ============== 좋아요 기능 컨트롤러 끝
+  # ============== 좋아요 기능 컨트롤러 끝=====================
   
   
-  # =============== 후기 관련
+  # =============== 후기 관련==================================
   def write_review #리뷰를쓰는페이지
     
     #립
     if params[:product_num].start_with?("L")
       @product = Lipdb.find_by_num(params[:product_num])
     end
-     
-    #섀도우
-    if params[:product_num].start_with?("S")
-      @product = Eyedb.find_by_num(params[:product_num])
-    end
+
   end
-  
+
+
   def review_submit #리뷰를등록
    
    @review = Review.new
@@ -396,11 +315,7 @@ class HomeController < ApplicationController
     if params[:product_num].start_with?("L")
       @product = Lipdb.find_by_num(params[:product_num])
     end
-     
-    #섀도우
-    if params[:product_num].start_with?("S")
-      @product = Eyedb.find_by_num(params[:product_num])
-    end
+
    
     #리뷰
     @one_review=Review.find(params[:review_id])
@@ -427,17 +342,13 @@ class HomeController < ApplicationController
 
   end
   
-  # =============== 후기 관련끝
+  # =============== 후기 관련끝===========================
   
-  # =============== 문의글 관련
+  # =============== 문의글 관련============================
   def feedback #문의글 작성페이지
     #립
     if params[:product_num].start_with?("L")
       @product = Lip.find_by_image(params[:product_num])
-
-    #섀도우
-   # elsif params[:product_num].start_with?("S")
-    #  @product = Eyedb.find_by_num(params[:product_num])
     end
    
   end
@@ -468,13 +379,12 @@ class HomeController < ApplicationController
    @post=Feedback.all.reverse
 
   end
-  # =============== 문의글 관련끝
-  
-  #제품 등록 요청
+
+#제품 등록 요청
   def askfor
-  
+
   end
-  
+
   def askfor_submit
 
 
@@ -486,7 +396,7 @@ class HomeController < ApplicationController
     uploader = LightUploader.new
     uploader.store!(params[:pic])
     @post.img_url=uploader.url
-    
+
 
     if @post.save
       flash[:success] = "작성이 완료되었습니다:)"
@@ -495,6 +405,11 @@ class HomeController < ApplicationController
 
 
   end
+
+  # =============== 문의글 관련끝====================
+  
+ # =============  My page =====================
+
   # My page
   def basket
     @like_list = current_user.find_liked_items
@@ -525,8 +440,11 @@ class HomeController < ApplicationController
   
     redirect_to "/basket"
   end
-  
-  #=============== admin page
+
+  # ================== My page end ======================
+
+
+  #=============== admin page============================
   
   def admin_reply #admin 댓글모아보기
     unless user_signed_in?
@@ -581,12 +499,10 @@ class HomeController < ApplicationController
   end
   
   
-  #===============
+  #=============== admin page =================
   
-  def about
-    
-  end
 
+  # ==================새소식 ==========================
 
   def notice  #제품 업데이트 등 공지사항 알리기 위한 게시판
     @notices = Notice.all.order('id desc')
@@ -627,6 +543,6 @@ class HomeController < ApplicationController
     end
 
   end
-
+ # ========================새소식 끝 ================
 
 end
