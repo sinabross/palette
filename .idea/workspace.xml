@@ -4,6 +4,8 @@
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" afterPath="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/search.html.erb" afterPath="$PROJECT_DIR$/app/views/home/search.html.erb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,18 +37,18 @@
       <file leaf-file-name="list_lip2.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="704" column="5" lean-forward="true" selection-start-line="698" selection-start-column="3" selection-end-line="704" selection-end-column="5" />
+            <state relative-caret-position="266">
+              <caret line="706" column="21" lean-forward="true" selection-start-line="706" selection-start-column="21" selection-end-line="706" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/search.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="273" column="3" lean-forward="true" selection-start-line="273" selection-start-column="3" selection-end-line="273" selection-end-column="3" />
+            <state relative-caret-position="284">
+              <caret line="275" column="17" lean-forward="true" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -54,14 +56,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="667" column="18" lean-forward="true" selection-start-line="667" selection-start-column="18" selection-end-line="667" selection-end-column="18" />
+            <state relative-caret-position="248">
+              <caret line="930" column="0" lean-forward="true" selection-start-line="930" selection-start-column="0" selection-end-line="930" selection-end-column="0" />
               <folding>
-                <marker date="1481531457521" expanded="true" signature="171:188" ph="..." />
-                <marker date="1481531457521" expanded="true" signature="24822:24831" ph="..." />
+                <marker date="1481532152504" expanded="true" signature="171:188" ph="..." />
+                <marker date="1481532152504" expanded="true" signature="24821:24830" ph="..." />
               </folding>
             </state>
           </provider>
@@ -112,8 +114,8 @@
       <find>M2</find>
       <find>.season-categoryM</find>
       <find>.product_label</find>
-      <find>.product-con</find>
       <find>.btn-manual</find>
+      <find>.product-con</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,10 +170,10 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/home/admin_reply.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/list_lip.erb" />
         <option value="$PROJECT_DIR$/app/views/home/search.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
       </list>
     </option>
@@ -719,16 +721,16 @@
       <workItem from="1481078365543" duration="13594000" />
       <workItem from="1481297195557" duration="9701000" />
       <workItem from="1481429557031" duration="3109000" />
-      <workItem from="1481509061417" duration="15571000" />
+      <workItem from="1481509061417" duration="16280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="442479000" />
+    <option name="totallyTimeSpent" value="443188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2519084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,7 +738,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27591705" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27591705" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1106,31 +1108,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="930" column="0" lean-forward="true" selection-start-line="930" selection-start-column="0" selection-end-line="930" selection-end-column="0" />
+          <folding>
+            <marker date="1481532152504" expanded="true" signature="171:188" ph="..." />
+            <marker date="1481532152504" expanded="true" signature="24821:24830" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="704" column="5" lean-forward="true" selection-start-line="698" selection-start-column="3" selection-end-line="704" selection-end-column="5" />
+        <state relative-caret-position="266">
+          <caret line="706" column="21" lean-forward="true" selection-start-line="706" selection-start-column="21" selection-end-line="706" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/search.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="273" column="3" lean-forward="true" selection-start-line="273" selection-start-column="3" selection-end-line="273" selection-end-column="3" />
+        <state relative-caret-position="284">
+          <caret line="275" column="17" lean-forward="true" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="667" column="18" lean-forward="true" selection-start-line="667" selection-start-column="18" selection-end-line="667" selection-end-column="18" />
-          <folding>
-            <marker date="1481531457521" expanded="true" signature="171:188" ph="..." />
-            <marker date="1481531457521" expanded="true" signature="24822:24831" ph="..." />
           </folding>
         </state>
       </provider>
