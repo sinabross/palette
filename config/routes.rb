@@ -11,25 +11,25 @@ Rails.application.routes.draw do
   root 'home#index' #랜딩페이지 메인
   get 'home/index'
 
-  #get 'home/index2' #랜딩페이지 메인 B버전
-  #get 'home/main'
+
+  #get 'home/main'  # BEST 제품 보여주는 layout
   
   get 'home/search'
 
-  #get 'home/basket'
+ # 찜하기 장바구니
+ # get 'home/basket'
  # get '/basket' => 'home#basket'
  # post 'home/basket_delete'
-  #get 'home/:list_num/basket_delete/' => 'home#basket_delete'
-  #get 'home/season_update'
+ # get 'home/:list_num/basket_delete/' => 'home#basket_delete'
+ # get 'home/season_update'
  # get 'season_update' => 'home#season_update'
  # post 'home/userseason_update'
   
+ #테스트버전(visible for Only ADMIN)
   get 'home/list_lip'
   get 'home/list_lip/:tone'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
   
- 
-  
-  
+  # 립 리스트 페이지
   get 'home/list_lip2'
   get 'home/list_lip2/:tone'  => "home#list_lip2"  # 립 리스트에서 카테고리 값 부여
   
@@ -46,7 +46,8 @@ Rails.application.routes.draw do
   
   
   
-  
+ #리뷰
+
  # get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
  # post 'home/review_submit' #리뷰등록
  # get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
@@ -73,7 +74,7 @@ Rails.application.routes.draw do
   get 'home/askfor'
   post 'home/askfor_submit'
 
- # get 'home/about'
+
 
   # 공지사항 게시판
 
