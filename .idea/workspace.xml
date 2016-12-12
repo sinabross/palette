@@ -5,6 +5,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161202165806_create_lips.rb" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20161212053728_drop_lips.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -722,12 +723,12 @@
       <workItem from="1481078365543" duration="13594000" />
       <workItem from="1481297195557" duration="9701000" />
       <workItem from="1481429557031" duration="3109000" />
-      <workItem from="1481509061417" duration="7168000" />
+      <workItem from="1481509061417" duration="7333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="434076000" />
+    <option name="totallyTimeSpent" value="434241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
