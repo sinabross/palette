@@ -11,18 +11,18 @@ Rails.application.routes.draw do
   root 'home#index' #랜딩페이지 메인
   get 'home/index'
 
-  get 'home/index2' #랜딩페이지 메인 B버전
-  get 'home/main'
+  #get 'home/index2' #랜딩페이지 메인 B버전
+  #get 'home/main'
   
   get 'home/search'
 
-  get 'home/basket'
-  get '/basket' => 'home#basket'
-  post 'home/basket_delete'
-  get 'home/:list_num/basket_delete/' => 'home#basket_delete'
-  get 'home/season_update'
-  get 'season_update' => 'home#season_update'
-  post 'home/userseason_update'
+  #get 'home/basket'
+ # get '/basket' => 'home#basket'
+ # post 'home/basket_delete'
+  #get 'home/:list_num/basket_delete/' => 'home#basket_delete'
+  #get 'home/season_update'
+ # get 'season_update' => 'home#season_update'
+ # post 'home/userseason_update'
   
   get 'home/list_lip'
   get 'home/list_lip/:tone'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
@@ -47,11 +47,11 @@ Rails.application.routes.draw do
   
   
   
-  get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
-  post 'home/review_submit' #리뷰등록
-  get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
-  post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
-  get  'destroy/:review_id' => "home#destroy" #리뷰삭제
+ # get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
+ # post 'home/review_submit' #리뷰등록
+ # get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
+ # post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
+ # get  'destroy/:review_id' => "home#destroy" #리뷰삭제
   
   
   #제품검토요청
@@ -73,7 +73,7 @@ Rails.application.routes.draw do
   get 'home/askfor'
   post 'home/askfor_submit'
 
-  get 'home/about'
+ # get 'home/about'
 
   # 공지사항 게시판
 

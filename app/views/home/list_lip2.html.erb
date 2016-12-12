@@ -128,7 +128,7 @@
              
                 <li>
                   <%if @current_season == "가을 뮤트"%>
-                    <a href="/home/list_lip2/가을 뮤트" class="btn-season acitve">가을 뮤트</a>
+                    <a href="/home/list_lip2/가을 뮤트" class="btn-season active">가을 뮤트</a>
                   <%else%>
                     <a href="/home/list_lip2/가을 뮤트" class="btn-season">가을 뮤트</a>
                   <%end%>
@@ -176,6 +176,8 @@
     
       <form method="get">
         <ul class="detail_filter" id="detail_filter">
+
+
              <li>
               <input type="checkbox" id="pro_type" >
               <label for="pro_type" class="filter_title">제품</label>
@@ -188,7 +190,12 @@
                   <input type="checkbox" id="tint" class="filter" name="pro_type[]" value="립틴트">
                   <label for="tint">립틴트</label>
                 </li>
-                
+
+                <li>
+                  <input type="checkbox" id="laquer" class="filter" name="pro_type[]" value="립라커">
+                  <label for="laquer">립라커</label>
+                </li>
+
                 <li>
                   <input type="checkbox" id="pencil" class="filter" name="pro_type[]" value="립펜슬">
                   <label for="pencil">립펜슬</label>
@@ -200,6 +207,13 @@
                 
               </ul>
             </li>
+
+
+<%
+=begin
+%>
+            <!-- 제형 필터 주석처리
+
             <li>
               <input type="checkbox" id="texture" >
               <label for="texture" class="filter_title">제형</label>
@@ -213,7 +227,11 @@
                   <label for="glossy">글로시</label>
                 </li>
               </ul>
-            </li>
+            </li> -->
+
+<%
+=end
+%>
             
             <li>
               <input type="checkbox" id="color">
@@ -224,34 +242,53 @@
                   <input type="checkbox" id="red" class="filter" name="color[]" value="레드">
                   <label for="red">레드</label>
                 </li>
+
                  <li>
                   <input type="checkbox" id="orange" class="filter" name="color[]" value="오렌지">
                   <label for="orange">오렌지</label>
                 </li>
+
                  <li>
                   <input type="checkbox" id="pink" class="filter" name="color[]" value="핑크">
                   <label for="pink">핑크</label>
                 </li>
+
+                <li>
+                  <input type="checkbox" id="purple" class="filter" name="color[]" value="퍼플">
+                  <label for="purple">퍼플</label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="beige" class="filter" name="color[]" value="베이지">
+                  <label for="beige">베이지</label>
+                </li>
+
+
               </ul>
             </li>
-            
+
             <li>
               <input type="checkbox" id="level">
               <label for="level" class="filter_title">브랜드</label>
               <ul class="filter_choices">
               
                 <li>
-                  <input type="checkbox" id="high" class="filter" name="level[]" value="고렴이">
+                  <input type="checkbox" id="high" class="filter" name="level[]" value="백화점">
                   <label for="high">백화점</label>
                 </li>
                  <li>
-                  <input type="checkbox" id="low" class="filter" name="level[]" value="저렴이">
+                  <input type="checkbox" id="low" class="filter" name="level[]" value="로드샵">
                   <label for="low">로드샵</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="drug" class="filter" name="level[]" value="드럭스토어">
+                  <label for="drug">드럭스토어</label>
                 </li>
                
               </ul>
             </li>
-            
+
+
             <li>
                <input type="submit" class="filterbutton" value="필터 적용" onclick="ga('send', 'event', 'filter', 'click', 'filter_apply',1);" />
             </li>
@@ -323,7 +360,7 @@
   <% @list.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |w|%>
-        <div class="col-md-4 col-xs-12" style="margin-top:-10px">
+        <div class="col-md-4 col-xs-12" style="margin-top:-10px;">
           <br>
             <div class="product-container"  onClick="location.href='/home/detail2/<%=w.image%>'">
               <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
@@ -341,7 +378,24 @@
 
               <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
                 <p class="product_tone" style="float:left"><%=w.season%></p>
-                <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</style> </p>
+                <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price" style="float:right; margin-left:2px;"> <%=w.price%>원</p>
+              </div>
+
+               <div class="col-md-12 col-xs-8">
+
+                <%if w.color=="레드"%>
+                  <span class="product_label label_red"><%=w.color%></span>
+                <%elsif w.color=="오렌지"%>
+                  <span class="product_label label_orange"><%=w.color%></span>
+                <%elsif w.color=="핑크"%>
+                  <span class="product_label label_pink"><%=w.color%></span>
+                <%elsif w.color=="베이지"%>
+                  <span class="product_label label_beige"><%=w.color%></span>
+                <%else%>
+                  <span class="product_label label_purple"><%=w.color%></span>
+                <%end%>
+
+                <span class="product_label label_product"><%=w.pro_type%></span>
               </div>
                  <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
                   <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> < %=display_likes(w)%></p>
@@ -421,7 +475,7 @@
     .detail_filter, .detail_filter ul{
       list-style: none;
       padding-left:17px;
-      font-size:15px;
+      font-size:14px;
     }
     .detail_filter ul li{
       display:inline-block;
@@ -436,7 +490,7 @@
       background-color: #fafafa;
       text-align: center;
       text-decoration: none;
-      font-size:14px;
+      font-size:13px;
       transition:all 0.4s;
       
     }
@@ -446,11 +500,11 @@
     }
     .detail_filter input[type="checkbox"]:not(.filter)+label:before{
       content:"▲";
-      font-size:15px;
+      font-size:14px;
     }
     .detail_filter input[type="checkbox"]:not(.filter):checked+label:before{
       content:"▼";
-      font-size:15px;
+      font-size:14px;
     }
     .detail_filter input[type="checkbox"] + label {
       
@@ -483,9 +537,7 @@
       color:#fafafa;
       background-color:#ffa291;
     }
-    .filter-toggle:hover{
-     background-color:#ff6666;
-    }
+
     .filter-toggle.wide{
       width:100%;
       background-color:#ff6666;
@@ -611,13 +663,13 @@
     .detail_filter, .detail_filter ul{
       list-style: none;
       padding-left:17px;
-      font-size:17px;
+      font-size:14px;
     }
    
     .detail_filter ul label, .detail_filter input[type="checkbox"]:not(.filter)+label:before,
      .detail_filter input[type="checkbox"]:not(.filter):checked+label:before{
       
-      font-size:17px;
+      font-size:14px;
     }
     
     .filterbutton{
@@ -630,6 +682,9 @@
     .filter-toggle{
       width:40%;
       height:auto;
+    }
+    .filter-toggle:hover{
+     background-color:#ff6666;
     }
     .filter-toggle.wide{
       width:100%;
@@ -663,11 +718,42 @@
     }
     .product-container{
       border: 1px solid lightgray;
-      height:110px;
+      height:115px;
     }
     .product-container:hover,.product-container:active{
       border:1px solid #ffa291;
     }
+    .product_label{
+      font-size:13px;
+      padding:3px;
+      border-radius:5px;
+      margin-bottom:10px;
+    }
+    .label_red{
+      color:#ffffff;
+      background-color:#e50000;
+    }
+    .label_pink{
+      color:#ffffff;
+      background-color:#ffc0cb;
+    }
+    .label_orange{
+      color:#ffffff;
+      background-color:#ffa500;
+    }
+    .label_beige{
+      color:#ffffff;
+      background-color:#f6e4a9;
+    }
+    .label_purple{
+      color:#ffffff;
+      background-color:#8c198c;
+    }
+    .label_product{
+      color:#ffffff;
+      background-color:#87CEEB;
+    }
+
     .example{
     margin-top:7px;
     width: 94px;
