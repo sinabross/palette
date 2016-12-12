@@ -240,7 +240,7 @@ end
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212053728) do
+ActiveRecord::Schema.define(version: 20161212054428) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -339,6 +339,26 @@ ActiveRecord::Schema.define(version: 20161212053728) do
     t.string   "keyword"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "lips", force: :cascade do |t|
+    t.string   "num"
+    t.string   "image"
+    t.string   "wc"
+    t.string   "season"
+    t.string   "tone"
+    t.string   "brand"
+    t.string   "name"
+    t.string   "price"
+    t.string   "size"
+    t.string   "color"
+    t.string   "pro_type"
+    t.string   "glitter"
+    t.string   "texture"
+    t.string   "keyword"
+    t.string   "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notices", force: :cascade do |t|
