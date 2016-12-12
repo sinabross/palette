@@ -21,7 +21,7 @@
         </div>
        
         
-    <form style="margin-top:40px" action="/home/feedback_submit" method="post" enctype="multipart/form-data" data-toggle="validator">
+    <form id="myForm" style="margin-top:40px" action="/home/feedback_submit" method="post" enctype="multipart/form-data" data-toggle="validator">
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" data-error="이메일 주소를 입력해주세요." required>
@@ -76,3 +76,12 @@
     text-decoration:none;
   }
 </style>
+
+<script>
+    $(document).ready(function () {
+
+        $('form#myForm').validator();
+
+    });
+
+</script>
