@@ -436,8 +436,8 @@ class HomeController < ApplicationController
       @product = Lip.find_by_image(params[:product_num])
 
     #섀도우
-    elsif params[:product_num].start_with?("S")
-      @product = Eyedb.find_by_num(params[:product_num])
+   # elsif params[:product_num].start_with?("S")
+    #  @product = Eyedb.find_by_num(params[:product_num])
     end
    
   end
@@ -455,11 +455,12 @@ class HomeController < ApplicationController
 
     if @post.save
       flash[:success] = "작성이 완료되었습니다 :)"
+
+      redirect_to '/home/detail/' + @post.pro_num
+
     end
 
 
-   
-   redirect_to '/home/detail/' + @post.pro_num
     
   end
   
@@ -486,11 +487,13 @@ class HomeController < ApplicationController
     uploader.store!(params[:pic])
     @post.img_url=uploader.url
     
+
     if @post.save
-      flash[:success] = "작성이 완료되었습니다 :)"
+      flash[:success] = "작성이 완료되었습니다:)"
+      redirect_to :back
     end
 
-     redirect_to :back
+
   end
   # My page
   def basket
@@ -609,15 +612,18 @@ class HomeController < ApplicationController
     @one_notice.punch(request)
     end
 
-    @pre_view_id = @one_notice.id - 1
-    @next_view_id= @one_notice.id + 1
+
     @last_view_id= Notice.order("created_at").last.id
-    #@one_notice.impressions.create(ip_address: request.remote_ip)
-    unless @one_notice.id==1
-    @notice_previous = Notice.find(@pre_view_id)
+    @first_view_id=Notice.order("created_at").first.id
+
+    unless @first_view_id == @one_notice.id
+      @pre_view_id = Notice.where("id < ?", params[:notice_id]).last.id
+      @notice_previous = Notice.find(@pre_view_id)
     end
+
     unless @last_view_id == @one_notice.id
-    @notice_next = Notice.find(@next_view_id)
+      @next_view_id = Notice.where("id > ?", params[:notice_id]).first.id
+      @notice_next = Notice.find(@next_view_id)
     end
 
   end

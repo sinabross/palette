@@ -91,7 +91,9 @@
   
     
       <div>
-        <a href="/home/feedback/<%=@product.image%>" class="btn-edit" role="button">수정요청</a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+        <a href="/home/feedback/<%=@product.image%>" class="btn-edit" role="button">
+          <i class="fa fa-question-circle" aria-hidden="true"></i>  질문하기
+        </a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
       </div>
   <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
   <div class="container">
@@ -465,7 +467,7 @@
       }
       .btn-edit{
         height:50px;
-        width:100px;
+        width:110px;
         padding:10px;
         line-height:30px;
         color:#56565d;
