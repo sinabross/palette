@@ -1,20 +1,5 @@
 <div class="container">
   <div class="row list-display">
-    <!-- 제품선택버튼 -->
-    <!--
-    <div class="btn-group col-md-3 col-md-offset-3 col-xs-6">
-      <button type="button" class="btn btn-black dropdown-toggle" style="width:100%;background-color:#EBEBEB" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="dropdown_title"><%=@liplist%></span> <span class="caret"></span>
-      </button>
-      <ul ID="divNewNotifications" class="dropdown-menu" style="width:100%">
-        <li><a href="/home/list_lip/<%=@colors%>">전체보기</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="/home/list_lip/<%=@colors%>/립스틱">립스틱</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/립틴트">립틴트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/립글로즈">립글로즈</a></li>
-      </ul>
-    </div>
-    -->
 
   <!--세부 계절타입 선택 -->
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;margin-top:10px;margin-bottom:20px;">
@@ -320,38 +305,6 @@
 
 
 
-<%
-=begin
-%>
-
-  <!-- 세부톤 선택버튼 주석처리 (16.11.08)
-    <!-- 세부톤선택버튼 --
-    <div class="btn-group col-md-3 col-xs-6 btn-web" >
-      <button type="button" class="btn btn-black dropdown-toggle" style="text-align:left;color: #787878;border: solid 1px #e4e4e4; width:90%; background-color:#ffffff"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span id="dropdown_title2"><%=@liptone%></span> <span class="caret"></span>
-      </button>
-      <ul ID="divNewNotifications2" class="dropdown-menu" style="width:82%;margin-left:15px">
-        <li><a href="/home/list_lip/<%=@colors%>">세부톤 전체보기</a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="/home/list_lip/<%=@colors%>/비비드">비비드</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/브라이트">브라이트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/스트롱">스트롱</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/딥">딥</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/라이트">라이트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/소프트">소프트</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/덜">덜</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/다크">다크</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/페일">페일</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/라이트그레이쉬">라이트그레이쉬</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/그레이쉬">그레이쉬</a></li>
-        <li><a href="/home/list_lip/<%=@colors%>/다크그레이쉬">다크그레이쉬</a></li>
-
-      </ul>
-    </div>
-    -->
-<%
-=end
-%>
    
   </div>
       <hr style="border: 2px solid #38393b">  
@@ -603,10 +556,7 @@
         border: solid 2px #38393b;
 
     }
-    .btn-web {
-      float:right;
-      margin-top:40px;
-    }
+
     .product-container{
       margin-top:20px;
       height:400px;
@@ -746,10 +696,6 @@
       margin-left:20px;
     }
 
-    .btn-web {
-      float:right;
-      width:100%;
-    }
     .product-container{
       border: 1px solid lightgray;
       height:115px;
@@ -825,61 +771,7 @@
       font-weight:bold;
     }
 
-
-
     /*계절타입 선택 필터 끝*/
-
-
-    /* filter button test */
-
-     .season-category-wrapperM2{
-      margin-top:10px;
-
-    }
-    .season-categoryM2{
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-
-    }
-
-    .season-categoryM2>li {
-      display:inline;
-
-    }
-
-    .season-categoryM2>li a {
-
-      display: inline-block;
-      color: #ffa291;
-      height:auto;
-      width:80px;
-      border:1px solid #ffa291;
-      border-radius:5px;
-      background-color: #fafafa;
-      text-align: center;
-      text-decoration: none;
-      font-weight:700;
-      font-size:14px;
-      -webkit-transition:background 0.15s ease-in-out,color 0.15s ease;
-    }
-    .season-categoryM2>li a:hover:not(.active){
-      color:#ffa291;
-      text-decoration:none;
-      background-color: #ffffff;
-      border:1px solid #ffa291;
-
-    }
-    .season-categoryM2 .active{
-
-      background-color: #ffffff;
-      border:1px solid #ffa291;
-      color:#ffa291;
-      font-weight:bold;
-    }
-
-    /* filter button test end*/
 
 
   }
@@ -888,17 +780,7 @@
 
 <script>
 
-     //제품 드롭다운
- //   $('#divNewNotifications li').on('click', function() {
- //     $('#dropdown_title').hide().html($(this).find('a').html());
- //   });
 
-    //세부톤 드롭다운
- //   $('#divNewNotifications2 li').on('click', function() {
- //     $('#dropdown_title2').hide().html($(this).find('a').html());
- //   });
- 
- 
 //folding button for detail filter
  $("#detail_filter").hide();
  
