@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/detail2.html.erb" afterPath="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" afterPath="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,21 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin_write.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/admin_write.html.erb">
+      <file leaf-file-name="list_lip2.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notice_view.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/notice_view.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+            <state relative-caret-position="176">
+              <caret line="563" column="0" lean-forward="true" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail2.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detail2.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
@@ -193,9 +183,9 @@
         <option value="$PROJECT_DIR$/app/views/home/notice_view.html.erb" />
         <option value="$PROJECT_DIR$/app/models/lip.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
         <option value="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
       </list>
     </option>
   </component>
@@ -844,12 +834,12 @@
       <workItem from="1481078365543" duration="13594000" />
       <workItem from="1481297195557" duration="9701000" />
       <workItem from="1481429557031" duration="3109000" />
-      <workItem from="1481509061417" duration="37712000" />
+      <workItem from="1481509061417" duration="38021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="464620000" />
+    <option name="totallyTimeSpent" value="464929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1370" height="735" extended-state="0" />
@@ -1205,14 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="198" column="2" lean-forward="true" selection-start-line="198" selection-start-column="2" selection-end-line="198" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/admin_write.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1273,6 +1255,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="106" column="59" lean-forward="false" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="563" column="0" lean-forward="true" selection-start-line="563" selection-start-column="0" selection-end-line="563" selection-end-column="0" />
           <folding />
         </state>
       </provider>
