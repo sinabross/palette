@@ -19,6 +19,7 @@ gem 'will_paginate', '~> 3.0' #페이지 번호 부여 및 번호를 통한 이�
 gem 'acts_as_votable', '~> 0.10.0' #찜하기 기능을 위한 젬 파일 (별점 기능도 이 젬파일로 구현 가능 할 듯)
 gem 'rails_autolink', '~> 1.1', '>= 1.1.6' #auto link maker
 gem 'ckeditor', github: 'galetahub/ckeditor' # text editor
+gem "non-stupid-digest-assets" # Ckeditor production 모드에서 안되는거 해결
 
 
 gem 'rails', '4.2.5'
