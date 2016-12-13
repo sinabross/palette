@@ -144,81 +144,32 @@ class HomeController < ApplicationController
   end
   
   def list_lip2
-  
-    
-  
+
     #빵부스러기 목록
     if params[:tone]
       @current_season = params[:tone]
     else
       @current_season = "봄 브라이트"
     end
-  
-#누나.............이거 참.........누나가 이 코드를 멋지게 한 줄로 줄일 수 있을거라 믿어....
 
-    if params[:tone] 
-      @list = Lip.where(season: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-##
-    if params[:tone] && params[:pro_type]
-      @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21)
-    end  
-    
-    if params[:tone] && params[:color]
-      @list = Lip.where(season: params[:tone]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
-    end 
-    
-    if params[:tone] && params[:level]
-      @list = Lip.where(season: params[:tone]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:texture]
-### 
-      @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:pro_type] && params[:texture]
-      @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(texture: params[:texture]).order('brand').paginate(page: params[:page], per_page: 21)
-    end 
-    
-    if params[:tone] && params[:pro_type] && params[:color]
-     @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:pro_type] && params[:level]
-     @list = Lip.where(season: params[:tone]).where(pro_type: params[:pro_type]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)  
-    end
-    
-    if params[:tone] && params[:texture] && params[:color]
-     @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(color: params[:color]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:texture] && params[:level]
-     @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:color] && params[:level]
-####    
-     @list = Lip.where(season: params[:tone]).where(color: params[:color]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    if params[:tone] && params[:texture] && params[:color]&& params[:pro_type] && params[:level]
-      @list = Lip.where(season: params[:tone]).where(texture: params[:texture]).where(color: params[:color]).where(pro_type: params[:pro_type]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
-    end
-    
-    
-# gave up temporariy..
 
-#    if params[:tone]
-#     @list = Lip.where(season: params[:tone]).order('brand').paginate(page: params[:page], per_page: 21)
-#   end
-#   
-#    unless params[:tone].blank? && params[:pro_type].blank? && params[:texture].blank? && params[:color].blank? && params[:level].blank?
-#       @list = Lip.where(season: params[:tone])
-##      .where(pro_type: params[:pro_type]).where(color: params[:color]).where(texture: params[:texture]).where(level: params[:level]).order('brand').paginate(page: params[:page], per_page: 21)
-#    else
-#      @list=Lip.where(season: "봄 브라이트").order('brand').paginate(page: params[:page], per_page: 21)
-#    end  
+    #lip.rb에 있는 메소드 사용
+
+    #필터 검색
+
+    @list = Lip.where(nil).order('brand').paginate(page: params[:page], per_page: 21) # creates an anonymous scope
+
+    @list = @list.tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 21) if params[:tone].present?
+
+    @list = @list.pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21) if params[:pro_type].present?
+
+    @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21)if params[:color].present?
+
+    @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
+
+    @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
+
+
 
   end
 
