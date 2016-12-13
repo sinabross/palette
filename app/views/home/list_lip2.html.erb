@@ -7,9 +7,9 @@
         <ul class="season-category" >
           <li>
             <%if @current_season == "봄 브라이트"%>
-              <a href="/home/list_lip2/봄 브라이트" class="btn-season active">봄 브라이트</a>
+                <a href="/home/list_lip2/봄 브라이트" class="btn-season active">봄 브라이트</a>
             <%else%>
-              <a href="/home/list_lip2/봄 브라이트" class="btn-season">봄 브라이트</a>
+                <a href="/home/list_lip2/봄 브라이트" class="btn-season">봄 브라이트</a>
             <%end%>
           </li>
 
@@ -39,7 +39,7 @@
 
           <li>
             <%if @current_season == "가을 뮤트"%>
-              <a href="/home/list_lip2/가을 뮤트" class="btn-season acitve">가을 뮤트</a>
+              <a href="/home/list_lip2/가을 뮤트" class="btn-season active">가을 뮤트</a>
             <%else%>
               <a href="/home/list_lip2/가을 뮤트" class="btn-season">가을 뮤트</a>
             <%end%>
@@ -632,6 +632,7 @@
       background-color: #ffa291;
       background: #ffa291 url(/images/nav-hover-bg.png)
     }
+
     .season-category .active{
 
       background-color: #ffffff;
@@ -794,7 +795,10 @@
       
     });
     
-    
+ $('a.btn-season').click(function(){
+
+
+ });
  
  
 
