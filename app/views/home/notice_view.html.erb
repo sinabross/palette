@@ -27,8 +27,9 @@
        <tbody>
         <tr>
           <td class="notice_content">
-           <p><%= simple_format(auto_link(@one_notice.content, html: { target: '_blank' }), {}, :sanitize => false) %>
-         
+           <p>
+            <%=raw(@one_notice.content)%>
+            <% #자동링크인식..근데 이걸 하면 CKEditor가 안됨 <%=simple_format(auto_link(raw(@one_notice.content, html: { target: '_blank' }), {}, :sanitize => false) %>
             </p>
           </td>
         </tr>
