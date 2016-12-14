@@ -146,6 +146,8 @@ GEM
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -270,6 +272,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   mini_magick
+  non-stupid-digest-assets
   omniauth
   omniauth-facebook
   punching_bag
