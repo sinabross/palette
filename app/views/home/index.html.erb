@@ -10,12 +10,49 @@
           <h3 style="margin-bottom:50px;">퍼스널컬러에 맞는 립스틱 추천 서비스</h3>
          <!-- <hr class="intro-divider">-->
 
-<%
-#         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-xs-12">
-#           <a href="/home/list_lip2/봄 브라이트" class="btn-manual btn-manualM">추천 립 보기</a>
+          <div class="season-category-wrapper">
+            <ul class="season-category" style="margin-bottom:5px;">
+              <li>
+                <a href="/home/list_lip2/봄 브라이트" class="btn-main btn-mainM btn-season">봄 브라이트</a>
+              </li>
 
-#         </div>
-%>
+              <li>
+                <a href="/home/list_lip2/봄 라이트" class="btn-main btn-mainM btn-season">봄 라이트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip2/여름 라이트" class="btn-main btn-mainM btn-season">여름 라이트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip2/여름 뮤트" class="btn-main btn-mainM btn-season">여름 뮤트</a>
+              </li>
+            </ul>
+
+            <ul class="season-category">
+              <li>
+                <a href="/home/list_lip2/가을 뮤트" class="btn-main btn-mainM btn-season">가을 뮤트</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip2/가을 딥" class="btn-main btn-mainM btn-season">가을 딥</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip2/겨울 딥" class="btn-main btn-mainM btn-season">겨울 딥</a>
+              </li>
+
+              <li>
+                <a href="/home/list_lip2/겨울 브라이트" class="btn-main btn-mainM btn-season">겨울 브라이트</a>
+              </li>
+            </ul>
+          </div>
+            <!--/season-category-wrapper-->
+
+
+        </div>
+        <!--/세부계절 타입 div 끝-->
+
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts count1" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
             <p>전체 상품 수</p>
@@ -633,7 +670,7 @@
     white-space: pre-line;
   }
 
-  .counts>p,h3 {
+  .counts>p, .counts>h3 {
     color: #ffffff;
     text-align:center;
   }
@@ -665,16 +702,26 @@
     border:2px solid #ffa291;
   }
 
-  .btn-manual:hover{
+  .btn-main:hover{
     text-decoration: none;
     background-color:rgba(255,255,255,0.1);
     color:#ffa291;
     border:2px solid #ffa291;
   }
-  .btn-manual:active{
+  .btn-main:active{
     transform:translateY(3px);
   }
+  .btn-main{
 
+    text-decoration: none;
+    color:#ffffff;
+    font-weight:bold;
+    display:inline-block;
+    background-color:rgba(255,255,255,0.1);
+    border:2px solid #ffffff;
+    text-align:center;
+    transition: all 0.4s;
+  }
 
   .content-section-a {
     padding-top: 10px;
@@ -762,6 +809,17 @@
       font-weight:bold;
     }
 
+  /*메인의 8분류 선택 버튼*/
+  .season-category {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .season-category>li {
+    display:inline;
+
+  }
+
 @media(max-width:767px) {
     .intro-message {
       padding-bottom: 15%;
@@ -801,7 +859,7 @@
 
    /*메인 상품 수*/
     .counts{
-      margin-top:20px;
+      margin-top:10px;
     }
 
     /*전문가 소개 페이지*/
@@ -892,21 +950,12 @@
     font-size:23px;
   }
 
-  .btn-manualM{
-
-    text-decoration: none;
-    color:#ffffff;
-    font-size:20px;
-    font-weight:bold;
-    display:inline-block;
-    width:180px;
-    height:60px;
-    line-height: 60px;
-    background-color:rgba(255,255,255,0.1);
-    border:2px solid #ffffff;
-    text-align:center;
-    transition: all 0.4s;
-
+  .btn-mainM{
+    font-size:14px;
+    width:auto;
+    padding:0px 5px 0px 5px;
+    height:40px;
+    line-height: 40px;
   }
 
 
@@ -933,21 +982,11 @@
       margin-bottom:30px;
 
     }
-    .btn-manual{
-
-      text-decoration: none;
-      color:#ffffff;
+    .btn-main{
       font-size:20px;
-      font-weight:bold;
-      display:inline-block;
       width:200px;
       height:60px;
       line-height: 60px;
-      background-color:rgba(255,255,255,0.1);
-      border:2px solid #ffffff;
-      text-align:center;
-      transition: all 0.4s;
-
     }
 
 
