@@ -7,7 +7,7 @@
         <div class="intro-message">
 
           <h1>나만의 인생템 찾기</h1>
-          <h3 style="margin-bottom:50px;">퍼스널컬러에 맞는 립스틱 추천 서비스</h3>
+          <h3 class="intro-hooking">퍼스널컬러에 맞는 립스틱 추천 서비스</h3>
          <!-- <hr class="intro-divider">-->
 
           <div class="season-category-wrapper">
@@ -627,12 +627,6 @@
 
   }
 
-  .intro-message {
-    position: relative;
-    padding-top: 10%;
-    padding-bottom: 10%;
-
-  }
 
   .intro-message > h1 {
     margin: 0;
@@ -822,9 +816,13 @@
 
 @media(max-width:767px) {
     .intro-message {
+      position:relative;
+      padding-top:10%;
       padding-bottom: 15%;
     }
-
+    .intro-hooking{
+      margin-bottom:50px;
+    }
 
     ul.intro-social-buttons > li {
       display: block;
@@ -966,6 +964,12 @@
 
 @media(min-width:767px) {
 
+    .intro-message {
+      position: relative;
+      padding-top: 10%;
+      padding-bottom: 50px;
+
+    }
 
     .intro-message > h1 {
       margin: 0;
@@ -979,14 +983,16 @@
       /* text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
       font-size:2em;
       color:#ffffff;
-      margin-bottom:30px;
-
+      margin-bottom:50px;
     }
+
+
     .btn-main{
-      font-size:20px;
-      width:200px;
-      height:60px;
-      line-height: 60px;
+      font-size:16px;
+      width:150px;
+      height:40px;
+      line-height: 40px;
+      margin:0px 2px 0px 2px;
     }
 
 
