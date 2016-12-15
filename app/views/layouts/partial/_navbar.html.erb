@@ -55,44 +55,49 @@
   </div>
 
 
-  <div class="container">
+  <div class="container" style="padding-right:0;">
     <!-- Brand and toggle get grouped for better mobile display -->
+      <ul class="nav-menu">
+
+        <li class="nav-menu-item">
           <a href="/">
-          <span class="gCenter-mobile" style="float:left;">
-            <%= image_tag "/images/mobile.png", style:"width:120px;", alt:"palette"%>
+          <span class="gCenter-mobile">
+            <%= image_tag "/images/mobile.png", alt:"palette"%>
           </span>
-          <span class="gCenter" style="float:left;margin-top:10px;" >
-            <%= image_tag "/images/logo_new.png",style:"width:120px;" , alt:"palette"%>
+          <span class="gCenter" >
+            <%= image_tag "/images/logo_new.png", alt:"palette"%>
           </span>
-
           </a>
+        </li>
 
-    <div class="navbar-header navbar-icon">
-      <span class="gLeft">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </span>
+         <li class="nav-menu-item">
+          <form class="middle" id="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="search" placeholder="내 립스틱은 무슨 톤 일까?" id="search" name="search" class="searchbox-input searchbox-input-mobile">
+          </form>
+         </li>
 
-    </div>
+        <li class="nav-menu-item">
+          <div class="navbar-header navbar-icon">
+            <span class="gLeft">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </span>
+          </div>
+        </li>
+
+
+      </ul>
+
+
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" style="background-color:#fafafa;">
       <ul class="nav navbar-nav navbar-right">
-
-        <li class="searchbar">
-          <form class="middle" id="search-form" style="margin-right:10px;" action="/home/search" method="get" accept-charset="UTF-8">
-
-            <input type="hidden" name="utf8" value="✓">
-            <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요" id="search" name="search" style="padding-right:100px; width:400px;" class="searchbox-input searchbox-input-mobile searchbox-mobile">
-
-            <button type="submit"class="searchbox-submit searchbox-submit-mobile">
-              <i id="searchbox-icon-mobile" class="fa fa-search" aria-hidden="true" ></i>  <!--버튼 돋보기 모양으로 바꿈-->
-            </button>
-          </form>
-        </li>
 
         <!-- li class="hidden-web"으로 하면 분홍색 navbar에 위치-->
 
@@ -100,7 +105,7 @@
         <li class="dropdown">
           <a href="#" class="dropbtn" onclick="return false;">팔레트란?</a>
             <div class="dropdown-content">
-              <a href="/#story" class="quick_tab" onClick="return false;">팔레트 소개</a>
+              <a href="/#story" class="quick_tab" onClick="return false;">팔레트 스토리</a>
               <a href="/#howto" class="quick_tab" onClick="return false;">이용방법</a>
             <%  
             #  <a href="/#partners1" class="quick_tab" onClick="return false;">파트너 소개</a>
@@ -114,7 +119,7 @@
           <a href="#" class="dropdown-toggle dropbtnM" data-toggle="dropdown">팔레트란?<b class="caret"></b></a>
           <ul class="dropdown-menu dropdown-contentM">
             <li>
-              <a class="quick_tabM" href="/#story" onClick="return false;" style="text-indent:20px">팔레트 소개</a>
+              <a class="quick_tabM" href="/#story" onClick="return false;" style="text-indent:20px">팔레트 스토리</a>
             </li>
 
             <li>
@@ -140,7 +145,7 @@
             <a href="/home/list_lip/봄 브라이트">테스트버전</a>
           </li>
         <%end%>
-       <!-- <li class="grid-web"><a href="/home/list_lip/c_lips" >Cool 립</a></li>-->
+
         
          <li>
            <i class="fa fa-bullhorn iconForMobile" aria-hidden="true"></i>
@@ -281,10 +286,8 @@
     margin-right:30px;
   }
 
-  .searchbox-input-mobile{
-      top:0;
-      right:0;
-      outline:0;
+  .searchbox-input{
+
       background:#ffffff;
       width:166px;
       height:30px;
@@ -293,27 +296,22 @@
       font-size:1em;
       color:#696969;
       border: solid 1px #e4e4e4;
-      }   
-  .searchbox-submit-mobile{
+      }
+  .searchbox-submit{
       width:30px;
       height:30px;
       display:inline-block;
-      position:absolute;
-      top:0;
       font-family:verdana;
       font-size:20px;
-      right:0;
-      padding:0;
       margin-top:5px;
       margin-right:0px;
       border:1px solid #DEDEDE;
-      outline:0;
       line-height:10px;
       float:right;
       cursor:pointer;
       color:#696969;
       background-color:#ffffff;
-      }        
+      }
 
   .searchbot-web{
     width: 166px;
@@ -405,6 +403,7 @@
 
   .gCenter {
     margin-top:9px;
+    float:left;
   }
   .gCenter-mobile{
     display:none;     
@@ -427,43 +426,51 @@
 }
 
 @media (max-width:767px){
-  .searchbar {
-    margin-top:5px;
-    margin-right:0px;
-
+  .nav-menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
+  .nav-menu-item{
+    float:left
+  }
+
   .searchbox-input-mobile{
-      top:0;
-      right:0;
-      border:0;
-      outline:0;
+      display:inline-block;
       background:#ffffff;
-      width:100%;
-      height:40px;
-      margin:5px;
-      padding:0px 55px 0px 8px;
-      font-size:1em;
-      color:#000000;
-      }  
-  .searchbox-icon-mobile,.searchbox-submit-mobile{
-      width:50px;
-      height:50px;
-      display:block;
-      position:absolute;
-      top:0;
+      width:170px;
+      height:30px;
+      padding-left:10px;
+      border-radius:3px;
+      font-size:11px;
+
+      }
+  input[type="search"].searchbox-input-mobile::-webkit-input-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile::-moz-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile:-ms-input-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile:-moz-placeholder {
+    color:gray;
+  }
+
+  .searchbox-submit-mobile{
+      width:30px;
+      height:30px;
+      display:inline-block;
       font-family:verdana;
-      font-size:22px;
-      right:0;
+      font-size:16px;
       padding:0;
       margin:0;
-      border:0;
-      outline:0;
-      line-height:50px;
+      line-height:30px;
       text-align:center;
       cursor:pointer;
       color:#ffaaa3;
       background:#fafafa;
-      float:right;      
       }
 
    .iconForMobile{
@@ -522,16 +529,23 @@
 
 
   .gCenter-mobile img {
-
-    display:block;
-    margin-top:13px;
+    float:left;
+    display:inline-block;
+    height:20px;
+    width:120px;
+    margin:5px 17px 0px 0px;
     
   }  
   .gCenter {
     display:none; 
   }  
 
-  
+  .navbar-toggle{
+    float:right;
+    margin:8px 0px 0px 15px;
+    padding:0;
+
+  }
   .navbar-icon .navbar-toggle {
     border-color: #ffaaa3;
     
