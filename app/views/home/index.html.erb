@@ -75,9 +75,6 @@
 
 <!-- Page Content -->
 
-<%
-=begin
-%>
 <div class="content-section-a" id="askfor">
   <div class="container">
     <div class="row">
@@ -87,60 +84,118 @@
         <div class="clearfix"></div>
 
         <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
-          <form action="/home/askfor_submit2" method="post">
-            <div class="form-group">
-              <input type="text" class="form-control form-askfor" name="content" placeholder="제품을 요청해주세요.">
+          <div class="row">
+            <div class="askForGroup col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12">
+              <form action="home/askfor_submit2" method="post" data-toggle="validator">
+                <div class="form-group">
+                  <input type="text" class="form-control form-askfor" name="content" placeholder="제품을 요청해주세요." maxlength="30" required>
+                </div>
+                <input type="submit" class="btn-askfor" value="요청">
+              </form>
             </div>
-            <button type="submit" class="btn-askfor">요청</button>
-          </form>
-
-          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-
-            <table>
-
-              <tbody style="text-align: center;">
-              <% @asks.each do |p| %>
-                  <tr class="table_askfor">
-                    <td class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                      <p><%=p.id%></p>
-                    </td>
-                    <td class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                      <p style="display:inline;"><%=p.content%></p>
-                      <p style="display:inline;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y.%m.%d %H:%M") %></p>
-                    </td>
-                    <td class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
-                      ●
-                    </td>
-
-                        <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
-                          ●○○
-                        </td>
-                        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-
-                         <%= link_to "X", "/askfor_delete/#{p.id}", data: { confirm: "잘못 누른거 아니죠?" }%>
-
-                        </td>
-
-                  </tr>
-
-              <% end %>
-              </tbody>
-            </table>
           </div>
+
+          <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12" style="padding:0px;">
+
+              <table>
+
+                <tbody style="text-align: center;">
+                <% @asks.each do |p| %>
+                    <tr class="table_askfor">
+                      <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                        <p><%=p.id%></p>
+                      </td>
+                     <% unless user_signed_in?%>
+
+                      <td class="col-lg-9 col-md-9 col-sm-5 col-xs-5" style="padding:0px 5px 0px 5px;">
+                        <p><%=p.content%></p>
+                        <p style="color:lightgray;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y.%m.%d %H:%M") %></p>
+                      </td>
+                      <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:0px;">
+                        <% if p.status =="요청" %>
+                            <div class="askfor_status status_red">
+
+                            </div>
+                            <%=p.status%>
+                        <%else%>
+                            <div class="askfor_status status_green">
+
+                            </div>
+                            <%=p.status%>
+                        <%end%>
+                      </td>
+
+                      <%end%>
+
+
+                      <% if user_signed_in? && current_user.admin?%>
+                          <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="padding:0px 5px 0px 5px;">
+                            <p><%=p.content%></p>
+                            <p style="color:lightgray;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y.%m.%d %H:%M") %></p>
+                          </td>
+                          <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding:0px;">
+                            <% if p.status =="요청" %>
+                                <div class="askfor_status status_red">
+
+                                </div>
+                                <%=p.status%>
+                            <%else%>
+                                <p class="askfor_status status_green">
+
+                                </p>
+                                <%=p.status%>
+                            <%end%>
+                          <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                            <div class="askfor_status_edit" id="status_<%=p.id%>">
+                             <form action="askfor_status/<%=p.id%>" method="post" >
+                              <label>
+                                <input type="radio" name="status" value="요청">
+                                대기
+                              </label>
+                              <label>
+                                <input type="radio" name="status" value="승인">
+                                승인
+                              </label>
+                              <button type="submit" class="status_edit" value="<%=p.id%>">수정</button>
+                             </form>
+                            </div>
+                          </td>
+                          <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+                           <%= link_to "X", "/askfor_delete/#{p.id}", data: { confirm: "잘못 누른거 아니죠?" }%>
+
+                          </td>
+                      <%end%>
+                    </tr>
+
+                <% end %>
+                </tbody>
+              </table>
+
+              <%= render :partial => "layouts/partial/pagination" %>
+
+            </div>
+          </div><!--/.row-->
         </div>
 
       </div>
 
+
+
     </div>
+
+
 
   </div>
 
 </div>
 <!-- /.container -->
-<%
-=end
-%>
 
+
+<%
+=begin
+%>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
@@ -198,6 +253,9 @@
            
   </div>
   <!-- /.container -->
+<%
+=end
+%>
 
 </div>
 <!-- /.content-section-a -->
@@ -710,7 +768,7 @@
     color:#ffffff;
   }
 
-  /*새소식 css 였다가 제품요청 css로 갈아탐*/
+
 
   .notice a {
     color:#56565d;
@@ -720,18 +778,52 @@
     text-decoration:none;
   }
 
+  /*제품 요청 */
+  .table{
+    width:100%;
+  }
   .table_askfor{
-    border-bottom:1px solid lightgray;
+    border-bottom:0;
     border-top:0;
     height:auto;
   }
   .form-askfor{
     display:inline-block;
-    width:80%;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    border-color:#8b8682;
+    margin-left:30px;
+    margin-bottom:30px;
+    float:left;
+    width:70%;
   }
   .btn-askfor{
     display:inline-block;
+    margin-left:5px;
+    height:35px;
+    width:50px;
+    color:#ffffff;
+    background-color:#ffaaa3;
+    float:left;
   }
+  .askfor_status{
+    border-radius:100%;
+    display:inline-block;
+    padding:5px;
+    width:10px;
+    height:10px;
+    line-height: 30px;
+
+  }
+  .status_green{
+    background-color:green;
+  }
+  .status_red{
+    background-color:red;
+  }
+
+  /*제품 요청 끝*/
 
   .counts>p, .counts>h3 {
     color: #ffffff;
@@ -1149,12 +1241,80 @@
     font-size:20px;
     font-weight:bold;
   }
-  
-  
+
   /*palette story ends*/
+
+  /*제품 요청 */
+  table{
+    width:100%;
+  }
+  .form-askfor{
+    margin-left:40px;
+    margin-bottom:30px;
+    width:50%;
+  }
+  .btn-askfor{
+    margin-left:5px;
+    height:35px;
+    width:60px;
+  }
+  .askfor_status{
+    padding:5px;
+    width:10px;
+    height:10px;
+  }
+  /*제품 요청 끝*/
+
 
 
 } /*media min 767px*/
 
 
 </style>
+
+<script>
+//    $( document ).ready(function() {
+
+
+        // 고객 입장에서 제품 요청하기 ajax
+
+//     $('.btn-askfor').click(function(){
+//        var askfor_content = $('.form-askfor').val();
+//        var tempScrollTop = $(window).scrollTop();
+//        alert(tempScrollTop+"px");
+
+//           $.ajax({
+//               method: "POST",
+//               url: "/home/askfor_submit2",
+//               data: { content: askfor_content }
+//           })
+//               .done(function() {
+//                   alert( "요청완료! 빠른 시일 내로 업데이트 해드릴게요:)");
+
+//               });
+
+
+//        });
+
+        // 관리자 입장에서 제품 요청하기 상태 수정 ajax
+
+//        $('.status_edit').click(function(){
+//          askfor_id = this.value;
+//          askfor_status = $('input[status]:checked', '#status_'+askfor_id).val();
+
+//          alert(askfor_status);
+
+//            $.ajax({
+//                method: "POST",
+ //               url: "/askfor_status",
+  //              data: { status: askfor_status, askfor_id: askfor_id }
+   //         })
+    //            .done(function() {
+    //                alert( "수정 완료" );
+     //           });
+
+//        });
+
+
+//    });
+</script>
