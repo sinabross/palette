@@ -4,8 +4,6 @@
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/search.html.erb" afterPath="$PROJECT_DIR$/app/views/home/search.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,26 +44,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="92" column="112" lean-forward="false" selection-start-line="92" selection-start-column="112" selection-end-line="92" selection-end-column="112" />
+            <state relative-caret-position="435">
+              <caret line="1119" column="3" lean-forward="true" selection-start-line="1119" selection-start-column="3" selection-end-line="1119" selection-end-column="3" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-                <marker date="1481886232028" expanded="true" signature="171:188" ph="..." />
-                <marker date="1481886232028" expanded="true" signature="31703:31712" ph="..." />
+                <marker date="1481887004846" expanded="true" signature="171:188" ph="..." />
+                <marker date="1481887004846" expanded="true" signature="31920:31929" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_navbar.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_navbar.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="550" column="18" lean-forward="false" selection-start-line="550" selection-start-column="18" selection-end-line="550" selection-end-column="18" />
+            <state relative-caret-position="237">
+              <caret line="548" column="3" lean-forward="true" selection-start-line="548" selection-start-column="3" selection-end-line="548" selection-end-column="3" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#1;n#nav#0;n#!!top" expanded="true" />
               </folding>
@@ -77,7 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gCenter</find>
       <find>.searchbox-submit</find>
       <find>.searchbox-input-</find>
       <find>.fa-searhc</find>
@@ -89,7 +86,6 @@
       <find>.counts</find>
       <find>.intro-message</find>
       <find>.search</find>
-      <find>.btn-main</find>
       <find>.intro</find>
       <find>.content-section-a</find>
       <find>feedback</find>
@@ -107,6 +103,8 @@
       <find>submit2</find>
       <find>.askfor</find>
       <find>.navbar-collapse</find>
+      <find>.btn-main</find>
+      <find>.btn-mainM</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,8 +162,8 @@
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20161216103916_create_askfors.rb" />
         <option value="$PROJECT_DIR$/app/views/home/search.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
       </list>
     </option>
   </component>
@@ -864,16 +862,16 @@
       <workItem from="1481297195557" duration="9701000" />
       <workItem from="1481429557031" duration="3109000" />
       <workItem from="1481509061417" duration="40606000" />
-      <workItem from="1481678942792" duration="70636000" />
+      <workItem from="1481678942792" duration="71061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="538150000" />
+    <option name="totallyTimeSpent" value="538575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20499243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -883,7 +881,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40408805" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40408805" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1264,25 +1262,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="92" column="112" lean-forward="false" selection-start-line="92" selection-start-column="112" selection-end-line="92" selection-end-column="112" />
+        <state relative-caret-position="237">
+          <caret line="548" column="3" lean-forward="true" selection-start-line="548" selection-start-column="3" selection-end-line="548" selection-end-column="3" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-            <marker date="1481886232028" expanded="true" signature="171:188" ph="..." />
-            <marker date="1481886232028" expanded="true" signature="31703:31712" ph="..." />
+            <element signature="n#style#0;n#div#1;n#div#1;n#nav#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="550" column="18" lean-forward="false" selection-start-line="550" selection-start-column="18" selection-end-line="550" selection-end-column="18" />
+        <state relative-caret-position="435">
+          <caret line="1119" column="3" lean-forward="true" selection-start-line="1119" selection-start-column="3" selection-end-line="1119" selection-end-column="3" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
+            <marker date="1481887004846" expanded="true" signature="171:188" ph="..." />
+            <marker date="1481887004846" expanded="true" signature="31920:31929" ph="..." />
           </folding>
         </state>
       </provider>
