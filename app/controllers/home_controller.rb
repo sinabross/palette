@@ -15,6 +15,10 @@ class HomeController < ApplicationController
     #@update_count = Lipdb.where(:id => 200..236).count
     @update_count = 0
 
+    #제품 요청
+    @asks = Feedback.order('id desc').paginate(page: params[:page], per_page: 5)
+
+
   end
 
 # main은 에전에 BEST 제품 노출하던 layout
@@ -357,6 +361,22 @@ class HomeController < ApplicationController
 
   end
 
+  def askfor_submit2
+
+    @post=Feedback.new
+    @post.content=params[:content]
+
+    @post.save
+
+    redirect_to :back
+
+  end
+
+  def askfor_delete #제품 요청 삭제
+    @one_askfor=Feedback.find(params[:askfor_id])
+    @one_askfor.destroy
+    redirect_to :back
+  end
   # =============== 문의글 관련끝====================
   
  # =============  My page =====================

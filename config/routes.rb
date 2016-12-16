@@ -72,7 +72,10 @@ Rails.application.routes.draw do
   
   #ask for new products
   get 'home/askfor'
-  post 'home/askfor_submit'
+  post 'home/askfor_submit'  #문의/건의
+  post 'home/askfor_submit2' #제품요청
+
+  get 'askfor_delete/:askfor_id' => 'home#askfor_delete'
 
 
 
