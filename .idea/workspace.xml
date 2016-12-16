@@ -4,11 +4,12 @@
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/detail.erb" afterPath="$PROJECT_DIR$/app/views/home/detail.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/askfor.html.erb" afterPath="$PROJECT_DIR$/app/views/home/askfor.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/feedback.html.erb" afterPath="$PROJECT_DIR$/app/views/home/feedback.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/search.html.erb" afterPath="$PROJECT_DIR$/app/views/home/search.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +41,8 @@
       <file leaf-file-name="list_lip2.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="324" column="143" lean-forward="false" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
+            <state relative-caret-position="373">
+              <caret line="370" column="47" lean-forward="true" selection-start-line="370" selection-start-column="47" selection-end-line="370" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -52,45 +53,64 @@
       <file leaf-file-name="_navbar.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1836">
-              <caret line="48" column="50" lean-forward="true" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+            <state relative-caret-position="183">
+              <caret line="622" column="19" lean-forward="false" selection-start-line="622" selection-start-column="19" selection-end-line="622" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#nav#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="152" column="48" lean-forward="false" selection-start-line="152" selection-start-column="48" selection-end-line="152" selection-end-column="48" />
+            <state relative-caret-position="230">
+              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-                <marker date="1481852063236" expanded="true" signature="171:188" ph="..." />
-                <marker date="1481852063236" expanded="true" signature="28183:28192" ph="..." />
+                <marker date="1481884308758" expanded="true" signature="171:188" ph="..." />
+                <marker date="1481884308758" expanded="true" signature="31579:31588" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/detail.erb">
+      <file leaf-file-name="askfor.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/askfor.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="143" column="14" lean-forward="true" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
+            <state relative-caret-position="72">
+              <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feedback.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/home/feedback.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -99,8 +119,8 @@
       <file leaf-file-name="home_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+            <state relative-caret-position="6588">
+              <caret line="366" column="29" lean-forward="false" selection-start-line="366" selection-start-column="29" selection-end-line="366" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -109,48 +129,18 @@
       <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="77" column="56" lean-forward="false" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+            <state relative-caret-position="216">
+              <caret line="75" column="27" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feedback.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/feedback.html.erb">
+      <file leaf-file-name="20160825080043_add_username_to_users.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20160825080043_add_username_to_users.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="askfor.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/askfor.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="35" column="11" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="35" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ckeditor/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rake" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -160,14 +150,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.gCenter-mobile</find>
-      <find>.searchbox-</find>
-      <find>.nav-menu</find>
-      <find>.btn-manu</find>
-      <find>btn-main</find>
-      <find>.season-category</find>
-      <find>.btn-mainM</find>
-      <find>.count</find>
       <find>.navbar-color</find>
       <find>gCenter</find>
       <find>.searchbox-submit</find>
@@ -185,11 +167,19 @@
       <find>.intro</find>
       <find>.content-section-a</find>
       <find>feedback</find>
-      <find>.navbar-collapse</find>
-      <find>askfor</find>
-      <find>.searchbox-input</find>
       <find>notice</find>
+      <find>askfor</find>
+      <find>.navbar-collapse</find>
       <find>.notice</find>
+      <find>admin</find>
+      <find>.askfor_status</find>
+      <find>.form-</find>
+      <find>.gCent</find>
+      <find>.searchbox-input-m</find>
+      <find>.gCenter</find>
+      <find>.searchbox-input</find>
+      <find>.gCen</find>
+      <find>.askfor</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20160825080043_add_username_to_users.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/admin_write.html.erb" />
@@ -230,7 +219,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20161212054428_create_lips.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/askfor.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/admin_reply.erb" />
         <option value="$PROJECT_DIR$/app/views/home/list_lip.erb" />
         <option value="$PROJECT_DIR$/app/views/home/notice.html.erb" />
@@ -242,13 +230,15 @@
         <option value="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/ckeditor/config.js" />
         <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/feedback.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/search.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/detail.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20161216032027_add_status_to_feedback.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/feedback.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/askfor.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/detail.erb" />
       </list>
     </option>
   </component>
@@ -259,9 +249,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-24" />
-    <option name="width" value="1356" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -605,6 +596,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="concerns" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="palette_songs_workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="palette_songs_workspace" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -686,7 +699,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;feedba&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rake&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/rake&#10;inde&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;asset&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/assets.rb&#10;enviro&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environment.rb&#10;production&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environments/production.rb&#10;rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;gem&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/Gemfile&#10;notice&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/notice_view.html.erb&#10;detail2&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail2.html.erb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;index&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;feedback&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;list&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/list_lip.erb&#10;robo&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robot&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robots&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;feedba&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rake&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/rake&#10;inde&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;asset&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/assets.rb&#10;enviro&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environment.rb&#10;production&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environments/production.rb&#10;gem&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/Gemfile&#10;notice&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/notice_view.html.erb&#10;detail2&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail2.html.erb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;index&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;feedback&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;list&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/list_lip.erb&#10;robo&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robot&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robots&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -924,18 +937,18 @@
       <workItem from="1481297195557" duration="9701000" />
       <workItem from="1481429557031" duration="3109000" />
       <workItem from="1481509061417" duration="40606000" />
-      <workItem from="1481678942792" duration="44491000" />
+      <workItem from="1481678942792" duration="68466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512005000" />
+    <option name="totallyTimeSpent" value="535980000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-24" y="0" width="1356" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32484567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20499243" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3946541" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -943,7 +956,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31738436" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38050315" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -976,14 +989,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/home/admin_reply.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/show_feedback.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1048,14 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160825080043_add_username_to_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="10" lean-forward="false" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
@@ -1068,14 +1065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="49" lean-forward="true" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1240,44 +1229,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="324" column="143" lean-forward="false" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/feedback.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/feedback.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/askfor.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="35" column="11" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="35" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160826130813_create_feedbacks.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1292,14 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="77" column="56" lean-forward="false" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-612">
@@ -1308,21 +1255,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/detail.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="142" column="10" lean-forward="true" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160826130813_create_feedbacks.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160825080043_add_username_to_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20161216032027_add_status_to_feedback.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="643">
+          <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="75" column="27" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+        <state relative-caret-position="6588">
+          <caret line="366" column="29" lean-forward="false" selection-start-line="366" selection-start-column="29" selection-end-line="366" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/list_lip2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="370" column="47" lean-forward="true" selection-start-line="370" selection-start-column="47" selection-end-line="370" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/feedback.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/askfor.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="48" column="50" lean-forward="true" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+        <state relative-caret-position="183">
+          <caret line="622" column="19" lean-forward="false" selection-start-line="622" selection-start-column="19" selection-end-line="622" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#div#0;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#nav#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -1330,30 +1355,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="152" column="48" lean-forward="false" selection-start-line="152" selection-start-column="48" selection-end-line="152" selection-end-column="48" />
+        <state relative-caret-position="230">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#!!top" expanded="true" />
-            <marker date="1481852063236" expanded="true" signature="171:188" ph="..." />
-            <marker date="1481852063236" expanded="true" signature="28183:28192" ph="..." />
+            <marker date="1481884308758" expanded="true" signature="171:188" ph="..." />
+            <marker date="1481884308758" expanded="true" signature="31579:31588" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/detail.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="143" column="14" lean-forward="true" selection-start-line="143" selection-start-column="14" selection-end-line="143" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>

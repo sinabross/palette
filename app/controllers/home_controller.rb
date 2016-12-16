@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
 
     #공지사항 최신글 보여주기
-    @news = Notice.order('id desc').first(5)
+    #@news = Notice.order('id desc').first(5)
 
     #총 제품 개수
     @product_count = Lip.count
@@ -468,7 +468,14 @@ class HomeController < ApplicationController
     @notices.destroy
     redirect_to '/home/notice'
   end
-  
+
+  def askfor_status #제품 요청 상태 수정
+    @one_askfor = Feedback.find(params[:askfor_id])
+    @one_askfor.status = params[:status]
+    @one_askfor.save
+
+    redirect_to :back
+  end
   
   #=============== admin page =================
   
