@@ -75,7 +75,8 @@ Rails.application.routes.draw do
   post 'home/askfor_submit'  #문의/건의
   post 'home/askfor_submit2' #제품요청
 
-  get 'askfor_delete/:askfor_id' => 'home#askfor_delete'
+  get 'askfor_delete/:askfor_id' => 'home#askfor_delete' # 제품요청 삭제
+  post 'askfor_status/:askfor_id' => 'home#askfor_status' # 제품요청 상태 변경
 
 
 

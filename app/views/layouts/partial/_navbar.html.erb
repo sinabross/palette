@@ -55,19 +55,22 @@
   </div>
 
 
-  <div class="container" style="padding-right:0;">
+  <div class="container" style="padding:0;">
     <!-- Brand and toggle get grouped for better mobile display -->
 
-          <a href="/">
-          <span class="gCenter-mobile">
-            <%= image_tag "/images/mobile.png", alt:"palette"%>
-          </span>
-          <span class="gCenter" >
-            <%= image_tag "/images/logo_new.png", alt:"palette"%>
-          </span>
-          </a>
+
+            <a href="/">
+            <span class="gCenter-mobile" style="padding:0;">
+              <%= image_tag "/images/mobile.png", alt:"palette"%>
+            </span>
+
+            <span class="gCenter" >
+              <%= image_tag "/images/logo_new.png", alt:"palette"%>
+            </span>
+            </a>
 
           <!--searhbar for PC navbar-->
+
           <form class="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
               <input type="hidden" name="utf8" value="✓">
               <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요."  name="search" class="searchbox-input">
@@ -78,22 +81,23 @@
 
 
           <!--search for Mobile navbar-->
+
           <form class="search-form-mobile" id="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
             <input type="hidden" name="utf8" value="✓">
             <input type="search" placeholder="내 립스틱은 무슨 톤 일까?" id="search" name="search" class="searchbox-input searchbox-input-mobile">
           </form>
 
 
-    <div class="navbar-header navbar-icon">
-            <span class="gLeft">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </span>
-    </div>
+          <div class="navbar-header navbar-icon" style="padding:0;">
+                  <span class="gLeft">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </span>
+          </div>
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -270,7 +274,7 @@
   }
   .search-form{
     display:inline-block;
-    margin-top:9px;
+    margin-top:10px;
   }
   .searchbox-input{
     width:400px;
@@ -392,12 +396,13 @@
 
 
   .gCenter {
-    margin-top:9px;
+    margin-top:12px;
     float:left;
   }
   .gCenter>img{
     width:120px;
-    margin: 3px 0px 0px 20px;
+    margin-left:20px;
+
   }
   .gCenter-mobile{
     display:none;     
@@ -437,7 +442,7 @@
   .searchbox-input-mobile{
       display:inline-block;
       background:#ffffff;
-      width:170px;
+      width:100%;
       height:30px;
       padding-left:10px;
       margin-left:10px;
@@ -518,8 +523,8 @@
     float:left;
     display:inline-block;
     height:20px;
-    width:110px;
-    margin:5px 17px 0px 0px;
+    width:100px;
+    margin:5px 0px 0px 8px;
     
   }  
   .gCenter {
@@ -530,8 +535,9 @@
     position:absolute;
     top:0;
     right:0;
-    margin:15px 15px 0px 0px;
     padding:0;
+    margin-top:15px;
+    margin-right:8px;
 
   }
   .navbar-icon .navbar-toggle {
