@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     @update_count = 0
 
     #제품 요청
-    @asks = Feedback.order('id desc').paginate(page: params[:page], per_page: 5)
+    @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
 
 
   end
@@ -363,7 +363,7 @@ class HomeController < ApplicationController
 
   def askfor_submit2
 
-    @post=Feedback.new
+    @post=Askfor.new
     @post.content=params[:content]
 
     @post.save
@@ -470,7 +470,7 @@ class HomeController < ApplicationController
   end
 
   def askfor_status #제품 요청 상태 수정
-    @one_askfor = Feedback.find(params[:askfor_id])
+    @one_askfor = Askfor.find(params[:askfor_id])
     @one_askfor.status = params[:status]
     @one_askfor.save
 
