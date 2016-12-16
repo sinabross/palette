@@ -60,7 +60,7 @@
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts">
             <h3><%=@update_count%></h3>
-            <p>이번주 등록상품 수</p>
+            <p id="askfor">이번주 등록상품 수</p>
           </div>
 
         </div>
@@ -75,20 +75,22 @@
 
 <!-- Page Content -->
 
-<div class="content-section-a" id="askfor">
+<div class="content-section-a" >
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
         <h2 class="section-heading">제품 요청</h2>
         <hr class="section-heading-spacer">
         <div class="clearfix"></div>
-
+        <p class="section-heading-second" style="margin-bottom:30px;">
+          찾으시는 제품이 없다면 자유롭게 요청해주세요.
+        </p>
         <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
           <div class="row">
             <div class="askForGroup col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12">
               <form action="home/askfor_submit2" method="post" data-toggle="validator">
                 <div class="form-group">
-                  <input type="text" class="form-control form-askfor" name="content" placeholder="제품을 요청해주세요." maxlength="30" required>
+                  <input type="text" class="form-control form-askfor" name="content" placeholder="제품을 요청해주세요(30자)" maxlength="30" required>
                 </div>
                 <input type="submit" class="btn-askfor" value="요청">
               </form>
