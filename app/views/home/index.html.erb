@@ -53,7 +53,7 @@
         </div>
         <!--/세부계절 타입 div 끝-->
 
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts count1" style="margin-bottom:10px">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 counts" style="margin-bottom:10px">
             <h3><%=@product_count%></h3>
             <p>전체 상품 수</p>
           </div>
@@ -75,7 +75,71 @@
 
 <!-- Page Content -->
 
-<div class="content-section-a">
+<%
+=begin
+%>
+<div class="content-section-a" id="askfor">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <h2 class="section-heading">제품 요청</h2>
+        <hr class="section-heading-spacer">
+        <div class="clearfix"></div>
+
+        <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+          <form action="/home/askfor_submit2" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control form-askfor" name="content" placeholder="제품을 요청해주세요.">
+            </div>
+            <button type="submit" class="btn-askfor">요청</button>
+          </form>
+
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+
+            <table>
+
+              <tbody style="text-align: center;">
+              <% @asks.each do |p| %>
+                  <tr class="table_askfor">
+                    <td class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                      <p><%=p.id%></p>
+                    </td>
+                    <td class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                      <p style="display:inline;"><%=p.content%></p>
+                      <p style="display:inline;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y.%m.%d %H:%M") %></p>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+                      ●
+                    </td>
+
+                        <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                          ●○○
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+
+                         <%= link_to "X", "/askfor_delete/#{p.id}", data: { confirm: "잘못 누른거 아니죠?" }%>
+
+                        </td>
+
+                  </tr>
+
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- /.container -->
+<%
+=end
+%>
 
   <div class="container">
     <div class="row">
@@ -86,7 +150,7 @@
 
         <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
           <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
-            <table class="table user-list">
+            <table class="table user-list notice">
               <thead>
               <tr>
                 <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>번호</span></th>
@@ -134,7 +198,7 @@
            
   </div>
   <!-- /.container -->
-                    
+
 </div>
 <!-- /.content-section-a -->
 
@@ -646,6 +710,7 @@
     color:#ffffff;
   }
 
+  /*새소식 css 였다가 제품요청 css로 갈아탐*/
 
   .notice a {
     color:#56565d;
@@ -654,10 +719,18 @@
   .notice a:hover{
     text-decoration:none;
   }
-  .notice h3{
-    font-size:1.5em;
-    color:#ffffff;
-    white-space: pre-line;
+
+  .table_askfor{
+    border-bottom:1px solid lightgray;
+    border-top:0;
+    height:auto;
+  }
+  .form-askfor{
+    display:inline-block;
+    width:80%;
+  }
+  .btn-askfor{
+    display:inline-block;
   }
 
   .counts>p, .counts>h3 {
@@ -716,7 +789,7 @@
   .content-section-a {
     padding-top: 10px;
     padding-bottom:20px;
-    background-color: #f8f8f8;
+    background-color: #ffffff;
     text-align: center;
 
   }
