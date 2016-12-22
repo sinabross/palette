@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
 
     #공지사항 최신글 보여주기
-    #@news = Notice.order('id desc').first(5)
+    @news = Notice.order('id desc').first(5)
 
     #총 제품 개수
     @product_count = Lip.count
@@ -13,10 +13,10 @@ class HomeController < ApplicationController
     #이번주 등록 제품 개수
 
     #@update_count = Lipdb.where(:id => 200..236).count
-    @update_count = 0
+    #@update_count = 0
 
     #제품 요청
-    @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
+    #@asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
 
 
   end
