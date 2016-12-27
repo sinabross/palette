@@ -418,15 +418,17 @@ class HomeController < ApplicationController
   #=============== admin page============================
   
   def admin_reply #admin 댓글모아보기
-    unless user_signed_in?
-      redirect_to "/users/sign_in"
-    end
-    if user_signed_in? && current_user.admin?
-      @review= Review.all.order("created_at DESC")
-    elsif user_signed_in? && current_user.admin==nil
-      redirect_to "/"
-      flash[:error] = "접근권한이 없습니다."
-    end
+  #  unless user_signed_in?
+  #    redirect_to "/users/sign_in"
+  #  end
+  #  if user_signed_in? && current_user.admin?
+  #    @review= Review.all.order("created_at DESC")
+  #  elsif user_signed_in? && current_user.admin==nil
+  #     redirect_to "/"
+  #    flash[:error] = "접근권한이 없습니다."
+  #  end
+    @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
+
   end
   
   def admin_user
