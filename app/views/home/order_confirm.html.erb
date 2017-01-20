@@ -1,0 +1,95 @@
+
+<div class="container">
+
+  <h4 class="section-heading">입금 안내</h4>
+
+  <p class="account">
+    [입금 계좌번호] <br>
+    하나은행 364-910354-65207 (예금주: 팔렛)
+  </p>
+
+  <p class="final_price">결제금액: <%=@total_price%>원 <span style="color:red;">(배송비 무료)</span></p>
+
+
+  <ul class="delivery_guide">
+    <li>
+      미입금 시 12시간 이후에는 자동취소 처리됩니다.
+    </li>
+    <li>
+      16시 이전 입금은 재고확인 후 당일에 배송처리 됩니다.
+    </li>
+    <li>
+      배송기간은 입금일 기준(주말제외) 최대 2~3일까지 소요될 수 있습니다.
+    </li>
+    <li>
+      입금확인 및 운송장번호는 메시지로 보내드립니다.
+    </li>
+  </ul>
+
+  <form action="/home/order_submit/<%=@product_order.id%>" method="post">
+    <div class="form-check">
+      <label class="confirm">
+        <input class="confirm" name="confirm" type="checkbox" value="확정">
+        주문 안내사항을 충분히 숙지하였습니다.
+      </label>
+    </div>
+
+    <div style="text-align: center; margin-top:30px;">
+      <%= link_to '뒤로', :back, class:"btn-final btn-back" %>
+      <button type="submit" class="btn-final btn-confirm" >주문완료</button>
+    </div>
+  </form>
+
+
+
+</div>
+
+
+<style>
+  .section-heading {
+    text-align: center;
+    font-weight:bold;
+    margin-top:30px;
+  }
+   .account{
+     border:1px solid gray;
+     background-color:#e4e4e4;
+     border-radius:5px;
+     padding:10px;
+     margin-bottom:20px;
+   }
+   .final_price{
+     font-weight:bold;
+     text-align:center;
+     font-size:14px;
+     margin-bottom:30px;
+   }
+   .delivery_guide{
+     padding:25px;
+     border:1px solid black;
+     list-style: disc;
+   }
+   .delivery_guide li{
+     margin-bottom:10px;
+   }
+  .btn-final {
+    height: 50px;
+    width: 150px;
+    line-height: 40px;
+    display: inline-block;
+    margin-bottom: 0px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    text-decoration:none;
+  }
+  .btn-final.btn-back{
+    background: lightgray;
+    color:black;
+  }
+  .btn-final.btn-confirm{
+    background: #ffaaa3;
+  }
+</style>

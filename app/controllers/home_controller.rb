@@ -525,4 +525,52 @@ class HomeController < ApplicationController
   end
  # ========================새소식 끝 ================
 
+
+ #=======================구매 페이지=====================
+
+  def order
+    @product = Lip.find_by_image(params[:product_num])
+  end
+
+  def order_submit
+    if params[:order_id]
+      @order_check = Order.find(params[:order_id])
+      @order_check.confirm = params[:confirm]
+      @order_check.save
+
+      redirect_to "/"
+
+
+    else
+      @new_order = Order.new
+      @new_order.name = params[:name]
+      @new_order.tel = params[:tel]
+      @new_order.address = params[:address]
+      @new_order.money_name = params[:money_name]
+      @new_order.product_brand = params[:product_brand]
+      @new_order.product_name = params[:product_name]
+      @new_order.product_price = params[:product_price]
+      @new_order.save
+
+        redirect_to "/home/order_confirm/#{@new_order.id}"
+    end
+
+
+  end
+
+  def order_confirm
+      @product_order = Order.find(params[:order_id])
+      @total_price = @product_order.product_price * @product_order.product_number
+  end
+
+
+
+
+
+
+ #=======================/구매 페이지 끝=====================
+
+
+
+
 end
