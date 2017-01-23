@@ -63,7 +63,7 @@
        <div class="col-md-12 col-xs-12" >
          <div>
            <div class="col-md-12 col-xs-12" >
-             <h3 class="season_info"><%=@product.season%></h3>
+             <h3 class="season_info season_PC"><%=@product.season%></h3>
            </div>
          </div>
 
@@ -98,17 +98,19 @@
     <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
 
            <div class="col-md-12 col-xs-12 color_show_wrapper" >
+
                 <div class="col-md-5 col-md-offset-2 col-xs-12">
+                  <h3 class="season_info"><%=@product.season%></h3>
                   <img class="season_info_img" src="https://pbs.twimg.com/media/CZxjEykWQAIOHff.jpg">
                 </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12" style="padding:0;">
                   <img class="color_show" src="/images/color_cut.png">
                   <img class="color_show" src="/images/sample4.png">
                 </div>
            </div>
 
 
-             <h3 class="season_info"><%=@product.season%></h3>
+
 
            <div class="col-md-5 col-md-offset-3 col-xs-12">
              <p class="color_show_explain">
@@ -124,7 +126,20 @@
 
               <h3 class="season_info">발색 사진</h3>
 
-            <img class="color_show2" src="/images/balsaek.png">
+            <img class="color_show2" src="/images/test100.png">
+            <br>
+            <img class="color_show2" src="/images/test150.png">
+            <br>
+            <img class="color_show2" src="/images/test200.png">
+            <br>
+            <img class="color_show2" src="/images/test250.png">
+            <br>
+            <img class="color_show2" src="/images/test350.png">
+            <br>
+            <img class="color_show2" src="/images/test500.png">
+            <br>
+            <img class="color_show2" src="/images/test700.png">
+
           </div>
           <!--/발색 샷 끝-->
           <!-- 제품군, 펄유무, 텍스쳐-->
@@ -227,6 +242,7 @@
     .season_info{
       font-family:'Hanna';
       text-align:center;
+      margin-bottom:30px;
     }
 
     @media (max-width: 768px){
@@ -355,9 +371,13 @@
       .product_info{
         display:none;
       }
+      .season_PC{
+        display:none;
+      }
       .season_info_img{
         width:80%;
         height:auto;
+        margin-bottom:30px;
 
       }
       .color_show_wrapper{
@@ -591,6 +611,7 @@
         padding:5px;
         margin:0 3px;
       }
+
 
       .season_info_img{
         width:70%;
