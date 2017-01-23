@@ -92,4 +92,25 @@
   .btn-final.btn-confirm{
     background: #ffaaa3;
   }
+
+  @media(min-width:768px){
+    .section-heading{
+      margin-top:80px;
+      margin-bottom:30px;
+      font-size:25px;
+    }
+  }
 </style>
+
+<script>
+    $(document).ready(function(){
+
+        $('.btn-confirm').click(function() {
+
+            alert('주문이 완료 되었습니다. 12시간 이내에 입금 바랍니다 :)');
+        });
+
+    });
+
+
+</script>

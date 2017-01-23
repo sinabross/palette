@@ -97,10 +97,10 @@ Rails.application.routes.draw do
 
   # 구매 페이지
 
-  get 'home/order/:product_num' => "home#order"
-  post 'home/order_submit'
-  post 'home/order_submit/:order_id' => "home#order_submit"
-  get "home/order_confirm/:order_id" => "home#order_confirm"
+  #get 'home/order/:product_num' => "home#order"
+  #post 'home/order_submit'
+  #post 'home/order_submit/:order_id' => "home#order_submit"
+  #get "home/order_confirm/:order_id" => "home#order_confirm"
 
 
 
