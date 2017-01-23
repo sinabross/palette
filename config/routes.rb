@@ -94,6 +94,18 @@ Rails.application.routes.draw do
 
   get 'home/notice_delete/:notice_id/' => 'home#notice_delete'
 
+
+  # 구매 페이지
+
+  #get 'home/order/:product_num' => "home#order"
+  #post 'home/order_submit'
+  #post 'home/order_submit/:order_id' => "home#order_submit"
+  #get "home/order_confirm/:order_id" => "home#order_confirm"
+
+
+
+
+
   # 좋아요 기능
   resources :home do 
     member do
