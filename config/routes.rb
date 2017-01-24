@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   
   #제품검토요청
   get '/admin' => 'home#admin_user'
+  get '/adminadmin' => 'home#admin'  #관리자 페이지
   get 'home/admin_reply' #admin_리뷰모아보기
   get 'home/admin_user' #admin_회원모아보기
   get 'home/admin_write'
