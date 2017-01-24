@@ -95,12 +95,16 @@
       </div> <!--/div#orange-->
     </div> <!--/row-->
 
-    <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
 
+
+    <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
+<%
+=begin
+%>
            <div class="col-md-12 col-xs-12 color_show_wrapper" >
 
                 <div class="col-md-5 col-md-offset-2 col-xs-12">
-                  <h3 class="season_info"><%=@product.season%></h3>
+                  <h3 class="season_info season_mobile"><%=@product.season%></h3>
                   <img class="season_info_img" src="https://pbs.twimg.com/media/CZxjEykWQAIOHff.jpg">
                 </div>
                 <div class="col-md-4 col-xs-12" style="padding:0;">
@@ -138,6 +142,9 @@
 
           </div>
           <!--/발색 샷 끝-->
+<%
+=end
+%>
           <!-- 제품군, 펄유무, 텍스쳐-->
           <div class="product_info_mobile">
             <div class="panel panel-default col-md-4 col-xs-4">
@@ -161,14 +168,12 @@
           </div>
         </div>
 
-    </div>  <!--/.row-->
+    </div>
 
 
 
 
-
-
-  <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
+  <div class="row detail_PC detail_mobile" >
     <hr style="border:1px solid lightgray;">
 
 
@@ -367,9 +372,9 @@
       .product_info{
         display:none;
       }
-      .season_PC{
+     /* .season_PC{
         display:none;
-      }
+      }*/
       .season_info_img{
         width:80%;
         height:auto;
@@ -437,7 +442,10 @@
       .divide_inPC{
         display:none;
       }
-
+      .detail_mobile{
+        padding-right:30px;
+        padding-left:30px;
+      }
     } /*max-width 768px ends*/
 
     @media (min-width: 768px){
@@ -607,7 +615,9 @@
         padding:5px;
         margin:0 3px;
       }
-
+      .season_mobile{
+        display:none;
+      }
 
       .season_info_img{
         width:70%;
