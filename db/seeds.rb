@@ -7,27 +7,27 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# 팔목디비(2017.01.27, 퍼갤 대상 배포 실험 목적)
-#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170131.xlsx")
-#    input_lip= xlsx_lip.parse(  num: 'num',
-#                                image: 'image',
-#                                name: 'name',
-#                                brand: 'brand',
-#                                level: 'level',
-#                                color: 'color',
-#                                wc: 'wc',
-#                                tone: 'tone',
-#                                season: 'season',
-#                                price: 'price',
-#                                size: 'size',
-#                                pro_type: 'pro_type',
-#                                glitter: 'glitter',
-#                                texture: 'texture',
-#                                keyword: 'keyword')
-#     input_lip.each_with_index do |item, index|
-#        next if index == 0
-#        Lip.create(item)
-#    end
+ #팔목디비(2017.01.27, 퍼갤 대상 배포 실험 목적)
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170131.xlsx")
+    input_lip= xlsx_lip.parse(  num: 'num',
+                                image: 'image',
+                                name: 'name',
+                                brand: 'brand',
+                                level: 'level',
+                                color: 'color',
+                                wc: 'wc',
+                                tone: 'tone',
+                                season: 'season',
+                                price: 'price',
+                                size: 'size',
+                                pro_type: 'pro_type',
+                                glitter: 'glitter',
+                                texture: 'texture',
+                                keyword: 'keyword')
+     input_lip.each_with_index do |item, index|
+        next if index == 0
+        Lip.create(item)
+    end
 
 
 
