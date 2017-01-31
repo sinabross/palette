@@ -98,53 +98,41 @@
 
 
     <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
-<%
-=begin
-%>
-           <div class="col-md-12 col-xs-12 color_show_wrapper" >
 
-                <div class="col-md-5 col-md-offset-2 col-xs-12">
-                  <h3 class="season_info season_mobile"><%=@product.season%></h3>
-                  <img class="season_info_img" src="https://pbs.twimg.com/media/CZxjEykWQAIOHff.jpg">
-                </div>
-                <div class="col-md-4 col-xs-12" style="padding:0;">
-                  <img class="color_show" src="/images/color_cut.png">
-                  <img class="color_show" src="/images/sample4.png">
-                </div>
-           </div>
+      <div class="col-md-5 col-md-offset-3 col-xs-12">
+        <p class="color_show_explain">
+          사람마다 피부색이 다른 점을 고려하여<br>
+          피부와 가장 유사한 아크릴 판에 발색 후 진단
+        </p>
+      </div>
 
+      <div class="col-md-12 col-xs-12 color_show_wrapper" >
 
+        <div class="col-md-12 col-xs-12" style="padding:0;">
+          <img class="color_show" src="/images/color_cut.png">
+          <img class="color_chip" src="/images/L247_color.jpg">
+        </div>
 
+        <div class="col-md-12 col-xs-12">
+         <h3 class="season_info season_mobile"><%=@product.season%></h3>
+         <img class="season_info_img" src="https://pbs.twimg.com/media/CZxjEykWQAIOHff.jpg">
+        </div>
 
-           <div class="col-md-5 col-md-offset-3 col-xs-12">
-             <p class="color_show_explain">
-               사람마다 피부색이 다른 점을 고려하여<br>
-               피부와 가장 유사한 아크릴 판에 발색 후 진단
-             </p>
-           </div>
+      </div>
 
 
-        <div class="col-md-12 col-xs-12" >
+       <div class="col-md-12 col-xs-12" >
+
           <!-- 발색 샷 -->
-          <div class="color_show_wrapper">
+         <div class="color_show_wrapper">
 
-              <h3 class="season_info">발색 사진</h3>
+           <h3 class="season_info season_mobile">발색 사진</h3>
 
-            <img class="color_show2" src="/images/test350.png">
-            <br>
-            <img class="color_show2" src="/images/test500.png">
-            <br>
-            <img class="color_show2" src="/images/test700.png">
-
-            <img class="color_show2" src="/images/test_jpg.jpg">
-            <br>
-            <img class="color_show2" src="/images/test_png8.png">
+            <img class="color_show2" src="/images/color_cut.png">
 
           </div>
           <!--/발색 샷 끝-->
-<%
-=end
-%>
+
           <!-- 제품군, 펄유무, 텍스쳐-->
           <div class="product_info_mobile">
             <div class="panel panel-default col-md-4 col-xs-4">
@@ -166,12 +154,9 @@
               </div>
             </div>
           </div>
-        </div>
+       </div>
 
     </div>
-
-
-
 
   <div class="row detail_PC detail_mobile" >
     <hr style="border:1px solid lightgray;">
@@ -372,11 +357,11 @@
       .product_info{
         display:none;
       }
-     /* .season_PC{
+     .season_PC{
         display:none;
-      }*/
+      }
       .season_info_img{
-        width:80%;
+        width:100%;
         height:auto;
         margin-bottom:30px;
 
@@ -385,9 +370,15 @@
         text-align: center;
       }
       .color_show{
-        height:150px;
-        width:150px;
-        display:inline-block;
+        height:285px;
+        width:285px;
+        display:block;
+      }
+      .color_chip{
+        width:285px;
+        height:70px;
+        margin:auto;
+        margin-top:20px;
       }
       .color_show2{
         height:300px;
@@ -401,9 +392,10 @@
         padding:5px;
         border:2px solid gray;
         height:auto;
-        width:100%;
+        width:95%;
         display:block;
-        margin:30px 0px 50px 0px;
+        margin:20px auto;
+        margin-bottom:40px;
         font-size:12px;
       }
 
@@ -573,6 +565,7 @@
       }
 
       /*제품 상세 페이지*/
+
       .product_info_mobile{
         display: none;
       }
@@ -615,28 +608,35 @@
         padding:5px;
         margin:0 3px;
       }
-      .season_mobile{
-        display:none;
-      }
 
       .season_info_img{
-        width:70%;
+        width:590px;
         height:auto;
         margin:30px auto;
+        display:block;
+      }
+      .season_mobile{
+        font-size:35px;
       }
       .color_show_wrapper{
         text-align: center;
         margin-top:50px;
       }
       .color_show{
-        height:150px;
-        width:150px;
-        margin-bottom:7px;
+        height:590px;
+        width:590px;
+        margin:auto;
         display:block;
       }
+      .color_chip{
+        display:block;
+        width:590px;
+        height:145px;
+        margin:30px auto;
+      }
       .color_show2{
-        height:auto;
-        width:30%;
+        height:590px;
+        width:590px;
         display:block;
         margin:50px auto;
       }
@@ -648,7 +648,7 @@
         height:auto;
         width:120%;
         display:block;
-        margin:30px 0px 50px 0px;
+        margin:30px 0px 30px 0px;
         font-size:14px;
       }
 

@@ -7,27 +7,53 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# 팔목디비
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb161212.xlsx")
-    input_lip= xlsx_lip.parse(  num: 'num',
-                                image: 'image',
-                                wc: 'wc',
-                                season: 'season',
-                                tone: 'tone',
-                                brand: 'brand',
-                                name: 'name',
-                                price: 'price',
-                                size: 'size',
-                                color: 'color',
-                                pro_type: 'pro_type',
-                                glitter: 'glitter',
-                                texture: 'texture',
-                                keyword: 'keyword',
-                                level: 'level')
-     input_lip.each_with_index do |item, index|
-        next if index == 0
-        Lip.create(item)
-    end
+# 팔목디비(2017.01.27, 퍼갤 대상 배포 실험 목적)
+#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170127.xlsx")
+#    input_lip= xlsx_lip.parse(  num: 'num',
+#                                image: 'image',
+#                                name: 'name',
+#                                brand: 'brand',
+#                                color: 'color',
+#                                wc: 'wc',
+#                                tone: 'tone',
+#                                season: 'season',
+#                                price: 'price',
+#                                size: 'size',
+#                                pro_type: 'pro_type',
+#                                glitter: 'glitter',
+#                                texture: 'texture',
+#                                keyword: 'keyword',
+#                                level: 'level')
+#     input_lip.each_with_index do |item, index|
+#        next if index == 0
+#        Lip.create(item)
+#    end
+
+
+
+
+
+# 팔목디비(초기)
+#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb161212.xlsx")
+#    input_lip= xlsx_lip.parse(  num: 'num',
+#                                image: 'image',
+#                                wc: 'wc',
+#                                season: 'season',
+#                               tone: 'tone',
+#                                brand: 'brand',
+#                                name: 'name',
+#                                price: 'price',
+#                                size: 'size',
+#                                color: 'color',
+#                                pro_type: 'pro_type',
+#                                glitter: 'glitter',
+#                                texture: 'texture',
+#                                keyword: 'keyword',
+#                                level: 'level')
+#     input_lip.each_with_index do |item, index|
+#        next if index == 0
+#        Lip.create(item)
+#    end
     
     
     
