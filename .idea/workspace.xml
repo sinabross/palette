@@ -35,8 +35,8 @@
       <file leaf-file-name="detail2.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+            <state relative-caret-position="216">
+              <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -810,12 +810,12 @@
       <workItem from="1485146565318" duration="8300000" />
       <workItem from="1485437487107" duration="482000" />
       <workItem from="1485488904349" duration="3124000" />
-      <workItem from="1485826384742" duration="12737000" />
+      <workItem from="1485826384742" duration="13880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="616451000" />
+    <option name="totallyTimeSpent" value="617594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1192,8 +1192,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="120" column="12" lean-forward="true" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+        <state relative-caret-position="216">
+          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
