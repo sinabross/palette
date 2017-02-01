@@ -8,7 +8,7 @@
 
 
  #팔목디비(2017.01.27, 퍼갤 대상 배포 실험 목적)
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170131.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170201.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 image: 'image',
                                 name: 'name',
