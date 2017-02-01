@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="af46b04f-b156-4922-b025-0b203a667570" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170201075032_create_lips.rb" afterPath="$PROJECT_DIR$/db/migrate/20170201075032_create_lips.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/detail2.html.erb" afterPath="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="palette_songs_workspace.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,17 +33,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="detail2.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="detail2.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="155" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="155" />
+            <state relative-caret-position="180">
+              <caret line="112" column="73" lean-forward="false" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
@@ -91,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20170201075032_create_lips.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20170201075032_create_lips.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20170201075032_create_lips.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="212">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -171,9 +173,9 @@
       <find>.product</find>
       <find>.product_info</find>
       <find>.season_mo</find>
-      <find>.color_chip</find>
       <find>.season_info</find>
       <find>.color_show</find>
+      <find>.color_chip</find>
       <find>.color_show_ex</find>
     </findStrings>
   </component>
@@ -227,13 +229,13 @@
         <option value="$PROJECT_DIR$/app/views/layouts/partial/_navbar.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170131110609_drop_lips.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170131111728_create_lips.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/search.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/list_lip2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/feedback.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170201074156_drop_lips.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170201075032_create_lips.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/detail2.html.erb" />
       </list>
     </option>
   </component>
@@ -598,7 +600,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;feedback&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;feedba&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rake&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/rake&#10;inde&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;asset&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/assets.rb&#10;enviro&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environment.rb&#10;production&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environments/production.rb&#10;gem&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/Gemfile&#10;notice&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/notice_view.html.erb&#10;detail2&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail2.html.erb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;index&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;list&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/list_lip.erb&#10;robo&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robot&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robots&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="detail2&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail2.html.erb&#10;route&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;rout&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/routes.rb&#10;feedback&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;feedba&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/feedback.html.erb&#10;search&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/search.html.erb&#10;nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;rake&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/rake&#10;inde&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;asset&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/assets.rb&#10;enviro&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environment.rb&#10;production&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/environments/production.rb&#10;gem&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/Gemfile&#10;notice&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/notice_view.html.erb&#10;detail&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/detail.erb&#10;index&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/index.html.erb&#10;list&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/list_lip.erb&#10;robo&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robot&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;robots&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/public/robots.txt&#10;eed&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/db/seeds.rb&#10;_nav&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;show_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/show_feedback.html.erb&#10;admin&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_user.erb&#10;admin_&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/admin_reply.erb&#10;devise.r&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/config/initializers/devise.rb&#10;admin.rb&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;ad&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/models/admin.rb&#10;main&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/home/main.html.erb&#10;appli&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/application.html.erb&#10;application&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/controllers/application_controller.rb&#10;na&#9;FILE&#9;file://C:/Users/com/RubymineProjects/palette_songs_workspace/app/views/layouts/partial/_navbar.html.erb&#10;environment&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -850,12 +852,12 @@
       <workItem from="1485146565318" duration="8300000" />
       <workItem from="1485437487107" duration="482000" />
       <workItem from="1485488904349" duration="3124000" />
-      <workItem from="1485826384742" duration="20542000" />
+      <workItem from="1485826384742" duration="21096000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="624256000" />
+    <option name="totallyTimeSpent" value="624810000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -868,7 +870,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28144655" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28144655" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1183,23 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="155" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="155" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/search.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -1258,9 +1243,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20170201075032_create_lips.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="212">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/detail2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="112" column="73" lean-forward="false" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#1;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
