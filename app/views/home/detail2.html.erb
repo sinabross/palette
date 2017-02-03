@@ -1,0 +1,687 @@
+<!-- 상세페이지 -->
+<div class="container">
+    <div class="row">
+      <div class="page-navigation">
+        <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+
+        <a href="/home/list_lip2/봄 브라이트">립 추천</a><i class="fa fa-angle-right" aria-hidden="true"></i>
+
+        <a href="/home/list_lip2/<%=@product.season%>"><%=@product.season%></a>
+
+      </div>
+
+      <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
+
+
+        <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.image%>-min.jpg">
+
+      </div>
+      
+      <div class="col-md-6 col-xs-12"  id="orange" style="padding-top:10px; margin-left:-15px;">
+        <h4>[<%=@product.brand %>]</h4>
+        <h3 style="margin-bottom:20px;"><strong><%=@product.name %></strong></h3> <!-- 해당 페이지만 브랜드명, 제품명, 용량/가격 -->
+        <h4 style="text-align:left;display:inline-block;"><%=@product.size %> / <%=@product.price %>원</h4>
+
+<%
+=begin
+%>
+        <a href="/home/order/<%=@product.image%>" class="btn-buy" role="button"  style="float:right;">
+          <i class="fa fa-krw" aria-hidden="true"></i> 주문하기
+        </a>
+<%
+=end
+%>
+
+        <!--좋아요 기능 작동하는 하트 버튼 노출 / 잠시 봉인함(16.10.07)-->
+        <%if user_signed_in?%>    
+          <% if current_user.voted_up_on? @product %>
+        <!--    <div class="row" style="text-align:right">
+              <div class="col-sm-1 col-sm-offset-10 unlike-button" style="position:right">
+                <% link_to '', unlike_home_path(@product.num), remote: true, id: "#{@product.num}_like",
+                    class: "like fa fa-heart", onclick:"ga('send', 'pageview', '/like');" %>
+              </div>
+            </div>  
+          <% else %>
+            <div class="row" style="text-align:right"> 
+              <div class="col-sm-1 col-sm-offset-10 like-button" style="position:right">
+                <% link_to '', like_home_path(@product.num), remote: true, id: "#{@product.num}_like",
+                    class: "like fa fa-heart-o", onclick:"ga('send', 'pageview', '/like');" %>
+              </div>
+            </div>  
+          <% end %>
+          <!--/좋아요 기능 작동하는 하트 버튼 -->
+                      
+        <%else%>
+          <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
+       <!--   <div class="row">
+            <div class="col-sm-1 col-sm-offset-10 fake-like-button" align="right">
+              <% link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
+                  class: "fa fa-heart-o", onclick:"ga('send', 'pageview', '/fake_like');"%>
+            </div>
+          </div> -->
+        <%end%>
+ 
+        <hr style="border:solid 1px lightgray;margin-bottom:15px;">
+
+       <div class="col-md-12 col-xs-12" >
+         <div>
+           <div class="col-md-12 col-xs-12" >
+             <h3 class="season_info season_PC"><%=@product.season%></h3>
+           </div>
+         </div>
+
+         <!-- 제품군, 펄유무, 텍스쳐-->
+         <div class="product_info">
+           <div class="panel panel-default col-md-4 col-xs-4" style="margin-bottom:60px;">
+             <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:center;">
+          <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+             </div>
+           </div>
+           <div class="panel panel-default col-md-4 col-xs-4">
+             <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:center">
+          <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+             </div>
+           </div>
+           <div class="panel panel-default col-md-4 col-xs-4">
+             <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:right">
+            <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+             </div>
+           </div>
+         </div>
+       </div>
+
+
+        <hr class="divide_inPC" style="border:solid 1px lightgray;">
+      </div> <!--/div#orange-->
+    </div> <!--/row-->
+
+
+
+    <div class="row detail_PC" style="padding-right:15px;padding-left:15px;">
+
+
+      <div class="col-md-12 col-xs-12 color_show_wrapper" >
+
+        <div class="col-md-12 col-xs-12">
+         <h3 class="season_info season_mobile"><%=@product.season%></h3>
+         <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.season%>.jpg">
+        </div>
+
+        <div class="col-md-5 col-md-offset-3 col-xs-12" style="padding:0;">
+          <p class="color_show_explain">
+            정확한 진단을 위하여 실물과 가장 유사한<br>
+            자연광에서 제품 진단 후 촬영하였습니다.
+          </p>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="padding:0;">
+          <img class="color_show" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_field.jpg">
+          <img class="color_chip" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/color_chips/<%=@product.image%>_color.jpg">
+        </div>
+
+      </div>
+
+
+       <div class="col-md-12 col-xs-12" >
+
+<%
+=begin
+%>
+          <!-- 발색 샷 -->
+         <div class="color_show_wrapper">
+
+           <h3 class="season_info season_mobile">발색 사진</h3>
+
+            <img class="color_show2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color_in_shop/<%=@product.image%>_wrist.jpg">
+
+          </div>
+          <!--/발색 샷 끝-->
+<%
+=end
+%>
+
+          <!-- 제품군, 펄유무, 텍스쳐-->
+          <div class="product_info_mobile">
+            <div class="panel panel-default col-md-4 col-xs-4">
+              <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:center">
+          <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+              </div>
+            </div>
+            <div class="panel panel-default col-md-4 col-xs-4">
+              <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:center">
+          <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+              </div>
+            </div>
+            <div class="panel panel-default col-md-4 col-xs-4">
+              <div class="panel-body" align="center">
+          <span style="font-size:12px; text-align:right">
+            <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+              </div>
+            </div>
+          </div>
+       </div>
+
+    </div>
+
+  <div class="row detail_PC detail_mobile" >
+    <hr style="border:1px solid lightgray;">
+
+
+    <!-- 수정요청 버튼 들어갈 부분 -->
+        <div>
+          <a href="/home/feedback/<%=@product.image%>" class="btn-detail btn-edit" role="button">
+            <i class="fa fa-question-circle" aria-hidden="true"></i>  질문하기
+          </a> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+        </div>
+    <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
+
+
+      <!-- 유의사항 -->
+
+      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
+        <h4 style="text-align: center;">유의사항</h4>
+          <ul>
+            <li>
+              팔레트에 소개된 모든 제품의 퍼스널컬러 정보는 일정한 조명 환경 아래에서 전문가가 직접 분류하였습니다.
+             
+             <!-- 분류 과정에 대한 보다 자세한 소개를 원하신다면
+              <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.-->
+            </li>
+            <li>
+              퍼스널컬러에 절대적인 기준은 없습니다. 제품에 따라 외부의 기준과는 다소 차이가 있을 수 있음을 유념해주세요.
+            </li>
+            <li>
+              제품의 퍼스널컬러 정보가 어울리는 정도에는 개인차가 있을 수 있습니다.
+            </li>
+          </ul>
+      </div>
+
+<%
+=begin
+%>
+
+    <div class="col-md-12 col-xs-12" style="text-align: center;">
+        <a href="/home/order/<%=@product.image%>" class="btn-buy btn-buy-bottom" role="button">
+          <i class="fa fa-krw" aria-hidden="true"></i> 주문하기
+        </a>
+      </div>
+<%
+=end
+%>
+
+
+  </div>
+  <!--/.row -->
+
+
+  </div>
+  <!--/.containter_맨위 -->
+
+
+<style>
+    @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+    
+    h4 {font-family: 'Hanna';}
+
+    .page-navigation>a{
+      color:#56565d;
+    }
+    .partner_name:hover{
+      text-decoration: none;
+    }
+    .season_info{
+      font-family:'Hanna';
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    @media (max-width: 768px){
+
+      .page-navigation{
+        text-align:right;
+        margin: 30px 10px 20px 0px;
+      }
+      .btn-edit{
+        height:40px;
+        width:80px;
+        line-height:40px;
+        color:#56565d;
+        font-size:13px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:active{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:12px;
+        clear:both;
+        text-align:left;
+        border:1px solid #56565d;
+      }
+      .color_intro>h4{
+        font-weight:bold;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
+      }
+      .color-image{
+        display:inline;
+        width:100%;
+        height:100%;
+      }
+      /*제품 상세페이지*/
+      .panel-body{
+        padding:10px;
+      }
+
+      /*전문가 코멘트 부분*/
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding:10px;
+        margin:0 10px 0 10px; 
+        word-break:break-all;
+        white-space: pre-line;
+        display:inline-block;
+        font-size:20px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 7px 21px 7px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -7px;
+        left: -16px;
+        top: 50%;
+
+      }
+      .partner_comments_header{
+        text-align:center;
+        margin-bottom:30px;
+      }
+      .partner_comments_header>h3{
+        
+        font-family:'Hanna';
+        font-size:20px;
+        font-weight:bold;
+        display:inline-block;
+      }
+      .partner_comments_header>h3>p{
+        font-size:11px;
+      }
+      .comment_icon{
+        display:inline-block;
+        font-size:20px;
+        color:#ffa291;
+        margin-left:10px;
+      }
+      .partner_profile{
+        
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:14px;
+        margin-top:10px;
+
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:80px;
+        height:80px;
+        display:inline-block;
+      }
+      .product_info{
+        display:none;
+      }
+     .season_PC{
+        display:none;
+      }
+      .season_info_img{
+        width:100%;
+        height:auto;
+        margin-bottom:30px;
+
+      }
+      .color_show_wrapper{
+        text-align: center;
+      }
+      .color_show{
+        height:285px;
+        width:285px;
+        margin:auto;
+        display:block;
+      }
+      .color_chip{
+        width:285px;
+        height:70px;
+        margin:auto;
+        margin-top:10px;
+        margin-bottom:30px;
+      }
+      .color_show2{
+        height:300px;
+        width:100%;
+        display:block;
+        margin:3px 0px 50px 0px;
+      }
+      p.color_show_explain{
+        text-align:center;
+        color:gray;
+        padding:5px;
+        border:2px solid gray;
+        height:auto;
+        width:100%;
+        display:block;
+        margin:20px auto;
+        margin-bottom:20px;
+        font-size:12px;
+      }
+
+      .btn-buy{
+        height:38px;
+        width:100px;
+        line-height:30px;
+        color:#ffffff;
+        font-size:14px;
+        text-align:center;
+        background:#ffaaa3;
+        border-radius:3px;
+        margin-bottom:20px;
+        padding:5px;
+        display:inline-block;
+      }
+      .btn-buy-bottom{
+        height:50px;
+        width:200px;
+        line-height:40px;
+        font-size:15px;
+        display:block;
+        margin:30px auto;
+        margin-bottom:0px;
+
+      }
+
+      .fa-krw{
+        color:#ffaaa3;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size:10px;
+        padding:5px;
+        margin:0 3px;
+      }
+      .divide_inPC{
+        display:none;
+      }
+      .detail_mobile{
+        padding-right:30px;
+        padding-left:30px;
+      }
+    } /*max-width 768px ends*/
+
+    @media (min-width: 768px){
+      .page-navigation{
+        text-align:right;
+        margin-right:45px;
+
+      }
+      body{
+        margin-top:60px;
+      }
+      .detail_PC{
+        padding-right:150px;
+        padding-left:150px;
+      }
+      .btn-edit{
+        height:50px;
+        width:110px;
+        padding:10px;
+        line-height:30px;
+        color:#56565d;
+        font-size:15px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:14px;
+        clear:both;
+        text-align:left;
+        border:1px solid #56565d;
+        height:200px;
+      }
+      .color_intro>h4{
+        font-weight:bold;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
+      }
+      .color-image{
+        display:inline;
+        width:55%;
+        height:40%;
+        margin-bottom:20px;
+      }
+      /*전문가 코멘트 부분*/
+      .partner_comments_header{
+        text-align:center;
+        margin-bottom:30px;
+      }
+      .partner_comments_header>h3{
+        
+        font-family:'Hanna';
+        font-weight:bold;
+        display:inline-block;
+        
+      }
+      .comment_icon{
+        display:inline-block;
+        font-size:30px;
+        color:#ffa291;
+        margin-left:10px;
+      }
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        display:inline-block;
+        font-size:28px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        padding: 0px;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 12px 17px 12px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -12px;
+        left: -16px;
+        top: 50%;
+
+      }
+
+      .partner_profile{
+
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:12px;
+        margin-top:20px;
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:80px;
+        height:80px;
+        display:inline-block;
+      }
+
+      /*제품 상세 페이지*/
+
+      .product_info_mobile{
+        display: none;
+      }
+
+      .btn-buy{
+        height:38px;
+        width:120px;
+        line-height:30px;
+        color:#ffffff;
+        font-size:15px;
+        text-align:center;
+        background:#ffaaa3;
+        border-radius:3px;
+        margin-bottom:20px;
+        padding:5px;
+        display:inline-block;
+        transition: all 0.4s;
+      }
+      .btn-buy.btn-buy-bottom{
+        height:50px;
+        width:300px;
+        line-height:40px;
+        font-size:17px;
+        display:block;
+        margin:30px auto;
+        margin-bottom:0px;
+
+      }
+      .btn-buy:hover{
+        text-decoration:none;
+        color:#ffffff;
+        background-color:#d74b4b;
+      }
+
+      .fa-krw{
+        color:#ffaaa3;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size:10px;
+        padding:5px;
+        margin:0 3px;
+      }
+
+      .season_info_img{
+        width:590px;
+        height:auto;
+        margin:30px auto;
+        display:block;
+      }
+      .season_mobile{
+        font-size:35px;
+      }
+      .color_show_wrapper{
+        text-align: center;
+        margin-top:50px;
+      }
+      .color_show{
+        height:590px;
+        width:590px;
+        margin:auto;
+        display:block;
+      }
+      .color_chip{
+        display:block;
+        width:590px;
+        height:145px;
+        margin:30px auto;
+      }
+      .color_show2{
+        height:590px;
+        width:590px;
+        display:block;
+        margin:50px auto;
+      }
+      p.color_show_explain{
+        text-align:center;
+        color:gray;
+        padding:5px;
+        border:2px solid gray;
+        height:auto;
+        width:120%;
+        display:block;
+        margin:80px 0px 30px 0px;
+        font-size:14px;
+      }
+
+
+
+    } /*min-width :768px ends*/
+</style>
+   
+<script>
+    
+
+    //로그인 안한상태에서 후기쓰기 누르면 뜨는 안내메세지    
+    $("#review_login").click(function(){
+      alert("로그인 후 이용해주세요!");
+    });
+
+      //page navigation scrolling
+
+      $(".quick_tab").click(function(){
+        var currentId = $(this).attr('href');
+        window.location = currentId;
+
+      });
+</script>

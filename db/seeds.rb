@@ -5,3 +5,119 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+ #팔목디비(2017.01.27, 퍼갤 대상 배포 실험 목적)
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170201.xlsx")
+    input_lip= xlsx_lip.parse(  num: 'num',
+                                image: 'image',
+                                name: 'name',
+                                brand: 'brand',
+                                level: 'level',
+                                color: 'color',
+                                wc: 'wc',
+                                tone: 'tone',
+                                season: 'season',
+                                price: 'price',
+                                size: 'size',
+                                pro_type: 'pro_type',
+                                glitter: 'glitter',
+                                texture: 'texture',
+                                keyword: 'keyword')
+     input_lip.each_with_index do |item, index|
+        next if index == 0
+        Lip.create(item)
+    end
+
+
+
+
+
+# 팔목디비(초기)
+#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb161212.xlsx")
+#    input_lip= xlsx_lip.parse(  num: 'num',
+#                                image: 'image',
+#                                wc: 'wc',
+#                                season: 'season',
+#                               tone: 'tone',
+#                                brand: 'brand',
+#                                name: 'name',
+#                                price: 'price',
+#                                size: 'size',
+#                                color: 'color',
+#                                pro_type: 'pro_type',
+#                                glitter: 'glitter',
+#                                texture: 'texture',
+#                                keyword: 'keyword',
+#                                level: 'level')
+#     input_lip.each_with_index do |item, index|
+#        next if index == 0
+#        Lip.create(item)
+#    end
+    
+    
+    
+# 아크릴 디비
+#    xlsx_lip = Roo::Excelx.new("xlsx/lipdb0.6.xlsx")
+#    input_lip= xlsx_lip.parse(  num: 'num',
+#                                image: 'image',
+#                                color_PA: 'color_PA',
+#                                season_PA: 'season_PA',
+#                                tone_PA: 'tone_PA',
+#                                color_BY: 'color_BY',
+#                                season_BY: 'season_BY',
+#                                tone_BY: 'tone_BY',
+#                                color_YS: 'color_YS',
+#                                season_YS: 'season_YS',
+#                                tone_YS: 'tone_YS',
+#                                color_total: 'color_total',
+#                                season_total: 'season_total',
+#                                tone_total: 'tone_total',
+#                                comment_PA: 'comment_PA',
+#                                comment_BY: 'comment_BY',
+#                                comment_YS: 'comment_YS',
+#                                brand: 'brand',
+#                                name: 'name',
+#                                price: 'price',
+#                                size: 'size',
+#                                zzim: 'zzim',
+#                                pro_type: 'pro_type',
+#                                glitter: 'glitter',
+#                                texture: 'texture',
+#                                keyword: 'keyword')
+#     input_lip.each_with_index do |item, index|
+#        next if index == 0
+#        Lipdb.create(item)
+#    end
+                         
+   # xlsx_eye = Roo::Excelx.new("xlsx/eyedb.xlsx")
+    #input_eye= xlsx_eye.parse(  num: 'num',
+     #                           wc: 'wc',
+      #                          season: 'season',
+       #                         tone: 'tone',
+        #                        brand: 'brand',
+         #                       name: 'name',
+          #                      price: 'price',
+           #                     size: 'size',
+            #                    zzim: 'zzim',
+             #                   pro_type: 'pro_type',
+              #                  glitter: 'glitter')
+    
+    
+    
+  #  input_eye.each_with_index do |item, index|
+   #     next if index == 0
+    #    Eyedb.create(item)
+    #end
+    
+    
+   # User.create(username: '테스트유저', userseason: '봄', email: 'user@gmail.com', password: 'useruser')
+   # User.create(username: '관리자', userseason: "없음", email: "admin@gmail.com", password: 'adminadmin', admin:true)
+    #Admin.create(email: 'admin@gmail.com', password: 'adminadmin')
+   
+
+  # 제품 DB 업데이트 할 때 이거 주석해제하고 위에 roo 코드는 임시로 주석처리
+   # test_lip = Lipdb.find_or_initialize_by(num: 'L560')
+   # test_lip.wc = '웜'
+   # test_lip.tone = '뮤트'
+   # test_lip.save!

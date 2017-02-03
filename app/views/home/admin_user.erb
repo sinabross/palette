@@ -1,0 +1,163 @@
+<!--admin page : 댓글모아보기-->
+    <div float="left" style="margin-top:30px; margin-left:30px;">
+     <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
+     <input type="button" value="제품요청" class="button" float="left" onclick="window.location='/home/admin_reply';" >
+     <input type="button" value="문의/건의" class="button" float="left" onclick="window.location='/home/show_feedback';" >
+     <input type="button" value="공지 작성" class="button" float="left" onclick="window.location='/home/admin_write';" >
+     <input type="button" value="주문 확인" class="button" float="left" onclick="window.location='/home/admin_write';" >
+      <a href="/users/sign_out">관리자 로그아웃</a>
+    </div>
+    
+    <h3 align="center">회원 모아보기</h3>
+
+
+<br>
+<br>
+
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span>회원</span></th>
+                                <th><span>가입일자</span></th>
+                                <th><span>마지막 접속일자</span></th>
+                                <th class="text-center"><span>방문 횟수</span></th>
+                                <th><span>계절 타입</span></th>
+                                <th><span>생년 월일</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>    
+                                <% @user.each do |p| %>    
+                                <tr>
+                                    <td>
+                                        <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#" class="user-link"><%=p.username %></a>
+                                        <span class="user-subhead"><%=p.email %></span>
+                                    </td>
+                                    <td><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></td>
+                                    <td><%=p.last_sign_in_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></td>
+                                    <td class="text-center">
+                                        <span class="label label-default"><%=p.sign_in_count%></span>
+                                    </td>
+                                    <td>
+                                        <a href="#"><%=p.userseason %></a>
+                                    </td>
+                                    <td style="width: 20%;">
+
+                                      <a href="#"><%=p.birthday %></a>
+
+                                      <!-- 버튼들 주석처리(혹시 몰라서 내비둠)
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="table-link danger">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a> -->
+                                    </td>
+                                </tr>
+                                <% end %>
+                             </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
+    
+  
+  <style>
+  
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+body{
+    background:#eee;    
+}
+.main-box.no-header {
+    padding-top: 20px;
+}
+.main-box {
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.table a.table-link.danger {
+    color: #e74c3c;
+}
+.label {
+    border-radius: 3px;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+.user-list tbody td .user-subhead {
+    font-size: 0.875em;
+    font-style: italic;
+}
+.user-list tbody td .user-link {
+    display: block;
+    font-size: 1.25em;
+    padding-top: 3px;
+    margin-left: 60px;
+}
+a {
+    color: #3498db;
+    outline: none!important;
+}
+.user-list tbody td>img {
+    position: relative;
+    max-width: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.table thead tr th {
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+.table thead tr th {
+    border-bottom: 2px solid #e7ebee;
+}
+.table tbody tr td:first-child {
+    font-size: 1.125em;
+    font-weight: 300;
+}
+.table tbody tr td {
+    font-size: 0.875em;
+    vertical-align: middle;
+    border-top: 1px solid #e7ebee;
+    padding: 12px 8px;
+}
+  </style>    

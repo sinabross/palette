@@ -1,0 +1,682 @@
+
+<nav class="navbar navbar-fixed-top navbar-design">
+
+  <div class="navbar-top" style="padding-right:50px;">
+      <ul>
+
+       <!--
+        <li>
+          <a href="/home/about">서비스 소개</a>
+        </li> -->
+        
+     <!--
+        <li>
+            <a href="/home/notice">새 소식
+           %if Notice.last.created_at + 7.day>Time.current%>
+              <span class="badge badge_notice">New</span>
+            %end%>
+            </a>
+        </li>
+        
+        <li>
+
+   
+              <% if user_signed_in? && current_user.admin == nil%>
+                  <a href="/home/askfor">문의/건의</a>
+              <% elsif user_signed_in? && current_user.admin?%>
+                  <a href="/admin">Admin</a>
+              <% else %>
+                  <a href="/home/askfor">문의/건의</a>
+              <% end %>
+
+
+        </li>
+        
+        
+       <!-- 잠시봉인(16.10.08)
+        <li >
+          <% if user_signed_in? %>
+            <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          <% else %>
+            <% link_to "로그인", new_user_session_path %>
+          <% end %>
+        </li>  
+        -->
+
+       <!-- 마이팔레트 주석처리 (16.10.07)
+        <li style="float:right">
+          <% if user_signed_in? %>
+            <%= link_to "마이팔레트", href="/basket" %>
+          <% else %>
+            <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+          <% end %>
+        </li>-->
+      </ul>
+  </div>
+
+
+  <div class="container" style="padding:0;">
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+
+            <a href="/">
+            <span class="gCenter-mobile" style="padding:0;">
+              <%= image_tag "/images/logo_mini.png", alt:"palette"%>
+            </span>
+
+            <span class="gCenter" >
+              <%= image_tag "/images/logo_pc.png", alt:"palette"%>
+            </span>
+            </a>
+
+          <!--searhbar for PC navbar-->
+
+          <form class="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
+              <input type="hidden" name="utf8" value="✓">
+              <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요."  name="search" class="searchbox-input">
+              <button type="submit" class="searchbox-submit">
+                <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
+              </button>
+          </form>
+
+
+          <!--search for Mobile navbar-->
+
+          <form class="search-form-mobile" id="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
+            <input type="hidden" name="utf8" value="✓">
+            <input type="search" placeholder="내 립스틱은 무슨 톤 일까?" id="search" name="search" class="searchbox-input searchbox-input-mobile">
+          </form>
+
+
+          <div class="navbar-header navbar-icon" style="padding:0;">
+                  <span class="gLeft">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </span>
+          </div>
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" style="background-color:#fafafa;">
+      <ul class="nav navbar-nav navbar-right">
+
+        <!-- li class="hidden-web"으로 하면 분홍색 navbar에 위치-->
+
+        <!-- dropdown for Desktop-->
+        <li class="dropdown">
+          <a href="#" class="dropbtn" onclick="return false;">팔레트란?</a>
+            <div class="dropdown-content">
+              <a href="/#story" class="quick_tab" onClick="return false;">팔레트 스토리</a>
+              <a href="/#howto" class="quick_tab" onClick="return false;">이용방법</a>
+            <%  
+            #  <a href="/#partners1" class="quick_tab" onClick="return false;">파트너 소개</a>
+            %>
+            </div>
+        </li>
+
+        <!-- dropdown for Mobile-->
+        <li class="dropdownM">
+          <i class="fa fa-question-circle iconForMobile" aria-hidden="true"></i>
+          <a href="#" class="dropdown-toggle dropbtnM" data-toggle="dropdown">팔레트란?<b class="caret"></b></a>
+          <ul class="dropdown-menu dropdown-contentM">
+            <li>
+              <a class="quick_tabM" href="/#story" onClick="return false;" style="text-indent:20px">팔레트 스토리</a>
+            </li>
+
+            <li>
+              <a class="quick_tabM" href="/#howto"  onClick="return false;" style="text-indent:20px">이용방법</a>
+            </li>
+
+<%
+#            <li>
+#              <a class="quick_tabM" href="/#partners" onClick="return false;" style="text-indent:20px">파트너 소개</a>
+#            </li>
+%>            
+           </ul>
+        </li>
+
+        <li>
+          <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
+          <a href="/home/list_lip2/봄 브라이트">립 추천</a>
+        </li>
+        
+        <%if user_signed_in? && current_user.admin?%>
+          <li>
+            <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
+            <a href="/home/list_lip/봄 브라이트">테스트버전</a>
+          </li>
+        <%end%>
+
+        
+         <li>
+           <i class="fa fa-bullhorn iconForMobile" aria-hidden="true"></i>
+            <a href="/home/notice">새 소식
+              <%if Notice.last.created_at + 7.day>Time.current%>
+                  <span class="badge badge_notice">New</span>
+              <%end%>
+            </a>
+        </li> 
+        
+        <li>
+          <!------------------------------------------------->
+
+          <% if user_signed_in? && current_user.admin == nil%>
+              <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
+              <a href="/home/askfor">문의/건의</a>
+          <% elsif user_signed_in? && current_user.admin?%>
+              <a href="/admin">Admin</a>
+          <% else %>
+              <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
+              <a href="/home/askfor">문의/건의</a>
+          <% end %>
+
+              <% if user_signed_in? %>
+               <!--   <% link_to "문의/건의", href="/home/askfor" %>--> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+              <% else %>
+                  <% link_to "문의/건의", href="/home/askfor" %>
+                <!-- <% link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
+              <% end %>
+
+          <!------------------------------------------------->
+        </li>
+        
+        <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>
+       
+
+        <!-- 마이팔레트 주석처리 (16.10.07
+        <li class="hidden-web">
+          <% if user_signed_in? %>
+            <%= link_to "마이팔레트", href="/basket" %>
+          <% else %>
+            <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
+          <% end %>
+        </li> -->
+        
+       <!--잠시 봉인(16.10.08) <li class="hidden-web">
+          <% if user_signed_in? %>
+            <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          <% else %>
+            <% link_to "로그인", new_user_session_path %>
+          <% end %>
+        </li>
+        -->
+
+
+      </ul>
+    </div>
+    <!-- /.navbar-collapse1 -->
+  </div>
+  <!-- /.container -->
+</nav>
+  <!--/.nav-->
+
+
+
+
+
+<style>
+ /* .searchbox{
+      position:relative;
+      min-width:50px;
+      width:0%;
+      height:50px;
+      float:right;
+      overflow:hidden;
+      
+      -webkit-transition: width 0.3s;
+      -moz-transition: width 0.3s;
+      -ms-transition: width 0.3s;
+      -o-transition: width 0.3s;
+      transition: width 0.3s;
+      }
+ */
+
+  .byline{
+      position:absolute;
+      top:150px;
+      left:30%;
+      text-align:center;
+      font-size:18px;
+      }
+  .byline a{
+      text-decoration:none;
+      color: #d74b4b;
+      }
+      
+  .navbar-design {
+      text-decoration: none;
+      border-bottom: 1px solid #e4e4e4;
+  }
+  
+  
+  .navbar ol,ul { list-style: none; }
+  .navbar a { outline:0; text-decoration:none; color:#38393b; }
+  ul.navbar-right>a:last-child { margin-right:-20px;}
+
+
+  /* 새소식 new badge*/
+ .badge_notice{
+   background-color:red;
+ }
+
+@media (min-width: 768px) {
+
+  .searchbar {
+    margin-top:5px;
+    margin-right:30px;
+  }
+  .search-form-mobile{
+    display:none;
+  }
+  .search-form{
+    display:inline-block;
+    margin-top:10px;
+  }
+  .searchbox-input{
+    width:400px;
+    height:35px;
+    margin-left:130px;
+    padding-left:10px;
+    display:inline-block;
+    color:#000000;
+    border: solid 1px #e4e4e4;
+  }
+  .searchbox-input::-webkit-input-placeholder {
+    color: gray;
+  }
+  .searchbox-input:-moz-placeholder {
+    color: gray;
+  }
+  .searchbox-input::-moz-placeholder {
+    color: gray;
+  }
+  .searchbox-input:-ms-input-placeholder {
+    color: gray;
+  }
+  .searchbox-submit{
+    width:35px;
+    height:35px;
+    display:inline-block;
+    font-size:16px;
+    padding:0;
+    line-height:30px;
+    text-align:center;
+    cursor:pointer;
+    color:#ffaaa3;
+    border:1px solid #e4e4e4;
+    background:#ffffff;
+  }
+
+  .iconForMobile{
+    display:none;
+  }
+  .navbar {
+    background-color:#fafafa;
+    height:auto;
+  }
+
+  .nav>li>a:focus,.nav>li>a:hover {
+	text-decoration:none;
+	background-color:#ff6666;
+	color:#ffffff;
+  }
+	.navbar-top>li>a:focus,.navbar-top>li>a:hover{
+	text-decoration:none;	 
+	color:#ffffff;
+	}
+  .navbar-top {
+    width:100%;
+    height:20px;
+    background:#ffaaa3;
+	  font-family: 'NanumGothic', cursive;  
+	  font-size: 12px;
+  }
+  
+  .navbar-top ul {
+    float:right;
+  }
+  .navbar-top ol,ul { list-style: none; }
+  .navbar-top a { outline:0; text-decoration:none; color:#fff; }  
+  
+  .navbar-top li {
+    float:left;
+    margin-top:8px;    
+    margin-left:23px;
+
+  }
+  
+  .navbar .navbar-design {
+    background-color:#ffffff;
+  }
+
+  .navbar-collapse{
+   display:inline-block;
+   float:right;
+  }
+
+
+  /*navbar 드롭다운부분*/
+  li.dropdownM {
+    display:none;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #ff6666;
+    color:#ffffff;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-content a:hover {
+
+    background-color: #f1f1f1;
+    color:#ffa291;
+
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  /*dropdown for Mobile 끝 */
+
+
+  .gCenter {
+    margin-top:12px;
+    float:left;
+  }
+  .gCenter>img{
+    width:120px;
+    margin-left:20px;
+
+  }
+  .gCenter-mobile{
+    display:none;     
+  }
+
+
+  .display-web{
+    float:left;
+    
+  }
+
+  .display-web li{
+    float:left;
+    margin:10px;
+  }
+  li.hidden-web{
+    display:none;
+  }
+
+}
+
+@media (max-width:767px){
+  .nav-menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-menu-item{
+    float:left
+  }
+  .search-form{
+    display:none;
+  }
+  .search-form-mobile{
+    display:inline-block;
+  }
+  .searchbox-input-mobile{
+      display:inline-block;
+      background:#ffffff;
+      width:100%;
+      height:30px;
+      padding-left:10px;
+      margin-left:10px;
+      border-radius:3px;
+      font-size:11px;
+
+      }
+  input[type="search"].searchbox-input-mobile::-webkit-input-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile::-moz-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile:-ms-input-placeholder {
+    color:gray;
+  }
+  input[type="search"].searchbox-input-mobile:-moz-placeholder {
+    color:gray;
+  }
+
+
+   .iconForMobile{
+      font-size:15px;
+      color:#ffaaa3;
+      text-indent:10px;
+
+    }
+   .nav>li>a{
+     display:inline-block;
+     padding-left:10px;
+     width:90%;
+   }
+
+    .navbar-top {
+      height:0px;
+    }
+    .navbar-top li{
+    display:none;
+    }
+  .navbar {
+    background-color:#ffaaa3;
+    
+  } 
+  .navbar-color{
+    color:#ffffff;
+  }
+
+  /*navbar 드롭다운부분*/
+  li.dropdown {
+    display:none;
+  }
+  .nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+    background-color: #ff6666;
+    color:#ffffff;
+  }
+
+  .dropdown-contentM a {
+    color: #ffffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  .dropdown-contentM a:hover {
+
+    background-color: #f1f1f1;
+    color:#ffa291;
+
+  }
+
+  .dropdownM:hover {
+    display: block;
+  }
+  /*dropdown for Mobile 끝 */
+
+
+  .gCenter-mobile img {
+    float:left;
+    display:inline-block;
+    height:20px;
+    width:100px;
+    margin:5px 0px 0px 8px;
+    
+  }  
+  .gCenter {
+    display:none; 
+  }  
+
+  .navbar-toggle{
+    position:absolute;
+    top:0;
+    right:0;
+    padding:0;
+    margin-top:15px;
+    margin-right:8px;
+
+  }
+  .navbar-icon .navbar-toggle {
+    border-color: #ffaaa3;
+  }
+  .navbar-collapse{
+    margin-top:10px;
+
+  }
+  #bs-example-navbar-collapse-1{
+    margin-left:0;
+  }
+  .navbar-icon .navbar-toggle:hover,
+  .navbar-icon .navbar-toggle:focus {
+    background-color: #ffaaa3;
+  }
+  .navbar-icon .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+  .navbar-icon .navbar-collapse,
+  .navbar-icon .navbar-form {
+    border-color: #101010;
+  }
+  .navbar-icon .navbar-nav > .open > a,
+  .navbar-icon .navbar-nav > .open > a:hover,
+  .navbar-icon .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #080808;
+  }  
+  .searchbox-web{
+    display:none;
+  }
+  .searchbox-icon-web,.searchbox-submit-web{
+    display:none;
+  }  
+  .display-web{
+    display
+    
+  }
+
+  .display-web li{
+    float:left;
+    margin:10px;
+  }  
+  .navbar-brand, .navbar-nav>li>a  {
+    color:#ADADAD;
+		box-shadow:none 
+  }
+  .navbar-brand, .navbar-nav>li>a:hover,
+  .navbar-brand, .navbar-nav>li>a:focus  {
+    color:#ffffff;
+		box-shadow:none; 
+		background-color:#ff6666;
+  }  
+
+}
+}
+</style>
+    
+<script>
+  $(document).ready(function(){
+
+    //메뉴바 toggling
+   
+    // Close when clicking on outside the menu (actually, every document)
+   
+     $(".navbar-toggle").click(function(){
+      $("#bs-example-navbar-collapse-1").toggle();
+    });
+    
+    // Close after clicking on close button
+
+    $('#toggle_close').on('click', function(){
+        $("#bs-example-navbar-collapse-1").hide();
+    });
+  
+    
+    
+
+    //검색창
+    var submitIcon = $('.searchbox-icon');
+    var inputBox = $('.searchbox-input');
+    var searchBox = $('.searchbox');
+    var isOpen = true;
+    submitIcon.click(function(){
+      if(isOpen == false){
+        searchBox.addClass('searchbox-open');
+        inputBox.focus();
+        isOpen = true;
+      } else {
+        searchBox.removeClass('searchbox-open');
+        inputBox.focusout();
+        isOpen = false;
+      }
+    });  
+    submitIcon.mouseup(function(){
+        return false;
+    });
+    searchBox.mouseup(function(){
+        return false;
+    });
+    $(document).mouseup(function(){
+      if(isOpen == true){
+        $('.searchbox-icon').css('display','block');
+          submitIcon.click();
+      }
+    });
+
+    //page navigation scrolling
+
+    $(".quick_tab").click(function(){
+      var currentId = $(this).attr('href');
+      window.location = currentId;
+
+    });
+
+    //drop down for Mobile
+    $(".quick_tabM").click(function(){
+      var currentId = $(this).attr('href');
+      window.location = currentId;
+      $("#bs-example-navbar-collapse-1").toggle();
+
+    });
+
+  });
+  
+  function buttonUp(){
+    var inputVal = $('.searchbox-input').val();
+    inputVal = $.trim(inputVal).length;
+    if( inputVal !== 0){
+      $('.searchbox-icon').css('display','none');
+    } else {
+      $('.searchbox-input').val('');
+      $('.searchbox-icon').css('display','block');
+    }
+  }
+
+
+
+
+
+</script>

@@ -1,0 +1,138 @@
+<div class="table-responsive" >
+
+  <div class="container-fluid" >
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="title-web" style="margin-right:10px;">
+        <h3>새 소식</h3>
+        <p>새롭게 업데이트 되는 소식을 확인하세요</p>
+
+      </div>
+
+      <hr style="border: 2px solid #38393b">
+      <br>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+        <table class="table user-list">
+          <thead>
+          <tr>
+            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>번호</span></th>
+            <th class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><span>제목</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-1 hidden-sm col-xs-1 hidden-xs"><span>작성자</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성일</span></th>
+            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>조회수</span></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @notices.each do |p| %>
+              <tr>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <p><%=p.id%></p>
+                </td>
+                <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                  <a href="/home/notice_view/<%=p.id%>"><%=p.title%></a>
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-1 hidden-sm col-xs-1 hidden-xs">
+                  <%=p.name %>
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                  <%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
+                </td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <%=p.hits %>
+                </td>
+
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+       </div>
+        <%if user_signed_in? && current_user.admin !=nil%>
+          <a href="/home/admin_write"  class="btn btn-black" role="button">글쓰기</a>
+         <%end%>
+      </div>
+  </div>
+
+  <style>
+    .table-responsive{
+      overflow-x: hidden;
+    }
+    .container-fluid{
+      margin-top:30px;
+    }
+    table a {
+      color:#000000;
+    }
+    table a:hover{
+
+      text-decoration:none;
+      color:#ffa291;
+    }
+    table a:active{
+      text-decoration:none;
+      color:#ffa291;
+    }
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:13px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#ffffff;
+      background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
+    }
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+    }
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+    }
+
+
+    @media(min-width:767px) {
+
+      .container-fluid{
+        margin-top:50px;
+      }
+    }
+
+  </style>
+
+  <script>
+    $(document).ready(function() {
+
+      //글 보기,접기 버튼
+        $('.notice-toggle').click(function(){
+        //get collapse content selector
+        var collapse_content_selector = $(this).attr('href');
+
+        //make the collapse content to be shown or hide
+        var toggle_switch = $(this);
+        $(collapse_content_selector).toggle(function(){
+        if($(this).css('display')=='none'){
+        //change the button label to be 'Show'
+        toggle_switch.html('보기');
+        }else{
+        //change the button label to be 'Hide'
+        toggle_switch.html('접기');
+        }
+        });
+     });
+
+
+
+    });
+  </script>

@@ -1,0 +1,76 @@
+<div class="container">
+
+    <br>
+      <div style="background-color:#ffffff; margin-top:30px;">
+        <hr style="border: solid 1.0px;color:#333333">
+           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>문의/건의하기</strong></p>
+        <hr style="border: solid 1.0px;color:#333333">  
+      </div>
+
+          <ul style="list-style-type: disc;padding-left:20px;">
+            <li>
+              <p>업데이트 되었으면 하는 제품, 이용하시면서 개선되었으면 하는 점 등에 대해 자유롭게 말씀해주세요. </p>
+            </li>
+            <li>
+              <p>적어주신 이메일을 통해 답변을 드리고 있으며, 고객님의 의견은 적극적으로 반영하도록 하겠습니다 :)</p>
+            </li>
+
+          </ul>
+    <form id="myForm" style="margin-top:40px" action="/home/askfor_submit" method="post" enctype="multipart/form-data" data-toggle="validator" role="form">
+      <div class="form-group">
+        <label for="exampleInputEmail1">이메일 주소</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" data-error="이메일 주소를 입력해주세요." required>
+        <div class="help-block with-errors"></div>
+        <!-- 로그인한 유저 이메일 뜨게 하려면 위 input 태그에 value="< % =current_user.email%>" 입력-->
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" name="content" rows="10" data-error="내용을 입력해주세요." required></textarea>
+        <div class="help-block with-errors"></div>
+      </div>
+     <!-- 사진첨부 기능 일단 보류
+      <div class="form-group">
+        <label for="exampleInputFile">사진첨부</label>
+        <input type="file" name="pic" id="exampleInputFile" accept="image/*">
+      </div>
+     -->
+      <div>
+        
+          <button type="submit" name="feed_pro_num"  class="btn-ask" >보내기</button>
+ 
+      </div>
+    </form>
+    <br><br><br>
+</div>
+
+<style>
+  .btn-ask {
+    height:50px;
+    width:100px;
+    padding:10px;
+    line-height:30px;
+    color:black;
+    font-size:15px;
+    font-weight:bold;
+    text-align:center;
+    background:#ffffff;
+    border:2px solid black;
+    display:block;
+    float:left;
+  }
+  .btn-ask:hover{
+    color:#ffa291;
+    background-color: #ffffff;
+    border:2px solid #ffa291;
+    text-decoration:none;
+  }
+
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        $('form#myForm').validator();
+
+    });
+
+</script>

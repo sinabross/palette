@@ -1,0 +1,33 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#red {
+    text-align: center;
+    padding: 8px 0px;
+    margin-top: 10px;
+}
+
+#orange {
+    padding-left: 50px;
+}
+
+#yellow {
+    height: 100px;             /* 높이 지정 */
+    display: table-cell;       /* display 속성 추가 */
+    vertical-align: middle;    /* vertical-align 속성 추가 */
+    text-align: center;
+}
+
+
+#blue {
+     display: inline-block;
+     text-align: center;
+}
+#searching{
+    vertical-align : middle;
+}
+#login{
+    vertical-align : middle;
+}

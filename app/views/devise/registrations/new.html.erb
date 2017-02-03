@@ -1,0 +1,147 @@
+<!-- 회원가입 페이지 -->
+<section id="login"> <!--style시트 넣기위한 id이므로 상관없음-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="form-wrap">
+          <h1>회원가입</h1>
+          <!--Log in with your email account-->
+            <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+              <div class="form-group">
+                <%= f.label :이메일 %><br />
+                <%= f.email_field :email, class:"form-control " ,placeholder:"example@gmail.com", autofocus: false %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :닉네임 %><br />
+                <%= f.text_field :username, class:"form-control" ,placeholder:"홍길동" %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :비밀번호 %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %>자 이상으로 설정해주세요.)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :비밀번호확인 %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control" %>
+              </div>
+              
+            <!-- 계절타입 주석처리(16.10.07)
+              <div class="form-group">
+                <%= f.label :계절타입 %><br />
+                <%= f.select :userseason, 
+                  options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울'],['미정','미정']], params[:userseason]),
+                  {}, { :class => 'form-control' }%>
+              </div>
+              -->
+              <div class="form-group">
+                <%= f.label :생년월일 %><br />
+                <%= f.date_select :birthday,  { class: 'form-control', order: [:year, :month, :day],
+                                            prompt: { year: '년', month: '월', day: '일' },
+                                            start_year: Date.today.year - 12, end_year: Date.today.year - 100}, {required: true}%>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up", class:"btn btn-custom btn-lg btn-block" %>
+              </div>
+            </form>
+        </div>
+        <% end %>
+
+        <div style="text-align:center">
+          <%= render "devise/shared/links" %>
+        </div>
+        <hr>
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
+
+
+<style>
+  /*    --------------------------------------------------
+	:: Login Section
+	-------------------------------------------------- */
+  #login {
+      padding-top: 50px
+  }
+  #login .form-wrap {
+      width: 70%;
+      margin: 0 auto;
+  }
+  #login h1 {
+      color: #6E6E6E;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+      padding-bottom: 20px;
+  }
+  #login .form-group {
+      margin-bottom: 25px;
+  }
+  #login .checkbox {
+      margin-bottom: 20px;
+      position: relative;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+  }
+  #login .checkbox.show:before {
+      content: '\e013';
+      color: #1fa67b;
+      font-size: 17px;
+      margin: 1px 0 0 3px;
+      position: absolute;
+      pointer-events: none;
+      font-family: 'Glyphicons Halflings';
+  }
+  #login .checkbox .character-checkbox {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      vertical-align: middle;
+      display: inline-block;
+  }
+  #login .checkbox .label {
+      color: #6d6d6d;
+      font-size: 13px;
+      font-weight: normal;
+  }
+  #login .btn.btn-custom {
+      font-size: 14px;
+  	margin-bottom: 20px;
+  }
+  #login .forget {
+      font-size: 13px;
+  	text-align: center;
+  	display: block;
+  }
+  
+  /*    --------------------------------------------------
+  	:: Inputs & Buttons
+  	-------------------------------------------------- */
+  .form-control {
+      color: #212121;
+  }
+  .btn-custom {
+      color: #fff;
+  	background-color: #333333;
+  }
+  /*원래 색: #1fa67b*/
+  
+  .btn-custom:hover,
+  .btn-custom:focus {
+      color: #fff;
+  }
+
+</style>

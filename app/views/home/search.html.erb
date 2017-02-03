@@ -1,0 +1,343 @@
+<div class="container">
+<!-- if there is no search result, show this message-->
+<% if @result.blank? && @result2.blank? %>
+
+<%
+=begin
+%>
+   <div class ="col-sm-12 col-xs-12">
+     <form class="mobilesearch"  action="/home/search" method="get" accept-charset="UTF-8">
+
+       <div class="col-sm-11 col-xs-11" style="padding:0px;">
+         <input type="hidden" name="utf8" value="✓">
+         <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요"  name="search" class="mainsearch">
+       </div>
+       <div class="col-sm-1 col-xs-1" style="padding:0px; text-align: center;">
+         <button type="submit" class="searchbutton">
+           <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
+         </button>
+       </div>
+     </form>
+   </div>
+<%
+=end
+%>
+
+  <div style="margin-top:100px;margin-bottom:200px">
+    
+    <h3 style="text-align:center"><strong>'<%= params[:search] %>'</strong>에 따른 검색 결과가 없습니다.</h3>
+    <br>
+    <h4 style="text-align:center; font-weight:bold">보다 자세한 검색을 위한 Tip</h4>
+    <br>
+    <p style="text-align:center">1. 띄어쓰기를 하면 보다 정확한 검색 결과를 보실 수 있습니다.</p>
+    <p style="text-align:center">2. 브랜드명, 제품명 등으로 다양하게 검색해보세요.<br><strong>예)</strong>더페이스샵 봄 브라이트, 맥 크로스와이어즈 </p>
+    <p style="text-align:center">3. 원하는 제품이 없으신가요? 아래 버튼을 통해 요청해주세요.<br>검토 후 최대한 빠르게 등록해드립니다. </p>
+    <div style="text-align: center;">
+
+      <a href="/#askfor" class="btn-ask" onclick="ga('send', 'pageview', '/askfor');">제품 요청</a>
+
+
+    </div>
+    </div>
+<% end %>
+
+<%
+=begin
+%>
+<!--search bar-->
+  <div class ="col-sm-12 col-xs-12">
+     <form class="mobilesearch"  action="/home/search" method="get" accept-charset="UTF-8">
+
+       <div class="col-sm-11 col-xs-11" style="padding:0px;">
+         <input type="hidden" name="utf8" value="✓">
+         <input type="search" placeholder="원하는 상품을 검색해보세요"  name="search" class="mainsearch">
+       </div>
+       <div class="col-sm-1 col-xs-1" style="padding:0px; text-align: center;">
+         <button type="submit" class="searchbutton">
+           <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
+         </button>
+       </div>
+     </form>
+   </div>
+<%
+=end
+%>
+
+
+<%unless @result.blank? && @result2.blank?%>
+<p class="search_intro">총 <strong><%=@result.count%></strong>개의 제품이 검색되었습니다.</p>
+<%end%>
+
+<!--제품 출력 목록 -->
+<% @result.each_slice(3) do |slice| %>
+  <div class="row">
+      <% slice.each do |w|%>
+        <div class="col-md-4 col-xs-12" style="margin-top:-10px">
+          <br>
+          <div class="product-container" onClick="location.href='/home/detail2/<%=w.image%>'">
+            <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
+            <a class="col-md-12 col-xs-4" href="/home/detail2/<%=w.image%>">
+                <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.image%>-min.jpg"
+                     alt="<%=w.name%>" > <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
+
+            </a>
+
+            <div class="col-md-12 col-xs-8"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
+              <div class="product-name" style="height:50px;"> <!-- 제품명에 글자 수에 관계없이 div크기 지정. 모바일 화면을 고려하여 60px 값 -->
+                <a class="product_name" href="/home/detail2/<%=w.image%>" ><strong>[<%=w.brand%>]<%=w.name%></strong></a>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-xs-8">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
+              <p class="product_tone" style="float:left"> <%=w.season%> </p>
+              <p class="product_price" style="float:right">  <%=w.size%> <p class="product_price"style="float:right; margin-left:2px;"> <%=w.price%>원</p>
+            </div>
+
+            <div class="col-md-12 col-xs-8">
+
+              <%if w.color=="레드"%>
+                  <span class="product_label label_red"><%=w.color%></span>
+              <%elsif w.color=="오렌지"%>
+                  <span class="product_label label_orange"><%=w.color%></span>
+              <%elsif w.color=="핑크"%>
+                  <span class="product_label label_pink"><%=w.color%></span>
+              <%elsif w.color=="베이지"%>
+                  <span class="product_label label_beige"><%=w.color%></span>
+              <%else%>
+                  <span class="product_label label_purple"><%=w.color%></span>
+              <%end%>
+
+              <span class="product_label label_product"><%=w.pro_type%></span>
+            </div>
+               <!-- 좋아요 수 보여주는거 잠시 봉인 (16.10.08)
+                <p style="float:right;margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> < %=display_likes(w)%></p>
+                -->
+
+        </div>
+      </div>
+    <%end%>
+  </div>
+<% end %>
+
+<!--제품 출력 목록2// 당분간 봉인 -->
+
+
+<!-- pagination -->
+<%= render :partial => "layouts/partial/pagination" %>
+
+</div>
+
+<style>
+
+  .btn-ask {
+        height:50px;
+        width:100px;
+        padding:10px;
+        line-height:30px;
+        color:#56565d;
+        font-size:15px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        display:block;
+        margin:auto;
+  }
+   .btn-ask:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+   }
+  .title-web h3 {
+	    font-family: 'NanumGothic';  
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+  }  
+  .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+  }      
+  .product-name{
+    margin-top:10px;
+    margin-bottom:10px;
+    font-family: NanumGothic;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.29;
+    color: #38393b;   
+  }
+  .product_name{
+    color:#38393b;    
+  }
+  .product-name a:hover,
+  .product-name a:focus{
+    text-decoration: none;    
+    color: #000000;
+  }
+  .product_price .product_tone{
+    color:#38393b;
+  }
+  .fa-heart{
+   color: #ff709b;    
+  }
+  .product_price{
+    margin-right:3px;
+  }
+
+  /*제품 정보 라벨*/
+
+  .label_red{
+    color:#ffffff;
+    background-color:#cc0000;
+  }
+  .label_pink{
+    color:#ffffff;
+    background-color:#e64c7a;
+  }
+  .label_orange{
+    color:#ffffff;
+    background-color:#ffab40;
+  }
+  .label_beige{
+    color:#ffffff;
+    background-color:#c9a241;
+  }
+  .label_purple{
+    color:#ffffff;
+    background-color:#8841b0;
+  }
+  .label_product{
+    color:#ffffff;
+    background-color:#0097a7;
+  }
+  /* 제품정보 라벨 끝 */
+
+@media (min-width: 768px) {
+  .mobilesearch{
+    margin-top:50px;
+    margin-bottom:20px;
+  }
+  .list-display {
+      margin-top:70px;
+    }
+  .title-web {
+    float:left;
+    margin-left:25px;
+  }
+
+  .title-web hr{
+    
+      width: 1015.5px;
+      border: solid 2px #38393b;
+
+  }    
+
+  .product-container{
+    margin-top:20px;
+    height:400px;
+    cursor:pointer;
+  }  
+  .product-name{
+    margin-bottom:10px;
+  }
+
+  .mainsearch{
+    display:none;
+  }
+  .searchbutton{
+    display:none;
+  }
+  .search_intro{
+    text-align:center;
+    margin-top: 50px;
+  }
+  .product_label{
+    font-size:12px;
+    padding:3px;
+    text-align:center;
+    display:inline-block;
+    width:60px;
+    border-radius:5px;
+    margin-bottom:10px;
+  }
+
+}
+
+  
+@media (max-width:767px){
+  .mobilesearch{
+    margin-top:20px;
+  }
+  .list-display {
+      margin-top:10px;
+    }  
+  .title-web {
+    float:left;
+    margin-left:20px;
+  }    
+  
+  .btn-web {
+    float:right;
+    width:100%;
+  }
+  .product-container{
+    border: 1px solid lightgray;
+    height:130px;
+  }
+
+  .product-container:active{
+    border:1px solid #ffa291;
+  }
+  .example{
+  margin-top:7px;
+  width: 94px;
+  height: 94px;    
+  }
+
+  .mainsearch{
+    height:30px;
+    width:100%;
+    font-size: 12px;
+    text-align: center;
+    border:solid 1px #e4e4e4;
+    margin-bottom:10px;
+  }
+ .searchbutton {
+    display: inline;
+    height:30px;
+    width:30px;
+    background-color:#fafafa;
+    border:solid 1px #e4e4e4;
+    text-align: center;
+  }
+  .fa-search-main{
+    font-size:15px;
+    color:#ffaaa3;
+    margin:auto;
+
+  }
+  .search_intro{
+    text-align:center;
+    margin-top: 30px;
+  }
+  .product_label{
+    font-size:11px;
+    text-align:center;
+    display:inline-block;
+    width:50px;
+    padding:3px;
+    border-radius:5px;
+    margin-bottom:10px;
+  }
+
+
+}
+</style>

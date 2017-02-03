@@ -1,0 +1,8 @@
+alert('관심상품 목록에 추가 되었습니다.');
+
+$("#<%= @product.num%>_like").removeClass('fa-heart-o').addClass('fa-heart');
+
+$("#<%= @product.num %>_like").attr("href", '/home/<%= @product.num %>/unlike');
+
+
+<!--$("#<%= @product.num%>_like").html("<%= j (render partial: 'home/likes', locals: { product: @product } ) %>"); -->

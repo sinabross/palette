@@ -1,0 +1,135 @@
+<section id="write">
+  <div class="container" style="margin-top:30px">
+    <div class="row" >
+      <div class="col-md-12 col-xs-12">
+        <div style="background-color:#ffffff;">
+          <hr style="border: solid 1.0px;color:#333333">
+          <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>후기 작성하기</strong></p>
+          <hr style="border: solid 1.0px;color:#333333">  
+        </div>                  
+                    
+        <!--상품정보 출력-->
+        <div class="media panel-body container" style="border: solid 2.0px lightgray; margin-top:20px">
+          <div class="pull-left user-info" href="#" float="left">
+            <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.num%>.jpg" style="width:140px;height:auto;">
+            <br>
+          </div>
+          
+          <div class="media-body">
+            <p>[<%=@product.brand %>] <strong><%=@product.name %></strong></p>
+            <p><%=@product.size %> / <%=@product.price %>원</p>
+            <p><%=@product.tone %> <%=@product.wc %></p>
+          </div>
+        </div>
+
+        <!-- 후기글 작성폼. 내용,사진첨부 -->
+        <form style="margin-top:40px" action="/home/review_submit" method="post" enctype="multipart/form-data">
+          <textarea class="form-control" rows="8" id="content" name="content" placeholder="후기를 작성해주세요!"></textarea>
+          <br>
+          <div class="filebox col-md-2" style="padding:0px">
+            <label for="camera">사진 첨부</label>
+            <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
+          </div>
+          <br><br>
+
+          <br /><br />
+           <!--사진미리보기-->
+          <div id="cma_image" class="picture"></div>
+          <div align="center" style="position:center;">
+            <button name="pro_submit" value="<%=@product.num%>" type="submit" class="btn btn-black review_submit" style="color:#ffffff">작성하기</button>
+          </div>
+        </form>
+        <br><br>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<style>
+  .btn-black {
+        width:100px;
+        height:40px;
+        font-size:15px;
+        text-align:center;
+        cursor:pointer;
+        color:#000000;
+        background:#333333;
+        }  
+
+
+  #write h1 {
+        color: #6E6E6E;
+        font-size: 18px;
+        font-weight: bold;
+        }
+    
+  .filebox label {
+        display: inline-block;
+        padding: 10px;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #fdfdfd;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        width:100%;
+        max-width:100%;
+        }
+     
+  .filebox input[type="file"] {  /* 파일 필드 숨기기 */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+        }
+    
+  .picture img{
+        width:30%;  
+        }
+    
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+  $(function(){
+    $('.review_submit').click(function(){
+      pro_num = this.value;
+      //alert(pro_num); //맞는지확인
+      date=<%= Time.now.strftime("%Y-%m-%d") %>
+      pro_content=$("#content_" + pro_num).val();
+      $.ajax({
+        method: "POST",
+        url: "/home/review_submit",
+        data: {  num_of_pro: pro_num, content: pro_content , username: current_user, userseason: current_user.userseason, date: date},
+            success: function(){
+              $( "#review_"+ pro_num ).append( "<p>"+pro_content+"</p>" );
+              $("#content_" + pro_num).val('');  
+            },
+            error: function(){
+              alert("후기가 작성되지 않았습니다.");
+            }
+      })
+    });
+  });
+
+  function getThumbnailPrivew(html, $target) {
+    if (html.files && html.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $target.css('display', '');
+            //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+            $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+            }
+          reader.readAsDataURL(html.files[0]);
+      }
+    }
+</script>
