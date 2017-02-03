@@ -22,8 +22,5 @@ test:
 
 production:
   <<: *default
-<<<<<<< HEAD
-=======
   
->>>>>>> upstream/master
   database: db/production.sqlite3
