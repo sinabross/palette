@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -13,10 +16,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
 >>>>>>> a1756987233a3b897f92eecb7f60b35a6824525d
+=======
+ActiveRecord::Schema.define(version: 20170201075032) do
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,7 +43,16 @@ ActiveRecord::Schema.define(version: 20161202165806) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+<<<<<<< HEAD
 
+=======
+  create_table "askfors", force: :cascade do |t|
+    t.string   "content"
+    t.string   "status",     default: "요청"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -51,7 +67,10 @@ ActiveRecord::Schema.define(version: 20161202165806) do
 
   add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
     t.string   "wc"
@@ -76,8 +95,14 @@ ActiveRecord::Schema.define(version: 20161202165806) do
     t.string   "emailaddress"
     t.string   "pro_num",      default: ""
     t.string   "img_url",      default: ""
+<<<<<<< HEAD
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+=======
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "status",       default: "요청"
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -89,6 +114,7 @@ ActiveRecord::Schema.define(version: 20161202165806) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
 <<<<<<< HEAD
@@ -140,10 +166,25 @@ ActiveRecord::Schema.define(version: 20161202165806) do
     t.string   "size"
     t.string   "color"
 >>>>>>> a1756987233a3b897f92eecb7f60b35a6824525d
+=======
+  create_table "lips", force: :cascade do |t|
+    t.string   "num"
+    t.string   "image"
+    t.string   "name"
+    t.string   "brand"
+    t.string   "level"
+    t.string   "color"
+    t.string   "wc"
+    t.string   "tone"
+    t.string   "season"
+    t.string   "price"
+    t.string   "size"
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
     t.string   "pro_type"
     t.string   "glitter"
     t.string   "texture"
     t.string   "keyword"
+<<<<<<< HEAD
 <<<<<<< HEAD
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
@@ -153,6 +194,10 @@ ActiveRecord::Schema.define(version: 20161202165806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 >>>>>>> a1756987233a3b897f92eecb7f60b35a6824525d
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   end
 
   create_table "notices", force: :cascade do |t|
@@ -163,6 +208,23 @@ ActiveRecord::Schema.define(version: 20161202165806) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "tel"
+    t.string   "address"
+    t.string   "money_name"
+    t.string   "product_brand"
+    t.string   "product_name"
+    t.integer  "product_price"
+    t.integer  "product_number", default: 1
+    t.string   "confirm",        default: "미확정"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   create_table "punches", force: :cascade do |t|
     t.integer  "punchable_id",                          null: false
     t.string   "punchable_type", limit: 20,             null: false
@@ -226,6 +288,7 @@ ActiveRecord::Schema.define(version: 20161202165806) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end
+<<<<<<< HEAD
 =======
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
@@ -455,3 +518,5 @@ ActiveRecord::Schema.define(version: 20170201075032) do
 
 end
 >>>>>>> 051fe012d0c9e51fe33c085437421f9738d3ee14
+=======
+>>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
