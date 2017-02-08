@@ -1,8 +1,8 @@
 alert('관심상품 목록에서 제거 되었습니다.');
 
-$("#<%= @product.num%>_like").removeClass('fa-heart').addClass('fa-heart-o');
+$("#<%= @product.image%>_like").removeClass('fa-heart').addClass('fa-heart-o');
 
-$("#<%= @product.num %>_like").attr("href", '/home/<%= @product.num %>/like');
+$("#<%= @product.image %>_like").attr("href", '/home/<%= @product.image %>/like');
 
 
-<!--$("#<%= @product.num %>_like").html("<%= j (render partial: 'home/unlikes', locals: { product: @product } ) %>");-->
+<!--$("#<%= @product.image %>_like").html("<%= j (render partial: 'home/unlikes', locals: { product: @product } ) %>");-->

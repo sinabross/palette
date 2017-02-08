@@ -193,7 +193,7 @@ class HomeController < ApplicationController
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
     @review=Review.where(num:params[:product_num])
 
-    #for page-navigation
+
 
   end
 
@@ -202,19 +202,28 @@ class HomeController < ApplicationController
     if params[:product_num]
       @product = Lip.find_by_image(params[:product_num])
     end
-      
+
+
+    # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
+     #@product.zzim = @product.votes_for.up.by_type(User).size
+     #@product.save
+
+    # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
+    @review=Review.where(num:params[:product_num])
+
+
   end  
   #================= 아래는 좋아요 기능=====================
   def like 
     
     if params[:id].start_with?("L") 
-      @product = Lipdb.find_by_num(params[:id])
+      @product = Lip.find_by_image(params[:id])   #find_by_image 에서 image는 제품 데이터의 고유의 값(현재는 L006이런게 엑셀 상 image 열에 있어서 image임)
     end
     
     @product.liked_by current_user
   
-    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
-    @product.save
+    #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    #@product.save
     respond_to do |format|
       #format.html { redirect_to :back }
       format.js
@@ -224,12 +233,12 @@ class HomeController < ApplicationController
   def unlike
     
     if params[:id].start_with?("L") 
-      @product = Lipdb.find_by_num(params[:id])
+      @product = Lip.find_by_image(params[:id])
     end
     
     @product.unliked_by current_user
-    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
-    @product.save
+    #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    #@product.save
     respond_to do |format|
         # format.html { redirect_to :back }
       format.js 
@@ -243,7 +252,7 @@ class HomeController < ApplicationController
     
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lip.find_by_image(params[:product_num])
     end
 
   end
@@ -262,13 +271,13 @@ class HomeController < ApplicationController
    @review.img_url=uploader.url
    @review.save
 
-   redirect_to '/home/detail/' + @review.num
+   redirect_to '/home/detail2/' + @review.num
   end
   
   def update_view #리뷰를수정하는페이지
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lip.find_by_image(params[:product_num])
     end
 
    
@@ -287,7 +296,7 @@ class HomeController < ApplicationController
     end
    
     @one_review.save
-    redirect_to '/home/detail/' + @one_review.num
+    redirect_to '/home/detail2/' + @one_review.num
   end
   
   def destroy #리뷰삭제
@@ -322,7 +331,7 @@ class HomeController < ApplicationController
     if @post.save
       flash[:success] = "작성이 완료되었습니다 :)"
 
-      redirect_to '/home/detail/' + @post.pro_num
+      redirect_to '/home/detail2/' + @post.pro_num
 
     end
 
@@ -391,16 +400,16 @@ class HomeController < ApplicationController
     if params[:list_num]
      
       if params[:list_num].start_with?("L")
-        @delete_item = Lipdb.find_by_num(params[:list_num])
-      else if params[:list_num].start_with?("S")
-        @delete_item = Eyedb.find_by_num(params[:list_num])
-        end
+        @delete_item = Lip.find_by_image(params[:list_num])
+     # else if params[:list_num].start_with?("S")
+     #   @delete_item = Eyedb.find_by_num(params[:list_num])
+
       end
       
       @delete_item.unliked_by current_user
-      @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
-      @delete_item.save
-    end 
+     # @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+     # @delete_item.save
+    end
     redirect_to "/home/basket"
   end
   

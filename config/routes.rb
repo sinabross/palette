@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   get 'home/search'
 
  # 찜하기 장바구니
- # get 'home/basket'
- # get '/basket' => 'home#basket'
- # post 'home/basket_delete'
- # get 'home/:list_num/basket_delete/' => 'home#basket_delete'
- # get 'home/season_update'
- # get 'season_update' => 'home#season_update'
- # post 'home/userseason_update'
+  get 'home/basket'
+  get '/basket' => 'home#basket'
+  post 'home/basket_delete'
+  get 'home/:list_num/basket_delete/' => 'home#basket_delete'
+  get 'home/season_update'
+  get 'season_update' => 'home#season_update'
+  post 'home/userseason_update'
   
  #테스트버전(visible for Only ADMIN)
   get 'home/list_lip'
@@ -48,11 +48,11 @@ Rails.application.routes.draw do
   
  #리뷰
 
- # get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
- # post 'home/review_submit' #리뷰등록
- # get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
- # post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
- # get  'destroy/:review_id' => "home#destroy" #리뷰삭제
+  get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
+  post 'home/review_submit' #리뷰등록
+  get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
+  post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
+  get  'destroy/:review_id' => "home#destroy" #리뷰삭제
   
   
   #제품검토요청
