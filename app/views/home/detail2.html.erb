@@ -32,19 +32,19 @@
 =end
 %>
 
-        <!--좋아요 기능 작동하는 하트 버튼 노출 / 잠시 봉인함(16.10.07)-->
+        <!--좋아요 기능 작동하는 하트 버튼 노출 -->
         <%if user_signed_in?%>    
           <% if current_user.voted_up_on? @product %>
-        <!--    <div class="row" style="text-align:right">
+           <div class="row" style="text-align:right">
               <div class="col-sm-1 col-sm-offset-10 unlike-button" style="position:right">
-                <% link_to '', unlike_home_path(@product.num), remote: true, id: "#{@product.num}_like",
+                <%=link_to '', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
                     class: "like fa fa-heart", onclick:"ga('send', 'pageview', '/like');" %>
               </div>
-            </div>  
+           </div>
           <% else %>
             <div class="row" style="text-align:right"> 
               <div class="col-sm-1 col-sm-offset-10 like-button" style="position:right">
-                <% link_to '', like_home_path(@product.num), remote: true, id: "#{@product.num}_like",
+                <%=link_to '', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
                     class: "like fa fa-heart-o", onclick:"ga('send', 'pageview', '/like');" %>
               </div>
             </div>  
@@ -53,12 +53,12 @@
                       
         <%else%>
           <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
-       <!--   <div class="row">
+          <div class="row">
             <div class="col-sm-1 col-sm-offset-10 fake-like-button" align="right">
-              <% link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
+              <%=link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
                   class: "fa fa-heart-o", onclick:"ga('send', 'pageview', '/fake_like');"%>
             </div>
-          </div> -->
+          </div>
         <%end%>
  
         <hr style="border:solid 1px lightgray;margin-bottom:15px;">
@@ -119,7 +119,6 @@
 
         <div class="col-md-12 col-xs-12" style="padding:0;">
           <img class="color_show" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_field.jpg">
-          <img class="color_chip" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/color_chips/<%=@product.image%>_color.jpg">
         </div>
 
       </div>
@@ -201,11 +200,96 @@
           </ul>
       </div>
 
+
+        <!-- 후기 작성 페이지 -->
+     <div class="review_section">
+      <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
+
+      <div class="review_list">
+
+        <%if @review.blank? %>
+            <div class="media">
+              <div class="col-md-12 col-xs-12" style="margin-top:20px;">
+                <p>
+                  작성된 후기가 없습니다. 후기를 작성하여 제품이 잘 어울리는지를 공유해주세요!
+                </p>
+              </div>
+            </div>
+        <%end%>
+
+
+        <% @review.each do |p| %>
+
+              <!-- 후기작성자정보(왼쪽)-->
+              <div class="pull-left user-info">
+                <!-- 프로필사진(계절타입) -->
+                <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/seasonicon/<%=p.userseason%>.png" width="64" style="margin-left:15px" >
+                <br/>
+                <!-- 작성자닉네임-->
+                <strong><a href="#"><%=p.username%></a></strong>
+                <!-- 작성자계절타입-->
+                <small><%=p.userseason%></small>
+              </div>
+              <!-- 리뷰본문(오른쪽) -->
+              <div class="media" style="border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
+
+                <div class="col-md-12">
+                  <div class="col-md-12 col-xs-12" style="top:0px; right:0px; text-align:right;"><%= p.created_at.strftime("%Y-%m-%d") %></div>
+                  <br>
+                  <!-- 첨부된사진 -->
+                  <div class="col-md-12" style="margin-top:20px;">
+                    <div class="col-md-9"><%=p.content %></div>
+                    <% unless p.img_url.nil? %>
+                        <img src="<%= p.img_url %>" width="100%"> <!--사진 너무 대문짝만하게 나옴-->
+                    <% end %>
+
+                  </div>
+                  <!-- 후기내용 -->
+
+                </div><br>
+                <!-- 작성날짜 -->
+                <div class="col-md-12" style="text-align:right;">
+
+                  <!-- 삭제버튼-->
+                  <% if user_signed_in? %>
+                      <% if p.username = current_user.username %>
+                          <!-- 수정하는 페이지로 이동-->
+                          <a href="/update_view/<%=@product.image%>/<%=p.id%>">[수정하기]</a>
+                          <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
+                      <% else %>
+                          <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                      <% end %>
+                  <% else %>
+                      <!-- 로그인안했어도 detail페이지들어갈수있게.. 로그인안한상태에서 current_user 찾을수없어서 오류떴었던거 수정-->
+                  <% end %>
+                </div>
+              </div> <!--/div.media-->
+
+        <%end%>
+
+      </div> <!--/.review_list-->
+
+       <br><br>
+
+
+       <!-- 후기 작성 버튼 역시 잠시 봉인합니다 -->
+       <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
+           <a href="/home/write_review/<%=@product.image%>" class="btn btn-black btn-lg active" style="color:#000000" role="button" aria-pressed="true">후기 작성하기</a>
+       <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
+           <a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#000000" role="button" aria-pressed="true">후기 작성하기</a>
+       <% end %>
+
+
+     </div> <!--./review_section-->
+
+
+
+
 <%
 =begin
 %>
 
-    <div class="col-md-12 col-xs-12" style="text-align: center;">
+      <div class="col-md-12 col-xs-12" style="text-align: center;">
         <a href="/home/order/<%=@product.image%>" class="btn-buy btn-buy-bottom" role="button">
           <i class="fa fa-krw" aria-hidden="true"></i> 주문하기
         </a>
@@ -272,6 +356,7 @@
         clear:both;
         text-align:left;
         border:1px solid #56565d;
+        margin-bottom:50px;
       }
       .color_intro>h4{
         font-weight:bold;
@@ -450,6 +535,15 @@
         padding-right:30px;
         padding-left:30px;
       }
+
+      /*후기 부분*/
+
+      .review_section{
+        clear:both;
+      }
+
+
+
     } /*max-width 768px ends*/
 
     @media (min-width: 768px){
@@ -492,6 +586,7 @@
         text-align:left;
         border:1px solid #56565d;
         height:200px;
+        margin-bottom:50px;
       }
       .color_intro>h4{
         font-weight:bold;
@@ -662,6 +757,13 @@
         display:block;
         margin:80px 0px 30px 0px;
         font-size:14px;
+      }
+
+
+      /*후기 부분*/
+
+      .review_section{
+        clear:both;
       }
 
 
