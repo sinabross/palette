@@ -1,0 +1,17 @@
+<div class="container">
+    <h3>문의/건의하기</h3>
+    <p>업데이트 되었으면 하는 제품, 이용하시면서 개선되었으면 하는 점 등에 대해 자유롭게 말씀해주세요. </p>
+    <form action="/home/request_write_ok" method="post">
+      <div class="form-group">
+        <label for="exampleInputTitle">제목</label>
+        <input type="text" name="title" class="form-control" id="exampleInputTitle" placeholder="제목">
+      </div>
+      <div class="form-group">
+            <label for="exampleInputContent">내용</label>
+            <textarea name="content" class="form-control" rows="3"></textarea>
+          </div>
+      <button type="submit" class="btn btn-default">등록</button>
+      <a href="/home/request_list" id="btnCancelRequest" class="btn btn-default">취소</a>
+    </form>
+</div>
+

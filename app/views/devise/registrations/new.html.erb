@@ -15,11 +15,6 @@
               </div>
               
               <div class="form-group">
-                <%= f.label :닉네임 %><br />
-                <%= f.text_field :username, class:"form-control" ,placeholder:"홍길동" %>
-              </div>
-              
-              <div class="form-group">
                 <%= f.label :비밀번호 %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %>자 이상으로 설정해주세요.)</em>
@@ -30,6 +25,11 @@
               <div class="form-group">
                 <%= f.label :비밀번호확인 %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control" %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :닉네임 %><br />
+                <%= f.text_field :username, class:"form-control" ,placeholder:"홍길동" %>
               </div>
               
             <!-- 계절타입 주석처리(16.10.07)
@@ -47,8 +47,13 @@
                                             start_year: Date.today.year - 12, end_year: Date.today.year - 100}, {required: true}%>
               </div>
 
+              <div class="form-group">
+                <label>이용약관</label>
+                <textarea class="form-control" rows="3">이용약관, 개인정보동의</textarea>
+              </div>
+
               <div class="actions">
-                <%= f.submit "Sign up", class:"btn btn-custom btn-lg btn-block" %>
+                <%= f.submit "회원가입", class:"btn btn-custom btn-lg btn-block" %>
               </div>
             </form>
         </div>
@@ -135,7 +140,7 @@
   }
   .btn-custom {
       color: #fff;
-  	background-color: #333333;
+  	background-color: #ffaaa3;
   }
   /*원래 색: #1fa67b*/
   
