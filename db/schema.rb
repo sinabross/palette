@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201075032) do
+ActiveRecord::Schema.define(version: 20170209065742) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -142,6 +142,16 @@ ActiveRecord::Schema.define(version: 20170201075032) do
 
   add_index "punches", ["average_time"], name: "index_punches_on_average_time"
   add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index"
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "nickname"
+    t.string   "pro_num",    default: ""
+    t.string   "img_url",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string   "num"

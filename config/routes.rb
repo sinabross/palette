@@ -80,6 +80,11 @@ Rails.application.routes.draw do
   post 'askfor_status/:askfor_id' => 'home#askfor_status' # 제품요청 상태 변경
 
 
+  #새로 생긴 문의/건의/요청 게시판
+  get 'home/request_list'
+  get 'home/request_write'
+  post 'home/request_write_ok'
+
 
   # 공지사항 게시판
 

@@ -9,12 +9,12 @@
             <!--Log in with your email account-->
             <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
               <div class="form-group">
-                <%= f.label :email %><br/>
-                <%= f.email_field :email, autofocus: true, class:"form-control" ,placeholder:"이메일을 입력하세요!" %>
+                <%= f.label :이메일 %>
+                <%= f.email_field :email, autofocus: true, class:"form-control" ,placeholder:"이메일을 입력하세요" %>
               </div>
               <div class="form-group">
-                <%= f.label :password %><br/>
-                <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"비밀번호를 입력하세요!" %>
+                <%= f.label :비밀번호 %>
+                <%= f.password_field :password, autocomplete: "off",class:"form-control",placeholder:"비밀번호를 입력하세요" %>
               </div>
                         
               <% if devise_mapping.rememberable? -%>
@@ -25,11 +25,11 @@
               <% end %>
               
               <div class="actions" id="btn-login">
-                <%= f.submit "Log in", class:"btn btn-custom btn-lg btn-block"%>
+                <%= f.submit "로그인", class:"btn btn-custom btn-lg btn-block"%>
               </div>
             
                <div style="text-align:center">
-                <!-- <%= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path, class: "loginBtn loginBtn_facebook" %></br>-->
+                <!-- <%#= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path, class: "loginBtn loginBtn_facebook" %></br>-->
                 <%= render "devise/shared/links" %>
               </div> 
               
@@ -162,7 +162,7 @@
 }
 .btn-custom {
     color: #fff;
-	background-color: #333333;
+	background-color: #ffaaa3;
 }/*원래 색: #1fa67b*/
 .btn-custom:hover,
 .btn-custom:focus {

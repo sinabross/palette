@@ -388,6 +388,24 @@ class HomeController < ApplicationController
   end
   # =============== 문의글 관련끝====================
   
+  
+  # =============== 새로 생긴 문의/건의 게시판 시작 ===============
+  def request_list
+    @requests = Request.all.order("id desc").first(5)
+  end
+  
+  def request_write_ok
+    request = Request.new
+    request.title = params[:title]
+    request.content = params[:content]
+    request.save
+    
+    redirect_to "/home/request_list"
+  end
+
+  # =============== 새로 생긴 문의/건의 게시판 끝 =================
+  
+  
  # =============  My page =====================
 
   # My page
