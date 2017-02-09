@@ -214,7 +214,7 @@
             <div class="media">
               <div class="col-md-12 col-xs-12" style="margin-top:20px;">
                 <p>
-                  작성된 후기가 없습니다. 후기를 작성하여 제품이 잘 어울리는지를 공유해주세요!
+                  작성된 후기가 없습니다. 추천받은 제품이 잘 어울리셨는지 후기를 남겨주세요!
                 </p>
               </div>
             </div>
@@ -223,25 +223,21 @@
 
         <% @review.each do |p| %>
 
-              <!-- 후기작성자정보(왼쪽)-->
-              <div class="pull-left user-info">
-                <!-- 프로필사진(계절타입) -->
-                <img src="https://s3.ap-northeast-2.amazonaws.com/fourseasons111112/icon/detailpage/seasonicon/<%=p.userseason%>.png" width="64" style="margin-left:15px" >
-                <br/>
-                <!-- 작성자닉네임-->
-                <strong><a href="#"><%=p.username%></a></strong>
-                <!-- 작성자계절타입-->
-                <small><%=p.userseason%></small>
-              </div>
               <!-- 리뷰본문(오른쪽) -->
-              <div class="media" style="border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
+              <div class="row review_area">
 
-                <div class="col-md-12">
-                  <div class="col-md-12 col-xs-12" style="top:0px; right:0px; text-align:right;"><%= p.created_at.strftime("%Y-%m-%d") %></div>
+                <div class="col-md-12 col-xs-12">
+                  
+                  <div class="col-md-12 col-xs-12">
+                    <!-- 작성자 닉네임-->
+                    <strong><a class="review_username" href="#"><%=p.username%></a></strong>
+                    <!-- 작성일-->
+                    <p style="color:lightgray;"><%= p.created_at.strftime("%Y.%m.%d %H:%M") %></p>
+                  </div>
                   <br>
                   <!-- 첨부된사진 -->
                   <div class="col-md-12" style="margin-top:20px;">
-                    <div class="col-md-9"><%=p.content %></div>
+                    <div class="col-md-9"><%=p.content%></div>
                     <% unless p.img_url.nil? %>
                         <img src="<%= p.img_url %>" width="100%"> <!--사진 너무 대문짝만하게 나옴-->
                     <% end %>
@@ -251,24 +247,27 @@
 
                 </div><br>
                 <!-- 작성날짜 -->
-                <div class="col-md-12" style="text-align:right;">
+                <div class="col-md-12" style="margin-top:10px;">
 
                   <!-- 삭제버튼-->
                   <% if user_signed_in? %>
                       <% if p.username = current_user.username %>
                           <!-- 수정하는 페이지로 이동-->
-                          <a href="/update_view/<%=@product.image%>/<%=p.id%>">[수정하기]</a>
-                          <a href="/destroy/<%= p.id %>">[삭제]</a> <!-- 글작성자가 현재로그인한유저면 삭제버튼 보임 -->
-                      <% else %>
-                          <!--근데 닉네임 중복불가를 설정해놔야할듯. 같은닉네임이 있으면 여기서 문제생길듯.. -->
+                        <div class="col-md-6 col-xs-6" style="text-align:left;">
+                          <a class="btn_review_action" href="/update_view/<%=@product.image%>/<%=p.id%>">수정</a>
+                        </div>
+                        
+                        <div class="col-md-6 col-xs-6" style="text-align:right;">
+                          <a class="btn_review_action" href="/destroy/<%= p.id %>">삭제</a>
+                        </div> 
+                        
                       <% end %>
-                  <% else %>
-                      <!-- 로그인안했어도 detail페이지들어갈수있게.. 로그인안한상태에서 current_user 찾을수없어서 오류떴었던거 수정-->
+                  
                   <% end %>
                 </div>
-              </div> <!--/div.media-->
+              </div> <!--/div.review_area-->
 
-        <%end%>
+        <%end%> <!--/review.each do end -->
 
       </div> <!--/.review_list-->
 
@@ -284,7 +283,11 @@
 
 
      </div> <!--./review_section-->
+      
+      
+    <!-- pagination -->
 
+    <%= render :partial => "layouts/partial/pagination" %> 
 
 
 
@@ -327,7 +330,24 @@
       text-align:center;
       margin-bottom:30px;
     }
-
+    
+    /*후기*/
+    .review_area{
+      border: 1px solid lightgray; 
+      border-radius: 3px;
+      padding:10px; 
+      background-color:#ffffff;
+      
+    }
+    .review_username{
+      color:#ff6666;
+    }
+    .btn_review_action{
+      color:gray;
+      background-color:#ffffff;
+      margin-top:20px;
+    }
+    
     @media (max-width: 768px){
 
       .page-navigation{
