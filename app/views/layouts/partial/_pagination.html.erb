@@ -1,9 +1,18 @@
+<!--제품 사용 후기-->
+<% if @review %>
+  <%= will_paginate @review,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
+<% end %>
+
 <% if @list %>
   <%= will_paginate @list,
                     :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
                     inner_window: 2, outer_window: 0,
                     :previous_label => '<', :next_label => '>'%>
 <% end %>
+
 <% if @asks %>
     <%= will_paginate @asks,
                       :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",

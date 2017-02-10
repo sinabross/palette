@@ -52,7 +52,8 @@ Rails.application.routes.draw do
   post 'home/review_submit' #리뷰등록
   get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
   post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
-  get  'destroy/:review_id' => "home#destroy" #리뷰삭제
+  get  'destroy_review/:review_id' => "home#destroy_review" #리뷰삭제
+ 
   
   
   #제품검토요청
