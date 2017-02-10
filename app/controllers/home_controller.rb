@@ -209,7 +209,7 @@ class HomeController < ApplicationController
      #@product.save
 
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
-    @review=Review.where(num:params[:product_num])
+    @review=Review.where(num:params[:product_num]).paginate(page: params[:page], per_page: 5)
 
 
   end  
@@ -299,7 +299,7 @@ class HomeController < ApplicationController
     redirect_to '/home/detail2/' + @one_review.num
   end
   
-  def destroy #리뷰삭제
+  def destroy_review #리뷰삭제
     @one_review=Review.find(params[:review_id])
     @one_review.destroy
     redirect_to :back

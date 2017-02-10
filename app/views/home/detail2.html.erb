@@ -224,7 +224,7 @@
         <% @review.each do |p| %>
 
               <!-- 리뷰본문(오른쪽) -->
-              <div class="row review_area">
+              <div class="row review_area" style="margin:15px 0px 15px 0px;">
 
                 <div class="col-md-12 col-xs-12">
                   
@@ -236,8 +236,8 @@
                   </div>
                   <br>
                   <!-- 첨부된사진 -->
-                  <div class="col-md-12" style="margin-top:20px;">
-                    <div class="col-md-9"><%=p.content%></div>
+                  <div class="col-md-12" style="margin-top:20px;padding:0;">
+                    <div class="col-md-9" style="margin-bottom:15px;"><%=p.content%></div>
                     <% unless p.img_url.nil? %>
                         <img src="<%= p.img_url %>" width="100%"> <!--사진 너무 대문짝만하게 나옴-->
                     <% end %>
@@ -258,7 +258,8 @@
                         </div>
                         
                         <div class="col-md-6 col-xs-6" style="text-align:right;">
-                          <a class="btn_review_action" href="/destroy/<%= p.id %>">삭제</a>
+                          <a class="btn_review_action" id="btn_review_delete" href="/destroy_review/<%= p.id %>" data-confirm="삭제 하시겠습니까?">삭제</a>
+                          <%#= link_to "삭제", destroy_review_home_path(p.id), class:"btn_review_action", data: { confirm: "삭제 하시겠습니까?" } %>
                         </div> 
                         
                       <% end %>
@@ -270,24 +271,58 @@
         <%end%> <!--/review.each do end -->
 
       </div> <!--/.review_list-->
+      
+      <!-- pagination -->
 
-       <br><br>
+      <%= render :partial => "layouts/partial/pagination" %> 
 
-
-       <!-- 후기 작성 버튼 역시 잠시 봉인합니다 -->
-       <% if user_signed_in? %> <!-- 로그인 시 , 후기작성하는 페이지로 이동 -->
-           <a href="/home/write_review/<%=@product.image%>" class="btn btn-black btn-lg active" style="color:#000000" role="button" aria-pressed="true">후기 작성하기</a>
-       <% else %> <!-- 로그인 안했으면 로그인페이지로 이동 -->
-           <a href="/users/sign_in" id="review_login" class="btn btn-black btn-lg active" style="color:#000000" role="button" aria-pressed="true">후기 작성하기</a>
-       <% end %>
+      
+       
+      <section class="write_review">
+        <div class="container" style="margin-top:30px">
+          <div class="row">
+            <div class="col-md-9 col-xs-12">
+              <div style="background-color:#ffffff;">
+                  
+              </div>                  
+                          
+              <!-- 후기글 작성폼. 내용,사진첨부 -->
+              <form style="margin-top:40px" action="/home/review_submit" method="post" enctype="multipart/form-data">
+                <div class="filebox col-md-2" style="padding:0px">
+                  <label for="camera">사진 첨부</label>
+                  <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
+                </div>
+                
+                <textarea class="form-control" rows="5" id="content" name="content" placeholder="20자 이상 입력해주세요."></textarea>
+                
+                 <!--사진미리보기-->
+                <div id="cma_image" class="picture">
+                  
+                </div>
+                
+                <div style="text-align:right;">
+                  <% if user_signed_in? %>
+                    <button name="pro_submit" value="<%=@product.image%>" type="submit" class="review_submit" style="color:#ffffff">등록</button>
+                  <%else%>
+                    <%= link_to "등록", new_user_session_path, class:"review_submit", data: { confirm: "로그인 후 이용해주세요." }%> 
+                  <%end%>
+                </div>
+              </form>
+            
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+       
+       
+       
 
 
      </div> <!--./review_section-->
       
       
-    <!-- pagination -->
-
-    <%= render :partial => "layouts/partial/pagination" %> 
+    
 
 
 
@@ -346,6 +381,27 @@
       color:gray;
       background-color:#ffffff;
       margin-top:20px;
+      font-weight:bold;
+    }
+    .write_review{
+      background-color:#e4e4e4;
+      margin-top:80px;
+    }
+    .review_submit{
+      display:inline-block;
+      background-color:gray;
+      border-radius:5px;
+      width:20%;
+      padding:5px;
+      margin:10px;
+    }
+    a.review_submit{
+      text-align:center;
+      text-decoration:none;
+      color:white;
+    }
+    a.review_submit:hover{
+      text-decoration:none;
     }
     
     @media (max-width: 768px){
@@ -810,4 +866,8 @@
         window.location = currentId;
 
       });
+      
+      
+     
+      
 </script>
