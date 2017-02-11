@@ -1,0 +1,20 @@
+<div class="container">
+    <h3>문의/건의하기</h3>
+    <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유로운 의견을 남겨주세요. </p>
+    <form action="/home/request_reply_ok" method="post">
+        <input type="hidden" name="reply_id" value="<%= @one_request.id %>"/>
+        <input type="hidden" name="reply_group" value="<%= @group %>"/>
+    	<input type="hidden" name="reply_level" value="<%= @level %>"/>
+        <div class="form-group">
+            <label for="exampleInputTitle">제목</label>
+            <input type="text" name="title" class="form-control" id="exampleInputTitle" value="&nbsp;&nbsp;[RE]&nbsp;:&nbsp;<%= @one_request.title %>">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputContent">내용</label>
+            <textarea name="content" class="form-control" rows="3"><%= @one_request.content %></textarea>
+        </div>
+      <button type="submit" class="btn btn-default">수정</button>
+      <a href="/home/request_view/<%= @one_request.id %>" id="btnCancelRequest" class="btn btn-default">취소</a>
+    </form>
+</div>
+
