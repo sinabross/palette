@@ -42,8 +42,9 @@
           </div>
           <br><br>
           
-          <div class="row col-md-12 col-xs-12" style="text-align:center">
-            <button type="submit" class="btn btn-black"  style="color:#ffffff">수정하기</button><br>
+          <div class="col-md-12 col-xs-12" style="text-align:center;padding:0;">
+            <%= link_to "취소", :back , class:"btn-black btn-cancel" %>
+            <button type="submit" class="btn btn-black"  style="color:#ffffff">수정</button>
           </div>
           <br /><br />
         </form>
@@ -58,11 +59,23 @@
         width:100px;
         height:40px;
         font-size:15px;
+        font-weight:700;
         text-align:center;
         cursor:pointer;
         color:#000000;
         background:#333333;
+        margin:10px;
         }  
+  .btn-black.btn-cancel {
+        display:inline-block;
+        color:gray;
+        background-color:#e4e4e4;
+        line-height:38px;
+        text-decoration:none;
+  }      
+  .btn-cancel:hover{
+        text-decoration:none;
+  }
 
   #write h1 {
         color: #6E6E6E;
