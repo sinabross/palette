@@ -84,7 +84,18 @@ Rails.application.routes.draw do
   get 'home/request_list'
   get 'home/request_write'
   post 'home/request_write_ok'
+  get 'home/request_view/:request_id' => 'home#request_view'
+  get 'home/request_destroy/:request_id' => 'home#request_destroy'
+  get 'home/request_update/:request_id' => 'home#request_update'
+  post 'home/request_update_ok/:request_id' => 'home#request_update_ok'
 
+  post 'home/comment_create'
+  get 'home/comment_destroy/:comment_id' => 'home#comment_destroy'
+  get 'home/comment_update/:comment_id' => 'home#comment_update'
+  
+  get 'home/request_reply/:request_id' => 'home#request_reply'
+  post 'home/request_reply_ok'
+  get 'home/request_reply_view/:reply_id' => 'home#request_reply_view'
 
   # 공지사항 게시판
 

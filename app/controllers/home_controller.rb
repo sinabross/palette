@@ -391,16 +391,95 @@ class HomeController < ApplicationController
   
   # =============== 새로 생긴 문의/건의 게시판 시작 ===============
   def request_list
-    @requests = Request.all.order("id desc").first(5)
+    @requests = Request.all.order("id desc")
+    @replies = RequestReply.all.order("id asc")
   end
   
   def request_write_ok
-    request = Request.new
-    request.title = params[:title]
-    request.content = params[:content]
-    request.save
+    @request = Request.new
+    @request.title = params[:title]
+    @request.content = params[:content]
+    @request.nickname = current_user.username
+    @request.group = @request.id
+    @request.level = 0
+    
+    @request.save
     
     redirect_to "/home/request_list"
+  end
+  
+  def request_view
+    @one_request = Request.find(params[:request_id])
+  end
+  
+  def request_destroy
+    @one_request = Request.find(params[:request_id])
+    @one_request.destroy
+    
+    redirect_to "/home/request_list"
+  end
+
+  def request_update
+    @one_request = Request.find(params[:request_id])
+  end
+  
+  def request_update_ok
+    @one_request = Request.find(params[:request_id])
+    @one_request.title = params[:title]
+    @one_request.content = params[:content]
+    @one_request.nickname = current_user.username
+    @one_request.save
+    
+    redirect_to "/home/request_view/" + params[:request_id]
+  end
+  
+  
+  #####댓글#####
+  def comment_create
+    @comment_create = RequestComment.new
+    @comment_create.content = params[:content]
+    @comment_create.nickname = current_user.username
+    @comment_create.request_id = params[:request_id]
+    @comment_create.save
+    
+    redirect_to :back
+  end
+  
+  def comment_destroy
+    @one_comment = RequestComment.find(params[:comment_id])
+    @one_comment.destroy
+    
+    redirect_to :back
+  end
+  
+  def comment_update
+    @one_comment = RequestComment.find(params[:comment_id])
+  end
+
+
+  #####답글#####
+  def request_reply
+    @one_request = Request.find(params[:request_id])
+    @group = @one_request.id
+    @level = 1
+  end
+  
+  def request_reply_ok
+    @request_reply_ok = RequestReply.new
+    @request_reply_ok.title = params[:title]
+    @request_reply_ok.content = params[:content]
+    @request_reply_ok.nickname = current_user.username
+    @request_reply_ok.request_id = params[:reply_id]
+    @request_reply_ok.group = params[:reply_group]
+    @request_reply_ok.level = params[:reply_level]
+    
+    @request_reply_ok.save
+    
+    redirect_to "/home/request_list"
+  end
+  
+  def request_reply_view
+    @one_reply = RequestReply.find(params[:reply_id])
   end
 
   # =============== 새로 생긴 문의/건의 게시판 끝 =================
