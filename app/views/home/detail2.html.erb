@@ -256,7 +256,7 @@
                   <!-- 삭제버튼-->
                   <% if user_signed_in? %>
                   
-                      <% if p.username = current_user.username %>
+                      <% if p.username == current_user.username %>
                           <!-- 수정하는 페이지로 이동-->
                         <div class="col-md-6 col-xs-6" style="text-align:left;">
                           <a class="btn_review_action" href="/update_view/<%=@product.image%>/<%=p.id%>">수정</a>
@@ -269,7 +269,7 @@
                       <% elsif current_user.admin? %>  
                          <!-- 수정하는 페이지로 이동-->
                         <div class="col-md-6 col-xs-6" style="text-align:left;">
-                           <a class="btn_review_action" href="#" data-alert:"권한이 없습니다">수정</a>
+                           <a class="btn_review_action" onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다">수정</a>
                         </div>
                         
                         <div class="col-md-6 col-xs-6" style="text-align:right;">
@@ -279,11 +279,11 @@
                       
                       <%else%>
                          <div class="col-md-6 col-xs-6" style="text-align:left;">
-                           <a class="btn_review_action" href="#" data-alert:"권한이 없습니다">수정</a>
+                           <a class="btn_review_action"  onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다".>수정</a>
                          </div>
                         
                         <div class="col-md-6 col-xs-6" style="text-align:right;">
-                          <a class="btn_review_action" id="btn_review_delete" href="#" data-alert:"권한이 없습니다">삭제</a>
+                          <a class="btn_review_action" onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다.">삭제</a>
                         </div> 
                       <% end %>
                   
@@ -291,11 +291,11 @@
                   <% else %>
                   
                        <div class="col-md-6 col-xs-6" style="text-align:left;">
-                          <a class="btn_review_action" href="#" data-alert:"권한이 없습니다">수정</a>
+                          <a class="btn_review_action"  onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다">수정</a>
                         </div>
                         
                         <div class="col-md-6 col-xs-6" style="text-align:right;">
-                          <a class="btn_review_action" id="btn_review_delete" href="#" data-alert:"권한이 없습니다">삭제</a>
+                          <a class="btn_review_action" onClick="return false;"  style="cursor:pointer;" data-confirm="권한이 없습니다">삭제</a>
                         </div> 
                   
                   <% end %>
@@ -328,8 +328,9 @@
                   <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
                 </div>
                 
-                <textarea class="form-control" rows="5" id="content" name="content" placeholder="20자 이상 입력해주세요."></textarea>
-                
+                <textarea class="form-control" rows="5" id="content" name="content" placeholder="20자 이상 입력해주세요." maxlength="500" required></textarea>
+                <input id="counter" value="0" disabled>
+                <span class="minlength_require" style="font-weight:bold;color:red;"></span>
                  <!--사진미리보기-->
                 <div id="cma_image" class="picture">
                   
@@ -428,7 +429,7 @@
       border-radius:5px;
       width:20%;
       padding:5px;
-      margin:10px;
+      margin:10px 0px;
     }
     a.review_submit{
       text-align:center;
@@ -437,6 +438,13 @@
     }
     a.review_submit:hover{
       text-decoration:none;
+    }
+    input#counter{
+      background-color:#e4e4e4;
+      text-align:right;
+      width:100%;
+      margin-top:5px;
+      
     }
     
     @media (max-width: 768px){
@@ -901,7 +909,49 @@
         window.location = currentId;
 
       });
+    
+    
+    //리뷰 최소 20자 이상 쓰게 하기.
+    $( "form" ).submit(function( event ) {
       
+        
+        if ( $('textarea').val().length < 20 ) {
+          $( "span.minlength_require" ).text( "20자 이상으로 자세히 말씀 해주세요:)" ).show();//.fadeOut( 3000 );
+          event.preventDefault();
+          return;
+        }
+      
+    });  
+    
+    //실시간 글자수 세기
+    $(function() {
+      
+        var wordCounts = {};
+    
+        $('#content').each(function() {
+            var input = '#content'
+            word_count(input);
+    
+            $(this).keyup(function() {
+                word_count(input);
+            })
+    
+        });
+    
+          function word_count(field) {
+                  var number = 0;
+                  var matches = $(field).val();
+                  if (matches) {
+                      number = matches.length;
+                  }
+                  wordCounts[field] = number;
+                  var finalCount = 0;
+                  $.each(wordCounts, function(k, v) {
+                      finalCount += v;
+                  });
+                  $('#counter').val(finalCount+"/500")
+              }    
+    });
       
      
       
