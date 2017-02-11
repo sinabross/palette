@@ -173,7 +173,15 @@ class HomeController < ApplicationController
 
     @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
 
-
+    #브랜드 필터(드롭박스) 검색
+    #@brand_state = "원하시는 브랜드를 선택해주세요"
+    
+    if params[:brand].present?
+      
+    @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 21) 
+    #@brand_state = params[:brand_state]
+   
+    end
 
   end
 
@@ -209,7 +217,8 @@ class HomeController < ApplicationController
      #@product.save
 
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
-    @review=Review.where(num:params[:product_num]).paginate(page: params[:page], per_page: 5)
+    @review=Review.where(num:params[:product_num]).order("id desc").paginate(page: params[:page], per_page: 5)
+    
 
 
   end  
