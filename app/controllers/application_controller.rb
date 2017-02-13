@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
 
-  
+  # rowsPerPage 
+  # 한 페이지당 표시될 게시물 수
+  # 모든 컨트롤러에서 사용가능하도록 여기에 정의.
+    def rowsPerPage
+        @rowsPerPage ||= 5
+    end
   
 end
