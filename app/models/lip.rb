@@ -14,6 +14,9 @@ class Lip < ActiveRecord::Base
  scope :color, -> (color) { where color: color }
  scope :texture, -> (texture) { where texture: texture }
  scope :level, -> (level) { where level: level }
+ 
+ #for brand filtering
+ scope :brand, -> (brand) { where brand: brand }
 
  # for 찜하기 기능
  belongs_to :user

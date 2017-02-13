@@ -269,16 +269,12 @@
                   <input type="checkbox" id="low" class="filter" name="level[]" value="로드샵">
                   <label for="low">로드샵</label>
                 </li>
-<%
-=begin
-%>
+
                 <li>
                   <input type="checkbox" id="drug" class="filter" name="level[]" value="드럭스토어">
                   <label for="drug">드럭스토어</label>
                 </li>
-<%
-=end
-%>
+
               </ul>
             </li>
 
@@ -290,9 +286,21 @@
        
       </form>
     </div>        
-  </div>        
-          
-          
+  </div> <!--/필터 끝-->
+  
+  <!-- 브랜드 필터 -->
+<form method="get" class="brand-filter">
+  <select class="form-control brand-select" name="brand" id="ddrp1">
+    <option value="">원하시는 브랜드를 선택해주세요</option>
+    <option value="맥">맥</option>
+    <option value="나스">나스</option>
+    <option value="VDL">VDL</option>
+    <option value="Option 4">Option 4</option>
+    <option value="Option 5">Option 5</option>
+  </select>        
+</form>          
+
+
           
   
 
@@ -822,7 +830,15 @@
   
 // });
 
-  
+//브랜드 필터링
+
+$(function () {
+        $(".brand-select").change(function (e) {
+            $('.brand-filter').submit();
+            
+        });
+
+});
         
 
 

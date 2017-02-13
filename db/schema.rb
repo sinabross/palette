@@ -158,20 +158,18 @@ ActiveRecord::Schema.define(version: 20170210180854) do
     t.integer  "request_id"
     t.integer  "group"
     t.integer  "level"
-    t.integer  "hits"
     t.string   "img_url",    default: ""
+    t.integer  "hits"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   create_table "requests", force: :cascade do |t|
     t.string   "title"
-    t.text     "content"
+    t.string   "content"
     t.string   "nickname"
-    t.integer  "group"
-    t.integer  "level"
+    t.string   "pro_num",    default: ""
     t.string   "img_url",    default: ""
-    t.integer  "hits"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
