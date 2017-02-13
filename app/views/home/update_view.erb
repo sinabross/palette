@@ -9,7 +9,7 @@
         </div>                      
                     
         <!--상품정보 출력-->
-        <div class="media panel-body container" style="border: solid 2.0px lightgray; margin-top:20px">
+        <div class="media panel-body" style="border: solid 2.0px lightgray; margin-top:20px">
           <div class="pull-left user-info" href="#" float="left">
             <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.image%>-min.jpg" style="width:140px;height:auto;">
             <br>
@@ -23,30 +23,36 @@
 
         <!-- 후기글 작성폼. 내용,사진첨부 -->
         <form style="margin-top:40px" action="/home/review_update_submit/<%=@one_review.id%>" method="POST" enctype="multipart/form-data">
-          <textarea class="form-control" rows="8" id="content" name="content"><%=@one_review.content%></textarea>
-          <br>
+          <textarea class="form-control" rows="5" id="content" name="content"><%=@one_review.content%></textarea>
+          <input id="counter" value="0" disabled>
           <div class="filebox col-md-2" style="padding:0px">
-            <label for="cma_file">사진 변경</label>
+            <label for="cma_file">
+              <i class="fa fa-camera" aria-hidden="true" style="margin:5px;"></i>사진 변경
+            </label>
             <input type="file" name="pic" id="cma_file" accept="image/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
           </div>
-          <br><br><br>
           
           <!-- 사진 변경된거 보여주는 줄-->
-          <div class="row col-md-12 col-xs-12">
-            <div class="picture col-md-4" style="color:#919191"><strong>변경전이미지</strong><br><br>
-              <img src="<%= @one_review.img_url %>">
+          <div class="col-md-12 col-xs-12" style="text-align:center;padding:0;">
+            <div class="picture col-md-4 col-md-offset-2 col-xs-6" style="padding:0;">
+              <p>수정 전 이미지</p>
+              <img class="img_edit" src="<%= @one_review.img_url %>">
             </div>
-            <div class="col-md-4" style="color:#919191"><strong>변경후이미지</strong><br><br>
-              <div id="cma_image" class="picture"><!-- 이부분에 사진첨부하면 첨부된사진이 들어감! --></div>
+            <div class="col-md-4 col-xs-6" style="padding:0;">
+              <div id="cma_image" class="picture">
+               <p>수정 후 이미지</p>
+                <!-- 이부분에 사진첨부하면 첨부된사진이 들어감! -->
+              
+              </div>
             </div>
           </div>
-          <br><br>
-          
+         
+         
           <div class="col-md-12 col-xs-12" style="text-align:center;padding:0;">
             <%= link_to "취소", :back , class:"btn-black btn-cancel" %>
             <button type="submit" class="btn btn-black"  style="color:#ffffff">수정</button>
           </div>
-          <br /><br />
+          
         </form>
       </div>
     </div>
@@ -98,6 +104,7 @@
         border-radius: .25em;
         width:100%;
         max-width:100%;
+        margin-bottom:20px;
         }
      
   .filebox input[type="file"] {  /* 파일 필드 숨기기 */
@@ -112,23 +119,77 @@
         }
     
   .picture img{
-        width:80%;   
+        width:140px;
+        height:140px;
         }
+  .picture p{
+    font-weight:bold;
+    color:#919191;
+  }      
+  input#counter{
+    background-color:#ffffff;
+    text-align:right;
+    width:100%;
+    margin-top:5px;
+      
+  }
+  @media(max-width:768px){
+  
+    
+  } 
+  
+  @media(min-width:768px){
+    .picture img{
+      width:300px;
+      height:300px;
+    }
+  }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <script>
-
+  //사진 미리보기
   function getThumbnailPrivew(html, $target) {
     if (html.files && html.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
         $target.css('display', '');
           //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
-          $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+          $target.html('<p>수정 후 이미지</p> <img src="' + e.target.result + '" border="0" alt="" />');
         }
         reader.readAsDataURL(html.files[0]);
       }
     }
+    
+   //실시간 글자수 세기
+    $(function() {
+      
+        var wordCounts = {};
+    
+        $('#content').each(function() {
+            var input = '#content'
+            word_count(input);
+    
+            $(this).keyup(function() {
+                word_count(input);
+            })
+    
+        });
+    
+          function word_count(field) {
+                  var number = 0;
+                  var matches = $(field).val();
+                  if (matches) {
+                      number = matches.length;
+                  }
+                  wordCounts[field] = number;
+                  var finalCount = 0;
+                  $.each(wordCounts, function(k, v) {
+                      finalCount += v;
+                  });
+                  $('#counter').val(finalCount+"/500")
+              }    
+    });
+        
 </script>

@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-         
+  
+  validates :name, presence: true 
   validates :username, presence: true 
   validates :username, uniqueness: true
+  
   
   acts_as_voter
   

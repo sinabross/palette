@@ -75,7 +75,7 @@
 
          <!-- 제품군, 펄유무, 텍스쳐-->
          <div class="product_info">
-           <div class="panel panel-default col-md-4 col-xs-4" style="margin-bottom:60px;">
+           <div class="panel panel-default col-md-4 col-xs-4" style="margin-bottom:50px;">
              <div class="panel-body" align="center">
           <span style="font-size:12px; text-align:center;">
           <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
@@ -224,7 +224,7 @@
         <% @review.each do |p| %>
 
               <!-- 리뷰본문(오른쪽) -->
-              <div class="row review_area" style="margin:15px 0px 15px 0px;">
+              <div class="row review_area">
 
                 <div class="col-md-12 col-xs-12">
                   
@@ -236,14 +236,14 @@
                   </div>
                   <br>
                   <!-- 첨부된사진 -->
-                  <div class="col-md-12" style="margin-top:20px;padding:0;">
+                  <div class="col-md-12 col-xs-12" style="margin-top:20px;padding:0;">
                     
-                    <div class="col-md-9" style="margin-bottom:15px;">
+                    <div class="col-md-9 col-xs-12" style="margin-bottom:15px;">
                       
                       <%=p.content%>
                     </div>
                     <% unless p.img_url.nil? %>
-                        <img src="<%= p.img_url %>" width="100%"> <!--사진 너무 대문짝만하게 나옴-->
+                        <img src="<%= p.img_url %>" class="review_img"> <!--사진 너무 대문짝만하게 나옴-->
                     <% end %>
 
                   </div>
@@ -251,38 +251,38 @@
 
                 </div><br>
                 <!-- 작성날짜 -->
-                <div class="col-md-12" style="margin-top:10px;">
+                <div class="col-md-8 col-md-offset-1 col-xs-12" style="margin-top:10px;">
 
                   <!-- 삭제버튼-->
                   <% if user_signed_in? %>
                   
                       <% if p.username == current_user.username %>
                           <!-- 수정하는 페이지로 이동-->
-                        <div class="col-md-6 col-xs-6" style="text-align:left;">
+                        <div class="col-md-6 col-xs-6" id="btn_review_edit">
                           <a class="btn_review_action" href="/update_view/<%=@product.image%>/<%=p.id%>">수정</a>
                         </div>
                         
-                        <div class="col-md-6 col-xs-6" style="text-align:right;">
-                          <a class="btn_review_action" id="btn_review_delete" href="/destroy_review/<%= p.id %>" data-confirm="삭제 하시겠습니까?">삭제</a>
+                        <div class="col-md-6 col-xs-6" id="btn_review_delete">
+                          <a class="btn_review_action" href="/destroy_review/<%= p.id %>" data-confirm="삭제 하시겠습니까?">삭제</a>
                         </div> 
                         
                       <% elsif current_user.admin? %>  
                          <!-- 수정하는 페이지로 이동-->
-                        <div class="col-md-6 col-xs-6" style="text-align:left;">
+                        <div class="col-md-6 col-xs-6" id="btn_review_edit">
                            <a class="btn_review_action" onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다">수정</a>
                         </div>
                         
-                        <div class="col-md-6 col-xs-6" style="text-align:right;">
-                          <a class="btn_review_action" id="btn_review_delete" href="/destroy_review/<%= p.id %>" data-confirm="삭제 하시겠습니까?">삭제</a>
+                        <div class="col-md-6 col-xs-6" id="btn_review_delete">
+                          <a class="btn_review_action" href="/destroy_review/<%= p.id %>" data-confirm="삭제 하시겠습니까?">삭제</a>
                         </div> 
                          
                       
                       <%else%>
-                         <div class="col-md-6 col-xs-6" style="text-align:left;">
+                         <div class="col-md-6 col-xs-6" id="btn_review_edit">
                            <a class="btn_review_action"  onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다".>수정</a>
                          </div>
                         
-                        <div class="col-md-6 col-xs-6" style="text-align:right;">
+                        <div class="col-md-6 col-xs-6" id="btn_review_delete">
                           <a class="btn_review_action" onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다.">삭제</a>
                         </div> 
                       <% end %>
@@ -290,11 +290,11 @@
                   
                   <% else %>
                   
-                       <div class="col-md-6 col-xs-6" style="text-align:left;">
+                       <div class="col-md-6 col-xs-6" id="btn_review_edit">
                           <a class="btn_review_action"  onClick="return false;" style="cursor:pointer;" data-confirm="권한이 없습니다">수정</a>
                         </div>
                         
-                        <div class="col-md-6 col-xs-6" style="text-align:right;">
+                        <div class="col-md-6 col-xs-6" id="btn_review_delete">
                           <a class="btn_review_action" onClick="return false;"  style="cursor:pointer;" data-confirm="권한이 없습니다">삭제</a>
                         </div> 
                   
@@ -323,18 +323,22 @@
                           
               <!-- 후기글 작성폼. 내용,사진첨부 -->
               <form style="margin-top:40px" action="/home/review_submit" method="post" enctype="multipart/form-data">
-                <div class="filebox col-md-2" style="padding:0px">
-                  <label for="camera">사진 첨부</label>
+                
+                <div class="filebox col-md-5" style="padding:0px">
+                  <label for="camera">
+                     <i class="fa fa-camera" aria-hidden="true" style="margin:5px;"></i>사진 첨부
+                  </label>
                   <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
                 </div>
+                
+                 <!--사진미리보기-->
+                <div id="cma_image" class="picture">
+                  <!--첨부한 사진 thumbnail이 뜨는 곳-->
+                  </div>
                 
                 <textarea class="form-control" rows="5" id="content" name="content" placeholder="20자 이상 입력해주세요." maxlength="500" required></textarea>
                 <input id="counter" value="0" disabled>
                 <span class="minlength_require" style="font-weight:bold;color:red;"></span>
-                 <!--사진미리보기-->
-                <div id="cma_image" class="picture">
-                  
-                </div>
                 
                 <div style="text-align:right;">
                   <% if user_signed_in? %>
@@ -408,7 +412,7 @@
       border-radius: 3px;
       padding:10px; 
       background-color:#ffffff;
-      
+      margin:15px 0px;
     }
     .review_username{
       color:#ff6666;
@@ -444,8 +448,51 @@
       text-align:right;
       width:100%;
       margin-top:5px;
-      
     }
+    .filebox label {
+        display: inline-block;
+        padding: 5px 0px;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #fdfdfd;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        width:40%;
+        max-width:100%;
+        margin-bottom:20px;
+    }
+
+    .filebox input[type="file"] {  /* 파일 필드 숨기기 */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+    }
+    
+    .picture p{
+      font-weight:bold;
+      color:#919191;
+    } 
+    
+     .picture img {
+        width:130px;
+        height:130px;
+    }
+     .review_img{
+       display:block;
+       width:80%;
+       margin:0 auto;
+     }
+
     
     @media (max-width: 768px){
 
@@ -664,9 +711,12 @@
       .review_section{
         clear:both;
       }
-
-
-
+      div#btn_review_delete{
+        text-align:right;
+      }
+      div#btn_review_edit{
+        text-align:left;
+      }
     } /*max-width 768px ends*/
 
     @media (min-width: 768px){
@@ -838,7 +888,11 @@
         padding:5px;
         margin:0 3px;
       }
-
+      .season_info{
+        margin-bottom:20px;
+        margin-top:20px;
+      }
+      
       .season_info_img{
         width:590px;
         height:auto;
@@ -888,12 +942,30 @@
       .review_section{
         clear:both;
       }
-
-
-
+      .review_area{
+        margin:15px auto;
+        width:80%;
+      }
+       .review_img{
+       display:block;
+       width:40%;
+       margin:0 auto;
+     }
+     div#btn_review_delete{
+        text-align:right;
+      }
+      div#btn_review_edit{
+        text-align:right;
+      }
+      .filebox label{
+        width:20%;
+      }
+      
     } /*min-width :768px ends*/
 </style>
-   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
     
 
@@ -954,5 +1026,22 @@
     });
       
      
+  
+  //후기 사진 첨부 미리보기
+  function getThumbnailPrivew(html, $target) {
+    if (html.files && html.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $target.css('display', '');
+          //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+          $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+        }
+        reader.readAsDataURL(html.files[0]);
+      }
+    }
+
+      
+      
+      
       
 </script>
