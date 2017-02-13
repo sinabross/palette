@@ -33,12 +33,13 @@
         <tr>
           <td>
             <a href="/home/request_list" class="btn_black" role="button">목록</a>
-            <% if user_signed_in? && current_user.username == @one_request.nickname %>
+            <% if user_signed_in? && current_user.admin !=nil%>
+              <a href="/home/request_update/<%= @one_request.id %>" class="btn_black" role="button">수정</a>
+              <a href="/home/request_destroy/<%= @one_request.id %>" class="btn_black" role="button">삭제</a>
+              <a href="/home/request_reply/<%= @one_request.id %>" class="btn btn-black" role="button">답글</a>
+            <% elsif user_signed_in? && current_user.username == @one_request.nickname %>
                <a href="/home/request_update/<%= @one_request.id %>" class="btn_black" role="button">수정</a>
                <a href="/home/request_destroy/<%= @one_request.id %>" class="btn_black" role="button">삭제</a>
-              <% if user_signed_in? && current_user.admin !=nil%>
-                <a href="/home/request_reply/<%= @one_request.id %>" class="btn btn-black" role="button">답글</a>
-              <%end%>
             <%end%>
           </td>
         </tr>
@@ -57,7 +58,6 @@
                      <a href="#" role="button">수정</a>
                      <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
                   <% elsif user_signed_in? && current_user.admin !=nil%>
-                     <a href="#" role="button">수정</a>
                      <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
                   <%end%>
                 </p>

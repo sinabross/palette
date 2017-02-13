@@ -1,6 +1,8 @@
 require 'rails_autolink'
 class HomeController < ApplicationController
 
+  include ApplicationHelper
+  
   def index
 
     #공지사항 최신글 보여주기
@@ -391,8 +393,16 @@ class HomeController < ApplicationController
   
   # =============== 새로 생긴 문의/건의 게시판 시작 ===============
   def request_list
-    @requests = Request.all.order("id desc")
+    #@requests = Request.find(:all, :limit =>rowsPerPage, :order=>'created_at desc')
+    @requests = Request.all.order("id desc").first(5)
     @replies = RequestReply.all.order("id asc")
+    
+    @current_page = params[:current_page]                     #현재 페이지
+    @totalCnt = Request.all.count                             #전체 게시글 수
+    @totalPageList = getTotalPageList(@totalCnt, rowsPerPage) #전체 페이지 리스트
+    
+    @requestList = Request.find_by_sql ["select * from REQUESTS ORDER BY id desc limit %s offset %s",
+            rowsPerPage, @current_page.to_i == 1 ? 0 : 5*(@current_page.to_i-1) ]
   end
   
   def request_write_ok
