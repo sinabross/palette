@@ -573,13 +573,9 @@ class HomeController < ApplicationController
   def basket
     
     
-    @like_list = current_user.find_liked_items
-    #@like_list ||= current_user.find_liked_items
-    #if @like_list.count > 0
-    #  @like_list = current_user.find_liked_items.paginate(page: params[:page], per_page:2)
-    #else
-    #  @like_list = current_user.find_liked_items
-    #end  
+    #@like_list = current_user.find_liked_items  #이것도 current_user 찜목록인데 pagination이 안되서 아래걸로 함
+    @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+    
     
   end
   
