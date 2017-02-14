@@ -406,12 +406,16 @@ class HomeController < ApplicationController
     @requests = Request.all.order("id desc").first(5)
     @replies = RequestReply.all.order("id asc")
     
-    @current_page = params[:current_page]                     #현재 페이지
-    @totalCnt = Request.all.count                             #전체 게시글 수
-    @totalPageList = getTotalPageList(@totalCnt, rowsPerPage) #전체 페이지 리스트
+    @current_page = params[:current_page] ? params["current_page"] : 1    #현재 페이지
+    @totalCnt = Request.all.count                                         #전체 게시글 수
+    @totalPageList = getTotalPageList(@totalCnt, rowsPerPage)             #전체 페이지 리스트
     
     @requestList = Request.find_by_sql ["select * from REQUESTS ORDER BY id desc limit %s offset %s",
             rowsPerPage, @current_page.to_i == 1 ? 0 : 5*(@current_page.to_i-1) ]
+    
+    @prev_page = @current_page.to_i - 1                                   #이전 페이지
+    @next_page = @current_page.to_i + 1                                   #다음 페이지
+    @total_page = getTotalPageList(@totalCnt, rowsPerPage).size           #전체 페이지 수
   end
   
   def request_write_ok
@@ -421,14 +425,50 @@ class HomeController < ApplicationController
     @request.nickname = current_user.username
     @request.group = @request.id
     @request.level = 0
+    @request.secret = params[:secret]
+    @request.password = params[:password]
     
     @request.save
     
     redirect_to "/home/request_list"
   end
   
+  def request_pwd_check
+    @one_request = Request.find(params[:request_id])
+    @current_page = params[:current_page]
+  end
+  
+  def request_pwd_confirm
+    @one_request = Request.find(params[:request_id])
+    @current_page = params[:current_page]
+    
+    if @one_request.password? && @one_request.password == params[:pwd_confirm]
+      redirect_to "/home/request_view/" + params[:request_id] + "&current_page=" + params[:current_page]
+    else
+      redirect_to "/home/request_pwd_check/" + params[:request_id] + "&current_page=" + params[:current_page]
+    end
+  end
+  
   def request_view
     @one_request = Request.find(params[:request_id])
+    
+    unless user_signed_in? && current_user.admin == true
+      @one_request.punch(request)
+    end
+    
+    @last_view_id= Request.order("created_at").last.id
+    @first_view_id=Request.order("created_at").first.id
+
+    unless @first_view_id == @one_request.id
+      @prev_view_id = Request.where("created_at < ?", @one_request.created_at).last.id
+      @request_prev = Request.find(@prev_view_id)
+    end
+
+    unless @last_view_id == @one_request.id
+      @next_view_id = Request.where("created_at > ?", @one_request.created_at).first.id
+      @request_next = Request.find(@next_view_id)
+    end
+    
   end
   
   def request_destroy
@@ -487,6 +527,7 @@ class HomeController < ApplicationController
     @request_reply_ok = RequestReply.new
     @request_reply_ok.title = params[:title]
     @request_reply_ok.content = params[:content]
+    
     @request_reply_ok.nickname = current_user.username
     @request_reply_ok.request_id = params[:reply_id]
     @request_reply_ok.group = params[:reply_group]
@@ -499,6 +540,32 @@ class HomeController < ApplicationController
   
   def request_reply_view
     @one_reply = RequestReply.find(params[:reply_id])
+    
+    unless user_signed_in? && current_user.admin == true
+      @one_reply.punch(request)
+    end
+    
+  end
+
+  def request_reply_destroy
+    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply.destroy
+    
+    redirect_to "/home/request_list"
+  end
+  
+  def request_reply_update
+    @one_reply = RequestReply.find(params[:reply_id])
+  end
+  
+  def request_reply_update_ok
+    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply.title = params[:title]
+    @one_reply.content = params[:content]
+    @one_reply.nickname = current_user.username
+    @one_reply.save
+    
+    redirect_to "/home/request_reply_view/" + params[:reply_id]
   end
 
   # =============== 새로 생긴 문의/건의 게시판 끝 =================

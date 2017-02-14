@@ -166,10 +166,14 @@ ActiveRecord::Schema.define(version: 20170210180854) do
 
   create_table "requests", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.string   "nickname"
-    t.string   "pro_num",    default: ""
+    t.integer  "group"
+    t.integer  "level"
     t.string   "img_url",    default: ""
+    t.integer  "hits"
+    t.string   "secret"
+    t.string   "password"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
