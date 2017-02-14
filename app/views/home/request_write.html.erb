@@ -11,26 +11,40 @@
       <br>
       
       <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding:0px;">
-        <form action="/home/request_write_ok" method="post">
+        <form action="/home/request_write_ok" onsubmit="return false;" method="post" enctype="multipart/form-data" id="writeForm">
           <div class="form-group">
             <label for="exampleInputTitle">제목</label>
-            <input type="text" name="title" class="form-control" id="exampleInputTitle" placeholder="제목">
+            <input type="text" name="title" class="form-control" id="inputTitle" placeholder="제목">
           </div>
           <div class="form-group">
             <label for="exampleInputContent">내용</label>
-            <textarea name="content" class="form-control" rows="5"></textarea>
+            <textarea name="content" class="form-control" id="inputContent" rows="5"></textarea>
           </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="secret" id="secret" value="Y"> 비밀글
+          <div class="filebox col-md-5" style="padding:0px">
+            <label for="camera">
+               <i class="fa fa-camera" aria-hidden="true" style="margin:5px;"></i>사진 첨부
             </label>
+            <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
           </div>
-          <div class="form-group form-inline">
-            <label for="exampleInputPassword1">비밀번호</label>
-            <input type="password" name="password" id="secretNum" class="form-control" id="exampleInputPassword1" placeholder="비밀번호" disabled>
+                
+          <!--사진미리보기-->
+          <div id="cma_image" class="picture">
+          <!--첨부한 사진 thumbnail이 뜨는 곳-->
           </div>
           
-          <button type="submit" class="btn btn-default">등록</button>
+          <div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="secret" id="secret" value="Y">&nbsp;비밀글
+              </label>
+            </div>
+            <div class="form-group form-inline">
+              <label for="exampleInputPassword1">비밀번호</label>
+              <input type="password" name="password" id="secretNum" class="form-control" id="exampleInputPassword1" placeholder="비밀번호" disabled>
+            </div>
+          </div>
+          
+          <input type="submit" class="btn btn-default" onclick="checkRequestWrite()" value="등록">
           <a href="/home/request_list" id="btnCancelRequest" class="btn btn-default">취소</a>
         </form>
       </div>
@@ -39,17 +53,6 @@
   </div>
 </div>
 
-<script>
-  $(function(){
-  	$("#secret").change(function(){
-  		if($("#secret").is(":checked")){
-  			document.getElementById("secretNum").disabled = false;
-  		}else{
-  			document.getElementById("secretNum").disabled = true;
-  		}
-  	});
-  });
-</script>
 
 <style>
     .table-responsive{
@@ -109,3 +112,48 @@
     }
 
   </style>
+
+
+<script>
+  
+  //비밀글 체크 시 비밀번호 작성 가능하게 함
+  $(function(){
+  	$("#secret").change(function(){
+  		if($("#secret").is(":checked")){
+  			document.getElementById("secretNum").disabled = false;
+  		}else{
+  			document.getElementById("secretNum").disabled = true;
+  		}
+  	});
+  });
+  
+   //사진 첨부 미리보기
+  function getThumbnailPrivew(html, $target) {
+    if (html.files && html.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $target.css('display', '');
+          //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+          $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+        }
+        reader.readAsDataURL(html.files[0]);
+      }
+    }
+
+    //게시판 글 등록 시 빈칸 체크
+    function checkRequestWrite(){
+      if(document.getElementById("inputTitle").value == ""){
+        alert("제목을 입력해주세요");
+        document.getElementById("inputTitle").focus();
+      }else if(document.getElementById("inputContent").value == ""){
+        alert("내용을 입력해주세요");
+        document.getElementById("inputContent").focus();
+      }else if(document.getElementById("secret").checked == true && document.getElementById("secretNum").value == "" ){
+        alert("비밀번호를 입력해주세요");
+        document.getElementById("secretNum").focus();
+      }else{
+        document.getElementById("writeForm").submit();
+      }
+    }
+
+</script>

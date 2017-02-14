@@ -428,6 +428,10 @@ class HomeController < ApplicationController
     @request.secret = params[:secret]
     @request.password = params[:password]
     
+    uploader = RequestUploader.new
+    uploader.store!(params[:pic])
+    @request.img_url=uploader.url
+    
     @request.save
     
     redirect_to "/home/request_list"
@@ -487,13 +491,21 @@ class HomeController < ApplicationController
     @one_request.title = params[:title]
     @one_request.content = params[:content]
     @one_request.nickname = current_user.username
+    
+    #사진업로드
+    if params[:pic] != nil
+      uploader = RequestUploader.new
+      uploader.store!(params[:pic])
+      @one_request.img_url = uploader.url
+    end
+    
     @one_request.save
     
     redirect_to "/home/request_view/" + params[:request_id]
   end
   
   
-  #####댓글#####
+  ##########댓글##########
   def comment_create
     @comment_create = RequestComment.new
     @comment_create.content = params[:content]
@@ -516,7 +528,7 @@ class HomeController < ApplicationController
   end
 
 
-  #####답글#####
+  ##########답글##########
   def request_reply
     @one_request = Request.find(params[:request_id])
     @group = @one_request.id
