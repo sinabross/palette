@@ -1,20 +1,98 @@
-<div class="container">
-    <h3>문의/건의하기</h3>
-    <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유로운 의견을 남겨주세요. </p>
-    <form action="/home/request_reply_ok" method="post">
-        <input type="hidden" name="reply_id" value="<%= @one_request.id %>"/>
-        <input type="hidden" name="reply_group" value="<%= @group %>"/>
-    	<input type="hidden" name="reply_level" value="<%= @level %>"/>
-        <div class="form-group">
-            <label for="exampleInputTitle">제목</label>
-            <input type="text" name="title" class="form-control" id="exampleInputTitle" value="&nbsp;&nbsp;[RE]&nbsp;:&nbsp;<%= @one_request.title %>">
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      
+        <div class="title-web" style="margin-right:10px;">  
+            <h3>문의/건의하기</h3>
+            <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
         </div>
-        <div class="form-group">
-            <label for="exampleInputContent">내용</label>
-            <textarea name="content" class="form-control" rows="3"><%= @one_request.content %></textarea>
+        
+        <hr style="border: 2px solid #38393b">
+        <br>
+        
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding:0px;">
+        <form action="/home/request_reply_ok" method="post">
+            <input type="hidden" name="reply_id" value="<%= @one_request.id %>"/>
+            <input type="hidden" name="reply_group" value="<%= @group %>"/>
+        	<input type="hidden" name="reply_level" value="<%= @level %>"/>
+            <div class="form-group">
+                <label for="exampleInputTitle">제목</label>
+                <input type="text" name="title" class="form-control" id="exampleInputTitle" value="&nbsp;&nbsp;[RE]&nbsp;:&nbsp;<%= @one_request.title %>">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputContent">내용</label>
+                <textarea name="content" class="form-control" rows="5">
+                    &#13;
+                    &#13;
+                    ==============================&#13;
+                    <%= @one_request.content %>
+                </textarea>
+            </div>
+          <button type="submit" class="btn btn-default">등록</button>
+          <a href="/home/request_view/<%= @one_request.id %>" id="btnCancelRequest" class="btn btn-default">취소</a>
+        </form>
         </div>
-      <button type="submit" class="btn btn-default">수정</button>
-      <a href="/home/request_view/<%= @one_request.id %>" id="btnCancelRequest" class="btn btn-default">취소</a>
-    </form>
+        
+    </div>
+  </div>
 </div>
 
+
+<style>
+    .table-responsive{
+      overflow-x: hidden;
+    }
+    .container-fluid{
+      margin-top:30px;
+    }
+    table a {
+      color:#000000;
+    }
+    table a:hover{
+
+      text-decoration:none;
+      color:#ffa291;
+    }
+    table a:active{
+      text-decoration:none;
+      color:#ffa291;
+    }
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:13px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#ffffff;
+      background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
+    }
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+    }
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+    }
+
+
+    @media(min-width:767px) {
+
+      .container-fluid{
+        margin-top:50px;
+      }
+    }
+
+  </style>

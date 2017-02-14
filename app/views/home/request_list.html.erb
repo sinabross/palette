@@ -5,7 +5,7 @@
 
       <div class="title-web" style="margin-right:10px;">
         <h3>문의/건의</h3>
-        <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유로운 의견을 남겨주세요. </p>
+        <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
       </div>
         
       <hr style="border: 2px solid #38393b">
@@ -33,7 +33,15 @@
                       <p><%=request.id%></p>
                     </td>
                     <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
-                      <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                      <% if request.secret == "Y" && user_signed_in? && current_user.admin !=nil %>
+                        [비밀글]
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                      <% elsif request.secret == "Y" %>
+                        [비밀글]
+                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                      <% elsif %>
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                      <% end %>
                     </td>
                     <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
                       <%=request.nickname %>
@@ -48,7 +56,6 @@
                 <% request.request_replies.each do |reply| %>
                   <tr>
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                      <p><%#=reply.id%></p>
                     </td>
                     <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
                       <a href="/home/request_reply_view/<%=reply.id%>"><%=reply.title%></a>
@@ -68,7 +75,7 @@
               
           <% else %>
             <tr>
-                <td>게시글이 없습니다.</td>
+                <td colspan="5">게시글이 없습니다.</td>
             </tr>
           <% end %>
           </tbody>
@@ -76,13 +83,25 @@
         <table cellspacing=1 width=700 border=1>
             <tr>
                 <td>
-                <%  @totalPageList.each do |page| %>
-                    <% if page == @current_page.to_i %>
-                        <%=page%>
-                    <% elsif %>
-                        <a href="/home/request_list?current_page=<%=page%>"><%=page%></a>
-                    <% end %>
-                 <% end %>
+                  <% if @current_page.to_i == 1 %>
+                    <span>이전</span>
+                  <% elsif %>
+                    <a href="/home/request_list?current_page=<%= @prev_page %>">이전</a>
+                  <% end %>
+                  
+                  <%  @totalPageList.each do |page| %>
+                      <% if page == @current_page.to_i %>
+                          <%=page%>
+                      <% elsif %>
+                          <a href="/home/request_list?current_page=<%=page%>"><%=page%></a>
+                      <% end %>
+                   <% end %>
+                   
+                   <% if @current_page.to_i == @total_page %>
+                     <span>다음</span>
+                   <% elsif %>
+                     <a href="/home/request_list?current_page=<%= @next_page %>">다음</a>
+                   <% end %>
                 </td>
             </tr>
         </table>

@@ -9,6 +9,8 @@ class CreateRequests < ActiveRecord::Migration
       t.integer :level
       t.string  :img_url, default:""
       t.integer :hits
+      t.string  :secret
+      t.string  :password
 
       t.timestamps null: false
     end

@@ -97,6 +97,12 @@ Rails.application.routes.draw do
   get 'home/request_reply/:request_id' => 'home#request_reply'
   post 'home/request_reply_ok'
   get 'home/request_reply_view/:reply_id' => 'home#request_reply_view'
+  get 'home/request_reply_destroy/:reply_id' => 'home#request_reply_destroy'
+  get 'home/request_reply_update/:reply_id' => 'home#request_reply_update'
+  post 'home/request_reply_update_ok/:reply_id' => 'home#request_reply_update_ok'
+  
+  get 'home/request_pwd_check/:request_id&current_page=:current_page' => 'home#request_pwd_check'
+  post 'home/request_pwd_confirm/:request_id&current_page=:current_page' => 'home#request_pwd_confirm'
 
   # 공지사항 게시판
 
