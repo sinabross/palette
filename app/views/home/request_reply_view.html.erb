@@ -16,11 +16,10 @@
          </tr>
          <tr>
            <th>
-             <p><%=@one_reply.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")%></p>
+             <p style="display:inline-block;margin:0 5px;"><%=@one_reply.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")%></p>
+             <p style="display:inline-block;margin:0 5px;"><%= @one_reply.nickname %></p>
            </th>
-           <th>
-              <p><%= @one_reply.nickname %></p>
-           </th>
+          
          </tr>
        </thead>
 
@@ -31,7 +30,7 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td class="button_area">
             <a href="/home/request_list" class="btn_black" role="button">목록</a>
             <% if user_signed_in? && current_user.admin !=nil%>
               <a href="/home/request_reply_update/<%= @one_reply.id %>" class="btn_black" role="button">수정</a>
@@ -54,7 +53,7 @@
   .btn_black{
     display:inline-block;
     line-height: 30px;
-    width:100px;
+    width:30%;
     height:30px;
     font-size:13px;
     font-weight:bold;
@@ -79,7 +78,11 @@
   thead th{
     text-align: center;
   }
-
+  td.button_area{
+    text-align:center;
+    display:block;
+    margin:30px auto;
+  }
   .notice_content{
     border-top:2px solid #e4e4e4;
     padding:10px;
@@ -123,5 +126,16 @@
     font-stretch: normal;
     color: #787878;
   }
+   .img_request {
+     width:150px;
+     height:150px;
+     margin:10px auto;
+   }
+@media(min-width:786px){
+  .img_request {
+     width:300px;
+     height:300px;
+   }
+}
 
 </style>
