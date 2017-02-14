@@ -212,7 +212,9 @@
           <% end %>
         </li>
         
-<!--        
+<%
+=begin
+%>
         <li>
           <% if user_signed_in? %>
             <%=link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
@@ -220,7 +222,9 @@
             <%=link_to "로그인", new_user_session_path %>
           <% end %>
         </li>
--->
+<%
+=end
+%>
 
         <!-- 햄버거 버튼 닫는 버튼 -->
         <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>

@@ -508,7 +508,16 @@ class HomeController < ApplicationController
 
   # My page
   def basket
+    
+    
     @like_list = current_user.find_liked_items
+    #@like_list ||= current_user.find_liked_items
+    #if @like_list.count > 0
+    #  @like_list = current_user.find_liked_items.paginate(page: params[:page], per_page:2)
+    #else
+    #  @like_list = current_user.find_liked_items
+    #end  
+    
   end
   
   def basket_delete
@@ -560,12 +569,15 @@ class HomeController < ApplicationController
     unless user_signed_in?
       redirect_to "/users/sign_in"
     end
+    
     if user_signed_in? && current_user.admin?
-      @user= User.all.order("created_at DESC")
+      @user= User.all.order("created_at DESC").paginate(page: params[:page], per_page: 30)
     elsif user_signed_in? && current_user.admin==nil
       redirect_to "/"
       flash[:error] = "접근권한이 없습니다."
     end
+    
+    
   end
 
   def admin_write   #관리자 계정으로 공지등록
