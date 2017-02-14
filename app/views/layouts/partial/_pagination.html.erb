@@ -1,3 +1,19 @@
+<!--찜하기 목록-->
+<%# if @like_list %>
+  <%#= will_paginate @like_list,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
+<%# end %>
+
+<!--회원목록보기(관리자기능)-->
+<% if @user %>
+  <%= will_paginate @user,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
+<% end %>
+
 <!--제품 사용 후기-->
 <% if @review %>
   <%= will_paginate @review,
