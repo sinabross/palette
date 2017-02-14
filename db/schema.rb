@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213092135) do
+ActiveRecord::Schema.define(version: 20170214112520) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -160,20 +160,6 @@ ActiveRecord::Schema.define(version: 20170213092135) do
     t.integer  "level"
     t.string   "img_url",    default: ""
     t.integer  "hits"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  create_table "requests", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "nickname"
-    t.integer  "group"
-    t.integer  "level"
-    t.string   "img_url",    default: ""
-    t.integer  "hits"
-    t.string   "secret"
-    t.string   "password"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

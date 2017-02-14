@@ -1,6 +1,6 @@
-class CreateRequests < ActiveRecord::Migration
+class DropRequests < ActiveRecord::Migration
   def change
-    create_table :requests do |t|
+    drop_table :requests do |t|
 
       t.string  :title
       t.text    :content
