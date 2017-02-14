@@ -350,10 +350,6 @@ class HomeController < ApplicationController
     
   end
   
-  def show_feedback
-   @post=Feedback.all.reverse
-
-  end
 
 #제품 등록 요청
   def askfor
@@ -577,13 +573,9 @@ class HomeController < ApplicationController
   def basket
     
     
-    @like_list = current_user.find_liked_items
-    #@like_list ||= current_user.find_liked_items
-    #if @like_list.count > 0
-    #  @like_list = current_user.find_liked_items.paginate(page: params[:page], per_page:2)
-    #else
-    #  @like_list = current_user.find_liked_items
-    #end  
+    #@like_list = current_user.find_liked_items  #이것도 current_user 찜목록인데 pagination이 안되서 아래걸로 함
+    @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+    
     
   end
   
@@ -618,18 +610,19 @@ class HomeController < ApplicationController
 
   #=============== admin page============================
   
-  def admin_reply #admin 댓글모아보기
-  #  unless user_signed_in?
-  #    redirect_to "/users/sign_in"
-  #  end
-  #  if user_signed_in? && current_user.admin?
-  #    @review= Review.all.order("created_at DESC")
-  #  elsif user_signed_in? && current_user.admin==nil
-  #     redirect_to "/"
-  #    flash[:error] = "접근권한이 없습니다."
-  #  end
-    @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
-
+  def admin_reply #admin 리뷰모아보기
+    unless user_signed_in?
+      redirect_to "/users/sign_in"
+    end
+    if user_signed_in? && current_user.admin?
+      @review= Review.all.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    elsif user_signed_in? && current_user.admin==nil
+       redirect_to "/"
+      flash[:error] = "접근권한이 없습니다."
+    end
+  
+  #  @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
+  
   end
   
   def admin_user
@@ -646,6 +639,11 @@ class HomeController < ApplicationController
     
     
   end
+  
+  def admin_likes  # 찜 현황판 보기
+   @list = Lip.all.paginate(page: params[:page], per_page: 15)
+  end
+
 
   def admin_write   #관리자 계정으로 공지등록
    

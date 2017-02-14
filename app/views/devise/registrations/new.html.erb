@@ -3,8 +3,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true) do |f| %>
+        <%#= devise_error_messages! %>
         <div class="form-wrap">
           <h1>회원가입</h1>
           <!--Log in with your email account-->
@@ -29,25 +29,38 @@
               
               <div class="form-group">
                 <%= f.label :이름 %><i>(필수)</i><br />
-                <%= f.text_field :name, class:"form-control",:required => true%>
+                <%= f.text_field :name, class:"form-control", id:"f.name"%>
               </div>
               
+               <div class="form-group">
+                <%= f.label :생년월일 %><i>(필수)</i><br />
+                <%= f.text_field :birthday, class:"form-control",placeholder:"6자리숫자(ex:940707)"%>
+              </div>
+              
+              <!--계속 오류나서 일단 주석처리 -->
+<%
+=begin
+%>
               <div class="form-group">
                 <%= f.label :생년월일 %><i>(필수)</i><br />
-                <%= f.date_select :birthday,  { class: 'form-control', order: [:year, :month, :day],
-                                            prompt: { year: '년', month: '월', day: '일' },
-                                            start_year: Date.today.year - 12, end_year: Date.today.year - 100}, {required: true}%>
+                <%= f.date_select :birthday,
+                { class: 'form-control', 
+                order: [:year, :month, :day], 
+                prompt: { year: '년', month: '월', day: '일' },
+                start_year: Date.today.year - 12, end_year: Date.today.year - 100, use_month_numbers: true}%>
               </div>
-              
+<%
+=end
+%>
               <div class="form-group">
                 <%= f.label :닉네임 %><i>(필수)</i><br />
-                <%= f.text_field :username, class:"form-control",:required => true %>
+                <%= f.text_field :username, class:"form-control" %>
               </div>
               
             <!-- 계절타입 주석처리(16.10.07)
               <div class="form-group">
-                <%= f.label :계절타입 %><br />
-                <%= f.select :userseason, 
+                <%#= f.label :계절타입 %><br />
+                <%#= f.select :userseason, 
                   options_for_select([['봄','봄'],['여름','여름'],['가을','가을'],['겨울','겨울'],['미정','미정']], params[:userseason]),
                   {}, { :class => 'form-control' }%>
               </div>

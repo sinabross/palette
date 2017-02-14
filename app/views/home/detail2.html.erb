@@ -238,8 +238,7 @@
                   <!-- 첨부된사진 -->
                   <div class="col-md-12 col-xs-12" style="margin-top:20px;padding:0;">
                     
-                    <div class="col-md-9 col-xs-12" style="margin-bottom:15px;">
-                      
+                    <div class="col-md-9 col-xs-12" style="margin-bottom:15px; word-break:break-all;white-space:pre-line;">
                       <%=p.content%>
                     </div>
                     <% unless p.img_url.nil? %>
@@ -957,9 +956,7 @@
       div#btn_review_edit{
         text-align:right;
       }
-      .filebox label{
-        width:20%;
-      }
+      
       
     } /*min-width :768px ends*/
 </style>

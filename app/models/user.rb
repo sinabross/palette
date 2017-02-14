@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true 
   validates :username, presence: true 
   validates :username, uniqueness: true
-  
-  
+  validates :birthday, presence: true
   acts_as_voter
   
   def self.from_omniauth(auth)
