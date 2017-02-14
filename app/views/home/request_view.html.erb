@@ -32,6 +32,14 @@
         </tr>
         <tr>
           <td>
+            <!-- 첨부 사진 보여주기 -->
+              <% unless @one_request.img_url.nil? %>
+                  <img src="<%= @one_request.img_url %>" class="img_request"/>
+              <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <a href="/home/request_list" class="btn_black" role="button">목록</a>
             <% if user_signed_in? && current_user.admin !=nil && current_user.username == @one_request.nickname %>
               <a href="/home/request_update/<%= @one_request.id %>" class="btn_black" role="button">수정</a>
@@ -190,6 +198,14 @@
     font-style: normal;
     font-stretch: normal;
     color: #787878;
+    
   }
+
+  .img_request {
+     display:block;
+     width:300px;
+     height:300px;
+     margin:40px auto;
+   }
 
 </style>

@@ -1,7 +1,6 @@
 class Request < ActiveRecord::Base
     has_many :request_comments
     has_many :request_replies
-    
     has_many :impressions, :as=>:impressionable
     # is_impressionable :counter_cache => true
     

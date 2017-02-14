@@ -34,11 +34,13 @@
                     </td>
                     <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
                       <% if request.secret == "Y" && user_signed_in? && current_user.admin !=nil %>
-                        [비밀글]
-                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>">
+                          [비밀글]&nbsp;<%=request.title%>
+                        </a>
                       <% elsif request.secret == "Y" %>
-                        [비밀글]
-                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page %>">
+                          [비밀글]&nbsp;<%=request.title%>
+                        </a>
                       <% elsif %>
                         <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
                       <% end %>
@@ -91,9 +93,9 @@
                   
                   <%  @totalPageList.each do |page| %>
                       <% if page == @current_page.to_i %>
-                          <%=page%>
+                          <span style="color:red;font-weight:bold;font-size:1.3em;"><%=page%></span>
                       <% elsif %>
-                          <a href="/home/request_list?current_page=<%=page%>"><%=page%></a>
+                          <a href="/home/request_list?current_page=<%=page%>" style="font-size:1.2em;"><%=page%></a>
                       <% end %>
                    <% end %>
                    
