@@ -679,7 +679,7 @@ class HomeController < ApplicationController
   
   def admin_likes  # 찜 현황판 보기
    #@list = Lip.all.paginate(page: params[:page], per_page: 15)
-   @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+   @like_list=current_user.get_up_voted Lip.order(:cached_votes_up => :desc).paginate(page: params[:page], per_page:15)
   end
 
 
