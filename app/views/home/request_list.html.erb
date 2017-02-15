@@ -62,7 +62,17 @@
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     </td>
                     <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
-                      <a href="/home/request_reply_view/<%=reply.id%>"><%=reply.title%></a>
+                      <% if request.secret == "Y" && user_signed_in? && current_user.admin %>
+                        <a href="/home/request_reply_view/<%=reply.request_id%>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=reply.title%>
+                        </a>
+                      <% elsif request.secret == "Y" %>
+                         <a href="/home/request_reply_pwd_check/<%=reply.request_id%>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=reply.title%>
+                        </a>
+                      <% elsif %>
+                        <a href="/home/request_reply_view/<%=reply.request_id%>"><%=reply.title%></a>
+                      <% end %>  
                     </td>
                     <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
                       <%=reply.nickname %>

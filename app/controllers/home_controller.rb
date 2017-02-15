@@ -171,18 +171,24 @@ class HomeController < ApplicationController
 
     @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21)if params[:color].present?
 
-    @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
+   # @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
 
     @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
 
     #브랜드 필터(드롭박스) 검색
-    #@brand_state = "원하시는 브랜드를 선택해주세요"
     
     if params[:brand].present?
       
     @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 21) 
-    #@brand_state = params[:brand_state]
-   
+    
+    @list = @list.brand(params[:brand]).tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 21) if params[:tone].present?
+    
+    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21) if params[:pro_type].present?
+    
+    @list = @list.brand(params[:brand]).color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21) if params[:color].present?
+    
+    @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
+
     end
 
   end
@@ -446,6 +452,7 @@ class HomeController < ApplicationController
       redirect_to "/home/request_view/" + params[:request_id] + "&current_page=" + params[:current_page]
     else
       redirect_to "/home/request_pwd_check/" + params[:request_id] + "&current_page=" + params[:current_page]
+      flash[:error]="비밀번호를 확인해주세요."
     end
   end
   
@@ -537,17 +544,35 @@ class HomeController < ApplicationController
     @request_reply_ok.content = params[:content]
     
     @request_reply_ok.nickname = current_user.username
-    @request_reply_ok.request_id = params[:reply_id]
+    @request_reply_ok.request_id = params[:request_id]
     @request_reply_ok.group = params[:reply_group]
     @request_reply_ok.level = params[:reply_level]
+
     
     @request_reply_ok.save
     
     redirect_to "/home/request_list"
   end
   
+  def request_reply_pwd_check
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_request = Request.find(params[:request_id])
+  end
+  
+  def request_reply_pwd_confirm
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_request = Request.find(params[:request_id])
+    
+    if @one_request.password? && @one_request.password == params[:pwd_confirm]
+      redirect_to "/home/request_reply_view/" + params[:request_id]
+    else
+      redirect_to "/home/request_reply_pwd_check/" + params[:request_id] 
+      flash[:error]="비밀번호를 확인해주세요."
+    end
+  end
+  
   def request_reply_view
-    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
     
     unless user_signed_in? && current_user.admin == true
       @one_reply.punch(request)
@@ -556,24 +581,24 @@ class HomeController < ApplicationController
   end
 
   def request_reply_destroy
-    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
     @one_reply.destroy
     
     redirect_to "/home/request_list"
   end
   
   def request_reply_update
-    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
   end
   
   def request_reply_update_ok
-    @one_reply = RequestReply.find(params[:reply_id])
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
     @one_reply.title = params[:title]
     @one_reply.content = params[:content]
     @one_reply.nickname = current_user.username
     @one_reply.save
     
-    redirect_to "/home/request_reply_view/" + params[:reply_id]
+    redirect_to "/home/request_reply_view/" + params[:request_id]
   end
 
   # =============== 새로 생긴 문의/건의 게시판 끝 =================
@@ -653,7 +678,8 @@ class HomeController < ApplicationController
   end
   
   def admin_likes  # 찜 현황판 보기
-   @list = Lip.all.paginate(page: params[:page], per_page: 15)
+   #@list = Lip.all.paginate(page: params[:page], per_page: 15)
+   @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
   end
 
 

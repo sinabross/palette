@@ -12,7 +12,7 @@
         
         <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding:0px;">
         <form action="/home/request_reply_ok" method="post">
-            <input type="hidden" name="reply_id" value="<%= @one_request.id %>"/>
+            <input type="hidden" name="request_id" value="<%= @one_request.id %>"/>
             <input type="hidden" name="reply_group" value="<%= @group %>"/>
         	<input type="hidden" name="reply_level" value="<%= @level %>"/>
             <div class="form-group">
@@ -21,13 +21,17 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputContent">내용</label>
-                <textarea name="content" class="form-control" rows="5">
+                <textarea name="content" class="form-control" rows="10">
                     &#13;
                     &#13;
                     ==============================&#13;
                     <%= @one_request.content %>
+                    
                 </textarea>
+                
             </div>
+            
+          
           <button type="submit" class="btn btn-default">등록</button>
           <a href="/home/request_view/<%= @one_request.id %>" id="btnCancelRequest" class="btn btn-default">취소</a>
         </form>
@@ -86,13 +90,52 @@
       font-stretch: normal;
       color: #787878;
     }
+    .img_request {
+     width:200px;
+     height:200px;
+     margin:10px auto;
+   }
 
-
-    @media(min-width:767px) {
+@media(min-width:767px) {
 
       .container-fluid{
         margin-top:50px;
       }
-    }
+      
+      .img_request {
+         width:300px;
+         height:300px;
+      }
+}
 
   </style>
+
+<script>
+  //비밀글 체크 시 비밀번호 작성 가능하게 함
+  $(function(){
+  	$("#secret").change(function(){
+  		if($("#secret").is(":checked")){
+  			document.getElementById("secretNum").disabled = false;
+  		}else{
+  			document.getElementById("secretNum").disabled = true;
+  		}
+  	});
+  });
+  
+   //게시판 글 등록 시 빈칸 체크
+    function checkRequestWrite(){
+      if(document.getElementById("inputTitle").value == ""){
+        alert("제목을 입력해주세요");
+        document.getElementById("inputTitle").focus();
+      }else if(document.getElementById("inputContent").value == ""){
+        alert("내용을 입력해주세요");
+        document.getElementById("inputContent").focus();
+      }else if(document.getElementById("secret").checked == true && document.getElementById("secretNum").value == "" ){
+        alert("비밀번호를 입력해주세요");
+        document.getElementById("secretNum").focus();
+      }else{
+        document.getElementById("writeForm").submit();
+      }
+    }
+  
+</script>
