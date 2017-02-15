@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'figaro' # 환경 변수 보호용 gem
 gem 'devise' #로그인
 
+gem 'client_side_validations' #for 프론트 선에서 예외처리 하기
+
 #facebook login  
 gem 'omniauth-facebook'
 gem 'omniauth'

@@ -1,6 +1,8 @@
 require 'rails_autolink'
 class HomeController < ApplicationController
 
+  include ApplicationHelper
+  
   def index
 
     #공지사항 최신글 보여주기
@@ -169,11 +171,25 @@ class HomeController < ApplicationController
 
     @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21)if params[:color].present?
 
-    @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
+   # @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
 
     @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
 
+    #브랜드 필터(드롭박스) 검색
+    
+    if params[:brand].present?
+      
+    @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 21) 
+    
+    @list = @list.brand(params[:brand]).tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 21) if params[:tone].present?
+    
+    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21) if params[:pro_type].present?
+    
+    @list = @list.brand(params[:brand]).color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21) if params[:color].present?
+    
+    @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
 
+    end
 
   end
 
@@ -193,7 +209,7 @@ class HomeController < ApplicationController
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
     @review=Review.where(num:params[:product_num])
 
-    #for page-navigation
+
 
   end
 
@@ -202,19 +218,29 @@ class HomeController < ApplicationController
     if params[:product_num]
       @product = Lip.find_by_image(params[:product_num])
     end
-      
+
+
+    # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
+     #@product.zzim = @product.votes_for.up.by_type(User).size
+     #@product.save
+
+    # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
+    @review=Review.where(num:params[:product_num]).order("id desc").paginate(page: params[:page], per_page: 5)
+    
+
+
   end  
   #================= 아래는 좋아요 기능=====================
   def like 
     
     if params[:id].start_with?("L") 
-      @product = Lipdb.find_by_num(params[:id])
+      @product = Lip.find_by_image(params[:id])   #find_by_image 에서 image는 제품 데이터의 고유의 값(현재는 L006이런게 엑셀 상 image 열에 있어서 image임)
     end
     
     @product.liked_by current_user
   
-    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
-    @product.save
+    #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    #@product.save
     respond_to do |format|
       #format.html { redirect_to :back }
       format.js
@@ -224,12 +250,12 @@ class HomeController < ApplicationController
   def unlike
     
     if params[:id].start_with?("L") 
-      @product = Lipdb.find_by_num(params[:id])
+      @product = Lip.find_by_image(params[:id])
     end
     
     @product.unliked_by current_user
-    @product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
-    @product.save
+    #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
+    #@product.save
     respond_to do |format|
         # format.html { redirect_to :back }
       format.js 
@@ -243,7 +269,7 @@ class HomeController < ApplicationController
     
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lip.find_by_image(params[:product_num])
     end
 
   end
@@ -262,13 +288,13 @@ class HomeController < ApplicationController
    @review.img_url=uploader.url
    @review.save
 
-   redirect_to '/home/detail/' + @review.num
+   redirect_to '/home/detail2/' + @review.num
   end
   
   def update_view #리뷰를수정하는페이지
     #립
     if params[:product_num].start_with?("L")
-      @product = Lipdb.find_by_num(params[:product_num])
+      @product = Lip.find_by_image(params[:product_num])
     end
 
    
@@ -287,10 +313,10 @@ class HomeController < ApplicationController
     end
    
     @one_review.save
-    redirect_to '/home/detail/' + @one_review.num
+    redirect_to '/home/detail2/' + @one_review.num
   end
   
-  def destroy #리뷰삭제
+  def destroy_review #리뷰삭제
     @one_review=Review.find(params[:review_id])
     @one_review.destroy
     redirect_to :back
@@ -322,7 +348,7 @@ class HomeController < ApplicationController
     if @post.save
       flash[:success] = "작성이 완료되었습니다 :)"
 
-      redirect_to '/home/detail/' + @post.pro_num
+      redirect_to '/home/detail2/' + @post.pro_num
 
     end
 
@@ -330,10 +356,6 @@ class HomeController < ApplicationController
     
   end
   
-  def show_feedback
-   @post=Feedback.all.reverse
-
-  end
 
 #제품 등록 요청
   def askfor
@@ -379,11 +401,219 @@ class HomeController < ApplicationController
   end
   # =============== 문의글 관련끝====================
   
+  
+  # =============== 새로 생긴 문의/건의 게시판 시작 ===============
+  def request_list
+    #@requests = Request.find(:all, :limit =>rowsPerPage, :order=>'created_at desc')
+    @requests = Request.all.order("id desc").first(5)
+    @replies = RequestReply.all.order("id asc")
+    
+    @current_page = params[:current_page] ? params["current_page"] : 1    #현재 페이지
+    @totalCnt = Request.all.count                                         #전체 게시글 수
+    @totalPageList = getTotalPageList(@totalCnt, rowsPerPage)             #전체 페이지 리스트
+    
+    @requestList = Request.find_by_sql ["select * from REQUESTS ORDER BY id desc limit %s offset %s",
+            rowsPerPage, @current_page.to_i == 1 ? 0 : 5*(@current_page.to_i-1) ]
+    
+    @prev_page = @current_page.to_i - 1                                   #이전 페이지
+    @next_page = @current_page.to_i + 1                                   #다음 페이지
+    @total_page = getTotalPageList(@totalCnt, rowsPerPage).size           #전체 페이지 수
+  end
+  
+  def request_write_ok
+    @request = Request.new
+    @request.title = params[:title]
+    @request.content = params[:content]
+    @request.nickname = current_user.username
+    @request.group = @request.id
+    @request.level = 0
+    @request.secret = params[:secret]
+    @request.password = params[:password]
+    
+    uploader = RequestUploader.new
+    uploader.store!(params[:pic])
+    @request.img_url=uploader.url
+    
+    @request.save
+    
+    redirect_to "/home/request_list"
+  end
+  
+  def request_pwd_check
+    @one_request = Request.find(params[:request_id])
+    @current_page = params[:current_page]
+  end
+  
+  def request_pwd_confirm
+    @one_request = Request.find(params[:request_id])
+    @current_page = params[:current_page]
+    
+    if @one_request.password? && @one_request.password == params[:pwd_confirm]
+      redirect_to "/home/request_view/" + params[:request_id] + "&current_page=" + params[:current_page]
+    else
+      redirect_to "/home/request_pwd_check/" + params[:request_id] + "&current_page=" + params[:current_page]
+      flash[:error]="비밀번호를 확인해주세요."
+    end
+  end
+  
+  def request_view
+    @one_request = Request.find(params[:request_id])
+    
+    unless user_signed_in? && current_user.admin == true
+      @one_request.punch(request)
+    end
+    
+    @last_view_id= Request.order("created_at").last.id
+    @first_view_id=Request.order("created_at").first.id
+
+    unless @first_view_id == @one_request.id
+      @prev_view_id = Request.where("created_at < ?", @one_request.created_at).last.id
+      @request_prev = Request.find(@prev_view_id)
+    end
+
+    unless @last_view_id == @one_request.id
+      @next_view_id = Request.where("created_at > ?", @one_request.created_at).first.id
+      @request_next = Request.find(@next_view_id)
+    end
+    
+  end
+  
+  def request_destroy
+    @one_request = Request.find(params[:request_id])
+    @one_request.destroy
+    
+    redirect_to "/home/request_list"
+  end
+
+  def request_update
+    @one_request = Request.find(params[:request_id])
+  end
+  
+  def request_update_ok
+    @one_request = Request.find(params[:request_id])
+    @one_request.title = params[:title]
+    @one_request.content = params[:content]
+    @one_request.nickname = current_user.username
+    
+    #사진업로드
+    if params[:pic] != nil
+      uploader = RequestUploader.new
+      uploader.store!(params[:pic])
+      @one_request.img_url = uploader.url
+    end
+    
+    @one_request.save
+    
+    redirect_to "/home/request_view/" + params[:request_id]
+  end
+  
+  
+  ##########댓글##########
+  def comment_create
+    @comment_create = RequestComment.new
+    @comment_create.content = params[:content]
+    @comment_create.nickname = current_user.username
+    @comment_create.request_id = params[:request_id]
+    @comment_create.save
+    
+    redirect_to :back
+  end
+  
+  def comment_destroy
+    @one_comment = RequestComment.find(params[:comment_id])
+    @one_comment.destroy
+    
+    redirect_to :back
+  end
+  
+  def comment_update
+    @one_comment = RequestComment.find(params[:comment_id])
+  end
+
+
+  ##########답글##########
+  def request_reply
+    @one_request = Request.find(params[:request_id])
+    @group = @one_request.id
+    @level = 1
+  end
+  
+  def request_reply_ok
+    @request_reply_ok = RequestReply.new
+    @request_reply_ok.title = params[:title]
+    @request_reply_ok.content = params[:content]
+    
+    @request_reply_ok.nickname = current_user.username
+    @request_reply_ok.request_id = params[:request_id]
+    @request_reply_ok.group = params[:reply_group]
+    @request_reply_ok.level = params[:reply_level]
+
+    
+    @request_reply_ok.save
+    
+    redirect_to "/home/request_list"
+  end
+  
+  def request_reply_pwd_check
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_request = Request.find(params[:request_id])
+  end
+  
+  def request_reply_pwd_confirm
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_request = Request.find(params[:request_id])
+    
+    if @one_request.password? && @one_request.password == params[:pwd_confirm]
+      redirect_to "/home/request_reply_view/" + params[:request_id]
+    else
+      redirect_to "/home/request_reply_pwd_check/" + params[:request_id] 
+      flash[:error]="비밀번호를 확인해주세요."
+    end
+  end
+  
+  def request_reply_view
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    
+    unless user_signed_in? && current_user.admin == true
+      @one_reply.punch(request)
+    end
+    
+  end
+
+  def request_reply_destroy
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_reply.destroy
+    
+    redirect_to "/home/request_list"
+  end
+  
+  def request_reply_update
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+  end
+  
+  def request_reply_update_ok
+    @one_reply = RequestReply.find_by_request_id(params[:request_id])
+    @one_reply.title = params[:title]
+    @one_reply.content = params[:content]
+    @one_reply.nickname = current_user.username
+    @one_reply.save
+    
+    redirect_to "/home/request_reply_view/" + params[:request_id]
+  end
+
+  # =============== 새로 생긴 문의/건의 게시판 끝 =================
+  
+  
  # =============  My page =====================
 
   # My page
   def basket
-    @like_list = current_user.find_liked_items
+    
+    
+    #@like_list = current_user.find_liked_items  #이것도 current_user 찜목록인데 pagination이 안되서 아래걸로 함
+    @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+    
+    
   end
   
   def basket_delete
@@ -391,16 +621,16 @@ class HomeController < ApplicationController
     if params[:list_num]
      
       if params[:list_num].start_with?("L")
-        @delete_item = Lipdb.find_by_num(params[:list_num])
-      else if params[:list_num].start_with?("S")
-        @delete_item = Eyedb.find_by_num(params[:list_num])
-        end
+        @delete_item = Lip.find_by_image(params[:list_num])
+     # else if params[:list_num].start_with?("S")
+     #   @delete_item = Eyedb.find_by_num(params[:list_num])
+
       end
       
       @delete_item.unliked_by current_user
-      @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
-      @delete_item.save
-    end 
+     # @delete_item.zzim = @delete_item.votes_for.up.by_type(User).size
+     # @delete_item.save
+    end
     redirect_to "/home/basket"
   end
   
@@ -417,31 +647,41 @@ class HomeController < ApplicationController
 
   #=============== admin page============================
   
-  def admin_reply #admin 댓글모아보기
-  #  unless user_signed_in?
-  #    redirect_to "/users/sign_in"
-  #  end
-  #  if user_signed_in? && current_user.admin?
-  #    @review= Review.all.order("created_at DESC")
-  #  elsif user_signed_in? && current_user.admin==nil
-  #     redirect_to "/"
-  #    flash[:error] = "접근권한이 없습니다."
-  #  end
-    @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
-
+  def admin_reply #admin 리뷰모아보기
+    unless user_signed_in?
+      redirect_to "/users/sign_in"
+    end
+    if user_signed_in? && current_user.admin?
+      @review= Review.all.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    elsif user_signed_in? && current_user.admin==nil
+       redirect_to "/"
+      flash[:error] = "접근권한이 없습니다."
+    end
+  
+  #  @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
+  
   end
   
   def admin_user
     unless user_signed_in?
       redirect_to "/users/sign_in"
     end
+    
     if user_signed_in? && current_user.admin?
-      @user= User.all.order("created_at DESC")
+      @user= User.all.order("created_at DESC").paginate(page: params[:page], per_page: 30)
     elsif user_signed_in? && current_user.admin==nil
       redirect_to "/"
       flash[:error] = "접근권한이 없습니다."
     end
+    
+    
   end
+  
+  def admin_likes  # 찜 현황판 보기
+   #@list = Lip.all.paginate(page: params[:page], per_page: 15)
+   @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+  end
+
 
   def admin_write   #관리자 계정으로 공지등록
    

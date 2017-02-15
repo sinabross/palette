@@ -1,0 +1,225 @@
+<div class="container" style="margin-top: 50px; ">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+     <div class="title-web col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-right:10px;">
+       <h3>문의/건의</h3>
+       
+     </div>
+     <hr style="border: 2px solid #38393b">
+
+    <table class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+       <thead>
+         <tr>
+           <th>
+             <p><%=@one_request.title%></p>
+           </th>
+         </tr>
+         <tr>
+           <th>
+             <p style="display:inline-block;width:30%;text-align:left"><%=@one_request.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")%></p>
+             <p style="display:inline-block;width:30%;text-align:right"><%= @one_request.nickname %></p>
+           </th>
+         </tr>
+         <tr>
+           <th>
+             <hr style="border:1px solid gray">
+           </th>
+         </tr>
+       </thead>
+
+       <tbody>
+        <tr>
+          <td>
+           <p><%=@one_request.content%></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!-- 첨부 사진 보여주기 -->
+              <% unless @one_request.img_url.nil? %>
+                  <img src="<%= @one_request.img_url %>" class="img_request"/>
+              <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="button_area">
+            <a href="/home/request_list" class="btn_black" role="button">목록</a>
+            <% if user_signed_in? && current_user.admin !=nil && current_user.username == @one_request.nickname %>
+              <a href="/home/request_update/<%= @one_request.id %>" class="btn_black" role="button">수정</a>
+              <a href="/home/request_destroy/<%= @one_request.id %>" class="btn_black" role="button">삭제</a>
+              <a href="/home/request_reply/<%= @one_request.id %>" class="btn btn-black" role="button">답글</a>
+            <% elsif user_signed_in? && current_user.admin !=nil && current_user.username != @one_request.nickname %>
+              <a href="/home/request_destroy/<%= @one_request.id %>" class="btn_black" role="button">삭제</a>
+              <a href="/home/request_reply/<%= @one_request.id %>" class="btn btn-black" role="button">답글</a>
+            <% elsif user_signed_in? && current_user.username == @one_request.nickname %>  
+              <a href="/home/request_update/<%= @one_request.id %>" class="btn_black" role="button">수정</a>
+              <a href="/home/request_destroy/<%= @one_request.id %>" class="btn_black" role="button">삭제</a>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+      
+      <tfoot>
+        <tr>
+          <td>
+            <% @one_request.request_comments.each do |comment| %>
+                <span style="display:inline-block;width:60%"><%= comment.content %></span>
+                <span style="display:inline-block;width:20%"><%= comment.nickname %></span>
+                <span style="display:inline-block;"><%= comment.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></span><br>
+                
+                <p style="display:block;">
+                  <% if user_signed_in? && current_user.admin !=nil && current_user.username == comment.nickname %>
+                    <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
+                  <% elsif user_signed_in? && current_user.admin !=nil && current_user.username != comment.nickname %>
+                    <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
+                  <% elsif user_signed_in? && current_user.username == comment.nickname %>
+                    <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
+                  <%end%>
+                </p>
+            <% end %>
+          </td>
+        </tr>
+<%
+=begin
+%>
+        <tr>
+          <td>
+            <h3>댓글</h3>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <form action="/home/comment_create" method="post">
+              <div class="form-group">
+                    <input type="hidden" value="<%= @one_request.id %>" name="request_id">
+                    <textarea name="content" id="content" class="form-control" rows="3"></textarea>
+              </div>
+              <% if user_signed_in? %>
+                <button type="submit" class="btn btn-default" onclick="">등록</button>
+              <%end%>
+            </form>
+          </td>
+        </tr>
+<%
+=end
+%>
+        <tr>
+          <td style="margin-top:15px; margin-bottom:10px;">
+            <i class="fa fa-chevron-up" aria-hidden="true"></i><strong>이전글</strong>
+            <%if @one_request.id == @first_view_id %>
+               이전글이 없습니다.
+            <%else%>
+               <a href="/home/request_view/<%=@request_prev.id%>" onclick="ga('send', 'pageview', '/title_updown');"><%=@request_prev.title%></a>
+            <%end%>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <i class="fa fa-chevron-down" aria-hidden="true"></i><strong>다음글</strong>
+            <%if @one_request.id == @last_view_id %>
+                다음글이 없습니다.
+            <%else%>
+                <a href="/home/request_view/<%=@request_next.id%>" onclick="ga('send', 'pageview', '/title_updown');"><%=@request_next.title%></a>
+            <%end%>
+          </td>
+        </tr>
+        
+       </tfoot>  
+     </table>
+   </div>
+</div>
+
+<style>
+
+  
+  p{
+    font-size:15px;
+  }
+
+  .btn_black{
+    display:inline-block;
+    line-height: 30px;
+    width:30%;
+    height:30px;
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+    color:black;
+    background-color:#ffffff;
+    border:2px solid black;
+  }
+  .btn_black:hover, .btn_black:active{
+    text-decoration:none;
+    color:#ffa291;
+    border:2px solid #ffa291;
+  }
+
+
+  table {
+    width:100%;
+    height:100%;
+    padding:5px;
+  }
+  thead th{
+    text-align: center;
+  }
+  td.button_area{
+    text-align:center;
+    display:block;
+    margin:30px auto;
+  }
+  .notice_content{
+    border-top:2px solid #e4e4e4;
+    padding:10px;
+    text-align:initial;
+   /* word-break:break-all;
+    white-space: pre-line;*/
+
+  }
+  .notice_buttons{
+    text-align: center;
+    padding-bottom:10px;
+    border-bottom:2px solid #e4e4e4;
+
+  }
+  .notice_updown, .notice_updown>a{
+    font-size: 13px;
+    color:black;
+    display: inline-block;
+
+  }
+
+  .notice_updown>a:hover{
+    text-decoration: none;
+    color:#ffa291;
+
+  }
+
+  .title-web h3 {
+    font-family: 'NanumGothic';
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    color: #38393b;
+  }
+  .title-web p{
+    font-family: NanumGothic;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #787878;
+    
+  }
+
+  .img_request {
+     display:block;
+     width:80%;
+     margin:0 auto;
+     
+   }
+   
+
+</style>

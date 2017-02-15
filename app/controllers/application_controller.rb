@@ -12,11 +12,16 @@ class ApplicationController < ActionController::Base
  
   def configure_permitted_parameters
   #  devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
-  devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit({ roles: [] }, :email, :password, :password_confirmation, :username, :userseason, :birthday) }
+  devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit({ roles: [] }, :email, :password, :password_confirmation, :username, :userseason, :birthday, :name) }
   devise_parameter_sanitizer.permit(:account_update) { |u| u.permit({ roles: [] }, :username, :password, :password_confirmation, :current_password) }
   end
 
 
-  
+  # rowsPerPage 
+  # 한 페이지당 표시될 게시물 수
+  # 모든 컨트롤러에서 사용가능하도록 여기에 정의.
+    def rowsPerPage
+        @rowsPerPage ||= 5
+    end
   
 end

@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   get 'home/search'
 
  # 찜하기 장바구니
- # get 'home/basket'
- # get '/basket' => 'home#basket'
- # post 'home/basket_delete'
- # get 'home/:list_num/basket_delete/' => 'home#basket_delete'
- # get 'home/season_update'
- # get 'season_update' => 'home#season_update'
- # post 'home/userseason_update'
+  get 'home/basket'
+  get '/basket' => 'home#basket'
+  post 'home/basket_delete'
+  get 'home/:list_num/basket_delete/' => 'home#basket_delete'
+  get 'home/season_update'
+  get 'season_update' => 'home#season_update'
+  post 'home/userseason_update'
   
  #테스트버전(visible for Only ADMIN)
   get 'home/list_lip'
@@ -48,11 +48,12 @@ Rails.application.routes.draw do
   
  #리뷰
 
- # get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
- # post 'home/review_submit' #리뷰등록
- # get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
- # post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
- # get  'destroy/:review_id' => "home#destroy" #리뷰삭제
+  get 'home/write_review/:product_num' => 'home#write_review' #리뷰쓰기
+  post 'home/review_submit' #리뷰등록
+  get 'update_view/:product_num/:review_id' => "home#update_view" #리뷰수정하기
+  post 'home/review_update_submit/:review_id' => "home#review_edit" #수정한리뷰등록
+  get  'destroy_review/:review_id' => "home#destroy_review" #리뷰삭제
+ 
   
   
   #제품검토요청
@@ -67,7 +68,7 @@ Rails.application.routes.draw do
   post 'home/feedback_submit'
   
   # 제품 검토요청 모아보기
-  get 'home/show_feedback'
+  get 'home/admin_likes'
   get 'home/detail/:product_num' => "home#detail"
   get 'home/detail2/:product_num' => "home#detail2"
   
@@ -80,6 +81,30 @@ Rails.application.routes.draw do
   post 'askfor_status/:askfor_id' => 'home#askfor_status' # 제품요청 상태 변경
 
 
+  #새로 생긴 문의/건의/요청 게시판
+  get 'home/request_list'
+  get 'home/request_write'
+  post 'home/request_write_ok'
+  get 'home/request_view/:request_id' => 'home#request_view'
+  get 'home/request_destroy/:request_id' => 'home#request_destroy'
+  get 'home/request_update/:request_id' => 'home#request_update'
+  post 'home/request_update_ok/:request_id' => 'home#request_update_ok'
+
+  post 'home/comment_create'
+  get 'home/comment_destroy/:comment_id' => 'home#comment_destroy'
+  get 'home/comment_update/:comment_id' => 'home#comment_update'
+  
+  get 'home/request_reply/:request_id' => 'home#request_reply'
+  post 'home/request_reply_ok'
+  get 'home/request_reply_view/:request_id' => 'home#request_reply_view'
+  get 'home/request_reply_destroy/:request_id' => 'home#request_reply_destroy'
+  get 'home/request_reply_update/:request_id' => 'home#request_reply_update'
+  post 'home/request_reply_update_ok/:request_id' => 'home#request_reply_update_ok'
+  
+  get 'home/request_pwd_check/:request_id&current_page=:current_page' => 'home#request_pwd_check'
+  post 'home/request_pwd_confirm/:request_id&current_page=:current_page' => 'home#request_pwd_confirm'
+  get 'home/request_reply_pwd_check/:request_id' => 'home#request_reply_pwd_check'
+  post 'home/request_reply_pwd_confirm/:request_id' => 'home#request_reply_pwd_confirm'
 
   # 공지사항 게시판
 

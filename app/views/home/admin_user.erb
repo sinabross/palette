@@ -1,10 +1,11 @@
 <!--admin page : 댓글모아보기-->
     <div float="left" style="margin-top:30px; margin-left:30px;">
      <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
-     <input type="button" value="제품요청" class="button" float="left" onclick="window.location='/home/admin_reply';" >
-     <input type="button" value="문의/건의" class="button" float="left" onclick="window.location='/home/show_feedback';" >
+     <input type="button" value="리뷰보기" class="button" float="left" onclick="window.location='/home/admin_reply';" >
+     <input type="button" value="찜 현황판" class="button" float="left" onclick="window.location='/home/admin_likes';" >
+     <input type="button" value="문의/건의" class="button" float="left" onclick="window.location='/home/request_list';" >
      <input type="button" value="공지 작성" class="button" float="left" onclick="window.location='/home/admin_write';" >
-     <input type="button" value="주문 확인" class="button" float="left" onclick="window.location='/home/admin_write';" >
+         
       <a href="/users/sign_out">관리자 로그아웃</a>
     </div>
     
@@ -27,7 +28,7 @@
                                 <th><span>가입일자</span></th>
                                 <th><span>마지막 접속일자</span></th>
                                 <th class="text-center"><span>방문 횟수</span></th>
-                                <th><span>계절 타입</span></th>
+                                <th><span>작성 리뷰</span></th>
                                 <th><span>생년 월일</span></th>
                                 </tr>
                             </thead>
@@ -36,7 +37,7 @@
                                 <tr>
                                     <td>
                                         <img src="http://bootdey.com/img/Content/user_1.jpg" alt="">
-                                        <a href="#" class="user-link"><%=p.username %></a>
+                                        <a href="#" class="user-link"><%=p.name%>(<%=p.username %>)</a>
                                         <span class="user-subhead"><%=p.email %></span>
                                     </td>
                                     <td><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %></td>
@@ -45,7 +46,7 @@
                                         <span class="label label-default"><%=p.sign_in_count%></span>
                                     </td>
                                     <td>
-                                        <a href="#"><%=p.userseason %></a>
+                                        0개
                                     </td>
                                     <td style="width: 20%;">
 
@@ -80,6 +81,12 @@
             </div>
         </div>
     </div>
+    
+    <!-- pagination -->
+
+    <%= render :partial => "layouts/partial/pagination" %> 
+    
+    
 </div>   
     
   

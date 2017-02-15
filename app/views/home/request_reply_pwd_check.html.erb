@@ -1,0 +1,82 @@
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+    <div class="title-web" style="margin-right:10px;">
+        <h3>비밀번호 확인</h3>
+    </div>
+    
+    <hr style="border: 2px solid #38393b">
+    <br>
+        
+    <form action="/home/request_reply_pwd_confirm/<%= @one_reply.request_id%>" method="post">
+        <div class="form-group form-inline">
+            <label for="exampleInputPassword1">비밀번호</label>
+            <input type="password" name="pwd_confirm" class="form-control" id="exampleInputPassword1" placeholder="비밀번호 확인">
+        </div>
+        <button type="submit" class="btn btn-default">확인</button>
+        <a href="/home/request_list" id="btnCancelRequest" class="btn btn-default">취소</a>
+    </form>
+    
+    </div>
+  </div>
+</div>
+
+<style>
+    .table-responsive{
+      overflow-x: hidden;
+    }
+    .container-fluid{
+      margin-top:30px;
+    }
+    table a {
+      color:#000000;
+    }
+    table a:hover{
+
+      text-decoration:none;
+      color:#ffa291;
+    }
+    table a:active{
+      text-decoration:none;
+      color:#ffa291;
+    }
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:13px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#ffffff;
+      background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
+    }
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+    }
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+    }
+
+
+    @media(min-width:767px) {
+
+      .container-fluid{
+        margin-top:50px;
+      }
+    }
+
+  </style>

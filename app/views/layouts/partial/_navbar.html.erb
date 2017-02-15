@@ -1,23 +1,24 @@
 
 <nav class="navbar navbar-fixed-top navbar-design">
 
+
+<!-- navbar 2 줄 디자인 일때 위에 오던 영역 -->
+
   <div class="navbar-top" style="padding-right:50px;">
+
+<%
+=begin
+%>
       <ul>
 
-       <!--
-        <li>
-          <a href="/home/about">서비스 소개</a>
-        </li> -->
-        
-     <!--
-        <li>
+       <li>
             <a href="/home/notice">새 소식
-           %if Notice.last.created_at + 7.day>Time.current%>
+           <%if Notice.last.created_at + 7.day>Time.current%>
               <span class="badge badge_notice">New</span>
-            %end%>
+            <%end%>
             </a>
-        </li>
-        
+         </li>
+
         <li>
 
    
@@ -31,9 +32,9 @@
 
 
         </li>
+
         
-        
-       <!-- 잠시봉인(16.10.08)
+
         <li >
           <% if user_signed_in? %>
             <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
@@ -41,21 +42,28 @@
             <% link_to "로그인", new_user_session_path %>
           <% end %>
         </li>  
-        -->
 
-       <!-- 마이팔레트 주석처리 (16.10.07)
+
+
         <li style="float:right">
           <% if user_signed_in? %>
             <%= link_to "마이팔레트", href="/basket" %>
           <% else %>
             <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
-        </li>-->
+        </li>
       </ul>
+
+
+<%
+=end
+%>
   </div>
 
 
-  <div class="container" style="padding:0;">
+
+
+  <div class="container wrap_navbar" style="padding:0;">
     <!-- Brand and toggle get grouped for better mobile display -->
 
 
@@ -144,18 +152,25 @@
           <a href="/home/list_lip2/봄 브라이트">립 추천</a>
         </li>
         
+<%
+=begin
+%>
+        <!-- 테스트버전 페이지 주석처리 (17.02.08) -->
+
         <%if user_signed_in? && current_user.admin?%>
           <li>
             <i class="fa fa-star iconForMobile" aria-hidden="true"></i>
             <a href="/home/list_lip/봄 브라이트">테스트버전</a>
           </li>
         <%end%>
-
+<%
+=end
+%>
 
          <li>
            <i class="fa fa-bullhorn iconForMobile" aria-hidden="true"></i>
             <a href="/home/notice">새 소식
-              <%if Notice.last.created_at + 7.day>Time.current%>
+              <%if Notice.exists? && Notice.last.created_at + 7.day>Time.current%>
                   <span class="badge badge_notice">New</span>
               <%end%>
             </a>
@@ -167,44 +182,52 @@
 
           <% if user_signed_in? && current_user.admin == nil%>
               <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
-              <a href="/home/askfor">문의/건의</a>
+              <a href="/home/request_list">문의/건의</a>
           <% elsif user_signed_in? && current_user.admin?%>
               <a href="/admin">Admin</a>
           <% else %>
               <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
-              <a href="/home/askfor">문의/건의</a>
+              <a href="/home/request_list">문의/건의</a>
           <% end %>
 
               <% if user_signed_in? %>
-               <!--   <% link_to "문의/건의", href="/home/askfor" %>--> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
+               <!--   <% link_to "문의/건의", href="/home/request_list" %>--> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
               <% else %>
-                  <% link_to "문의/건의", href="/home/askfor" %>
+                  <% link_to "문의/건의", href="/home/request_list" %>
                 <!-- <% link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
               <% end %>
 
           <!------------------------------------------------->
         </li>
         
-        <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>
-       
 
-        <!-- 마이팔레트 주석처리 (16.10.07
-        <li class="hidden-web">
+
+        <li>
           <% if user_signed_in? %>
+            <i class="fa fa-user iconForMobile" aria-hidden="true"></i>
             <%= link_to "마이팔레트", href="/basket" %>
           <% else %>
-            <%= link_to "마이팔레트", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
-          <% end %>
-        </li> -->
-        
-       <!--잠시 봉인(16.10.08) <li class="hidden-web">
-          <% if user_signed_in? %>
-            <% link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
-          <% else %>
-            <% link_to "로그인", new_user_session_path %>
+            <i class="fa fa-sign-in iconForMobile" aria-hidden="true"></i> 
+            <%= link_to "로그인", new_user_session_path %>
           <% end %>
         </li>
-        -->
+        
+<%
+=begin
+%>
+        <li>
+          <% if user_signed_in? %>
+            <%=link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          <% else %>
+            <%=link_to "로그인", new_user_session_path %>
+          <% end %>
+        </li>
+<%
+=end
+%>
+
+        <!-- 햄버거 버튼 닫는 버튼 -->
+        <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>
 
 
       </ul>
@@ -235,6 +258,7 @@
       transition: width 0.3s;
       }
  */
+ 
 
   .byline{
       position:absolute;
@@ -251,6 +275,8 @@
   .navbar-design {
       text-decoration: none;
       border-bottom: 1px solid #e4e4e4;
+      /*padding-top:10px;
+      padding-bottom:10px;*/
   }
   
   
@@ -280,7 +306,7 @@
   .searchbox-input{
     width:400px;
     height:35px;
-    margin-left:130px;
+    margin-left:120px;
     padding-left:10px;
     display:inline-block;
     color:#000000;
@@ -352,6 +378,8 @@
   
   .navbar .navbar-design {
     background-color:#ffffff;
+    padding-top:10px;
+    padding-bottom:5px;
   }
 
   .navbar-collapse{
@@ -393,6 +421,7 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  
   /*dropdown for Mobile 끝 */
 
 
@@ -423,9 +452,13 @@
     display:none;
   }
 
-}
+} /*min-width ends*/
 
 @media (max-width:767px){
+  .wrap_navbar {
+    padding:0;
+  }
+  
   .nav-menu{
     list-style-type: none;
     margin: 0;
@@ -489,6 +522,10 @@
   } 
   .navbar-color{
     color:#ffffff;
+  }
+  .navbar-design{
+    padding-top:10px;
+    /*padding-bottom:10px;*/
   }
 
   /*navbar 드롭다운부분*/
@@ -594,8 +631,8 @@
 		background-color:#ff6666;
   }  
 
-}
-}
+}  /*max-width ends*/
+
 </style>
     
 <script>

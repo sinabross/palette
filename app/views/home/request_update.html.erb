@@ -1,0 +1,160 @@
+<div class="table-responsive">
+  <div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+      <div class="title-web" style="margin-right:10px;">
+        <h3>문의/건의 수정하기</h3>
+        <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
+      </div>
+      
+      <hr style="border: 2px solid #38393b">
+      <br>
+      
+      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12" style="padding:0px;">
+        <form action="/home/request_update_ok/<%= @one_request.id %>" onsubmit="return false;" method="post" enctype="multipart/form-data" id="updateForm">
+          <div class="form-group">
+            <label for="exampleInputTitle">제목</label>
+            <input type="text" name="title" class="form-control" id="inputTitle" value="<%= @one_request.title %>">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputContent">내용</label>
+            <textarea name="content" class="form-control" id="inputContent" rows="5"><%= @one_request.content %></textarea>
+          </div>
+          <div class="filebox col-md-5" style="padding:0px">
+            <label for="camera">
+               <i class="fa fa-camera" aria-hidden="true" style="margin:5px;"></i>사진 첨부
+            </label>
+            <input type="file" name="pic" id="camera" accept="images/*" capture="camera" onchange="getThumbnailPrivew(this,$('#cma_image'))" />
+          </div>
+
+          <% unless @one_request.img_url.nil? %>
+              <img src="<%= @one_request.img_url %>" class="img_request" id="original_img"/>
+          <% end %>
+          
+          <!--사진미리보기-->
+          <div id="cma_image" class="picture">
+          <!--첨부한 사진 thumbnail이 뜨는 곳-->
+          </div>
+          
+          <div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="secret" id="secret" value="Y">&nbsp;비밀글
+              </label>
+            </div>
+            <div class="form-group form-inline">
+              <label for="exampleInputPassword1">비밀번호</label>
+              <input type="password" name="password" id="secretNum" class="form-control" id="exampleInputPassword1" placeholder="비밀번호" disabled>
+            </div>
+          </div>
+          
+          <input type="submit" class="btn btn-default" onclick="checkRequestWrite()" value="수정">
+          <a href="/home/request_view/<%= @one_request.id %>" id="btnCancelRequest" class="btn btn-default">취소</a>
+        </form>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<style>
+    .table-responsive{
+      overflow-x: hidden;
+    }
+    .container-fluid{
+      margin-top:30px;
+    }
+    table a {
+      color:#000000;
+    }
+    table a:hover{
+
+      text-decoration:none;
+      color:#ffa291;
+    }
+    table a:active{
+      text-decoration:none;
+      color:#ffa291;
+    }
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:13px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#ffffff;
+      background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
+    }
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+    }
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+      
+      
+    }
+
+    .img_request {
+     display:block;
+     width:300px;
+     height:300px;
+     margin:40px auto;
+   }
+   
+   
+    @media(min-width:767px) {
+
+      .container-fluid{
+        margin-top:50px;
+      }
+    }
+
+  </style>
+
+
+<script>
+
+  //사진 첨부 미리보기
+  function getThumbnailPrivew(html, $target) {
+    if (html.files && html.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $("#original_img").remove();
+        $target.css('display', '');
+          //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+          $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+        }
+        reader.readAsDataURL(html.files[0]);
+      }
+    }
+    
+    //게시판 글 등록 시 빈칸 체크
+    function checkRequestWrite(){
+      if(document.getElementById("inputTitle").value == ""){
+        alert("제목을 입력해주세요");
+        document.getElementById("inputTitle").focus();
+      }else if(document.getElementById("inputContent").value == ""){
+        alert("내용을 입력해주세요");
+        document.getElementById("inputContent").focus();
+      }else{
+        document.getElementById("updateForm").submit();
+      }
+    }
+    
+</script>
+

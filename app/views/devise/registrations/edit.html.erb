@@ -1,18 +1,42 @@
 <section id="login"> <!--style시트 넣기위한 id이므로 상관없음-->
   <div class="container">
     <div class="row">
+      <div class="col-md-12 col-xs-12" style="padding:0;text-align:center;">
+       <ul class="mypage_nav" style="padding:0;">
+          <li>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <a href="/basket">찜한상품</a>
+          </li>
+          <li>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <a href="/users/edit">프로필수정</a>
+          </li>
+          <li>
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <%=link_to "로그아웃", destroy_user_session_path, method: :get, data: { confirm: "로그아웃하시겠습니까?" } %>
+          </li>
+        </ul>
+      </div>         
+        <div class="col-md-12 col-xs-12">
+           <div style="background-color:#ffffff">
+            <p align="center" style="margin:30px; font-size:16px;color:#000000"><strong>회원정보 수정</strong></p>
+           </div>
+        </div>
+        
+      </div>
+      
       <div class="col-md-6 col-md-offset-3">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         
         <div class="form-wrap">
-          <h1>회원정보 수정</h1>
+          
           <!--Log in with your email account-->
             <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
               
               <div class="form-group">
                 <%= f.label :이메일 %><br />
-                <%= f.email_field :email, class:"form-control ", autofocus: true %>
+                <%= f.email_field :email, class:"form-control", autofocus: true, :disabled => true %>
               </div>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -20,50 +44,50 @@
                   Currently waiting confirmation for: <%= resource.unconfirmed_email %>
                 </div>
               <% end %>
+              
+              <div class="form-group">
+                <%= f.label :이름 %><br />
+                <%= f.text_field :name, class:"form-control", :disabled => true %>
+              </div>
+              
+              <div class="form-group">
+                <%= f.label :생년월일 %><br />
+                <%= f.text_field :birthday, class:"form-control", :disabled => true %>
+              </div>
   
               <div class="form-group">
                 <%= f.label :닉네임 %><br />
-                <%= f.text_field :username, class:"form-control " %>
+                <%= f.text_field :username, class:"form-control", :disabled => true %>
               </div>
 
               <div class="form-group">
-                <%= f.label :비밀번호 %> <i>(변경을 원치 않으시면 공란으로 두세요!)</i><br />
-                <%= f.password_field :password, class:"form-control ", autocomplete: "off" %>
+                <%= f.label :새_비밀번호 %><br>
+                <%= f.password_field :password, class:"form-control", autocomplete: "off" %>
                 <% if @minimum_password_length %>
-                  <br />
-                  <em><%= @minimum_password_length %> characters minimum</em>
+                  <em><%= @minimum_password_length %> 자 이상 입력해주세요.</em>
                 <% end %>
               </div>
 
               <div class="form-group">
                 <%= f.label :비밀번호_확인 %><br />
-                <%= f.password_field :password_confirmation, class:"form-control ", autocomplete: "off" %>
+                <%= f.password_field :password_confirmation, class:"form-control", autocomplete: "off" %>
               </div>
 
               <div class="form-group">
-                <%= f.label :현재_비밀번호 %><i>정보수정을 위해서는 현재 비밀번호를 입력해주세요.(페이스북 로그인은 제외)</i><br />
-                <%= f.password_field :current_password, class:"form-control ", autocomplete: "off" %>
+                <%= f.label :현재_비밀번호 %><i><br>(정보수정을 위해서는 현재 비밀번호를 입력해주세요.)</i><br />
+                <%= f.password_field :current_password, class:"form-control", autocomplete: "off" %>
               </div>
 
 
               <div class="actions" align="center">
-                <%= f.submit "Update", class:"btn btn-custom btn-lg btn-block" %>
+                <%= f.submit "수정", class:"btn btn-custom btn-lg btn-block" %>
               </div>
               
             </form>
           </div>                
         <% end %>
         
-        <div style="text-align:center">
         
-        <%= render "devise/shared/links" %>
-
-        <%= link_to "돌아가기", :back %>
-
-
-        </div>
-        <hr>
-
       </div> <!-- /.col-xs-12 -->
     </div> <!-- /.row -->
   </div> <!-- /.container -->
@@ -142,8 +166,8 @@
       color: #212121;
   }
   .btn-custom {
-      color: #fff;
-  	background-color: #333333;
+    color: #fff;
+  	background-color: #d87c72;
   }
   
   /*원래 색: #1fa67b*/
@@ -153,4 +177,32 @@
       color: #fff;
   }
 
+  .mypage_nav li{
+    display:inline-block;
+    color:black;
+    padding:5px;
+    margin:0 5px;
+    border-radius:5px;
+    
+  }
+  .mypage_nav li:hover{
+    background-color:#ff6666;
+    color:white;
+  }
+  .mypage_nav li a{
+    color:black;
+    text-decoration:none;
+  }
+  .mypage_nav li a:hover{
+    color:white;
+    text-decoration:none;
+  }
+  
+  
+@media(min-width:768px){
+  .mypage_nav li{
+    padding:10px;
+    margin:0 100px;  
+  }
+}  
 </style>

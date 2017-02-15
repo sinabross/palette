@@ -17,6 +17,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20161202165806) do
 =======
 ActiveRecord::Schema.define(version: 20170201075032) do
 >>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
+=======
+ActiveRecord::Schema.define(version: 20170215022101) do
+>>>>>>> 0951e4a1ee9dfa7a2b7e9620f4141235e39d9275
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -237,6 +241,43 @@ ActiveRecord::Schema.define(version: 20170201075032) do
   add_index "punches", ["average_time"], name: "index_punches_on_average_time"
   add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index"
 
+  create_table "request_comments", force: :cascade do |t|
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "request_replies", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "request_id"
+    t.integer  "group"
+    t.integer  "level"
+    t.string   "img_url",    default: ""
+    t.integer  "hits"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "secret"
+    t.string   "password"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "group"
+    t.integer  "level"
+    t.string   "img_url",    default: ""
+    t.integer  "hits"
+    t.string   "secret"
+    t.string   "password"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string   "num"
     t.string   "content"
@@ -266,6 +307,7 @@ ActiveRecord::Schema.define(version: 20170201075032) do
     t.string   "uid"
     t.string   "birthday"
     t.boolean  "admin"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

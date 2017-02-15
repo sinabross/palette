@@ -72,6 +72,10 @@ en:
             username:
               taken: "이미 사용 중인 닉네임입니다."
               blank: "닉네임을 입력해주세요."
+            name:
+              blank: "이름을 입력해주세요."
+            birthday:
+              blank: "생년월일을 입력해주세요."
             email: 
               taken: "이미 사용 중인 이메일입니다."
               blank: "이메일을 입력해주세요."
