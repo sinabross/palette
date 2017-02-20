@@ -18,6 +18,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -28,6 +29,9 @@ ActiveRecord::Schema.define(version: 20170201075032) do
 =======
 ActiveRecord::Schema.define(version: 20170215022101) do
 >>>>>>> 0951e4a1ee9dfa7a2b7e9620f4141235e39d9275
+=======
+ActiveRecord::Schema.define(version: 20170215064526) do
+>>>>>>> 1e743e9743d8a53f809af04c35898a2255ef3d1b
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -190,6 +194,7 @@ ActiveRecord::Schema.define(version: 20170215022101) do
     t.string   "keyword"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -203,6 +208,26 @@ ActiveRecord::Schema.define(version: 20170215022101) do
     t.datetime "updated_at", null: false
 >>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   end
+=======
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
+  end
+
+  add_index "lips", ["cached_votes_down"], name: "index_lips_on_cached_votes_down"
+  add_index "lips", ["cached_votes_score"], name: "index_lips_on_cached_votes_score"
+  add_index "lips", ["cached_votes_total"], name: "index_lips_on_cached_votes_total"
+  add_index "lips", ["cached_votes_up"], name: "index_lips_on_cached_votes_up"
+  add_index "lips", ["cached_weighted_average"], name: "index_lips_on_cached_weighted_average"
+  add_index "lips", ["cached_weighted_score"], name: "index_lips_on_cached_weighted_score"
+  add_index "lips", ["cached_weighted_total"], name: "index_lips_on_cached_weighted_total"
+>>>>>>> 1e743e9743d8a53f809af04c35898a2255ef3d1b
 
   create_table "notices", force: :cascade do |t|
     t.string   "title"
