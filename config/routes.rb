@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   post 'home/userseason_update'
   
  #테스트버전(visible for Only ADMIN)
-  get 'home/list_lip'
-  get 'home/list_lip/:tone'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
+#  get 'home/list_lip'
+#  get 'home/list_lip/:tone'  => "home#list_lip"  # 립 리스트에서 카테고리 값 부여
   
   # 립 리스트 페이지
   get 'home/list_lip2'
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   
   # 제품 검토요청 모아보기
   get 'home/admin_likes'
-  get 'home/detail/:product_num' => "home#detail"
+  #get 'home/detail/:product_num' => "home#detail"
   get 'home/detail2/:product_num' => "home#detail2"
   
   #ask for new products
