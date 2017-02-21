@@ -19,6 +19,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -32,6 +33,9 @@ ActiveRecord::Schema.define(version: 20170215022101) do
 =======
 ActiveRecord::Schema.define(version: 20170215064526) do
 >>>>>>> 1e743e9743d8a53f809af04c35898a2255ef3d1b
+=======
+ActiveRecord::Schema.define(version: 20170221094648) do
+>>>>>>> 7357919165088f27c151db0a3a0dcb38f5871678
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -122,6 +126,7 @@ ActiveRecord::Schema.define(version: 20170215064526) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
@@ -229,6 +234,8 @@ ActiveRecord::Schema.define(version: 20170215064526) do
   add_index "lips", ["cached_weighted_total"], name: "index_lips_on_cached_weighted_total"
 >>>>>>> 1e743e9743d8a53f809af04c35898a2255ef3d1b
 
+=======
+>>>>>>> 7357919165088f27c151db0a3a0dcb38f5871678
   create_table "notices", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
