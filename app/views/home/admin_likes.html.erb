@@ -32,6 +32,13 @@
               <div class="col-md-4 col-xs-8" style="text-align:right;">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
                 <p style="margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>
                 <p class="product_tone"><%=w.season%>/<%=w.size%>/<%=w.price%></p>
+                <p> 이 제품을 찜하신 분들:
+  
+                  <% w.votes_for.up.by_type(User).voters.each do |who|%>
+                    <%=who.username%>                  
+                  <%end%>
+  
+                </p>
               </div>
 
            </div>
