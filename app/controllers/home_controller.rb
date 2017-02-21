@@ -682,6 +682,8 @@ class HomeController < ApplicationController
    @like_list=Lip.where("cached_votes_up > ?", 0).order(:cached_votes_up => :desc).paginate(page: params[:page], per_page:15)
   
    @liked_items_count=@like_list.count
+   
+
   
   end
 
