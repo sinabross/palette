@@ -1,4 +1,4 @@
-class AddCachedVotesToLips < ActiveRecord::Migration
+class AddCacheToLips < ActiveRecord::Migration
  def self.up
     add_column :lips, :cached_votes_total, :integer, :default => 0
     add_column :lips, :cached_votes_score, :integer, :default => 0
