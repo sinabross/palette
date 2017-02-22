@@ -21,6 +21,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -40,6 +41,9 @@ ActiveRecord::Schema.define(version: 20170221094648) do
 =======
 ActiveRecord::Schema.define(version: 20170221095125) do
 >>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
+=======
+ActiveRecord::Schema.define(version: 20170222041528) do
+>>>>>>> 8cd93c1dc2f650bc074f712dd3cc46a872928b97
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -211,6 +215,7 @@ ActiveRecord::Schema.define(version: 20170221095125) do
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "image_url",  default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -225,6 +230,8 @@ ActiveRecord::Schema.define(version: 20170221095125) do
 >>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
   end
 =======
+=======
+>>>>>>> 8cd93c1dc2f650bc074f712dd3cc46a872928b97
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "cached_votes_total",      default: 0
@@ -243,6 +250,7 @@ ActiveRecord::Schema.define(version: 20170221095125) do
   add_index "lips", ["cached_weighted_average"], name: "index_lips_on_cached_weighted_average"
   add_index "lips", ["cached_weighted_score"], name: "index_lips_on_cached_weighted_score"
   add_index "lips", ["cached_weighted_total"], name: "index_lips_on_cached_weighted_total"
+<<<<<<< HEAD
 >>>>>>> 1e743e9743d8a53f809af04c35898a2255ef3d1b
 
 =======
@@ -251,6 +259,8 @@ ActiveRecord::Schema.define(version: 20170221095125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+>>>>>>> 8cd93c1dc2f650bc074f712dd3cc46a872928b97
 
 >>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
   create_table "notices", force: :cascade do |t|
