@@ -20,6 +20,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -36,6 +37,9 @@ ActiveRecord::Schema.define(version: 20170215064526) do
 =======
 ActiveRecord::Schema.define(version: 20170221094648) do
 >>>>>>> 7357919165088f27c151db0a3a0dcb38f5871678
+=======
+ActiveRecord::Schema.define(version: 20170221095125) do
+>>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -128,6 +132,7 @@ ActiveRecord::Schema.define(version: 20170221094648) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   create_table "lipdbs", force: :cascade do |t|
     t.string   "num"
 <<<<<<< HEAD
@@ -180,6 +185,8 @@ ActiveRecord::Schema.define(version: 20170221094648) do
     t.string   "color"
 >>>>>>> a1756987233a3b897f92eecb7f60b35a6824525d
 =======
+=======
+>>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
   create_table "lips", force: :cascade do |t|
     t.string   "num"
     t.string   "image"
@@ -192,11 +199,15 @@ ActiveRecord::Schema.define(version: 20170221094648) do
     t.string   "season"
     t.string   "price"
     t.string   "size"
+<<<<<<< HEAD
 >>>>>>> dd23e12dec804e9082952207ff701f3c6f9a845b
+=======
+>>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
     t.string   "pro_type"
     t.string   "glitter"
     t.string   "texture"
     t.string   "keyword"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -236,6 +247,12 @@ ActiveRecord::Schema.define(version: 20170221094648) do
 
 =======
 >>>>>>> 7357919165088f27c151db0a3a0dcb38f5871678
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> f17a1a61bcce2edd4a1308fc386545eaabe674ca
   create_table "notices", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
