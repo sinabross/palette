@@ -36,18 +36,18 @@
         <%if user_signed_in?%>    
           <% if current_user.voted_up_on? @product %>
            <div class="row" style="text-align:center;margin-top:10px;">
-              <div class="col-md-3 col-md-offset-3 col-sm-1 col-sm-offset-5 unlike-button">
+              <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 unlike-button">
                 <%=link_to '', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
                     class: "like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p style="display:inline-block;font-size:17px;">찜하기</p>     
+                 <p style="display:inline-block;font-size:25px;">찜하기</p>     
               </div>
            </div>
           <% else %>
             <div class="row" style="text-align:center;margin-top:10px;"> 
-              <div class="col-md-3 col-md-offset-3 col-sm-1 col-sm-offset-5 like-button">
+              <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 like-button">
                 <%=link_to '', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
                     class: "like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p style="display:inline-block;font-size:17px;">찜하기</p>       
+                 <p style="display:inline-block;font-size:25px;">찜하기</p>       
               </div>
             </div>  
           <% end %>
@@ -56,10 +56,10 @@
         <%else%>
           <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
           <div class="row" style="text-align:center;margin-top:10px;">
-            <div class="col-md-3 col-md-offset-3 col-sm-1 col-sm-offset-5 fake-like-button">
+            <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 fake-like-button">
               <%=link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
                   class: "fa fa-heart-o", onclick:"ga('send', 'event', 'fake_like', 'click', 'fake_like_click', 1);"%>
-              <p style="display:inline-block;font-size:17px;">찜하기</p>      
+              <p style="display:inline-block;font-size:25px;">찜하기</p>      
             </div>
           </div>
         <%end%>
@@ -406,6 +406,14 @@
       font-family:'Hanna';
       text-align:center;
       margin-bottom:30px;
+    }
+    a.like:hover{
+      color:red;
+      text-decoration:none;
+    }
+    a.like:active{
+      color:red;
+      text-decoration:none;
     }
     
     /*후기*/
