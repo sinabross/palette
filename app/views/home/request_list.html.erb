@@ -21,7 +21,7 @@
             <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>제목</span></th>
             <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성자</span></th>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>날짜</span></th>
-            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>
+            <th class="col-lg-2 col-md-2 hidden-sm hidden-xs"><span>
               <i class="fa fa-eye" aria-hidden="true"></i>
             </span></th>
           </tr>
@@ -53,7 +53,7 @@
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                       <%=request.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
                     </td>
-                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                       <%=request.hits %>
                     </td>
                   </tr>
@@ -80,7 +80,7 @@
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                       <%=reply.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
                     </td>
-                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                       <%=reply.hits %>
                     </td>
                   </tr>
