@@ -1,11 +1,24 @@
 <div class="table-responsive" >
 
   <div class="container-fluid" >
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+    <div>
+    
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+      </ul>
+    
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
       <div class="title-web" style="margin-right:10px;">
-        <h3>문의/건의</h3>
-        <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
+        <h3>제품요청</h3>
+        <p>업데이트를 바라시는 제품에 대해 자유롭게 의견을 남겨주세요. </p>
       </div>
         
       <hr style="border: 2px solid #38393b">
@@ -21,9 +34,133 @@
             <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>제목</span></th>
             <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성자</span></th>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>날짜</span></th>
-            <th class="col-lg-2 col-md-2 hidden-sm hidden-xs"><span>
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            </span></th>
+            <th class="col-lg-2 col-md-2 hidden-sm hidden-xs"><span>조회수</span></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% if @requests.count > 0 %>
+          
+              <% @requestList.each do |request| %>
+                  <tr>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                      <p><%=request.id%></p>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                      <% if request.secret == "Y" && user_signed_in? && current_user.admin !=nil %>
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=request.title%>
+                        </a>
+                      <% elsif request.secret == "Y" %>
+                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page %>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=request.title%>
+                        </a>
+                      <% elsif %>
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                      <% end %>
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                      <%=request.nickname %>
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                      <%=request.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
+                    </td>
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                      <%=request.hits %>
+                    </td>
+                  </tr>
+                <% request.request_replies.each do |reply| %>
+                  <tr>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                      <% if request.secret == "Y" && user_signed_in? && current_user.admin %>
+                        <a href="/home/request_reply_view/<%=reply.request_id%>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=reply.title%>
+                        </a>
+                      <% elsif request.secret == "Y" %>
+                         <a href="/home/request_reply_pwd_check/<%=reply.request_id%>">
+                          <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=reply.title%>
+                        </a>
+                      <% elsif %>
+                        <a href="/home/request_reply_view/<%=reply.request_id%>"><%=reply.title%></a>
+                      <% end %>  
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                      <%=reply.nickname %>
+                    </td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                      <%=reply.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
+                    </td>
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                      <%=reply.hits %>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
+              
+          <% else %>
+            <tr>
+                <td colspan="5">게시글이 없습니다.</td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <table cellspacing=1 width=100% border=1 style="text-align:center">
+          <tr>
+              <td>
+                <% if @current_page.to_i == 1 %>
+                  <span>이전</span>
+                <% elsif %>
+                  <a href="/home/request_list?current_page=<%= @prev_page %>">이전</a>
+                <% end %>
+                
+                <%  @totalPageList.each do |page| %>
+                    <% if page == @current_page.to_i %>
+                        <span style="color:red;font-weight:bold;font-size:1.3em;"><%=page%></span>
+                    <% elsif %>
+                        <a href="/home/request_list?current_page=<%=page%>" style="font-size:1.2em;"><%=page%></a>
+                    <% end %>
+                 <% end %>
+                 
+                 <% if @current_page.to_i == @total_page %>
+                   <span>다음</span>
+                 <% elsif %>
+                   <a href="/home/request_list?current_page=<%= @next_page %>">다음</a>
+                 <% end %>
+              </td>
+          </tr>
+        </table>
+       </div>
+        <%if user_signed_in? %>
+          <a href="/home/request_write"  class="btn btn-black" role="button">글쓰기</a>
+        <%end%>
+      </div>  
+          
+        </div>
+        
+        <div role="tabpanel" class="tab-pane" id="profile">
+          
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="title-web" style="margin-right:10px;">
+        <h3>문의/건의</h3>
+        <p>서비스 이용관련 하여 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
+      </div>
+        
+      <hr style="border: 2px solid #38393b">
+      <br>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding:0px;">
+       
+        <p>총 게시물수: <%= @totalCnt %></p>
+        
+        <table class="table user-list">
+          <thead>
+          <tr>
+            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span>번호</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>제목</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성자</span></th>
+            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>날짜</span></th>
+            <th class="col-lg-2 col-md-2 hidden-sm hidden-xs"><span>조회수</span></th>
           </tr>
           </thead>
           <tbody>
@@ -124,6 +261,24 @@
           <a href="/home/request_write"  class="btn btn-black" role="button">글쓰기</a>
         <%end%>
       </div>
+          
+          
+          
+        </div>
+        
+        
+      </div> <!--/tab content ends-->
+    
+    </div>
+        
+        
+        
+    
+    
+    
+    
+    
+    
   </div>
 
   <style>
