@@ -359,40 +359,35 @@ class HomeController < ApplicationController
 
 #제품 등록 요청
   def askfor
-
+    
+     #제품요청
+      if Askfor != nil
+        @askfor = Askfor.all.order("id desc").paginate(page: params[:page], per_page: 5)
+      end
+      @askforCnt = @askfor.count unless @askfor.blank?
+      @askforCnt = 0 if @askfor.blank?
+    
   end
+  
 
   def askfor_submit
+    
+   
+    #제품요청
+    @askfor= Askfor.new
+    @askfor.brand = params[:brand]
+    @askfor.name = params[:name]
+    @askfor.username = current_user.username
+    @askfor.save
 
-
-
-    @post=Feedback.new
-    @post.content=params[:content]
-    @post.emailaddress=params[:email]
-    @post.pro_num=params[:feed_pro_num]
-    uploader = LightUploader.new
-    uploader.store!(params[:pic])
-    @post.img_url=uploader.url
-
-
-    if @post.save
-      flash[:success] = "작성이 완료되었습니다:)"
-      redirect_to :back
-    end
-
-
+    redirect_to "/home/askfor"
+   
   end
 
-  def askfor_submit2
 
-    @post=Askfor.new
-    @post.content=params[:content]
+  
 
-    @post.save
 
-    redirect_to :back
-
-  end
 
   def askfor_delete #제품 요청 삭제
     @one_askfor=Feedback.find(params[:askfor_id])
@@ -404,23 +399,28 @@ class HomeController < ApplicationController
   
   # =============== 새로 생긴 문의/건의 게시판 시작 ===============
   def request_list
+    
+    
+    #문의/건의
     #@requests = Request.find(:all, :limit =>rowsPerPage, :order=>'created_at desc')
     @requests = Request.all.order("id desc").first(5)
     @replies = RequestReply.all.order("id asc")
     
-    @current_page = params[:current_page] ? params["current_page"] : 1    #현재 페이지
+    @current_page2 = params[:current_page] ? params["current_page"] : 1    #현재 페이지
     @totalCnt = Request.all.count                                         #전체 게시글 수
     @totalPageList = getTotalPageList(@totalCnt, rowsPerPage)             #전체 페이지 리스트
     
     @requestList = Request.find_by_sql ["select * from REQUESTS ORDER BY id desc limit %s offset %s",
-            rowsPerPage, @current_page.to_i == 1 ? 0 : 5*(@current_page.to_i-1) ]
+            rowsPerPage, @current_page2.to_i == 1 ? 0 : 5*(@current_page2.to_i-1) ]
     
-    @prev_page = @current_page.to_i - 1                                   #이전 페이지
-    @next_page = @current_page.to_i + 1                                   #다음 페이지
-    @total_page = getTotalPageList(@totalCnt, rowsPerPage).size           #전체 페이지 수
+    @prev_page2 = @current_page2.to_i - 1                                   #이전 페이지
+    @next_page2 = @current_page2.to_i + 1                                   #다음 페이지
+    @total_page2 = getTotalPageList(@totalCnt, rowsPerPage).size           #전체 페이지 수
+    
   end
   
   def request_write_ok
+  
     @request = Request.new
     @request.title = params[:title]
     @request.content = params[:content]
@@ -435,7 +435,8 @@ class HomeController < ApplicationController
     @request.img_url=uploader.url
     
     @request.save
-    
+
+  
     redirect_to "/home/request_list"
   end
   

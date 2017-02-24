@@ -182,21 +182,15 @@
 
           <% if user_signed_in? && current_user.admin == nil%>
               <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
-              <a href="/home/request_list">문의/건의</a>
+              <a href="/home/askfor">제품요청</a>
           <% elsif user_signed_in? && current_user.admin?%>
               <a href="/admin">Admin</a>
           <% else %>
               <i class="fa fa-envelope-o iconForMobile" aria-hidden="true"></i>
-              <a href="/home/request_list">문의/건의</a>
+               <%=link_to "제품요청", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %>
           <% end %>
 
-              <% if user_signed_in? %>
-               <!--   <% link_to "문의/건의", href="/home/request_list" %>--> <!-- button 으로 하면 페이지 이동이 안됨;; 왜그러지-->
-              <% else %>
-                  <% link_to "문의/건의", href="/home/request_list" %>
-                <!-- <% link_to "문의/건의", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." } %> -->
-              <% end %>
-
+             
           <!------------------------------------------------->
         </li>
         

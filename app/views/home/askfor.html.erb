@@ -1,76 +1,194 @@
-<div class="container">
+<div class="table-responsive" >
 
-    <br>
-      <div style="background-color:#ffffff; margin-top:30px;">
-        <hr style="border: solid 1.0px;color:#333333">
-           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>문의/건의하기</strong></p>
-        <hr style="border: solid 1.0px;color:#333333">  
-      </div>
-
-          <ul style="list-style-type: disc;padding-left:20px;">
-            <li>
-              <p>업데이트 되었으면 하는 제품, 이용하시면서 개선되었으면 하는 점 등에 대해 자유롭게 말씀해주세요. </p>
-            </li>
-            <li>
-              <p>적어주신 이메일을 통해 답변을 드리고 있으며, 고객님의 의견은 적극적으로 반영하도록 하겠습니다 :)</p>
-            </li>
-
-          </ul>
-    <form id="myForm" style="margin-top:40px" action="/home/askfor_submit" method="post" enctype="multipart/form-data" data-toggle="validator" role="form">
-      <div class="form-group">
-        <label for="exampleInputEmail1">이메일 주소</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" data-error="이메일 주소를 입력해주세요." required>
-        <div class="help-block with-errors"></div>
-        <!-- 로그인한 유저 이메일 뜨게 하려면 위 input 태그에 value="< % =current_user.email%>" 입력-->
-      </div>
-      <div class="form-group">
-        <textarea class="form-control" name="content" rows="10" data-error="내용을 입력해주세요." required></textarea>
-        <div class="help-block with-errors"></div>
-      </div>
-     <!-- 사진첨부 기능 일단 보류
-      <div class="form-group">
-        <label for="exampleInputFile">사진첨부</label>
-        <input type="file" name="pic" id="exampleInputFile" accept="image/*">
-      </div>
-     -->
-      <div>
+  <div class="container-fluid" >
+    
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         
-          <button type="submit" name="feed_pro_num"  class="btn-ask" >보내기</button>
- 
-      </div>
-    </form>
-    <br><br><br>
+              <div class="askfor_reqeust_tab">
+                <a id="first_tab" href="/home/askfor" style="color:#ffaaa3">제품요청</a>
+                <a id="second_tab" href="/home/request_list">문의/건의</a>
+              </div>
+              
+              <div class="title-web" style="margin-right:10px;">
+                <h3>제품요청</h3>
+                <p>업데이트를 바라시는 제품을 등록해주세요. </p>
+              </div>
+                
+              <hr style="border: 2px solid #38393b">
+              <br>
+              
+              <div class="col-md-12 col-xs-12" style="padding:0px;">
+                
+                  <form action="/home/askfor_submit" method="post" data-toggle="validator">
+                    <div class="form-group" style="text-align:center;">
+                      <input type="text" class="form-control askfor-brand" name="brand" placeholder="브랜드명을 입력해주세요" maxlength="20">
+                      <input type="text" class="form-control askfor-name" name="name" placeholder="제품명을 입력해주세요" maxlength="30">
+                      <input type="submit" class="btn-askfor" value="요청">                
+                    </div>
+                  </form>
+                
+           
+                <p>총 제품요청 수 :<%= @askforCnt%>건</p>
+                
+                <table class="table user-list">
+                  <thead>
+                  <tr>
+                    <th class="col-md-3 col-xs-3"><span>브랜드</span></th>
+                    <th class="col-md-5 col-xs-3"><span>제품명</span></th>
+                    <th class="col-md-2 col-xs-3"><span>작성자</span></th>
+                    <th class="col-md-1 col-xs-3"><span>날짜</span></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% unless @askfor.blank? %>
+                  
+                      <% @askfor.each do |askfor| %>
+                          <tr>
+                            <td class="col-md-3 col-xs-3">
+                              <p><%=askfor.brand%></p>
+                            </td>
+                            <td class="col-md-5 col-xs-4">
+                              <p><%=askfor.name%></p>
+                            </td>
+                            <td class="col-md-2 col-xs-2">
+                              <%=askfor.username %>
+                            </td>
+                            <td class="col-md-1 col-xs-3">
+                              <%=askfor.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
+                            </td>
+                          </tr>
+                      <% end %>
+                      
+                  <% else %>
+                    <tr>
+                        <td colspan="5">등록된 요청이 없습니다. 원하시는 제품을 요청해주세요!</td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+                
+                <!-- pagination -->
+
+                <%= render :partial => "layouts/partial/pagination" %> 
+
+            
+               </div>
+            
+            </div>    
+  
+       
+  </div>
+        
 </div>
+        
+
 
 <style>
-  .btn-ask {
-    height:50px;
-    width:100px;
-    padding:10px;
-    line-height:30px;
-    color:black;
-    font-size:15px;
-    font-weight:bold;
-    text-align:center;
-    background:#ffffff;
-    border:2px solid black;
-    display:block;
-    float:left;
+  
+   .askfor_reqeust_tab{
+     text-align:right;
+   }  
+    .askfor_reqeust_tab>a{
+      display:inline-block;
+      color:gray;
+      text-decoration:none;
+      font-weight:bold;
+      padding:5px 5px 0px 5px;
+      border-top:1px solid gray;
+      border-left:1px solid gray;
+      border-right:1px solid gray;
+    }
+  
+    .askfor_reqeust_tab>a:hover{
+      color:gray;
+      text-decoration:none;
+    } 
+    .askfor_reqeust_tab:first-child:hover{
+      color:#ffaaa3;
+    }
+   .table-responsive{
+      overflow-x: hidden;
+    }
+    .container-fluid{
+      margin-top:30px;
+    }
+    table a {
+      color:#000000;
+    }
+    table a:hover{
+
+      text-decoration:none;
+      color:#ffa291;
+    }
+    table a:active{
+      text-decoration:none;
+      color:#ffa291;
+    }
+   
+    .btn-black{
+      width:60px;
+      height:30px;
+      font-size:13px;
+      text-align:center;
+      float:right;
+      cursor:pointer;
+      color:#ffffff;
+      background:#333333;
+    }
+    .btn-black:hover{
+      color:#ffffff;
+    }
+    .title-web h3 {
+      font-family: 'NanumGothic';
+      font-size: 22px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      color: #38393b;
+    }
+    .title-web p{
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #787878;
+    }
+    .form-control{
+      display:inline-block;
+      margin-bottom:30px;
+    }
+    .askfor-brand{
+      width:30%;
+    }
+    .askfor-name{
+      width:45%;
+    }
+    .btn-askfor{
+      display:inline-block;
+      margin-left:5px;
+      height:35px;
+      width:17%;
+      color:#ffffff;
+      background-color:#ffaaa3;
   }
-  .btn-ask:hover{
-    color:#ffa291;
-    background-color: #ffffff;
-    border:2px solid #ffa291;
-    text-decoration:none;
-  }
+    
+    @media(min-width:767px) {
 
-</style>
+      .container-fluid{
+        margin-top:50px;
+      }
+      .form-group{
+        padding-right:30px;
+        padding-left:30px;
+      }
+    }
 
-<script>
-    $(document).ready(function () {
+    @media(max-width:767px){
+      .table>thead>tr>th, .table>tbody>tr>td{
+         padding:5px;
+       }
+    }
+  </style>
 
-        $('form#myForm').validator();
 
-    });
-
-</script>

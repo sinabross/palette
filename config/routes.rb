@@ -82,6 +82,8 @@ Rails.application.routes.draw do
 
 
   #새로 생긴 문의/건의/요청 게시판
+  get 'home/askfor'
+  post 'home/askfor_submit'
   get 'home/request_list'
   get 'home/request_write'
   post 'home/request_write_ok'
