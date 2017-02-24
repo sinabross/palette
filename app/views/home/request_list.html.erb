@@ -1,11 +1,18 @@
 <div class="table-responsive" >
 
   <div class="container-fluid" >
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+      <div class="askfor_reqeust_tab">
+         <a href="/home/askfor">제품요청</a>
+         <a href="/home/request_list" style="color:#ffaaa3">문의/건의</a>
+      </div>
+
 
       <div class="title-web" style="margin-right:10px;">
         <h3>문의/건의</h3>
-        <p>업데이트 되었으면 하는 제품, 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
+        <p>서비스 이용관련 하여 개선되었으면 하는 점 등 자유롭게 의견을 남겨주세요. </p>
       </div>
         
       <hr style="border: 2px solid #38393b">
@@ -17,13 +24,11 @@
         <table class="table user-list">
           <thead>
           <tr>
-            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><span>번호</span></th>
-            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>제목</span></th>
-            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><span>작성자</span></th>
+            <th class="col-lg-1 col-md-1 col-sm-2 col-xs-2"><span>번호</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-4 col-xs-4"><span>제목</span></th>
+            <th class="col-lg-3 col-md-3 col-sm-4 col-xs-4"><span>작성자</span></th>
             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>날짜</span></th>
-            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span>
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            </span></th>
+            <th class="col-lg-2 col-md-2 hidden-sm hidden-xs"><span>조회수</span></th>
           </tr>
           </thead>
           <tbody>
@@ -34,7 +39,7 @@
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                       <p><%=request.id%></p>
                     </td>
-                    <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                    <td class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                       <% if request.secret == "Y" && user_signed_in? && current_user.admin !=nil %>
                         <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>">
                           <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=request.title%>
@@ -53,7 +58,7 @@
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                       <%=request.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
                     </td>
-                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                       <%=request.hits %>
                     </td>
                   </tr>
@@ -80,7 +85,7 @@
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                       <%=reply.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %>
                     </td>
-                    <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
+                    <td class="col-lg-3 col-md-3 hidden-sm hidden-xs">
                       <%=reply.hits %>
                     </td>
                   </tr>
@@ -97,36 +102,64 @@
         <table cellspacing=1 width=100% border=1 style="text-align:center">
           <tr>
               <td>
-                <% if @current_page.to_i == 1 %>
+                <% if @current_page2.to_i == 1 %>
                   <span>이전</span>
                 <% elsif %>
-                  <a href="/home/request_list?current_page=<%= @prev_page %>">이전</a>
+                  <a href="/home/request_list?current_page=<%= @prev_page2 %>">이전</a>
                 <% end %>
                 
                 <%  @totalPageList.each do |page| %>
-                    <% if page == @current_page.to_i %>
+                    <% if page == @current_page2.to_i %>
                         <span style="color:red;font-weight:bold;font-size:1.3em;"><%=page%></span>
                     <% elsif %>
                         <a href="/home/request_list?current_page=<%=page%>" style="font-size:1.2em;"><%=page%></a>
                     <% end %>
                  <% end %>
                  
-                 <% if @current_page.to_i == @total_page %>
+                 <% if @current_page2.to_i == @total_page2 %>
                    <span>다음</span>
                  <% elsif %>
-                   <a href="/home/request_list?current_page=<%= @next_page %>">다음</a>
+                   <a href="/home/request_list?current_page=<%= @next_page2 %>">다음</a>
                  <% end %>
               </td>
           </tr>
         </table>
        </div>
+       
         <%if user_signed_in? %>
           <a href="/home/request_write"  class="btn btn-black" role="button">글쓰기</a>
         <%end%>
       </div>
-  </div>
+          
+   </div>
+        
+</div>
+        
+    
+    
 
   <style>
+    .askfor_reqeust_tab{
+       text-align:right;
+     }  
+      .askfor_reqeust_tab>a{
+        display:inline-block;
+        color:gray;
+        text-decoration:none;
+        font-weight:bold;
+        padding:5px 5px 0px 5px;
+        border-top:1px solid gray;
+        border-left:1px solid gray;
+        border-right:1px solid gray;
+      }
+    
+      .askfor_reqeust_tab>a:hover{
+        color:gray;
+        text-decoration:none;
+      } 
+      .askfor_reqeust_tab:first-child:hover{
+        color:#ffaaa3;
+      }
     .table-responsive{
       overflow-x: hidden;
     }
@@ -174,8 +207,24 @@
       font-stretch: normal;
       color: #787878;
     }
-
-
+    .form-control{
+      display:inline-block;
+      margin-bottom:30px;
+    }
+    .askfor-brand{
+      width:30%;
+    }
+    .askfor-name{
+      width:45%;
+    }
+    .btn-askfor{
+      display:inline-block;
+      margin-left:5px;
+      height:35px;
+      width:17%;
+      color:#ffffff;
+      background-color:#ffaaa3;
+  }
     @media(min-width:767px) {
 
       .container-fluid{
