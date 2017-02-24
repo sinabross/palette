@@ -1443,21 +1443,21 @@ a.bg-danger:focus {
 a.fa-heart, a.fa-heart-o{
   text-decoration: none;
   color: red;
-  font-size:30px;
+  font-size:45px;
   
 }
 
 
 #fake-like{
   color: red;
-  font-size:30px;
+  font-size:45px;
 }
 
 .like-button>a:hover,
 .like-button>a:focus {
   text-decoration: none;
   color: red;
-  font-size:30px;
+  font-size:45px;
 }
 
 ul,
