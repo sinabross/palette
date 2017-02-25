@@ -21,9 +21,13 @@ class Lip < ActiveRecord::Base
  # for 찜하기 기능
  belongs_to :user
  acts_as_votable
+ 
+ 
+
 
  #for 리뷰기능
  has_many :reviews
+ 
     
 end
 

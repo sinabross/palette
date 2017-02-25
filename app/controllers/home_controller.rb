@@ -237,10 +237,19 @@ class HomeController < ApplicationController
       @product = Lip.find_by_image(params[:id])   #find_by_image 에서 image는 제품 데이터의 고유의 값(현재는 L006이런게 엑셀 상 image 열에 있어서 image임)
     end
     
-    @product.liked_by current_user
+    @product.liked_by current_user, :duplicate => true #찜하기의 총 누적 흔적 세기 위해서 duplicate 옵션 추가
   
     #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
     #@product.save
+    
+    #찜 개수 따로 저장하는 테이블에 DB 생성
+    
+    @like_info = AllLike.new
+    @like_info.lips_image = params[:id]
+    @like_info.users_username = current_user.username
+    @like_info.likes=1
+    @like_info.save
+      
     respond_to do |format|
       #format.html { redirect_to :back }
       format.js
@@ -253,9 +262,18 @@ class HomeController < ApplicationController
       @product = Lip.find_by_image(params[:id])
     end
     
-    @product.unliked_by current_user
+    #@product.unliked_by current_user
+     @product.downvote_from current_user,:duplicate => true #찜하기의 총 누적 흔적 세기 위해서 duplicate 옵션 추가
     #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
     #@product.save
+    
+    #찜 개수 따로 저장하는 테이블에 DB 생성
+    @like_info = AllLike.new
+    @like_info.lips_image= params[:id]
+    @like_info.users_username = current_user.username
+    @like_info.hates=1
+    @like_info.save
+    
     respond_to do |format|
         # format.html { redirect_to :back }
       format.js 
@@ -680,9 +698,20 @@ class HomeController < ApplicationController
   
   def admin_likes  # 찜 현황판 보기
    #@list = Lip.all.paginate(page: params[:page], per_page: 15)
-   @like_list=Lip.where("cached_votes_up > ?", 0).order(:cached_votes_up => :desc).paginate(page: params[:page], per_page:15)
+   
+   #act as votable의 migration을 통해 Lip talbe에 cached 데이터들을 넣었을 경우 
+   @like_list=Lip.where("cached_votes_total > ?", 0).order(:cached_votes_up => :desc).paginate(page: params[:page], per_page:15)
+   @liked_items_count=@like_list.count  
+   #수동으로 만든 all_likes 테이블을 사용할 경우
+   
+   #총 좋아요 수
+  # @all_likes_total = AllLike.group('product_num').sum('likes') #결과값으로 hash 도출 
+  # @current_likes_total = AllLike.where.not(hates:1).group('product_num').sum('likes') #결과값으로 hash 도출
+  # @like_list = Lip.all.paginate(page: params[:page], per_page:15)
   
-   @liked_items_count=@like_list.count
+   
+   #@like_list=Lip.joins(:all_likes).order("sum_sweetness ASC").paginate(page: params[:page], per_page:15)
+  
    
 
   
