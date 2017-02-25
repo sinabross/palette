@@ -17,6 +17,8 @@
     <% @like_list.each do |w| %>
         <div class="col-md-12 col-xs-12" style="margin-top:-10px;">
           <br>
+          
+
             <div class="product-container row"  onClick="location.href='/home/detail2/<%=w.image%>'">
               <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
               <a class="col-md-2 col-xs-4" href="/home/detail2/<%=w.image%>">
@@ -30,7 +32,16 @@
               </div>
 
               <div class="col-md-4 col-xs-8" style="text-align:right;">  <!-- 톤 정보 열 오른쪽에, 좋아요 버튼 들어가도록 그리드 설정 -->
-                <p style="margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> <%=display_likes(w)%></p>
+                <p style="margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> 
+                <%=w.cached_votes_total%> (누적)
+                <%#=AllLike.where(lips_image:"#{w.image}").where(likes:1).count%>
+                
+                </p>
+                <p style="margin-right:12px; margin-bottom:10px"><i class="fa fa-heart" aria-hidden="true"></i> 
+                <%#=display_likes(w)%>  <%=w.get_likes.size%> (현재)
+                <%#=AllLike.where(lips_image:"#{w.image}").where.not(hates:1).count%> 
+                
+                </p>
                 <p class="product_tone"><%=w.season%>/<%=w.size%>/<%=w.price%></p>
                 <p> 이 제품을 찜하신 분들:
   
@@ -43,6 +54,8 @@
 
            </div>
         </div>
+
+        
       <%end%>
        
       <!-- pagination -->
