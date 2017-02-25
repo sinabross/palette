@@ -242,13 +242,7 @@ class HomeController < ApplicationController
     #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
     #@product.save
     
-    #찜 개수 따로 저장하는 테이블에 DB 생성
     
-    @like_info = AllLike.new
-    @like_info.lips_image = params[:id]
-    @like_info.users_username = current_user.username
-    @like_info.likes=1
-    @like_info.save
       
     respond_to do |format|
       #format.html { redirect_to :back }
@@ -267,12 +261,7 @@ class HomeController < ApplicationController
     #@product.zzim = @product.votes_for.up.by_type(User).size #좋아요 수를 lip,eye db의 zzim에 저장
     #@product.save
     
-    #찜 개수 따로 저장하는 테이블에 DB 생성
-    @like_info = AllLike.new
-    @like_info.lips_image= params[:id]
-    @like_info.users_username = current_user.username
-    @like_info.hates=1
-    @like_info.save
+   
     
     respond_to do |format|
         # format.html { redirect_to :back }
