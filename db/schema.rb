@@ -23,6 +23,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -48,6 +49,9 @@ ActiveRecord::Schema.define(version: 20170222041528) do
 =======
 ActiveRecord::Schema.define(version: 20170224054340) do
 >>>>>>> dd0258363226c1baed64ccbf2659618e87fe2cf7
+=======
+ActiveRecord::Schema.define(version: 20170225113548) do
+>>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -68,8 +72,20 @@ ActiveRecord::Schema.define(version: 20170224054340) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+  create_table "all_likes", force: :cascade do |t|
+    t.string   "lips_image",                 null: false
+    t.string   "users_username",             null: false
+    t.integer  "likes",          default: 0, null: false
+    t.integer  "hates",          default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+>>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
