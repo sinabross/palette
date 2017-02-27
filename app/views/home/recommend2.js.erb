@@ -1,3 +1,4 @@
 alert('공감 하였습니다.');
 $("#<%= @product.image %>_recommend2").removeClass('fa-thumbs-o-up').addClass('fa-thumbs-up');
 $("#<%= @product.image %>_recommend2").attr("href", '/home/<%= @product.image %>/norecommend2');
+$("#recommend2").load(location.href + " #recommend2");

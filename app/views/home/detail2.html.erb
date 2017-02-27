@@ -201,10 +201,10 @@
           </ul>
       </div>
       
-      
 <%
 =begin
 %>
+
       <!--추천/비추천 section -->
       
       <div class="updown_section">
@@ -216,7 +216,7 @@
                   <strong><%=@product.season%>톤</strong>인 저에게 잘 어울렸어요!
                 </p>
                 
-                <div style="text-align:right;">
+                <div id="recommend" style="text-align:right;">
                     <% if current_user.voted_up_on? @product, :vote_scope => 'recommend' %>
                     
                       <%=link_to '', norecommend_home_path(@product.image), remote: true, id: "#{@product.image}_recommend",
@@ -252,7 +252,7 @@
                   <strong><%=@product.season%>톤</strong>인 저에게 잘 어울렸어요!
                 </p>
                 
-                <div style="text-align:right;">
+                <div id="recommend2" style="text-align:right;">
                    <% if current_user.voted_up_on? @product, :vote_scope => 'recommend2' %>
                   
                       <%=link_to '', norecommend2_home_path(@product.image), remote: true, id: "#{@product.image}_recommend2",
