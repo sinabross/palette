@@ -1,0 +1,4 @@
+alert('비공감 하였습니다.');
+$("#<%= @product.image %>_disrecommend").removeClass('fa-thumbs-o-down').addClass('fa-thumbs-down');
+$("#<%= @product.image %>_disrecommend").attr("href", '/home/<%= @product.image %>/nodisrecommend');
+$("#recommend").load(location.href + " #recommend");

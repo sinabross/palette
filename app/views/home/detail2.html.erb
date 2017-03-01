@@ -182,10 +182,7 @@
     <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
 
 
-      <!-- 유의사항 -> 주석처리(17.02.09) -->
-<%
-=begin
-%>
+
       <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
         <h4 style="text-align: center;">유의사항</h4>
           <ul>
@@ -203,13 +200,101 @@
             </li>
           </ul>
       </div>
+      
+<%
+=begin
+%>
+
+      <!--추천/비추천 section -->
+      
+      <div class="updown_section">
+        <h1 class="page-header"><i class="fa fa-commenting" aria-hidden="true"></i>추천/비추천</h1>
+        
+        <div class="media">
+              <div class="col-md-12 col-xs-12" style="margin-top:20px;">
+                <p>
+                  <strong><%=@product.season%>톤</strong>인 저에게 잘 어울렸어요!
+                </p>
+                
+                <div id="recommend" style="text-align:right;">
+                    <% if current_user.voted_up_on? @product, :vote_scope => 'recommend' %>
+                    
+                      <%=link_to '', norecommend_home_path(@product.image), remote: true, id: "#{@product.image}_recommend",
+                          class: "like fa fa-thumbs-up",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>
+                      <%=@recommend_count%>
+                      
+                    <%else%>
+                    
+                       <%=link_to '', recommend_home_path(@product.image), remote: true, id: "#{@product.image}_recommend",
+                          class: "like fa fa-thumbs-o-up",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>
+                       <%=@recommend_count%>
+                       
+                    <%end%>
+                    
+                    <% if current_user.voted_down_on? @product, :vote_scope => 'recommend' %>
+                    
+                      <%=link_to '', nodisrecommend_home_path(@product.image), remote: true, id: "#{@product.image}_disrecommend",
+                          class: "like fa fa-thumbs-down",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>   
+                      <%=@disrecommend_count%>
+                      
+                    <%else%>
+                    
+                       <%=link_to '', disrecommend_home_path(@product.image), remote: true, id: "#{@product.image}_disrecommend",
+                        class: "like fa fa-thumbs-o-down",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>   
+                       <%=@disrecommend_count%>
+                       
+                    <%end%>  
+                 </div>  
+                </div>
+                
+               <div class="col-md-12 col-xs-12" style="margin-top:20px;">
+                <p>
+                  <strong><%=@product.season%>톤</strong>인 저에게 잘 어울렸어요!
+                </p>
+                
+                <div id="recommend2" style="text-align:right;">
+                   <% if current_user.voted_up_on? @product, :vote_scope => 'recommend2' %>
+                  
+                      <%=link_to '', norecommend2_home_path(@product.image), remote: true, id: "#{@product.image}_recommend2",
+                          class: "like fa fa-thumbs-up",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>
+                      <%=@recommend2_count%>
+                    
+                   <%else%>
+                  
+                       <%=link_to '', recommend2_home_path(@product.image), remote: true, id: "#{@product.image}_recommend2",
+                          class: "like fa fa-thumbs-o-up",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>
+                       <%=@recommend2_count%>
+                     
+                   <%end%>
+                  
+                   <% if current_user.voted_down_on? @product, :vote_scope => 'recommend2' %>
+                  
+                      <%=link_to '', nodisrecommend2_home_path(@product.image), remote: true, id: "#{@product.image}_disrecommend2",
+                          class: "like fa fa-thumbs-down",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>   
+                      <%=@disrecommend2_count%>
+                    
+                   <%else%>
+                  
+                     <%=link_to '', disrecommend2_home_path(@product.image), remote: true, id: "#{@product.image}_disrecommend2",
+                      class: "like fa fa-thumbs-o-down",  onclick:"ga('send', 'event', 'vote', 'click', 'vote_click', 1);" %>   
+                     <%=@disrecommend2_count%>
+                     
+                   <%end%>  
+                </div>   
+              </div>
+        </div>
+        
+      </div>
+      <!--/추천 비추천 section 끝 -->
 <%
 =end
 %>
 
+
+
         <!-- 후기 작성 페이지 -->
      <div class="review_section">
-      <h1 class="page-header"><i class="fa fa-pencil"></i> Review</h1>
+      <h1 class="page-header"><i class="fa fa-pencil"></i>사용자 후기</h1>
 
       <div class="review_list">
 
@@ -1052,8 +1137,7 @@
       }
     }
 
-      
-      
+  
       
       
 </script>
