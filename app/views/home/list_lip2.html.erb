@@ -315,7 +315,7 @@
 
   <!-- Projects Row -->
   <% @list.each_slice(3) do |slice| %>
-    <div class="row">
+    <div class="row" id="element" onunload="unloadP('UniquePageNameHereScroll')" onload="loadP('UniquePageNameHereScroll')">
       <% slice.each do |w|%>
         <div class="col-md-4 col-xs-12" style="margin-top:-10px;">
           <br>
@@ -828,8 +828,6 @@ $(function () {
 });
 
 //페이지 스크롤 기억하기
-
-
 
 </script>
 

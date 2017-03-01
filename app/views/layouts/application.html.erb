@@ -39,8 +39,8 @@
     <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
     <!-- bootstrap validator.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.8/validator.min.js"></script>
-
-  
+    <!--for remembering scroll position-->
+    <script src='node_modules/delayed-scroll-restoration-polyfill/index.js'></script>
 
     <!-- Google Analytics -->
     <script>
@@ -74,5 +74,6 @@
        
         <%= yield %>
         <%= render :partial => "layouts/partial/footer" %>
+        
     </body>
 </html>
