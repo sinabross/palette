@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
          user.email = data["email"] if user.email.blank?
          user.name = data["name"] if user.name.blank?
+         user.username = data["name"] if user.username.blank?
       end
      end
   end
