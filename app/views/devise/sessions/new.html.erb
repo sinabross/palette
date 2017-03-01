@@ -29,7 +29,7 @@
               </div>
             
                <div>
-                <!-- <%#= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path, class: "loginBtn loginBtn_facebook" %></br>-->
+                <%= link_to "페이스북으로 로그인", user_facebook_omniauth_authorize_path, class: "loginBtn loginBtn_facebook" %>
                 <%= render "devise/shared/links" %>
               </div> 
               
@@ -110,7 +110,6 @@
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
-  margin: 0.2em;
   padding: 0 15px 0 46px;
   border: none;
   text-align: left;
@@ -143,6 +142,10 @@
   background-image: linear-gradient(#4C69BA, #3B55A0);
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
   text-shadow: 0 -1px 0 #354C8C;
+  height:40px;
+  text-align:center;
+  display:block;
+  font-size:14px;
 }
 .loginBtn_facebook:before {
   border-right: #364e92 1px solid;

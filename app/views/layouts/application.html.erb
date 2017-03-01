@@ -9,7 +9,7 @@
         <!--open graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="팔렛-퍼스널컬러에 맞는 립스틱 찾기">
-        <meta property="og:description" content="퍼스널컬러에 맞는 인생템 추천, 내 톤에 맞는 제품 찾기">
+        <meta property="og:description" content="퍼스널컬러에 맞는 인생템 추천, 웜톤(봄웜톤,가을웜톤) 쿨톤(여름쿨톤,겨울쿨톤)에 맞는 제품 찾기">
         <meta property="og:image" content="/images/main_image.png">
         <meta property="og:url" content="http://www.palett.co.kr">
 
@@ -39,8 +39,8 @@
     <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
     <!-- bootstrap validator.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.8/validator.min.js"></script>
-
-  
+    <!--for remembering scroll position-->
+    <script src='node_modules/delayed-scroll-restoration-polyfill/index.js'></script>
 
     <!-- Google Analytics -->
     <script>
@@ -74,5 +74,6 @@
        
         <%= yield %>
         <%= render :partial => "layouts/partial/footer" %>
+        
     </body>
 </html>

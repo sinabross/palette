@@ -134,13 +134,28 @@ Rails.application.routes.draw do
 
 
 
-  # 좋아요 기능
+  # 찜하기 기능
   resources :home do 
     member do
       get "like"
       get "unlike"
     end
   end
+
+  # 추천/비추천 기능
+  resources :home do 
+    member do
+      get "recommend"
+      get "norecommend"
+      get "disrecommend"
+      get "nodisrecommend"
+      get "recommend2"
+      get "norecommend2"
+      get "disrecommend2"
+      get "nodisrecommend2"
+    end
+  end
+
 
   
   resources :home do 

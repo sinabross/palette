@@ -223,7 +223,18 @@ class HomeController < ApplicationController
     # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
      #@product.zzim = @product.votes_for.up.by_type(User).size
      #@product.save
-
+    
+    #추천수1
+    @recommend_count = @product.get_likes(:vote_scope => 'recommend').size
+    #비추천수1
+    @disrecommend_count = @product.get_dislikes(:vote_scope => 'recommend').size
+    
+     #추천수2
+    @recommend2_count = @product.get_likes(:vote_scope => 'recommend2').size
+    #비추천수2
+    @disrecommend2_count = @product.get_dislikes(:vote_scope => 'recommend2').size
+    
+    
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
     @review=Review.where(num:params[:product_num]).order("id desc").paginate(page: params[:page], per_page: 5)
     
@@ -269,6 +280,91 @@ class HomeController < ApplicationController
     end
   end
   # ============== 좋아요 기능 컨트롤러 끝=====================
+  
+  #==================================추천/비추천
+  
+  # 추천/비추천 첫번째 톤
+  # 추천
+  def recommend
+    @product = Lip.find_by_image(params[:id])
+    @product.liked_by current_user, :vote_scope => 'recommend', :duplicate => true 
+
+    respond_to do |format|
+      format.js 
+    end
+  end
+  # 추천 취소
+  def norecommend
+     @product = Lip.find_by_image(params[:id])
+     @product.unliked_by current_user, :vote_scope => 'recommend' #기존 추천표 취소
+     
+      respond_to do |format|
+       format.js 
+      end
+  end
+  #비추천
+  def disrecommend
+    
+    @product = Lip.find_by_image(params[:id])
+    @product.disliked_by current_user, :vote_scope => 'recommend', :duplicate => true
+
+
+     respond_to do |format|
+      format.js 
+     end
+  end
+  #비추천 취소
+  def nodisrecommend
+     @product = Lip.find_by_image(params[:id])
+     @product.undisliked_by current_user, :vote_scope => 'recommend' # 기존의 추천표 취소
+     
+      respond_to do |format|
+       format.js 
+      end
+  end
+  
+  
+  # 추천/비추천 두번째 톤
+  #  추천
+  def recommend2
+    @product = Lip.find_by_image(params[:id])
+    @product.liked_by current_user, :vote_scope => 'recommend2', :duplicate => true 
+
+    respond_to do |format|
+      format.js 
+    end
+  end
+  # 추천 취소
+  def norecommend2
+     @product = Lip.find_by_image(params[:id])
+     @product.unliked_by current_user, :vote_scope => 'recommend2' #기존 추천표 취소
+     
+      respond_to do |format|
+       format.js 
+      end
+  end
+  #비추천
+  def disrecommend2
+    
+    @product = Lip.find_by_image(params[:id])
+    @product.disliked_by current_user, :vote_scope => 'recommend2', :duplicate => true
+
+
+     respond_to do |format|
+      format.js 
+     end
+  end
+  #비추천 취소
+  def nodisrecommend2
+     @product = Lip.find_by_image(params[:id])
+     @product.undisliked_by current_user, :vote_scope => 'recommend2' # 기존의 추천표 취소
+     
+      respond_to do |format|
+       format.js 
+      end
+  end
+  
+   #==================================추천/비추천 끝
   
   
   # =============== 후기 관련==================================
