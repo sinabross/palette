@@ -23,7 +23,12 @@
                     <div class="form-group" style="text-align:center;">
                       <input type="text" class="form-control askfor-brand" name="brand" placeholder="브랜드명" maxlength="20">
                       <input type="text" class="form-control askfor-name" name="name" placeholder="제품명" maxlength="30">
-                      <input type="submit" class="btn-askfor" value="요청">                
+                     
+                      <%if user_signed_in? %>
+                        <input type="submit" class="btn-askfor" value="요청">
+                      <%else%>
+                        <%=link_to "요청", new_user_session_path, class:"btn-askfor", data: { confirm: "로그인 후 이용해주세요." } %>
+                      <%end%>
                     </div>
                   </form>
                 
@@ -168,10 +173,18 @@
       display:inline-block;
       margin-left:5px;
       height:35px;
+      line-height:35px;
       width:17%;
       color:#ffffff;
       background-color:#ffaaa3;
   }
+    a.btn-askfor{
+      text-decoration:none;
+    }
+    a.btn-askfor:hover,a.btn-askfor:focus{
+      text-decoration:none;
+      color:#ffffff;
+    }
     
     @media(min-width:767px) {
 
