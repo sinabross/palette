@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.email = auth.info.email
         user.name = auth.info.name
+        user.username= auth.info.name
+        user.birthday= Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
         user.password = Devise.friendly_token[0,20]
       end
   end
@@ -29,6 +31,7 @@ class User < ActiveRecord::Base
          user.email = data["email"] if user.email.blank?
          user.name = data["name"] if user.name.blank?
          user.username = data["name"] if user.username.blank?
+         user.birthday = data["birthday"] if user.birthday.blank?
       end
      end
   end
