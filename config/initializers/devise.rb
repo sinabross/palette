@@ -254,7 +254,7 @@ Devise.setup do |config|
   config.omniauth :facebook,"1775986029325742","42dcc263366f511b4f139f8d83f4b39a",
                   callback_url: "http://www.palett.co.kr/users/auth/facebook/callback",
                   #callback_url: "https://palett-songs-work-garsong.c9users.io/users/auth/facebook/callback",
-                  scope: 'public_profile,email,user_birthday', info_fields: 'email,name'
+                  scope: 'public_profile,email,user_birthday', info_fields: 'email,name,birthday'
   #  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_APP_SECRET"]
                   #callback_url: "http://www.palett.co.kr/users/auth/facebook/callback"
   
