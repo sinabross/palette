@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   
   
   has_many :reviews #, dependent: :destroy #dependent는 user가 탈퇴하면 그 사람이 쓴 리뷰들 자동으로 삭제하게 하는 코드
+  
+  
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :timeoutable, :timeout_in => 1.year, :omniauth_providers => [:facebook]
@@ -36,6 +38,9 @@ class User < ActiveRecord::Base
      end
   end
   
-
+  #로그인 세션 유지    
+  def timeout_in
+      1.year
+  end    
 
 end
