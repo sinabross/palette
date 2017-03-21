@@ -373,6 +373,9 @@
 
 
 <style>
+    body{
+      height:auto;
+    }
 
     .title-web h3 {
         font-family: 'NanumGothic';
@@ -828,19 +831,22 @@ $(function () {
 });
 
 //페이지 스크롤 기능
-//$.fn.scrollView = function () {
-//  return this.each(function () {
-//    $('html, body').animate({
-//      scrollTop: $(this).offset().top
-//    }, 1000);
-//  });
-//}
+  
+  
+    $(window).scroll(function () {
+      //set scroll position in session storage
+      sessionStorage.scrollPos = $(window).scrollTop();
+    });
+   
+    var init = function () {
+       //return scroll position in session storage
+       $('html,body').scrollTop(sessionStorage.scrollPos)
+    };
+  
+    $(window).onload = init;
 
-//$('.flickr_pagination').scrollView();
 
-$(".title-web h3").click(function (){
-            $('html,body').animate({scrollTop:500}, 500);
-        });
+
 </script>
 
 
