@@ -18,10 +18,10 @@
               </div>
                         
               <% if devise_mapping.rememberable? -%>
-            <!--    <div class="checkbox">
+                <div class="checkbox">
                   <%= f.check_box :remember_me, class:"character-checkbox" %>
-                  <%= f.label :remember_me, class:"label" %>
-                </div> -->
+                  <%= f.label "자동 로그인", class:"label" %>
+                </div> 
               <% end %>
               
               <div class="actions" id="btn-login">
@@ -83,13 +83,14 @@
     font-family: 'Glyphicons Halflings';
 }
 #login .checkbox .character-checkbox {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     border-radius: 3px;
     border: 1px solid #ccc;
     vertical-align: middle;
     display: inline-block;
+    margin:0;
 }
 #login .checkbox .label {
     color: #6d6d6d;
