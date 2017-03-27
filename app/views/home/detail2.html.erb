@@ -67,15 +67,10 @@
         <hr style="border:solid 1px lightgray;margin-bottom:15px;">
 
        <div class="col-md-12 col-xs-12" >
-         <div>
-           <div class="col-md-12 col-xs-12" >
-             <h3 class="season_info season_PC"><%=@product.season%></h3>
-           </div>
-         </div>
 
          <!-- 제품군, 펄유무, 텍스쳐-->
          <div class="product_info">
-           <div class="panel panel-default col-md-4 col-xs-4" style="margin-bottom:50px;">
+           <div class="panel panel-default col-md-4 col-xs-4" >
              <div class="panel-body" align="center">
           <span style="font-size:12px; text-align:center;">
           <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
@@ -107,21 +102,30 @@
 
 
       <div class="col-md-12 col-xs-12 color_show_wrapper" >
-
-        <div class="col-md-12 col-xs-12">
-         <h3 class="season_info season_mobile"><%=@product.season%></h3>
-         <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.season%>.jpg">
-        </div>
-
+       
         <div class="col-md-5 col-md-offset-3 col-xs-12" style="padding:0;">
           <p class="color_show_explain">
-            정확한 진단을 위하여 실물과 가장 유사한<br>
-            자연광에서 제품 진단 후 촬영하였습니다.
+            개인마다 발색하는 정도에 따라<br>
+            톤이 달라질 수 있음을 참고해주세요.<br><br>
+            <span>* 옅은 발색: 1회 발색 후 문지름</span><span>짙은 발색: 3회 발색</span>
           </p>
+        </div>
+        
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="col-md-6 col-xs-6" style="padding:0">
+             <img class="lip_img" src="/images/lip.png">
+             <h3 class="season_info season_mobile"><%=@product.season%><br><span>좌:옅은 발색</span></h3>
+          </div>
+          
+          <div class="col-md-6 col-xs-6" style="padding:0">
+              <img class="lip_img" src="/images/lip2.png">
+              <h3 class="season_info season_mobile"><%=@product.season%><br><span>우:짙은 발색</span></h3>
+          </div>
         </div>
 
         <div class="col-md-12 col-xs-12" style="padding:0;">
           <img class="color_show" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_field.jpg">
+         
         </div>
 
       </div>
@@ -165,6 +169,8 @@
               </div>
             </div>
           </div>
+          
+           <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.season%>.jpg">
        </div>
 
     </div>
@@ -494,8 +500,14 @@
     }
     .season_info{
       font-family:'Hanna';
+      font-weight:bold;
       text-align:center;
-      margin-bottom:30px;
+      display:inline-block;
+    }
+    .season_info span{
+      color:gray;
+      font-weight:200;
+      font-size:14px;
     }
     a.like{
       color:red;
@@ -728,6 +740,11 @@
      .season_PC{
         display:none;
       }
+       img.lip_img{
+        width:30px;
+        height:30px;
+        margin-bottom:50px;
+      }
       .season_info_img{
         width:100%;
         height:auto;
@@ -738,11 +755,10 @@
         text-align: center;
       }
       .color_show{
-        height:285px;
-        width:285px;
+        height:312px;
+        width:312px;
         margin:auto;
         display:block;
-        margin-bottom:30px;
       }
       .color_chip{
         width:285px;
@@ -759,15 +775,20 @@
       }
       p.color_show_explain{
         text-align:center;
-        color:gray;
-        padding:5px;
-        border:2px solid gray;
+        padding:10px;
+        border:1px solid lightgray;
+        border-radius:3px;
         height:auto;
         width:100%;
         display:block;
         margin:20px auto;
         margin-bottom:20px;
         font-size:12px;
+      }
+      p.color_show_explain span{
+        color:gray;
+        font-size:11px;
+        margin-right:8px;
       }
 
       .btn-buy{
@@ -954,7 +975,10 @@
       .product_info_mobile{
         display: none;
       }
-
+      .product_info .panel{
+        margin-top:30px;
+        margin-bottom:40px;
+      }
       .btn-buy{
         height:38px;
         width:120px;
@@ -997,7 +1021,7 @@
         margin-bottom:20px;
         margin-top:20px;
       }
-      
+     
       .season_info_img{
         width:590px;
         height:auto;
@@ -1017,12 +1041,7 @@
         margin:auto;
         display:block;
       }
-      .color_chip{
-        display:block;
-        width:590px;
-        height:145px;
-        margin:30px auto;
-      }
+      
       .color_show2{
         height:590px;
         width:590px;
@@ -1031,16 +1050,23 @@
       }
       p.color_show_explain{
         text-align:center;
-        color:gray;
-        padding:5px;
-        border:2px solid gray;
+        padding:20px;
+        border:2px solid lightgray;
+        border-radius:3px;
         height:auto;
         width:120%;
         display:block;
-        margin:80px 0px 30px 0px;
-        font-size:14px;
+        margin:20px 0px 30px 0px;
+        font-size:15px;
       }
-
+      p.color_show_explain span{
+        color:gray;
+        font-size:13px;
+        margin-right:10px;
+      }
+      img.lip_img{
+        margin-bottom:80px;
+      }
 
       /*후기 부분*/
 
