@@ -8,7 +8,7 @@
 
 
  #자연광 DB
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170225.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170328.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 image: 'image',
                                 name: 'name',
@@ -16,8 +16,12 @@
                                 level: 'level',
                                 color: 'color',
                                 wc: 'wc',
-                                tone: 'tone',
-                                season: 'season',
+                                tone_weak1: 'tone_weak1',
+                                tone_weak2: 'tone_weak2',
+                                tone_strong1: 'tone_strong1',
+                                tone_strong2: 'tone_strong2',
+                                season_1: 'season_1',
+                                season_2: 'season_2',
                                 price: 'price',
                                 size: 'size',
                                 pro_type: 'pro_type',

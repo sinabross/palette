@@ -151,13 +151,30 @@ class HomeController < ApplicationController
   
   def list_lip2
 
-    #빵부스러기 목록
+    #립 리스트 제목
     if params[:tone]
       @current_season = params[:tone]
     else
       @current_season = "봄 브라이트"
     end
-
+    
+    
+    #계절 톤을 구성하는 세부톤 알려주기
+  
+    @tone_detail = case @current_season
+    
+      when "봄 브라이트" then "브라이트, 비비드"
+      when "봄 라이트" then "페일, 라이트"
+      when "여름 라이트" then "페일, 라이트"  
+      when "여름 뮤트" then "라이트 그레이시, 소프트, 그레이시, 덜"  
+      when "가을 뮤트" then "라이트 그레이시, 소프트, 그레이시, 덜"   
+      when "가을 딥" then "스트롱, 딥, 다크, 다크 그레이시"
+      when "겨울 딥" then "딥, 다크, 다크 그레이시"
+      when "겨울 브라이트" then "브라이트, 비비드, 스트롱"
+    
+    end
+            
+    
 
     #lip.rb에 있는 메소드 사용
 
@@ -190,6 +207,8 @@ class HomeController < ApplicationController
     @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
 
     end
+    
+
 
   end
 
@@ -214,6 +233,14 @@ class HomeController < ApplicationController
   end
 
   def detail2
+    
+    # 빵부스러기
+   # if params[:product_num]
+    #  @current_season = Lip.find_by_image(params[:product_num])
+    #else
+    #  @current_season = "봄 브라이트"
+    #end
+    
     #립 상세페이지
     if params[:product_num]
       @product = Lip.find_by_image(params[:product_num])

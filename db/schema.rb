@@ -24,6 +24,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -52,6 +53,9 @@ ActiveRecord::Schema.define(version: 20170224054340) do
 =======
 ActiveRecord::Schema.define(version: 20170225113548) do
 >>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
+=======
+ActiveRecord::Schema.define(version: 20170328134723) do
+>>>>>>> df024aea0bb6e2168247ac1316218d287ecd19bf
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -220,8 +224,12 @@ ActiveRecord::Schema.define(version: 20170225113548) do
     t.string   "level"
     t.string   "color"
     t.string   "wc"
-    t.string   "tone"
-    t.string   "season"
+    t.string   "tone_weak1",              default: " "
+    t.string   "tone_weak2",              default: " "
+    t.string   "tone_strong1",            default: " "
+    t.string   "tone_strong2",            default: " "
+    t.string   "season_1"
+    t.string   "season_2"
     t.string   "price"
     t.string   "size"
 <<<<<<< HEAD
