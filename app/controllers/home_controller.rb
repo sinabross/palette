@@ -208,14 +208,7 @@ class HomeController < ApplicationController
 
     end
     
-    
-    
-    
-    
-    
-    
-    
-    
+
 
   end
 
@@ -240,6 +233,14 @@ class HomeController < ApplicationController
   end
 
   def detail2
+    
+    # 빵부스러기
+   # if params[:product_num]
+    #  @current_season = Lip.find_by_image(params[:product_num])
+    #else
+    #  @current_season = "봄 브라이트"
+    #end
+    
     #립 상세페이지
     if params[:product_num]
       @product = Lip.find_by_image(params[:product_num])

@@ -2,14 +2,14 @@ class Lip < ActiveRecord::Base
 
  #for searching
  def self.search(search, search2, search3)
-      where("name LIKE ? OR brand LIKE ? OR season LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
-      "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").where("name LIKE ? OR brand LIKE ? OR season LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
-      "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%").where("name LIKE ? OR brand LIKE ? OR season LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
-      "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%")
+      where("name LIKE ? OR brand LIKE ? OR season_1 LIKE ? OR season_2 LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
+      "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").where("name LIKE ? OR brand LIKE ? OR season_1 LIKE ? OR season_2 LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
+      "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%", "%#{search2}%").where("name LIKE ? OR brand LIKE ? OR season_1 LIKE ? OR season_2 LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
+      "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%", "%#{search3}%")
  end
 
  #for filtering
- scope :tone, -> (tone) { where season: tone }
+ scope :tone, -> (tone) { where(['season_1 = ? OR season_2 = ?', tone, tone]) }
  scope :pro_type, -> (pro_type) { where pro_type: pro_type }
  scope :color, -> (color) { where color: color }
  scope :texture, -> (texture) { where texture: texture }

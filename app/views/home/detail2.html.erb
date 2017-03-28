@@ -1,14 +1,14 @@
 <!-- 상세페이지 -->
 <div class="container">
     <div class="row">
-      <div class="page-navigation">
+      <!--<div class="page-navigation">
         <a href="/"><i class="fa fa-home" aria-hidden="true"></i>HOME</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
         <a href="/home/list_lip2/봄 브라이트">립 추천</a><i class="fa fa-angle-right" aria-hidden="true"></i>
 
-        <a href="/home/list_lip2/<%=@product.season%>"><%=@product.season%></a>
+        <a href="/home/list_lip2/<%=@current_season%>"><%=@current_season%></a>
 
-      </div>
+      </div>-->
 
       <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
 
@@ -114,12 +114,12 @@
         <div class="col-md-10 col-md-offset-1 col-xs-12" style="padding:0">
           <div class="col-md-6 col-xs-6" style="padding:0">
              <img class="lip_img" src="/images/lip.png">
-             <h3 class="season_info season_mobile"><%=@product.season%><br><span>좌:옅은 발색</span></h3>
+             <h3 class="season_info season_mobile"><%=@product.season_1%><br><span>좌:옅은 발색</span></h3>
           </div>
           
           <div class="col-md-6 col-xs-6" style="padding:0">
               <img class="lip_img" src="/images/lip2.png">
-              <h3 class="season_info season_mobile"><%=@product.season%><br><span>우:짙은 발색</span></h3>
+              <h3 class="season_info season_mobile"><%=@product.season_2%><br><span>우:짙은 발색</span></h3>
           </div>
         </div>
 
