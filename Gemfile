@@ -6,7 +6,7 @@ gem 'devise' #로그인
 gem 'client_side_validations' #for 프론트 선에서 예외처리 하기
 
 #facebook login  
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 4.0.0'
 gem 'omniauth'
 
 gem 'impressionist' # 조회수 집계 (동일 ip 중복 집계 x)
