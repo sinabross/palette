@@ -42,7 +42,7 @@
                 <%#=AllLike.where(lips_image:"#{w.image}").where.not(hates:1).count%> 
                 
                 </p>
-                <p class="product_tone"><%=w.season%>/<%=w.size%>/<%=w.price%></p>
+                <p class="product_tone"><%=w.season_1%>,<%=w.season_2%>/<%=w.size%>/<%=w.price%></p>
                 <p> 이 제품을 찜하신 분들:
   
                   <% w.votes_for.up.by_type(User).voters.each do |who|%>
