@@ -282,7 +282,7 @@ DEPENDENCIES
   mini_magick
   non-stupid-digest-assets
   omniauth
-  omniauth-facebook
+  omniauth-facebook (~> 4.0.0)
   punching_bag
   rails (= 4.2.5)
   rails_autolink (~> 1.1, >= 1.1.6)
