@@ -26,6 +26,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -60,6 +61,9 @@ ActiveRecord::Schema.define(version: 20170328134723) do
 =======
 ActiveRecord::Schema.define(version: 20170403140619) do
 >>>>>>> 5e6c2c353d1473a5798fd5a078fe950ecb50bbc6
+=======
+ActiveRecord::Schema.define(version: 20170404114634) do
+>>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -81,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170403140619) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
@@ -94,6 +99,8 @@ ActiveRecord::Schema.define(version: 20170403140619) do
   end
 
 >>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
+=======
+>>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
