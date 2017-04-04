@@ -1,5 +1,5 @@
 class DropLips < ActiveRecord::Migration
- def change
+  def change
     drop_table :lips do |t|
 
       t.string  :num

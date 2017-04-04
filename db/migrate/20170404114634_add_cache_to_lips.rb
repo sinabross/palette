@@ -1,5 +1,5 @@
 class AddCacheToLips < ActiveRecord::Migration
-   def self.up
+  def self.up
     add_column :lips, :cached_votes_total, :integer, :default => 0
     add_column :lips, :cached_votes_score, :integer, :default => 0
     add_column :lips, :cached_votes_up, :integer, :default => 0
@@ -17,9 +17,9 @@ class AddCacheToLips < ActiveRecord::Migration
 
     # Uncomment this line to force caching of existing votes
       Lip.find_each(&:update_cached_votes)
- end
+  end
 
- def self.down
+  def self.down
     remove_column :lips, :cached_votes_total
     remove_column :lips, :cached_votes_score
     remove_column :lips, :cached_votes_up
@@ -27,6 +27,6 @@ class AddCacheToLips < ActiveRecord::Migration
     remove_column :lips, :cached_weighted_score
     remove_column :lips, :cached_weighted_total
     remove_column :lips, :cached_weighted_average
- end
+  end
 
 end
