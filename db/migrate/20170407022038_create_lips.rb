@@ -1,6 +1,6 @@
-class DropLips < ActiveRecord::Migration
+class CreateLips < ActiveRecord::Migration
   def change
-    drop_table :lips do |t|
+    create_table :lips do |t|
 
       t.string  :num
       t.string  :image
@@ -9,8 +9,12 @@ class DropLips < ActiveRecord::Migration
       t.string  :level
       t.string  :color
       t.string  :wc
-      t.string  :tone
-      t.string  :season
+      t.string  :tone_weak1, default: " "
+      t.string  :tone_weak2, default: " "
+      t.string  :tone_strong1, default: " "
+      t.string  :tone_strong2, default: " "
+      t.string  :season_1
+      t.string  :season_2
       t.string  :price
       t.string  :size
       t.string  :pro_type
@@ -19,6 +23,6 @@ class DropLips < ActiveRecord::Migration
       t.string  :keyword
 
       t.timestamps null: false
-     end
+    end
   end
 end

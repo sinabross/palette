@@ -27,6 +27,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -64,6 +65,9 @@ ActiveRecord::Schema.define(version: 20170403140619) do
 =======
 ActiveRecord::Schema.define(version: 20170404114634) do
 >>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
+=======
+ActiveRecord::Schema.define(version: 20170407022122) do
+>>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -86,9 +90,12 @@ ActiveRecord::Schema.define(version: 20170404114634) do
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
+=======
+>>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
   create_table "all_likes", force: :cascade do |t|
     t.string   "lips_image",                 null: false
     t.string   "users_username",             null: false
@@ -98,9 +105,12 @@ ActiveRecord::Schema.define(version: 20170404114634) do
     t.datetime "updated_at",                 null: false
   end
 
+<<<<<<< HEAD
 >>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
 =======
 >>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
+=======
+>>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
