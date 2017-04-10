@@ -28,6 +28,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -68,6 +69,9 @@ ActiveRecord::Schema.define(version: 20170404114634) do
 =======
 ActiveRecord::Schema.define(version: 20170407022122) do
 >>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
+=======
+ActiveRecord::Schema.define(version: 20170410081838) do
+>>>>>>> 3f5e0415901e351cfcd8ab3c6c2adac0f86bbfc4
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
