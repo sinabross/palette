@@ -29,6 +29,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20161202165806) do
@@ -72,6 +73,9 @@ ActiveRecord::Schema.define(version: 20170407022122) do
 =======
 ActiveRecord::Schema.define(version: 20170410081838) do
 >>>>>>> 3f5e0415901e351cfcd8ab3c6c2adac0f86bbfc4
+=======
+ActiveRecord::Schema.define(version: 20170410090241) do
+>>>>>>> 0579379c914ff2bcfb4d84572b2a3cc9d68b4c9d
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -91,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170410081838) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -115,6 +120,8 @@ ActiveRecord::Schema.define(version: 20170410081838) do
 >>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
 =======
 >>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
+=======
+>>>>>>> 0579379c914ff2bcfb4d84572b2a3cc9d68b4c9d
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
