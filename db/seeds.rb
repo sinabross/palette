@@ -8,7 +8,7 @@
 
 
  #자연광 DB
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170404.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170410.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 image: 'image',
                                 name: 'name',
