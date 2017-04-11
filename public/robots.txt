@@ -7,6 +7,10 @@
 #네이버 검색 노출
 User-agent: Yeti
 Allow: /
+Disallow: /admin
+Disallow: /home/admin_user
+Disallow: /home/admin_reply
+Disallow: /home/admin_likes
 
 #네이버 사이트맵
 Sitemap: /sitemap.xml
