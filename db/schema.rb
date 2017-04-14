@@ -104,11 +104,14 @@ ActiveRecord::Schema.define(version: 20170414023705) do
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
 =======
 >>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
+=======
+>>>>>>> 3a4889e8829ff46b266041ef953cf3f2628a6232
   create_table "all_likes", force: :cascade do |t|
     t.string   "lips_image",                 null: false
     t.string   "users_username",             null: false
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170414023705) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 11f1bc04b702e6ccefb4e148498b5a555c7084b2
 =======
 >>>>>>> c8a7a7ad7108efc54c0491b6383e5a3cbb6318ee
@@ -126,6 +130,8 @@ ActiveRecord::Schema.define(version: 20170414023705) do
 >>>>>>> c48d6f7546c2fb8a86e584ac61f4c1307d1c09e7
 =======
 >>>>>>> 0579379c914ff2bcfb4d84572b2a3cc9d68b4c9d
+=======
+>>>>>>> 3a4889e8829ff46b266041ef953cf3f2628a6232
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
