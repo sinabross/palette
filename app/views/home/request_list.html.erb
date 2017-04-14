@@ -41,15 +41,15 @@
                     </td>
                     <td class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                       <% if request.secret == "Y" && user_signed_in? && current_user.admin !=nil %>
-                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>">
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page2 %>">
                           <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=request.title%>
                         </a>
                       <% elsif request.secret == "Y" %>
-                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page %>">
+                        <a href="/home/request_pwd_check/<%=request.id%>&current_page=<%= @current_page2 %>">
                           <i class="fa fa-lock" aria-hidden="true"></i>&nbsp;<%=request.title%>
                         </a>
                       <% elsif %>
-                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page %>"><%=request.title%></a>
+                        <a href="/home/request_view/<%=request.id%>&current_page=<%= @current_page2 %>"><%=request.title%></a>
                       <% end %>
                     </td>
                     <td class="col-lg-3 col-md-3 col-sm-1 col-xs-1">
