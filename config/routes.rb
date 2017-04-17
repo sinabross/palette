@@ -73,7 +73,7 @@ Rails.application.routes.draw do
   get 'home/detail2/:product_num' => "home#detail2"
   
   #ask for new products
-  get 'home/askfor'
+  #get 'home/askfor'
   post 'home/askfor_submit'  #문의/건의
   post 'home/askfor_submit2' #제품요청
 
@@ -82,8 +82,8 @@ Rails.application.routes.draw do
 
 
   #새로 생긴 문의/건의/요청 게시판
-  get 'home/askfor'
-  post 'home/askfor_submit'
+  #get 'home/askfor'
+  #post 'home/askfor_submit'
   get 'home/request_list'
   get 'home/request_write'
   post 'home/request_write_ok'
