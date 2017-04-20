@@ -53,6 +53,12 @@ class HomeController < ApplicationController
     else
       @result = Lip.all.order("brand").paginate(page: params[:page], per_page: 21)
     end
+    
+    if params[:tone]
+      @current_season = params[:tone]
+    else
+      @current_season = "default"
+    end
 
   end
   
@@ -249,7 +255,7 @@ class HomeController < ApplicationController
     if params[:tone]
       @current_season = params[:tone]
     else
-      @current_season = "봄 브라이트"
+      @current_season = "default"
     end
 
     # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
@@ -829,8 +835,12 @@ class HomeController < ApplicationController
    
    #@like_list=Lip.joins(:all_likes).order("sum_sweetness ASC").paginate(page: params[:page], per_page:15)
   
-   
-
+  
+    if params[:tone]
+      @current_season = params[:tone]
+    else
+      @current_season = "default"
+    end
   
   end
 

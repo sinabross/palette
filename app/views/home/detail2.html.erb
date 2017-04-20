@@ -120,20 +120,25 @@
         
         <section id="detailContent">
           <!--Good/Bad 시작-->
-          <div class="col-md-6 col-xs-6">
-            <% if @current_season == @product.season_1 %>
-            <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
-            <% elsif %>
-            <span class="txt_season_evaluation" style="color:gray">Bad</span>
-            <% end %>
-          </div>
-          <div class="col-md-6 col-xs-6">
-            <% if @current_season == @product.season_2 %>
-            <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
-            <% elsif %>
-            <span class="txt_season_evaluation" style="color:gray">Bad</span>
-            <% end %>
-          </div>
+          <% case @current_season %>
+          <% when "default" %>
+            <span>&nbsp;</span>
+          <% else %>
+            <div class="col-md-6 col-xs-6">
+              <% if @current_season == @product.season_1 %>
+                <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
+              <% else %>
+                <span class="txt_season_evaluation" style="color:gray">Bad</span>
+              <% end %>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <% if @current_season == @product.season_2 %>
+                <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
+              <% else %>
+                <span class="txt_season_evaluation" style="color:gray">Bad</span>
+              <% end %>
+            </div>
+          <% end %>
           <!--Good/Bad 끝-->
           
           <!--발색사진 시작-->
@@ -158,26 +163,31 @@
           <!--진단결과 끝-->
           
           <!--진단결과 설명 시작-->
-          <div class="explain_season_result">
-            <img src="/images/icon_like.png" width="50px">
-            <% if @product.season_1 == @product.season_2 %>
-              <p class="txt_season_result">
-                <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
-              </p>
-            <% elsif (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
-              <p class="txt_season_result">
-                <span class="txt_season_color"><%=@product.season_1%></span><span class="txt_season_color2">는</span> 옅게 바르면 어울리는 느낌으로 연출할 수 있어요.
-              </p>
-            <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
-              <p class="txt_season_result">
-                <span class="txt_season_color"><%=@product.season_2%></span><span class="txt_season_color2">는</span> 짙게 바르면 어울리는 느낌으로 연출할 수 있어요.
-              </p>
-            <% else %>
-              <p class="txt_season_result">
-                <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
-              </p>
-            <% end %>
-          </div>
+          <% case @current_season %>
+          <% when "default" %>
+            <span>&nbsp;</span>
+          <% else %>
+            <div class="explain_season_result">
+              <img src="/images/icon_like.png" width="50px">
+              <% if @product.season_1 == @product.season_2 %>
+                <p class="txt_season_result">
+                  <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
+                </p>
+              <% elsif (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
+                <p class="txt_season_result">
+                  <span class="txt_season_color"><%=@product.season_1%></span><span class="txt_season_color2">는</span> 옅게 바르면 어울리는 느낌으로 연출할 수 있어요.
+                </p>
+              <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
+                <p class="txt_season_result">
+                  <span class="txt_season_color"><%=@product.season_2%></span><span class="txt_season_color2">는</span> 짙게 바르면 어울리는 느낌으로 연출할 수 있어요.
+                </p>
+              <% else %>
+                <p class="txt_season_result">
+                  <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
+                </p>
+              <% end %>
+            </div>  
+          <% end %>
           <!--진단결과 설명 끝-->
           
           <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
@@ -902,7 +912,7 @@
         display:inline-block;
         width:100%;
         margin:0 auto;
-        padding:0;
+        padding:10px 0;
         text-align:center;
       }
       
@@ -1233,14 +1243,14 @@
         display:inline-block;
         width:100%;
         margin:0 auto;
-        padding:0;
+        padding:10px 0;
         text-align:center;
       }
 
       #detailContent{
-        display:block;
+        display:inline-block;
         width:650px;
-        padding:15px 15px 0 15px;
+        padding:15px;
         margin:50px auto;
         border:1px solid #6b6b6b;
       }
