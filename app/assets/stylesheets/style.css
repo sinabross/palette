@@ -47,10 +47,33 @@
   }
   footer>h3{
       margin:0;
+      margin-bottom:20px;
       font-size:20px;
   }
-
-
+  footer ul{
+    padding-left:0;
+    display: flex;
+    justify-content:center;
+  }
+ 
+  footer ul li{
+    margin:0 10px;
+  }
+  footer p{
+    display:inline-block;
+  }
+  footer i{
+      font-size:18px;
+      margin-right:10px;
+  }
+  footer .fa-facebook, footer .fa-instagram{
+    font-size:25px;
+  }
+  footer a, footer a:hover, footer a:focus, footer a:visited, footer a:active {
+    text-decoration:none;
+    color:white;
+  }
+  
 
 /*PC CSS*/
 @media (min-width: 768px) {
