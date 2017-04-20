@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+  body,
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
+  }
+
+  .intro-header {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #56565d;
+    background-image: url('/images/main_image.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+  }
+
+
+  .intro-message > h1 {
+    margin: 0;
+    /*text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
+    font-size: 35px;
+    color:#ffffff;
+
+  }
+
+  .intro-divider {
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .intro-message > h3 {
+    color:#ffffff;
+  }
+
+
+
+  .notice a {
+    color:#56565d;
+
+  }
+  .notice a:hover{
+    text-decoration:none;
+  }
+    
+  .counts{margin-bottom: 10px;}      
+  .counts>p, .counts>h3 {
+    color: #ffffff;
+    text-align:center;
+  }
+  .badge{
+    display:inline-block;
+    background-color:red;
+    font-size:12px;
+    margin:3px;
+  }
+  .container.col-lg-12.col-md-12.col-sm-12.col-xs-12{padding:0;}
+  .table user-list notice tbody{text-align: left;}
+  .feature_img{
+    width:240px;
+    height:320px;
+    border:1px solid lightgray;
+    margin:auto;
+    display:block;
+  }
+
+  .btn-list{
+    display:inline-block;
+    line-height: 30px;
+    width:100px;
+    height:30px;
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+    color:black;
+    background-color:#ffffff;
+    border:2px solid black;
+    margin-bottom:30px;
+  }
+
+
+
+  .btn-main{
+
+    text-decoration: none;
+    color:#ffffff;
+    display:inline-block;
+    background-color:rgba(255,255,255,0.1);
+    border:2px solid #ffffff;
+    text-align:center;
+    transition: all 0.4s;
+  }
+
+  .content-section-a {
+    padding-top: 10px;
+    padding-bottom:20px;
+    background-color: #ffffff;
+    text-align: center;
+
+  }
+  .content-section-a h3{
+    text-align: center;
+  }
+  .content-section-a td>a{
+    color:black;
+  }
+
+  .content-section-b {
+    padding-top: 10px;
+    padding-bottom:20px;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+  }
+  .content-section-b h4{
+    color:#56565d;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* PCI 컬러 분류 과정 소개 */
+  .content-section-c {
+    padding-top: 10px;
+    padding-bottom:20px;
+    background-color: #f8f8f8;
+  }
+
+  .content-section-c img{
+
+    display:inline-block;
+    width:20%;
+    height:20%;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-top:30px;
+  }
+  .section-heading-second{
+    text-align:center;
+    margin-bottom:40px;
+
+  }
+  .section-heading-spacer {
+    float: center;
+    width: 200px;
+    border-top: 3px solid #ffaaa3;
+    margin-bottom:30px;
+  }
+  .lead{
+    text-align:center;
+    font-size:1em;
+    word-break:break-all;
+  }
+
+
+  .banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    font-size: 3em;
+  }
+
+  .banner ul {
+    margin-bottom: 0;
+  }
+
+  /*전문가 이력소개*/
+  .partner_title{
+      font-weight:bold;
+    }
+
+  /*메인의 8분류 선택 버튼*/
+  .season-category {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom:5px;
+    padding: 0;
+  }
+  .season-category>li {
+    display:inline;
+
+  }
+
+@media(max-width:767px) {
+    .intro-message {
+      position:relative;
+      padding-top:30%;
+      padding-bottom: 15%;
+    }
+    .intro-hooking{
+      font-size:18px;
+      margin-bottom:70px;
+    }
+
+    ul.intro-social-buttons > li {
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-divider {
+      width: 100%;
+    }
+
+    /*이용방법*/
+    .lead{
+
+      margin-top:20px;
+    }
+    .feature_img{
+      margin-bottom:20px;
+    }
+    .feature_area{
+      padding:5px;
+      background-color:#fafafa;
+      margin-bottom:60px;
+      border-radius:5px;
+    }
+    /*이용방법 끝*/
+
+
+   /*메인 상품 수*/
+    .counts{
+      margin-top:10px;
+    }
+
+    /*전문가 소개 페이지*/
+
+    .content-section-d{
+      padding-top:10px;
+      padding-bottom:20px;
+      border-top: 1px solid #e7e7e7;
+    }
+    .partner_img{
+      width:100%;
+      height:195px;
+      display:block;
+      margin:auto;
+    }
+    .palette_logo{
+     padding:50px;
+     width:100%;
+     height:195px;
+     border:2px solid #ffaaa3;
+     background-color:#fafafa; 
+    }
+    #palette_logo{
+      
+      margin:40px 0 0 30px;
+    }
+    
+    #colorbyBOM{
+      background-color:white;
+      height:195px;
+      width:100%;
+      border:2px solid black;
+      padding:16px;
+    }
+    #colorbyBOM>h1{
+      margin-top:40px;
+    }
+    .partner_title,.partner_name{
+      text-align:center;
+    }
+    
+    
+    .partner_content>ul{
+      list-style-type:disc;
+    }
+    .partner_site{
+      display:block;
+      margin:auto;
+      padding:5px;
+      width:100px;
+      height:auto;
+      text-align:center;
+      border:2px solid black;
+      color:black;
+    }
+    .partner_site:hover, .partner_site:active, .partner_site:focus{
+      color:#ffa291;
+      border:2px solid #ffa291;
+      text-decoration:none;
+    }
+    
+    /*palette story*/
+  .palette_story{
+    background-image:url('/images/story.png');
+    background-size:cover;
+    color:#fafafa;
+    padding-top:10px;
+    padding-bottom:40px;
+    
+  }  
+  .story_content{
+    text-align:center;
+    font-size:14px;
+  }
+  .content_mark{
+    font-size:20px;
+    font-weight:bold;
+  }
+  .content_first{
+    font-size:15px;
+    font-weight:bold;
+  }
+  /*palette story ends*/
+  
+  .section-heading {
+    text-align: center;
+    margin-top:20px;
+    font-size:23px;
+  }
+
+  .btn-mainM{
+    font-size:14px;
+    width:auto;
+    padding:0px 5px 0px 5px;
+    height:40px;
+    line-height: 40px;
+    border:1px solid #ffffff;
+  }
+  .btn-mainM:active{
+    text-decoration: none;
+    background-color:rgba(255,255,255,0.1);
+    color:#ffa291;
+    border:2px solid #ffa291;
+    font-weight:bold;
+  }
+
+
+} /*media max-width 767px*/
+
+
+
+@media(min-width:767px) {
+
+
+    .btn-list:hover{
+      text-decoration:none;
+      color:#ffa291;
+      border:2px solid #ffa291;
+    }
+
+    .intro-message {
+      position: relative;
+      padding-top: 15%;
+      padding-bottom: 50px;
+
+    }
+
+    .intro-message > h1 {
+      margin: 0;
+      /*text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
+      font-size: 4em;
+      color:#ffffff;
+    }
+
+
+    .intro-message > h3 {
+      /* text-shadow: 2px 2px 3px rgba(0,0,0,0.6);*/
+      font-size:2em;
+      color:#ffffff;
+      margin-bottom:60px;
+    }
+
+
+    .btn-main{
+      font-size:16px;
+      font-weight:bold;
+      width:150px;
+      height:40px;
+      line-height: 40px;
+      margin:0px 2px 0px 2px;
+    }
+    .btn-main:hover{
+      text-decoration: none;
+      background-color:rgba(255,255,255,0.1);
+      color:#ffa291;
+      border:2px solid #ffa291;
+    }
+    .btn-main:active{
+      transform:translateY(3px);
+    }
+
+
+    /*전문가 소개 페이지*/
+
+    #colorbyBOM{
+      background-color:white;
+      height:200px;
+      width:auto;
+      border:2px solid black;
+      padding:16px;
+    }
+    #colorbyBOM>h1{
+      margin-top:40px;
+    }
+     #colorbyBOM>h5{
+      font-size:17px;
+    }
+    .content-section-d{
+      padding-top:10px;
+      padding-bottom:20px;
+      border-top: 1px solid #e7e7e7;
+    }
+    .partner_img{
+      width:450px;
+      height:226px;
+      margin-top:100px;
+
+    }
+    .palette_logo{
+     padding:50px;
+     width:450px;
+     height:226px;
+     border:2px solid #ffaaa3;
+     background-color:#fafafa; 
+     margin-top:100px;
+    }
+    #palette_logo{
+      
+      margin:40px 0 0 90px;  
+    }
+    .partner_content>ul{
+      list-style-type:disc;
+    }
+    .partner_name{
+      display:inline-block;
+    }
+    
+    .partner_site{
+      display:block;
+      padding:5px;
+      width:150px;
+      text-align:center;
+      float:right;
+      margin-top:20px;
+      height:auto;
+      border:2px solid black;
+      color:black;
+    }
+    .partner_site:hover, .partner_site:active, .partner_site:focus{
+      color:#ffa291;
+      border:2px solid #ffa291;
+      text-decoration:none;
+    }
+
+    /*palette story*/
+  .palette_story{
+    background-image:url('/images/story.png');
+    background-size:100% 100%;
+    color:#fafafa;
+    padding-top:10px;
+    padding-bottom:40px;
+  }  
+  .story_content{
+    text-align:center;
+    font-size:16px;
+  }
+  .content_mark{
+    font-size:25px;
+    font-weight:bold;
+  }
+  
+  .content_first{
+    font-size:20px;
+    font-weight:bold;
+  }
+
+  /*palette story ends*/
+
+  /*제품 요청 */
+  table{
+    width:100%;
+  }
+  .form-askfor{
+    margin-left:40px;
+    margin-bottom:30px;
+    width:50%;
+  }
+  .btn-askfor{
+    margin-left:5px;
+    height:35px;
+    width:60px;
+  }
+  .askfor_status{
+    padding:5px;
+    width:10px;
+    height:10px;
+  }
+  /*제품 요청 끝*/
+
+
+
+} /*media min 767px*/
+

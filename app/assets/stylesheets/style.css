@@ -1,6 +1,7 @@
 /*MOBILE & PC 공통*/
 
 /*===HEADER_general===*/
+
   h2.navbar-top{
     padding-right:50px;
     margin:0;
@@ -26,21 +27,6 @@
   }
   
   
-/*===LIST PAGE_general===*/
-
-
-
-/*===DETAIL PAGE_general===*/
-
-
-/*===NOTICE PAGE_general===*/
-
-
-/*===REQUEST PAGE_general===*/
-
-
-
-/*===ADMIN PAGE_general===*/
 
 
 /*===FOOTER_general===*/
@@ -246,39 +232,7 @@
     display:none;
   }
 
-
-
-
-
-
-/*===MAIN PAGE_PC===*/
-
-
-/*===LIST PAGE_PC===*/
-
-
-
-/*===DETAIL PAGE_PC===*/
-
-
-/*===NOTICE PAGE_PC===*/
-
-
-/*===REQUEST PAGE_PC===*/
-
-
-
-/*===ADMIN PAGE_PC===*/
-
-
-
-
-/*===FOOTER_PC===*/
-
-
 } /*min-width ends*/
-
-
 
 
 /*MOBILE CSS*/
@@ -455,31 +409,5 @@
 		background-color:#ff6666;
   }  
 
-
-/*===MAIN PAGE_mobile===*/
-
-
-/*===LIST PAGE_mobile===*/
-
-
-
-/*===DETAIL PAGE_mobile===*/
-
-
-/*===NOTICE PAGE_mobile===*/
-
-
-/*===REQUEST PAGE_mobile===*/
-
-
-
-/*===ADMIN PAGE_mobile===*/
-
-
-
-
-/*===FOOTER_mobile===*/
-
-  
 }
  /*mobile css ends*/
