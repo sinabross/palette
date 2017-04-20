@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20170417102212) do
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6335bbe7e038c3a6cb1fbbb5b1bdf3b9c34a2675
   create_table "all_likes", force: :cascade do |t|
     t.string   "lips_image",                 null: false
     t.string   "users_username",             null: false
