@@ -64,33 +64,32 @@
           </div>
         <%end%>
  
-        <hr style="border:solid 1px lightgray;margin-bottom:15px;">
+        <!--<hr style="border:solid 1px lightgray;margin-bottom:15px;">-->
 
        <div class="col-md-12 col-xs-12" >
-
-         <!-- 제품군, 펄유무, 텍스쳐-->
+         <!-- 제품군, 펄유무, 텍스쳐 PC버전 시작-->
          <div class="product_info">
            <div class="panel panel-default col-md-4 col-xs-4" >
              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:center;">
-          <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+              <span style="font-size:12px; text-align:center;">
+              <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
              </div>
            </div>
            <div class="panel panel-default col-md-4 col-xs-4">
              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:center">
-          <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+              <span style="font-size:12px; text-align:center">
+              <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
              </div>
            </div>
            <div class="panel panel-default col-md-4 col-xs-4">
              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:right">
-            <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+              <span style="font-size:12px; text-align:right">
+              <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
              </div>
            </div>
          </div>
+         <!-- 제품군, 펄유무, 텍스쳐 PC버전 끝-->
        </div>
-
 
         <hr class="divide_inPC" style="border:solid 1px lightgray;">
       </div> <!--/div#orange-->
@@ -102,43 +101,111 @@
 
 
       <div class="col-md-12 col-xs-12 color_show_wrapper" >
-       
-        <div class="col-md-5 col-md-offset-3 col-xs-12" style="padding:0;">
-          
-          <p class="color_show_explain">
-            <img src="/images/exclamation-mark.png"><span class="explain_notice">잠깐! 꼭 읽어주세요.</span>
-            
-            <span class="explain_title">발색에 따른 진단결과</span>
-            <span class="explain_content">발색하는 정도에 따라<br>
-            톤이 달라질 수 있음을 참고해주세요.</span>
         
-            <span class="explain_title">자연광에서 촬영된 발색사진</span>
+        <!--꼭 읽어주세요 시작-->
+        <section id="detailNotice" style="padding:0;">
+          <p class="color_show_explain">
+            <span class="explain_notice">꼭 읽어주세요!</span>
+            
+            <span class="explain_title"><img src="/images/icon_exclamation_mark.png">발색에 따라 다른 진단결과</span>
+            <span class="explain_content">발색하는 정도에 따라<br>
+            톤이 달라질 수 있습니다.</span>
+        
+            <span class="explain_title"><img src="/images/icon_sun.png">자연광에서 촬영된 발색사진</span>
             <span class="explain_content">매장조명에서 테스트할 경우<br>
             사진과 다르게 보일 수 있습니다.</span><br>
           </p>
-        </div>
+        </section>
+        <!--꼭 읽어주세요 끝-->
         
-        <div class="col-md-10 col-md-offset-1 col-xs-12" style="padding:0">
-          <div class="col-md-6 col-xs-6" style="padding:0">
-             <img class="lip_img" src="/images/lip.png">
-             <h3 class="season_info season_mobile"><%=@product.season_1%><br><span>좌:옅은 발색</span></h3>
+        <section id="detailContent">
+          <!--Good/Bad 시작-->
+          <div class="col-md-6 col-xs-6">
+            <% if @current_season == @product.season_1 %>
+            <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
+            <% elsif %>
+            <span class="txt_season_evaluation" style="color:gray">Bad</span>
+            <% end %>
           </div>
+          <div class="col-md-6 col-xs-6">
+            <% if @current_season == @product.season_2 %>
+            <span class="txt_season_evaluation" style="color:#ff6600">Good!</span>
+            <% elsif %>
+            <span class="txt_season_evaluation" style="color:gray">Bad</span>
+            <% end %>
+          </div>
+          <!--Good/Bad 끝-->
           
-          <div class="col-md-6 col-xs-6" style="padding:0">
-              <img class="lip_img" src="/images/lip2.png">
-              <h3 class="season_info season_mobile"><%=@product.season_2%><br><span>우:짙은 발색</span></h3>
+          <!--발색사진 시작-->
+          <div class="col-md-12 col-xs-12" style="padding:0;">
+            <img class="color_show" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+            <span class="line_separate"></span>
           </div>
-        </div>
-
-        <div class="col-md-12 col-xs-12" style="padding:0;">
-          <img class="color_show" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-         
-        </div>
-
+          <!--발색사진 끝-->
+          
+          <!--진단결과 시작-->
+          <div class="col-md-10 col-md-offset-1 col-xs-12 box_season_result">
+            <div class="col-md-6 col-xs-6" style="padding:0">
+               <span class="txt_season_info">좌:옅은 발색</span><br>
+               <h3 class="season_info season_mobile"><%=@product.season_1%></h3>
+            </div>
+            
+            <div class="col-md-6 col-xs-6" style="padding:0">
+                <span class="txt_season_info">우:짙은 발색</span><br>
+                <h3 class="season_info season_mobile"><%=@product.season_2%></h3>
+            </div>
+          </div>
+          <!--진단결과 끝-->
+          
+          <!--진단결과 설명 시작-->
+          <div class="explain_season_result">
+            <img src="/images/icon_like.png" width="50px">
+            <% if @product.season_1 == @product.season_2 %>
+              <p class="txt_season_result">
+                <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
+              </p>
+            <% elsif (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
+              <p class="txt_season_result">
+                <span class="txt_season_color"><%=@product.season_1%></span><span class="txt_season_color2">는</span> 옅게 바르면 어울리는 느낌으로 연출할 수 있어요.
+              </p>
+            <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
+              <p class="txt_season_result">
+                <span class="txt_season_color"><%=@product.season_2%></span><span class="txt_season_color2">는</span> 짙게 바르면 어울리는 느낌으로 연출할 수 있어요.
+              </p>
+            <% else %>
+              <p class="txt_season_result">
+                <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
+              </p>
+            <% end %>
+          </div>
+          <!--진단결과 설명 끝-->
+          
+          <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
+            <div class="product_info_mobile">
+              <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:center">
+                  <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-4 col-xs-4">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:center">
+                  <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-4 col-xs-4">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:right">
+                  <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+                </div>
+              </div>
+            </div>
+            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
+          </section>
       </div>
-
-
-       <div class="col-md-12 col-xs-12" >
+      <!--color_show_wrapper end-->
+      
 <%
 =begin
 %>
@@ -154,33 +221,17 @@
 <%
 =end
 %>
-
-          <!-- 제품군, 펄유무, 텍스쳐-->
-          <div class="product_info_mobile">
-            <div class="panel panel-default col-md-4 col-xs-4">
-              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:center">
-          <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
-              </div>
-            </div>
-            <div class="panel panel-default col-md-4 col-xs-4">
-              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:center">
-          <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
-              </div>
-            </div>
-            <div class="panel panel-default col-md-4 col-xs-4">
-              <div class="panel-body" align="center">
-          <span style="font-size:12px; text-align:right">
-            <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
-              </div>
-            </div>
+        
+        <section id="detailPccs" class="col-md-12 col-xs-12" >
+          <!--PCCS 시작-->
+          <div class="wrap_pccs">
+            <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.image%>_pccs.jpg">
           </div>
-          
-           <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.image%>_pccs.jpg">
-       </div>
-
+          <!--PCCS 끝-->
+       </section>
+       
     </div>
+    <!--row detail_PC end-->
 
   <div class="row detail_PC detail_mobile" >
     <hr style="border:1px solid lightgray;">
@@ -195,24 +246,26 @@
     <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
 
 
-
+      <!--유의사항 시작-->
       <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
         <h4 style="text-align: center;">유의사항</h4>
-          <ul>
-            <li>
-              팔렛에 소개된 모든 제품의 퍼스널컬러 정보는 자연광 환경에서 전문가가 직접 분류하였습니다.
-             
-             <!-- 분류 과정에 대한 보다 자세한 소개를 원하신다면
-              <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.-->
-            </li>
-            <li>
-              퍼스널컬러에 절대적인 기준은 없습니다. 제품에 따라 외부의 기준과는 다소 차이가 있을 수 있음을 유념해주세요.
-            </li>
-            <li>
-              제품의 퍼스널컬러 정보가 어울리는 정도에는 개인차가 있을 수 있습니다.
-            </li>
-          </ul>
+        <ul>
+          <li>
+            팔렛에 소개된 모든 제품의 퍼스널컬러 정보는 자연광 환경에서 전문가가 직접 분류하였습니다.
+           
+           <!-- 분류 과정에 대한 보다 자세한 소개를 원하신다면
+            <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.-->
+          </li>
+          <li>
+            퍼스널컬러에 절대적인 기준은 없습니다. 제품에 따라 외부의 기준과는 다소 차이가 있을 수 있음을 유념해주세요.
+          </li>
+          <li>
+            제품의 퍼스널컬러 정보가 어울리는 정도에는 개인차가 있을 수 있습니다.
+          </li>
+        </ul>
       </div>
+      <!--유의사항 끝-->
+      
       
 <%
 =begin
@@ -511,7 +564,7 @@
       text-align:center;
       display:inline-block;
     }
-    .season_info span{
+    .txt_season_info{
       color:gray;
       font-weight:200;
       font-family:NanumGothic;
@@ -614,6 +667,22 @@
      .review_img{
        display:block;
        width:80%;
+       margin:0 auto;
+     }
+
+     .line_separate{
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        display: inline-block;
+        width: 5px;
+        height: 100%;
+        background: white;
+     }
+     
+     #detailNotice{
+       display:block;
+       width:100%;
        margin:0 auto;
      }
 
@@ -750,13 +819,17 @@
         display:none;
       }
       .season_info{
-        font-size:19px;
-      } 
-       img.lip_img{
+      font-family:'Hanna';
+      font-weight:bold;
+      font-size:19px;
+      text-align:center;
+      display:inline-block;
+    }
+       /*img.lip_img{
         width:30px;
         height:30px;
         margin-bottom:50px;
-      }
+      }*/
       .season_info_img{
         width:100%;
         height:auto;
@@ -767,8 +840,8 @@
         text-align: center;
       }
       .color_show{
-        height:312px;
-        width:312px;
+        /*height:312px;*/
+        width:100%;
         margin:auto;
         display:block;
       }
@@ -787,8 +860,8 @@
       }
       p.color_show_explain{
         text-align:center;
-        padding:15px;
-        border:1px solid lightgray;
+        padding:50px 30px;
+        border:2px solid #6e6e6e;
         border-radius:3px;
         height:auto;
         width:100%;
@@ -809,18 +882,52 @@
         font-size:20px;
         font-weight:bold;
         display:inline-block;
+        border-bottom:2px solid #6e6e6e;
+        padding:0px 50px 20px;
       }
       p.color_show_explain .explain_title{
         font-size:15px;
         font-weight:700;
-        margin-top:20px;
+        margin-top:40px;
         margin-bottom:10px;
         display:block;
       }
       p.color_show_explain .explain_content{
-        color:gray;
-        font-size:11px;
+        /*color:gray;*/
+        font-size:12px;
         margin-right:8px;
+      }
+      
+      .box_season_result {
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:0;
+        text-align:center;
+      }
+      
+       #detailContent{
+        display:inline-block;
+        width:100%;
+        padding:15px 15px 0 15px;
+        margin:0 auto 15px;
+        border:1px solid #bcbcbc;
+      }
+      
+      .explain_season_result{
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:20px 10px;
+      }
+      
+      .txt_season_result{
+        padding:15px;
+      }
+      
+      .txt_season_evaluation{
+        font-size:30px;
+        font-family:impact;
       }
 
       .btn-buy{
@@ -916,7 +1023,6 @@
         clear:both;
         text-align:left;
         border:1px solid #56565d;
-        height:200px;
         margin-bottom:50px;
       }
       .color_intro>h4{
@@ -1082,13 +1188,13 @@
       }
       p.color_show_explain{
         text-align:center;
-        padding:20px;
-        border:2px solid lightgray;
+        padding:100px 30px;
+        border:2px solid #6e6e6e;
         border-radius:3px;
         height:auto;
-        width:120%;
+        width:650px;
         display:block;
-        margin:20px 0px 30px 0px;
+        margin:0 auto;
         font-size:15px;
       }
       p.color_show_explain img{
@@ -1103,22 +1209,56 @@
         font-size:25px;
         font-weight:bold;
         display:inline-block;
+        border-bottom:2px solid #6e6e6e;
+        padding:0px 150px 30px;
       }
       p.color_show_explain .explain_title{
         font-size:20px;
         font-weight:700;
-        margin-top:20px;
+        margin-top:50px;
         margin-bottom:10px;
         display:block;
       }
       p.color_show_explain .explain_content{
-        color:gray;
+        /*color:gray;*/
         font-size:14px;
         margin-right:8px;
       }
 
-      img.lip_img{
+      /*img.lip_img{
         margin-bottom:80px;
+      }*/
+
+      .box_season_result {
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:0;
+        text-align:center;
+      }
+
+      #detailContent{
+        display:block;
+        width:650px;
+        padding:15px 15px 0 15px;
+        margin:50px auto;
+        border:1px solid #6b6b6b;
+      }
+      
+      .explain_season_result{
+        display:inline-block;
+        width:100%;
+        margin:20px auto;
+        padding:20px;
+      }
+      
+      .txt_season_result{
+        padding:20px;
+      }
+
+      .txt_season_evaluation{
+        font-size:50px;
+        font-family:impact;
       }
 
       /*후기 부분*/
@@ -1222,6 +1362,49 @@
       }
     }
 
- 
- 
+    //상세페이지 진단결과 설명 텍스트 컬러 입히기
+    $(function(){
+      var getSeasonColor = $(".txt_season_color").text();
+      switch (getSeasonColor){
+        case "봄 브라이트" :
+          $(".txt_season_color").css("color", "red");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        case "봄 라이트" :
+          $(".txt_season_color").css("color", "#ff9001");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        case "여름 라이트" :
+          $(".txt_season_color").css("color", "#fe9289");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        case "여름 뮤트" :
+          $(".txt_season_color").css("color", "#4e9ecc");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        case "가을 뮤트" :
+          $(".txt_season_color").css("color", "#bf568f");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        case "가을 딥" :
+          $(".txt_season_color").css("color", "#a50000");
+          $(".txt_season_color").css("font-weight", "bold");
+          $(".txt_season_color2").html("은");
+        break;
+        case "겨울 딥" :
+          $(".txt_season_color").css("color", "#97005c");
+          $(".txt_season_color").css("font-weight", "bold");
+          $(".txt_season_color2").html("은");
+        break;
+        case "겨울 브라이트" :
+          $(".txt_season_color").css("color", "#ff00c0");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+        default :
+          $(".txt_season_color").css("color", "black");
+          $(".txt_season_color").css("font-weight", "bold");
+        break;
+      }
+    });
+    
 </script>

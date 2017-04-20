@@ -70,7 +70,8 @@ Rails.application.routes.draw do
   # 제품 검토요청 모아보기
   get 'home/admin_likes'
   #get 'home/detail/:product_num' => "home#detail"
-  get 'home/detail2/:product_num' => "home#detail2"
+  #get 'home/detail2/:product_num' => "home#detail2"
+  get 'home/detail2/:tone/:product_num' => "home#detail2"
   
   #ask for new products
   #get 'home/askfor'
