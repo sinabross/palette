@@ -1,66 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
     <head>
       <title>팔렛-퍼스널컬러에 맞는 립스틱 찾기 </title>
+       
+        <!--META TAGS--> 
+        
+        <%= csrf_meta_tags %>
         <meta name="description" content="퍼스널컬러에 맞는 립스틱 추천 사이트, 내 톤에 맞는 제품을 찾아보세요">
         <meta name="keywords" content="퍼스널컬러, 퍼스널컬러 인생템, 웜톤 립스틱, 쿨톤 립스틱, 봄웜톤 인생템, 여름쿨톤 인생템, 가을웜톤 립스틱, 겨울쿨톤 인생템, 봄 브라이트, 봄 라이트, 여름 라이트, 여름 뮤트, 가을 뮤트, 가을 딥, 겨울 딥, 겨울 브라이트">
         <link rel="canonical" href="http://www.palett.co.kr">
 
-        <!--open graph -->
+        <!--naver open graph -->
         <meta property="og:type" content="website">
         <meta property="og:title" content="팔렛-퍼스널컬러에 맞는 립스틱 찾기">
         <meta property="og:description" content="퍼스널컬러에 맞는 인생템 추천, 봄브라이트, 봄라이트, 여름라이트, 여름뮤트, 가을뮤트,가을딥,겨울딥,겨울브라이트 톤에 맞는 제품 찾기">
         <meta property="og:image" content="/images/main_image.png">
         <meta property="og:url" content="http://www.palett.co.kr">
+        
+        <!-- For Mobile view -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- IE에 대한 웹표준 적용 -->
 
         <link rel="stylesheet" href="/assets/css/font.css" type="text/css">
+        <!-- STYLESHEETS-->
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         
+        <!--customized CSS for palett -->
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+
+        <!--JAVASCRIPTS-->
+        
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <!--for ckeditor CDN-->
         <script src="/javascripts/ckeditor/config.js"></script>
-        <!--< % = javascript_include_tag "/javascripts/ckeditor/ckeditor.js" % >  -->
-        
-        <%= csrf_meta_tags %>
    
-    <!-- Latest compiled and minified CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--include jQuery on your page -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js" type="text/javascript"></script>
+        
+        <!-- font awesome CDN -->
+        <script src="https://use.fontawesome.com/aa70db83f8.js"></script>
+        <!-- naver 사이트 등록 -->
+        <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
     
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-     <!--include jQuery on your page -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js" type="text/javascript"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- font awesome CDN -->
-    <script src="https://use.fontawesome.com/aa70db83f8.js"></script>
-    <!-- naver 사이트 등록 -->
-    <meta name="naver-site-verification" content="9ba43baff7ab825fc05c1d9a692fe3519d617f58"/>
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-84854829-1', 'auto');
+          <% if user_signed_in? %>
+          ga('set', '&uid', <%=current_user.id %>); //Set the user ID using signed-in user_id.
+          <%end%>
+          ga('require', 'linkid', 'linkid.js');
+          ga('send', 'pageview');
     
-      ga('create', 'UA-84854829-1', 'auto');
-      <% if user_signed_in? %>
-      ga('set', '&uid', <%=current_user.id %>); //Set the user ID using signed-in user_id.
-      <%end%>
-      ga('require', 'linkid', 'linkid.js');
-      ga('send', 'pageview');
-
-    </script>
-    
-    
-    <!-- For Mobile view -->
-    <!-- from 'initial-scale to user-scalable=no is for fixing the mobile view not to be scalable -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!-- IE에 대한 웹표준 적용 -->
-    
+        </script>
     </head>
     
     <body>

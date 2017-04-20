@@ -35,6 +35,39 @@ ActiveRecord::Schema.define(version: 20170417102212) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+<<<<<<< HEAD
+=======
+  create_table "all_likes", force: :cascade do |t|
+    t.string   "lips_image",                 null: false
+    t.string   "users_username",             null: false
+    t.integer  "likes",          default: 0, null: false
+    t.integer  "hates",          default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "askfors", force: :cascade do |t|
+    t.string   "brand",                   null: false
+    t.string   "name",                    null: false
+    t.string   "username",   default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
+
+>>>>>>> 7115498c4d3e345f10950edbabd3ed95720701b4
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
     t.string   "wc"
