@@ -235,7 +235,7 @@ class HomeController < ApplicationController
   def detail2
     
     # 빵부스러기
-   # if params[:product_num]
+    #if params[:product_num]
     #  @current_season = Lip.find_by_image(params[:product_num])
     #else
     #  @current_season = "봄 브라이트"
@@ -246,6 +246,11 @@ class HomeController < ApplicationController
       @product = Lip.find_by_image(params[:product_num])
     end
 
+    if params[:tone]
+      @current_season = params[:tone]
+    else
+      @current_season = "봄 브라이트"
+    end
 
     # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
      #@product.zzim = @product.votes_for.up.by_type(User).size
