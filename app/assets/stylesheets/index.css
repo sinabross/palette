@@ -183,13 +183,13 @@
     }
 
   /*메인의 8분류 선택 버튼*/
-  .season-category {
+  .season-btn {
     list-style-type: none;
     margin: 0;
     margin-bottom:5px;
     padding: 0;
   }
-  .season-category>li {
+  .season-btn>li {
     display:inline;
 
   }
@@ -361,7 +361,7 @@
 
     .intro-message {
       position: relative;
-      padding-top: 15%;
+      padding-top: 10%;
       padding-bottom: 50px;
 
     }
