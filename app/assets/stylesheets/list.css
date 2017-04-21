@@ -132,6 +132,8 @@
       background-color: #ffa291;
       color:#fafafa;
     }
+    .brand-select{margin-bottom: 20px;}
+    
     .filterbutton{
       background:#ff6666;
       color:#ffffff;
@@ -186,7 +188,7 @@
 
     .product-container{
       margin-top:20px;
-      height:450px;
+      height:460px;
       cursor:pointer;
     }
 
@@ -320,12 +322,14 @@
 
   @media (max-width:767px){
     .list-display {
-        margin-top:10px;
+        margin-top:50px;
+        padding-right: 5px;
+        padding-left:5px;
       }
 
     .product-container{
       border: 1px solid lightgray;
-      height:130px;
+      height:135px;
     }
     .product-container:active{
       border:1px solid #ffa291;
