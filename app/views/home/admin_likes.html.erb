@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+</head>
 
 <div float="left" style="margin-top:30px; margin-left:30px;">
   <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
@@ -63,32 +66,3 @@
       <%= render :partial => "layouts/partial/pagination" %> 
 </div>
 
-<style>
-
-  .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-  
-   .product-container{
-         margin-top:20px;
-         height:auto;
-         cursor:pointer;
-         border: 1px solid lightgray;
-         padding:10px;
-    }
-    .product_name{
-        margin-bottom:20px;
-    }
-    .example{
-        margin-top:7px;
-        width: 94px;
-        height: 94px;
-    }
-</style>

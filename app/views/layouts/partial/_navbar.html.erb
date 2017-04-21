@@ -1,58 +1,52 @@
 <header class="navbar navbar-fixed-top navbar-design">
-  
-  <h2 class="navbar-top" style="padding-right:50px;font-size:0px;margin:0;">
+
+  <h2 class="navbar-top">
     팔렛 내비게이션 바        
   </h2>
 
+  <div class="container wrap_navbar">
 
+      <a href="/">
+      <span class="gCenter-mobile">
+        <%= image_tag "/images/logo_beta_mobile.png", alt:"팔렛 로고"%>
+      </span>
+      <span class="gCenter" >
+        <%= image_tag "/images/logo_beta_pc.png", alt:"팔렛 로고"%>
+      </span>
+      </a>
 
+        <!--searhbar for PC navbar-->
 
-  <div class="container wrap_navbar" style="padding:0;">
-
-
-            <a href="/">
-            <span class="gCenter-mobile" style="padding:0;">
-              <%= image_tag "/images/logo_beta_mobile.png", alt:"팔렛 로고"%>
-            </span>
-
-            <span class="gCenter" >
-              <%= image_tag "/images/logo_beta_pc.png", alt:"팔렛 로고"%>
-            </span>
-            </a>
-
-          <!--searhbar for PC navbar-->
-
-          <form class="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
-              <input type="hidden" name="utf8" value="✓">
-              <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요."  name="search" class="searchbox-input">
-              <button type="submit" class="searchbox-submit">
-                <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
-              </button>
-          </form>
-
-
-          <!--search for Mobile navbar-->
-
-          <form class="search-form-mobile col-xs-6" id="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
+        <form class="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
             <input type="hidden" name="utf8" value="✓">
-            <input type="search" placeholder="내 립스틱은 무슨 톤 ?" id="search" name="search" class="searchbox-input searchbox-input-mobile">
-          </form>
+            <input type="search" placeholder="브랜드명 또는 제품명으로 검색해보세요."  name="search" class="searchbox-input">
+            <button type="submit" class="searchbox-submit">
+              <i class="fa fa-search fa-search-main" aria-hidden="true"></i>
+            </button>
+        </form>
 
 
-          <div class="navbar-header navbar-icon" style="padding:0;">
-                  <span class="gLeft">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                  </span>
-          </div>
+        <!--search for Mobile navbar-->
+
+        <form class="search-form-mobile col-xs-6" id="search-form"  action="/home/search" method="get" accept-charset="UTF-8">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="search" placeholder="내 립스틱은 무슨 톤 ?" id="search" name="search" class="searchbox-input searchbox-input-mobile">
+        </form>
+
+        <div class="navbar-header navbar-icon">
+          <span class="gLeft">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </span>
+        </div>
 
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1" style="background-color:#fafafa;">
+    <div class="collapse navbar-collapse navbar-color" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
 
         <!-- li class="hidden-web"으로 하면 분홍색 navbar에 위치-->
@@ -73,11 +67,11 @@
           <a href="#" class="dropdown-toggle dropbtnM" data-toggle="dropdown">팔렛 소개<b class="caret"></b></a>
           <ul class="dropdown-menu dropdown-contentM">
             <li>
-              <a class="quick_tabM" href="/#story" onClick="return false;" style="text-indent:20px">팔렛 스토리</a>
+              <a class="quick_tabM" href="/#story" onClick="return false;" >팔렛 스토리</a>
             </li>
 
             <li>
-              <a class="quick_tabM" href="/#howto"  onClick="return false;" style="text-indent:20px">이용방법</a>
+              <a class="quick_tabM" href="/#howto"  onClick="return false;" >이용방법</a>
             </li>
 
 
@@ -214,9 +208,5 @@
       $('.searchbox-icon').css('display','block');
     }
   }
-
-
-
-
 
 </script>

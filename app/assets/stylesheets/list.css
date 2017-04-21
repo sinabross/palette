@@ -1,0 +1,404 @@
+      body{
+      height:auto;
+    }
+
+    .title-web h3 {
+        font-family: 'NanumGothic';
+        font-size: 22px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        color: #38393b;
+    }
+    .title-web p{
+        font-family: NanumGothic;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        color: #787878;
+    }
+    .product-name{
+      margin-top:10px;
+      margin-bottom:10px;
+      font-family: NanumGothic;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.29;
+      color: #38393b;
+    }
+    .product_name{
+      color:#38393b;
+    }
+    .product-name a:hover,
+    .product-name a:focus{
+      text-decoration: none;
+      color: #000000;
+    }
+    .product_price {
+      color:#38393b;
+    }
+
+    .product_price{
+      margin-right:3px;
+      margin-left:2px;
+    }
+
+    /*제품 정보 라벨*/
+
+    .label_red{
+      color:#ffffff;
+      background-color:#cc0000;
+    }
+    .label_pink{
+      color:#ffffff;
+      background-color:#e64c7a;
+    }
+    .label_orange{
+      color:#ffffff;
+      background-color:#ffab40;
+    }
+    .label_beige{
+      color:#ffffff;
+      background-color:#c9a241;
+    }
+    .label_purple{
+      color:#ffffff;
+      background-color:#8841b0;
+    }
+    .label_product{
+      color:#ffffff;
+      background-color:#0097a7;
+    }
+    /* 제품정보 라벨 끝 */
+
+    .page-navigation>a{
+      color:#56565d;
+    }
+    
+     /* fileter button */
+    
+    .detail_filter{
+      border:1px solid #ffa291;
+      padding:10px;
+    
+    }
+    
+    .detail_filter, .detail_filter ul{
+      list-style: none;
+      padding-left:17px;
+      font-size:14px;
+    }
+    .detail_filter ul li{
+      display:inline-block;
+    }
+    .detail_filter ul label{
+      cursor: pointer;
+      display: inline-block;
+      color: #ffa291;
+      height:auto;
+      width:80px;
+      border:1px solid #ffa291;
+      background-color: #fafafa;
+      text-align: center;
+      text-decoration: none;
+      font-size:13px;
+      transition:all 0.4s;
+      
+    }
+    
+    .detail_filter input[type="checkbox"] {
+       display:none;
+    }
+    .detail_filter input[type="checkbox"]:not(.filter)+label:before{
+      content:"▲";
+      font-size:14px;
+    }
+    .detail_filter input[type="checkbox"]:not(.filter):checked+label:before{
+      content:"▼";
+      font-size:14px;
+    }
+    .detail_filter input[type="checkbox"] + label {
+      
+      cursor:pointer;
+    }
+    
+    .detail_filter input[type="checkbox"]:checked~ul {
+      display:none;
+      
+    }
+    .detail_filter ul input[type="checkbox"]:checked + label {
+      border:1px solid #ffa291;
+      background-color: #ffa291;
+      color:#fafafa;
+    }
+    .filterbutton{
+      background:#ff6666;
+      color:#ffffff;
+      width:100%;
+      height:auto;
+      padding:5px;
+      margin-top:10px;
+    }
+    .filter-toggle{
+      width:40%;
+      height:auto;
+      display:block;
+      padding:5px 0px 5px 0px;
+      margin:auto;
+      color:#fafafa;
+      background-color:#ffa291;
+    }
+
+    .filter-toggle.wide{
+      width:100%;
+      background-color:#ff6666;
+    }
+    .filter_icon{
+      display:inline-block;
+    }
+    .filter_title{
+      display:inline-block;
+      width:100%;
+      padding-bottom:10px;
+      border-bottom:1px solid lightgray;
+    }
+    
+    .filter_choices{
+      padding:5px 0px 5px 0px;
+    }
+    
+    
+    /* filter button end*/
+
+
+  @media (min-width: 768px) {
+    .list-display {
+        margin-top:70px;
+      }
+
+    .title-web hr{
+
+        width: 1015.5px;
+        border: solid 2px #38393b;
+
+    }
+
+    .product-container{
+      margin-top:20px;
+      height:450px;
+      cursor:pointer;
+    }
+
+    .product-name{
+      margin-bottom:30px;
+    }
+
+    .product_label{
+      font-size:12px;
+      padding:3px;
+      text-align:center;
+      display:inline-block;
+      width:60px;
+      border-radius:5px;
+      margin-bottom:10px;
+    }
+    .page-navigation{
+      text-align:right;
+      margin-right:45px;
+
+    }
+
+     /*계절타입 선택 필터*/
+    .season-categoryM,.season-category-wrapperM{
+      display:none;
+    }
+    .season-category-wrapper{
+      border-top:1px solid #b2b2b2;
+      border-bottom:1px solid #b2b2b2;
+      box-shadow: 0 -3px 0 #fff,0 -4px 0 #d1d1d1,0 3px 0 #fff,0 4px 0 #d1d1d1;
+    }
+    .season-category{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+    }
+    .season-category> li:after{
+
+      content: "";
+      position:absolute;
+      top:50%;
+      width:1px;
+      height:14px;
+      margin-top:-6px;
+      background:#ffa291;
+    }
+
+    .season-category>li {
+      display:inline;
+
+    }
+
+    .season-category>li a {
+
+      display: inline-block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight:500;
+      font-size:12px;
+      letter-spacing:0.05em;
+      -webkit-transition:background 0.15s ease-in-out,color 0.15s ease;
+    }
+    .season-category>li a:hover:not(.active){
+
+      background-color: #ffa291;
+      background: #ffa291 url(/images/nav-hover-bg.png)
+    }
+
+    .season-category .active{
+
+      background-color: #ffffff;
+      color:#ffa291;
+      font-weight:bold;
+    }
+
+    /*계절타입 선택 필터 끝*/
+    
+      /* fileter button */
+    
+    .detail_filter{
+      border:1px solid #ffa291;
+      padding:20px;
+    }
+    
+    .detail_filter, .detail_filter ul{
+      list-style: none;
+      padding-left:17px;
+      font-size:14px;
+    }
+   
+    .detail_filter ul label, .detail_filter input[type="checkbox"]:not(.filter)+label:before,
+     .detail_filter input[type="checkbox"]:not(.filter):checked+label:before{
+      
+      font-size:14px;
+    }
+    
+    .filterbutton{
+      
+      width:100%;
+      height:auto;
+      padding:5px;
+      
+    }
+    .filter-toggle{
+      width:40%;
+      height:auto;
+    }
+    .filter-toggle:hover{
+     background-color:#ff6666;
+    }
+    .filter-toggle.wide{
+      width:100%;
+    }  
+    .filter_title ul{
+      
+      padding-top:10px;
+    }
+   
+    
+    
+    /* filter button end*/
+
+     
+   
+
+  }
+
+  @media (max-width:767px){
+    .list-display {
+        margin-top:10px;
+      }
+
+    .product-container{
+      border: 1px solid lightgray;
+      height:130px;
+    }
+    .product-container:active{
+      border:1px solid #ffa291;
+    }
+    .product_label{
+      font-size:11px;
+      text-align:center;
+      display:inline-block;
+      width:50px;
+      padding:3px;
+      border-radius:5px;
+      margin-bottom:10px;
+    }
+
+
+    .example{
+    margin-top:7px;
+    width: 94px;
+    height: 94px;
+    }
+
+    .page-navigation{
+      text-align:right;
+      margin: 20px 10px 0px 0px;
+
+    }
+
+    /*계절타입 선택 필터*/
+
+    .season-category, .season-category-wrapper{
+      display:none;
+    }
+    
+    .season-category-wrapperM{
+      margin-top:10px;
+      border-top:1px solid #b2b2b2;
+      border-bottom:1px solid #b2b2b2;
+      box-shadow: 0 -3px 0 #fff,0 -4px 0 #d1d1d1,0 3px 0 #fff,0 4px 0 #d1d1d1;
+    }
+    .season-categoryM{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+    }
+
+    .season-categoryM>li {
+      display:inline;
+
+    }
+
+    .season-categoryM>li a {
+
+      display: inline-block;
+      color: #000;
+      text-align: center;
+      padding: 8px 6px;
+      text-decoration: none;
+      font-weight:700;
+      font-size:14px;
+
+      -webkit-transition:background 0.15s ease-in-out,color 0.15s ease;
+    }
+
+    .season-categoryM .active{
+
+      background-color: #ffffff;
+      color:#ffa291;
+      font-weight:bold;
+    }
+
+    /*계절타입 선택 필터 끝*/
+
+
+  }
