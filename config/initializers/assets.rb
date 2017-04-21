@@ -11,6 +11,5 @@ Rails.application.config.assets.version = '1.0'
 #Rails.application.config.assets.precompile += %w( bootstrap.js, bootstrap.min.js, contact_me.js, jquery.js, bootstrap.css, bootstrap.min.css, modern-business.css)
 # Rails.application.config.assets.precompile += ['bootstrap.js', 'bootstrap.min.js', 'contact_me.js', 'application.js', 'application.css', 'jquery.js', 'bootstrap.min.css', 'bootstrap.css', 'modern-business.css']
 
-#Rails.application.config.assets.precompile += %w( ckeditor/* )
-#Rails.application.config.assets.precompile += %w( style.css )
-Rails.application.config.assets.precompile += ['ckeditor/config.js', 'style.css']
+Rails.application.config.assets.precompile += %w( ckeditor/* )
+Rails.application.config.assets.precompile += %w( style.css )
