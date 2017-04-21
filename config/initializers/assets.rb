@@ -13,4 +13,4 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( ckeditor/* )
 
-Rails.application.config.assets.precompile += %w( config.js style.css )
+Rails.application.config.assets.precompile += %w( javascripts/ckeditor/config.js stylesheets/style.css )
