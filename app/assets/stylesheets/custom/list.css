@@ -1,23 +1,12 @@
-      body{
+    body{
       height:auto;
     }
-
-    .title-web h3 {
-        font-family: 'NanumGothic';
-        font-size: 22px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        color: #38393b;
+    .season-wrapper{
+      text-align:center;
+      margin-top:10px;
+      margin-bottom:20px;
     }
-    .title-web p{
-        font-family: NanumGothic;
-        font-size: 14px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        color: #787878;
-    }
+   
     .product-name{
       margin-top:10px;
       margin-bottom:10px;
@@ -37,11 +26,9 @@
     }
     .product_price {
       color:#38393b;
-    }
-
-    .product_price{
       margin-right:3px;
       margin-left:2px;
+      float:right;
     }
 
     /*제품 정보 라벨*/
@@ -158,6 +145,7 @@
     }
     .filter_icon{
       display:inline-block;
+      margin-right:5px;
     }
     .filter_title{
       display:inline-block;
@@ -179,12 +167,6 @@
         margin-top:70px;
       }
 
-    .title-web hr{
-
-        width: 1015.5px;
-        border: solid 2px #38393b;
-
-    }
 
     .product-container{
       margin-top:20px;
@@ -216,6 +198,9 @@
       display:none;
     }
     .season-category-wrapper{
+      text-align: center;
+      margin-top:10px;
+      margin-bottom:20px;
       border-top:1px solid #b2b2b2;
       border-bottom:1px solid #b2b2b2;
       box-shadow: 0 -3px 0 #fff,0 -4px 0 #d1d1d1,0 3px 0 #fff,0 4px 0 #d1d1d1;
