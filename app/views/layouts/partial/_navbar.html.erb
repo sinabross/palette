@@ -88,7 +88,7 @@
          <li>
            <i class="fa fa-bullhorn iconForMobile" aria-hidden="true"></i>
             <a href="/home/notice">새 소식
-              <%if Notice.exists? && Notice.last.created_at + 7.day>Time.current%>
+              <%if Notice.exists? && Notice.last.created_at + 3.day>Time.current%>
                   <span class="badge badge_notice">New</span>
               <%end%>
             </a>
@@ -118,7 +118,7 @@
         
 
         <!-- 햄버거 버튼 닫는 버튼 -->
-        <li class='hidden-web' style="text-align:center;color:#adadad;" id="toggle_close">▲</li>
+        <li class='hidden-web' id="toggle_close">▲</li>
 
 
       </ul>

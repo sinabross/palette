@@ -25,6 +25,11 @@
   .badge_notice{
    background-color:red;
   }
+  
+  /*햄버거닫기 버튼*/
+  li.hidden-web{text-align:center;color:#adadad;}
+  
+  
 /*===페이지 제목===*/
   .title-web h3 {
       font-family: 'NanumGothic';
