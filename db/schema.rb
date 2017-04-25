@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024074350) do
 =======
 ActiveRecord::Schema.define(version: 20170417102212) do
 >>>>>>> aedb13e33c90e09ff3b6cb7bf7cd25df27eabf59
+=======
+ActiveRecord::Schema.define(version: 20170424110051) do
+>>>>>>> 67425d972e425a00d99af61fe9d52490a66970d6
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170417102212) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 6335bbe7e038c3a6cb1fbbb5b1bdf3b9c34a2675
@@ -49,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170417102212) do
     t.datetime "updated_at",                 null: false
   end
 
+=======
+>>>>>>> 67425d972e425a00d99af61fe9d52490a66970d6
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
