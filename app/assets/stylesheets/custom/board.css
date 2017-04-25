@@ -4,8 +4,14 @@
     .table-responsive{
       overflow-x: hidden;
     }
-    .container-fluid{
+    .notice-container{
       margin-top:50px;
+    }
+    .notice-margin{
+      margin-top:70px;
+    }
+    div.table-wrapper{
+       padding:0px;
     }
     table{
       width:100%;
@@ -36,7 +42,6 @@
    
 
 /*공지사항 글 view */
-
   .btn_black{
     display:inline-block;
     line-height: 30px;
@@ -79,16 +84,27 @@
     font-size: 13px;
     color:black;
     display: inline-block;
-
+    margin-top:5px;
+    margin-bottom:5px;
   }
 
   .notice_updown>a:hover{
     text-decoration: none;
     color:#ffa291;
-
   }
 
-  
+
+
+
+
+
+/*공지사항 페이지 전체 PC 버전*/
+
+  @media screen and (min-width:768px){
+    .notice-container{margin-top:100px;}  
+  }
+
+
 
 
 /*===문의/건의 게시판===*/

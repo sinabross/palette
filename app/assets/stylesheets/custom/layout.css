@@ -47,6 +47,8 @@
     font-stretch: normal;
     color: #787878;
   }
+   .title_deco_line{border: 2px solid #38393b;}
+  
 /*===브랜드필터===*/
   .brand_filter{margin-bottom: 25px;}
   

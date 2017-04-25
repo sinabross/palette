@@ -6,24 +6,7 @@
       margin-top:10px;
       margin-bottom:20px;
     }
-    .title-web h3 {
-        font-family: 'NanumGothic';
-        font-size: 22px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        color: #38393b;
-    }
-    .title-web p{
-        font-family: NanumGothic;
-        font-size: 14px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        color: #787878;
-    }
-    .title_deco_line{border: 2px solid #38393b;}
-    
+   
     .product-name{
       margin-top:10px;
       margin-bottom:10px;
@@ -184,12 +167,6 @@
         margin-top:70px;
       }
 
-    .title-web hr{
-
-        width: 1015.5px;
-        border: solid 2px #38393b;
-
-    }
 
     .product-container{
       margin-top:20px;
