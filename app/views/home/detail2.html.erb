@@ -119,6 +119,78 @@
         <!--꼭 읽어주세요 끝-->
         
         <section id="detailContent">
+          <% case @current_season %>
+          <% when "default" %>
+            <span>&nbsp;</span>
+          <% else %>
+            <!--진단결과 시작-->
+            <p class="txt_season_tone"><%= @current_season %></p>
+            <!--진단결과 끝-->
+            
+            <!--발색사진 시작-->
+            <div class="col-md-12 col-xs-12 img_wrist_wrap" style="padding:0;">
+            <% if (@product.season_1 != @product.season_2) && (@current_season == @product.season_1) %>
+              <div class="img_wrist_box">
+                <img class="img_wrist_color" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+              </div>
+            <% elsif (@product.season_1 != @product.season_2) && (@current_season == @product.season_2) %>
+              <div class="img_wrist_box">
+                <img class="img_wrist_color2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+              </div>
+            <% else %>
+              <div class="img_wrist_box2">
+                <img class="img_wrist_color3" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+              </div>
+            <% end %>
+           </div>
+            <!--발색사진 끝-->
+            
+            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
+            <div class="product_info_mobile">
+              <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:center">
+                  <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-4 col-xs-4">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:center">
+                  <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-4 col-xs-4">
+                <div class="panel-body" align="center">
+                  <span style="font-size:12px; text-align:right">
+                  <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+                </div>
+              </div>
+            </div>
+            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
+            
+            <!--진단결과 설명 시작-->
+            <div class="explain_season_result">
+              <img src="/images/icon_like.png" width="50px">
+              <% if (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
+                <p class="title_season_result">연하게 발라주세요!</p>
+                <p class="txt_season_result">
+                  진하게 바를수록 <%=@product.season_2%>에 가까워지는 제품이에요.
+                </p>
+              <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
+                <p class="title_season_result">진하게 발라주세요!</p>
+                <p class="txt_season_result">
+                  연하게 바를수록 <%=@product.season_1%>에 가까워지는 제품이에요.
+                </p>
+              <% else %>
+                <p class="title_season_result">취향에 따라 발라주세요!</p>
+                <p class="txt_season_result">
+                  옅거나 짙게 발라도 <%=@current_season%>에 어울리는 제품이에요.
+                </p>
+              <% end %>
+            </div>  
+            <!--진단결과 설명 끝-->
+          <% end %>
+          
           <!--Good/Bad 시작-->
           <% case @current_season %>
           <% when "default" %>
@@ -162,35 +234,9 @@
           </div>
           <!--진단결과 끝-->
           
-          <!--진단결과 설명 시작-->
           <% case @current_season %>
           <% when "default" %>
-            <span>&nbsp;</span>
-          <% else %>
-            <div class="explain_season_result">
-              <img src="/images/icon_like.png" width="50px">
-              <% if @product.season_1 == @product.season_2 %>
-                <p class="txt_season_result">
-                  <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
-                </p>
-              <% elsif (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
-                <p class="txt_season_result">
-                  <span class="txt_season_color"><%=@product.season_1%></span><span class="txt_season_color2">는</span> 옅게 바르면 어울리는 느낌으로 연출할 수 있어요.
-                </p>
-              <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
-                <p class="txt_season_result">
-                  <span class="txt_season_color"><%=@product.season_2%></span><span class="txt_season_color2">는</span> 짙게 바르면 어울리는 느낌으로 연출할 수 있어요.
-                </p>
-              <% else %>
-                <p class="txt_season_result">
-                  <span class="txt_season_color"><%=@current_season%></span><span class="txt_season_color2">는</span> 취향에 따라 발색해도 어울리는 제품이에요.
-                </p>
-              <% end %>
-            </div>  
-          <% end %>
-          <!--진단결과 설명 끝-->
-          
-          <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
+            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
             <div class="product_info_mobile">
               <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
                 <div class="panel-body" align="center">
@@ -212,6 +258,10 @@
               </div>
             </div>
             <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
+          <% else %>
+            <span>&nbsp;</span>
+          <% end %>
+          
           </section>
       </div>
       <!--color_show_wrapper end-->
@@ -920,9 +970,9 @@
        #detailContent{
         display:inline-block;
         width:100%;
-        padding:15px 15px 0 15px;
+        /*padding:15px 15px 0 15px;*/
         margin:0 auto 15px;
-        border:1px solid #bcbcbc;
+        /*border:1px solid #bcbcbc;*/
       }
       
       .explain_season_result{
@@ -932,7 +982,15 @@
         padding:20px 10px;
       }
       
+      .title_season_result{
+        font-weight: bold;
+        font-size: 25px;
+        margin-top: 15px;
+      }
+      
       .txt_season_result{
+        color:gray;
+        font-size:15px;
         padding:15px;
       }
       
@@ -940,7 +998,58 @@
         font-size:30px;
         font-family:'Impacted';
       }
-
+      
+      .txt_season_tone{
+        display:inline-block;
+        font-family:'Hanna';
+        font-weight:bold;
+        font-size:25px;
+        margin:15px;
+      }
+      
+      .img_wrist_wrap{
+        display:inline-block;
+        width:100%;
+        height:auto;
+        margin-bottom:10px;
+      }
+      
+      .img_wrist_box{
+        position: relative;
+        width: 100%;
+        padding-top: 50%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_box2{
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_color, .img_wrist_color3{
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	width: 100%;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
+      .img_wrist_color2{
+        position: absolute;
+        bottom: 0;
+      	left: 0;
+      	right: 0;
+      	width: 100%;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
       .btn-buy{
         height:38px;
         width:100px;
@@ -992,6 +1101,10 @@
       div#btn_review_edit{
         text-align:left;
       }
+      
+      
+      
+      
     } /*max-width 768px ends*/
 
     @media (min-width: 768px){
@@ -1172,7 +1285,7 @@
       }
      
       .season_info_img{
-        width:590px;
+        width:650px;
         height:auto;
         margin:30px auto;
         display:block;
@@ -1185,8 +1298,8 @@
         margin-top:50px;
       }
       .color_show{
-        height:590px;
-        width:590px;
+        height:650px;
+        width:650px;
         margin:auto;
         display:block;
       }
@@ -1251,9 +1364,9 @@
       #detailContent{
         display:inline-block;
         width:650px;
-        padding:15px;
+        /*padding:15px;*/
         margin:50px auto;
-        border:1px solid #6b6b6b;
+        /*border:1px solid #6b6b6b;*/
       }
       
       .explain_season_result{
@@ -1263,13 +1376,72 @@
         padding:20px;
       }
       
+      .title_season_result{
+        font-weight:bold;
+        font-size:30px;
+        margin-top:20px;
+      }
+      
       .txt_season_result{
+        color:gray;
+        font-size:16px;
         padding:20px;
       }
 
       .txt_season_evaluation{
         font-size:50px;
         font-family:'Impacted';
+      }
+      
+      .txt_season_tone{
+        display:inline-block;
+        font-family:'Hanna';
+        font-weight:bold;
+        font-size:30px;
+        margin:20px;
+      }
+      
+      .img_wrist_wrap{
+        display:inline-block;
+        width:100%;
+        height:auto;
+        margin-bottom:10px;
+      }
+      
+      .img_wrist_box{
+        position: relative;
+        width: 100%;
+        padding-top: 50%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_box2{
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_color, .img_wrist_color3{
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	width: 650px;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
+      .img_wrist_color2{
+        position: absolute;
+        bottom: 0;
+      	left: 0;
+      	right: 0;
+      	width: 650px;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
       }
 
       /*후기 부분*/
@@ -1357,21 +1529,21 @@
                   $('#counter').val(finalCount+"/500")
               }    
     });
-      
      
   
-  //후기 사진 첨부 미리보기
-  function getThumbnailPrivew(html, $target) {
-    if (html.files && html.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-        $target.css('display', '');
-          //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
-          $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+    //후기 사진 첨부 미리보기
+    function getThumbnailPrivew(html, $target) {
+      if (html.files && html.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+          $target.css('display', '');
+            //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+            $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+          }
+          reader.readAsDataURL(html.files[0]);
         }
-        reader.readAsDataURL(html.files[0]);
       }
-    }
+
 
     //상세페이지 진단결과 설명 텍스트 컬러 입히기
     $(function(){
