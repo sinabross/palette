@@ -25,6 +25,11 @@
   .badge_notice{
    background-color:red;
   }
+  
+  /*햄버거닫기 버튼*/
+  li.hidden-web{text-align:center;color:#adadad;}
+  
+  
 /*===페이지 제목===*/
   .title-web h3 {
       font-family: 'NanumGothic';
@@ -42,6 +47,8 @@
     font-stretch: normal;
     color: #787878;
   }
+   .title_deco_line{border: 2px solid #38393b;}
+  
 /*===브랜드필터===*/
   .brand_filter{margin-bottom: 25px;}
   
