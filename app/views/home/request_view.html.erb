@@ -1,11 +1,11 @@
-<div class="container" style="margin-top: 50px; ">
+<div class="container notice-container">
    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-     <div class="title-web col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-right:10px;">
+     <div class="title-web">
        <h3>문의/건의</h3>
        
      </div>
-     <hr style="border: 2px solid #38393b">
+     <hr class="title_deco_line">
 
     <table class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
        <thead>
@@ -22,7 +22,7 @@
          </tr>
          <tr>
            <th>
-             <hr style="border:1px solid gray">
+             <hr class="title_deco_line">
            </th>
          </tr>
        </thead>
@@ -67,7 +67,7 @@
                 <span style="display:inline-block;width:20%"><%= comment.nickname %></span>
                 <span style="display:inline-block;"><%= comment.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></span><br>
                 
-                <p style="display:block;">
+                <p>
                   <% if user_signed_in? && current_user.admin !=nil && current_user.username == comment.nickname %>
                     <a href="/home/comment_destroy/<%= comment.id %>" role="button">삭제</a>
                   <% elsif user_signed_in? && current_user.admin !=nil && current_user.username != comment.nickname %>
@@ -104,7 +104,7 @@
 =end
 %>
         <tr>
-          <td style="margin-top:15px; margin-bottom:10px;">
+          <td class="notice_updown">
             <i class="fa fa-chevron-up" aria-hidden="true"></i><strong>이전글</strong>
             <%if @one_request.id == @first_view_id %>
                이전글이 없습니다.
@@ -115,7 +115,7 @@
         </tr>
 
         <tr>
-          <td>
+          <td class="notice_updown">
             <i class="fa fa-chevron-down" aria-hidden="true"></i><strong>다음글</strong>
             <%if @one_request.id == @last_view_id %>
                 다음글이 없습니다.
