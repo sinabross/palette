@@ -54,6 +54,8 @@
     
     .txt_good{color:#ff6600;}
     .txt-bad{color:gray;}
+    
+    .explain_season_result img{width:50px;}
       
     /*후기*/
     .review_area{
@@ -392,7 +394,7 @@
         margin:0 auto;
         padding:20px 10px;
       }
-      .explain_season_result img{width:50px;}
+      
       
       .title_season_result{
         font-weight: bold;
