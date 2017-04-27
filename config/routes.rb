@@ -56,22 +56,24 @@ Rails.application.routes.draw do
  
   
   
-  #제품검토요청
-  get '/admin' => 'home#admin_user'
-  get '/adminadmin' => 'home#admin'  #관리자 페이지
+  #admin 페이지
+  get '/adminadmin' => 'home#admin_user'
   get 'home/admin_reply' #admin_리뷰모아보기
   get 'home/admin_user' #admin_회원모아보기
   get 'home/admin_write'
-  
+  get 'home/admin_feedback'#재검토요청 모아보기
+  get 'home/admin_likes' #찜현황 모아보기
+   
+  #제품 재검토 요청
   get 'home/feedback/:product_num' => "home#feedback"
-  
   post 'home/feedback_submit'
   
-  # 제품 검토요청 모아보기
-  get 'home/admin_likes'
-  #get 'home/detail/:product_num' => "home#detail"
-  #get 'home/detail2/:product_num' => "home#detail2"
+ 
+  #상세페이지
+  #1. 립리스트에서 오는 경우 (선택한 톤이 있을 경우)
   get 'home/detail2/:tone/:product_num' => "home#detail2"
+  #2. 딱히 없을 경우
+  get 'home/detail2/:product_num' => "home#detail2"
   
   #ask for new products
   #get 'home/askfor'
