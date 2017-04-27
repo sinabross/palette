@@ -57,6 +57,7 @@
     
     .explain_season_result img{width:50px;}
       
+    .askfor_edit{color:gray;text-align: center;}  
     /*후기*/
     .review_area{
       border: 1px solid lightgray; 
@@ -170,7 +171,7 @@
       }
       .btn-edit{
         height:40px;
-        width:80px;
+        width:100px;
         line-height:40px;
         color:#56565d;
         font-size:13px;
@@ -178,8 +179,7 @@
         text-align:center;
         background:#ffffff;
         border:2px solid #56565d;
-        float:right;
-        margin-bottom:20px;
+        margin:10px auto;
         display:block;
       }
       .btn-edit:active{
@@ -188,6 +188,7 @@
         border:2px solid #ffa291;
         text-decoration:none;
       }
+      
       .color_intro{
         font-size:12px;
         clear:both;
@@ -532,7 +533,7 @@
       
       .btn-edit{
         height:50px;
-        width:110px;
+        width:130px;
         padding:10px;
         line-height:30px;
         color:#56565d;
@@ -541,8 +542,7 @@
         text-align:center;
         background:#ffffff;
         border:2px solid #56565d;
-        float:right;
-        margin-bottom:20px;
+        margin:10px auto;
         display:block;
       }
       .btn-edit:hover{

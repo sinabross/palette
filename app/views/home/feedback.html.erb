@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container container-up-margin">
     
     <br>
       <div style="background-color:#ffffff;">
         <hr style="border: solid 1.0px;color:#333333">
-           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>질문하기</strong></p>
+           <p align="center" style="margin-bottom:20px; font-size:16px;color:#000000"><strong>재진단 요청</strong></p>
         <hr style="border: solid 1.0px;color:#333333">  
       </div>         
     
@@ -16,7 +16,7 @@
             <div class="media-body">
                 <p>[<%=@product.brand %>] <strong><%=@product.name %></strong></p>
                 <p><%=@product.size %> / <%=@product.price %>원</p>
-                <p><%=@product.season%></p>
+                <p>옅은발색:<%=@product.season_1%>/짙은발색:<%=@product.season_2%></p>
             </div>
         </div>
        
@@ -30,7 +30,7 @@
 
       <div class="form-group">
 
-        <label for="content">궁금하신 점에 대해 자세하게 말씀해주세요 :)</label>
+        <label for="content">제품의 정보 중에 어떤 점에 오류가 있나요?</label>
         <textarea class="form-control" name="content" id="content" rows="10" data-error="내용을 입력해주세요." required></textarea>
         <div class="help-block with-errors"></div>
       </div>

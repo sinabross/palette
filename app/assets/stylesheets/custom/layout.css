@@ -1,6 +1,11 @@
-/*MOBILE & PC 공통*/
+/*공통*/
 
-.no-padding{padding:0;}
+  .no-padding{padding:0;}
+  .container-up-margin{margin-top:100px;}
+  
+@media screen and (max-width:768px){
+  .container-up-margin{margin-top:50px;}
+}
 
 
 /*===HEADER_general===*/
