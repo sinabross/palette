@@ -881,6 +881,20 @@ class HomeController < ApplicationController
     redirect_to :back
   end
   
+  def admin_feedback #admin 재검토요청 모아보기
+    unless user_signed_in?
+      redirect_to "/users/sign_in"
+    end
+    if user_signed_in? && current_user.admin?
+      @review= Feedback.all.order("created_at DESC").paginate(page: params[:page], per_page: 5)
+    elsif user_signed_in? && current_user.admin==nil
+       redirect_to "/"
+      flash[:error] = "접근권한이 없습니다."
+    end
+  
+  #  @asks = Askfor.order('id desc').paginate(page: params[:page], per_page: 5)
+  
+  end
   #=============== admin page =================
   
 
