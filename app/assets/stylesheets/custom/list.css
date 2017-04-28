@@ -6,7 +6,16 @@
       margin-top:10px;
       margin-bottom:20px;
     }
-   
+    .product_wrapper{position:relative;}
+    
+    .img-update {
+      width:60px;
+      position: absolute;
+      top:35px;
+      left:5px;
+      z-index:1;
+    }
+    
     .product-name{
       margin-top:10px;
       margin-bottom:10px;
@@ -173,7 +182,7 @@
       height:460px;
       cursor:pointer;
     }
-
+   
     .product-name{
       margin-bottom:30px;
     }
