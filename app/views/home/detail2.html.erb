@@ -10,7 +10,7 @@
 
       </div>-->
 
-      <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel" style="padding-right:50px; padding-left:50px">
+      <div class="col-md-6 col-xs-12 carousel slide item active" id="carousel-example-generic" data-ride="carousel">
 
 
         <img class="img1 img-thumbnail" width=400 src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=@product.image%>-min.jpg">
@@ -123,72 +123,76 @@
           <% when "default" %>
             <span>&nbsp;</span>
           <% else %>
-            <!--진단결과 시작-->
-            <p class="txt_season_tone"><%= @current_season %></p>
-            <!--진단결과 끝-->
-            
-            <!--발색사진 시작-->
-            <div class="col-md-12 col-xs-12 img_wrist_wrap" style="padding:0;">
-            <% if (@product.season_1 != @product.season_2) && (@current_season == @product.season_1) %>
-              <div class="img_wrist_box">
-                <img class="img_wrist_color" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% elsif (@product.season_1 != @product.season_2) && (@current_season == @product.season_2) %>
-              <div class="img_wrist_box">
-                <img class="img_wrist_color2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% else %>
-              <div class="img_wrist_box2">
-                <img class="img_wrist_color3" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% end %>
-           </div>
-            <!--발색사진 끝-->
-            
-            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
-            <div class="product_info_mobile">
-              <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
-                <div class="panel-body" align="center">
-                  <span style="font-size:12px; text-align:center">
-                  <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+            <div class="wrap_season_result">
+              <!--진단결과 시작-->
+              <p class="txt_season_tone"><%= @current_season %></p>
+              <!--진단결과 끝-->
+              
+              <!--발색사진 시작-->
+              <div class="col-md-12 col-xs-12 img_wrist_wrap" style="padding:0;">
+              <% if (@product.season_1 != @product.season_2) && (@current_season == @product.season_1) %>
+                <div class="img_wrist_box">
+                  <img class="img_wrist_color" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
                 </div>
-              </div>
-              <div class="panel panel-default col-md-4 col-xs-4">
-                <div class="panel-body" align="center">
-                  <span style="font-size:12px; text-align:center">
-                  <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+              <% elsif (@product.season_1 != @product.season_2) && (@current_season == @product.season_2) %>
+                <div class="img_wrist_box">
+                  <img class="img_wrist_color2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
                 </div>
-              </div>
-              <div class="panel panel-default col-md-4 col-xs-4">
-                <div class="panel-body" align="center">
-                  <span style="font-size:12px; text-align:right">
-                  <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
-                </div>
-              </div>
-            </div>
-            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
-            
-            <!--진단결과 설명 시작-->
-            <div class="explain_season_result">
-              <img src="/images/icon_like.png" width="50px">
-              <% if (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
-                <p class="title_season_result">연하게 발라주세요!</p>
-                <p class="txt_season_result">
-                  진하게 바를수록 <%=@product.season_2%>에 가까워지는 제품이에요.
-                </p>
-              <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
-                <p class="title_season_result">진하게 발라주세요!</p>
-                <p class="txt_season_result">
-                  연하게 바를수록 <%=@product.season_1%>에 가까워지는 제품이에요.
-                </p>
               <% else %>
-                <p class="title_season_result">취향에 따라 발라주세요!</p>
-                <p class="txt_season_result">
-                  옅거나 짙게 발라도 <%=@current_season%>에 어울리는 제품이에요.
-                </p>
+                <div class="img_wrist_box2">
+                  <img class="img_wrist_color3" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+                </div>
               <% end %>
-            </div>  
-            <!--진단결과 설명 끝-->
+             </div>
+              <!--발색사진 끝-->
+              
+              <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
+              <div class="product_info_mobile">
+                <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:center">
+                    <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+                  </div>
+                </div>
+                <div class="panel panel-default col-md-4 col-xs-4">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:center">
+                    <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+                  </div>
+                </div>
+                <div class="panel panel-default col-md-4 col-xs-4">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:right">
+                    <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+                  </div>
+                </div>
+              </div>
+              <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
+              
+              <!--진단결과 설명 시작-->
+              <div class="explain_season_result">
+                <img src="/images/icon_like.png" width="50px">
+                <% if (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
+                  <p class="title_season_result">연하게 발라주세요!</p>
+                  <p class="txt_season_result">
+                    진하게 바를수록 <%=@product.season_2%>에 가까워지는 제품이에요.
+                  </p>
+                <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
+                  <p class="title_season_result">진하게 발라주세요!</p>
+                  <p class="txt_season_result">
+                    연하게 바를수록 <%=@product.season_1%>에 가까워지는 제품이에요.
+                  </p>
+                <% else %>
+                  <p class="title_season_result">취향에 따라 발라주세요!</p>
+                  <p class="txt_season_result">
+                    옅거나 짙게 발라도 <%=@current_season%>에 어울리는 제품이에요.
+                  </p>
+                <% end %>
+              </div>  
+              <!--진단결과 설명 끝-->
+              
+            </div>
+            <!--wrap_season_result end-->
           <% end %>
           
           <!--Good/Bad 시작-->
@@ -750,7 +754,7 @@
     
     @media (max-width: 768px){
       
-      #carousel-example-generic{padding-top:50px;}
+      #carousel-example-generic{padding:100px 50px 0;}
       .page-navigation{
         text-align:right;
         margin: 30px 10px 20px 0px;
@@ -992,11 +996,20 @@
         color:gray;
         font-size:15px;
         padding:15px 50px;
+
       }
       
       .txt_season_evaluation{
         font-size:30px;
         font-family:'Impacted';
+      }
+      
+      .wrap_season_result{
+        display:inline-block;
+        width:100%;
+        border:1px solid #bcbcbc;
+        padding:0 15px;
+        margin-bottom:20px;
       }
       
       .txt_season_tone{
