@@ -123,7 +123,7 @@
           <% when "default" %>
             <span>&nbsp;</span>
           <% else %>
-<<<<<<< HEAD
+
             <div class="wrap_season_result">
               <!--진단결과 시작-->
               <p class="txt_season_tone"><%= @current_season %></p>
@@ -166,50 +166,7 @@
                     <span style="font-size:12px; text-align:right">
                     <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
                   </div>
-=======
-            <!--진단결과 시작-->
-            <p class="txt_season_tone"><%= @current_season %></p>
-            <!--진단결과 끝-->
-            
-            <!--발색사진 시작-->
-            <div class="col-md-12 col-xs-12 img_wrist_wrap">
-            <% if (@product.season_1 != @product.season_2) && (@current_season == @product.season_1) %>
-              <div class="img_wrist_box">
-                <img class="img_wrist_color" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% elsif (@product.season_1 != @product.season_2) && (@current_season == @product.season_2) %>
-              <div class="img_wrist_box">
-                <img class="img_wrist_color2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% else %>
-              <div class="img_wrist_box2">
-                <img class="img_wrist_color3" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
-              </div>
-            <% end %>
-           </div>
-            <!--발색사진 끝-->
-            
-            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
-            <div class="product_info_mobile">
-              <div class="panel panel-default col-md-4 col-xs-4">
-                <div class="panel-body" align="center">
-                  <span>
-                  <img src="/images/product_lip.png"><br><%=@product.pro_type %></span>
-                </div>
-              </div>
-              <div class="panel panel-default col-md-4 col-xs-4">
-                <div class="panel-body" align="center">
-                  <span>
-                  <img src="/images/glitter.png"><br><%=@product.glitter %></span>
-                </div>
-              </div>
-              <div class="panel panel-default col-md-4 col-xs-4">
-                <div class="panel-body" align="center">
-                  <span>
-                  <img src="/images/texture.png"><br><%=@product.texture %></span>
->>>>>>> upstream/master
-                </div>
-              </div>
+               </div>
               <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
               
               <!--진단결과 설명 시작-->
@@ -235,35 +192,10 @@
               <!--진단결과 설명 끝-->
               
             </div>
-<<<<<<< HEAD
             <!--wrap_season_result end-->
-=======
-            <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
-            
-            <!--진단결과 설명 시작-->
-            <div class="explain_season_result">
-              <img src="/images/icon_like.png">
-              <% if (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
-                <p class="title_season_result">연하게 발라주세요!</p>
-                <p class="txt_season_result">
-                  진하게 바를수록 <%=@product.season_2%>에 가까워지는 제품이에요.
-                </p>
-              <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
-                <p class="title_season_result">진하게 발라주세요!</p>
-                <p class="txt_season_result">
-                  연하게 바를수록 <%=@product.season_1%>에 가까워지는 제품이에요.
-                </p>
-              <% else %>
-                <p class="title_season_result">취향에 따라 발라주세요!</p>
-                <p class="txt_season_result">
-                  옅거나 짙게 발라도 <%=@current_season%>에 어울리는 제품이에요.
-                </p>
-              <% end %>
-            </div>  
-            <!--진단결과 설명 끝-->
->>>>>>> upstream/master
           <% end %>
-          
+        </section>
+      
           <!--Good/Bad 시작-->
           <% case @current_season %>
           <% when "default" %>
@@ -335,27 +267,28 @@
             <span>&nbsp;</span>
           <% end %>
           
-          </section>
+          
       </div>
       <!--color_show_wrapper end-->
       
         
-        <section id="detailPccs" class="col-md-12 col-xs-12" >
-          <!--PCCS 시작-->
-          <div class="wrap_pccs">
-            <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.image%>_pccs.jpg">
-          </div>
-          <!--PCCS 끝-->
-          
-          <!-- 수정요청 버튼-->
-          <div>
-            <a href="/home/feedback/<%=@product.image%>" class="btn-detail btn-edit" role="button">
-              <i class="fa fa-question-circle" aria-hidden="true"></i>  재검토 요청
-            </a>
-            <p class="askfor_edit">제품의 정보에 오류가 있는 것 같으면 편하게 말씀해주세요!</p>
-          </div>
-          
-       </section>
+      <section id="detailPccs" class="col-md-12 col-xs-12" >
+        <!--PCCS 시작-->
+        <div class="wrap_pccs">
+          <img class="season_info_img" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/tone/<%=@product.image%>_pccs.jpg">
+        </div>
+        <!--PCCS 끝-->
+        
+        <!-- 수정요청 버튼-->
+        <div>
+          <a href="/home/feedback/<%=@product.image%>" class="btn-detail btn-edit" role="button">
+            <i class="fa fa-question-circle" aria-hidden="true">재검토 요청</i>  
+          </a>
+          <p class="askfor_edit">제품의 정보에 오류가 있는 것 같으면 편하게 말씀해주세요!</p>
+        </div>
+        
+        
+     </section>
        
     </div>
     <!--row detail_PC end-->
@@ -667,7 +600,6 @@
 
 
 
-<<<<<<< HEAD
 <style>
     @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
     @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
@@ -811,7 +743,7 @@
     
     @media (max-width: 768px){
       
-      #carousel-example-generic{padding:100px 50px 0;}
+      #carousel-example-generic{padding:50px 50px 0;}
       .page-navigation{
         text-align:right;
         margin: 30px 10px 20px 0px;
@@ -1540,9 +1472,6 @@
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-=======
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
->>>>>>> upstream/master
 
 <script>
     
