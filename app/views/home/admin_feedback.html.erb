@@ -1,4 +1,4 @@
-<!--admin page : 리뷰모아보기-->
+<!--admin page : 재검토요청 모아보기-->
     <div float="left" style="margin-top:30px; margin-left:30px;">
       <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
       <!--<input type="button" value="리뷰보기" class="button" float="left" onclick="window.location='/home/admin_reply';" >-->
@@ -9,7 +9,7 @@
       <a href="/users/sign_out">관리자 로그아웃</a>
     </div>
     
-    <h3 align="center">리뷰 모아보기</h3>
+    <h3 align="center">재검토 요청 모아보기</h3>
     
       <div class="container container-up-margin">
           <ul class="media-list forum">
@@ -21,9 +21,9 @@
                 <div class="media" style="border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
                     <div class="col-md-12 col-xs-12">
                       <div class="col-md-12" >
-                        <p style="text-align:left;"><a href="/home/detail2/<%=p.num%>"><%=p.num%></a></p>
+                        <p style="text-align:left;"><a href="/home/detail2/<%=p.pro_num%>"><%=p.pro_num%></a></p>
                         <p style="text-align:left;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y/%m/%d/ %H:%M:%S") %></p>
-                        <p style="text-align:left;"><%=p.username%></p>
+                        <p style="text-align:left;"><%=p.emailaddress%></p>
                       </div>
                      
                         <div class="col-md-12 col-xs-12" style="margin-top:20px;">
