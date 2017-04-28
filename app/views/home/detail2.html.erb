@@ -123,6 +123,50 @@
           <% when "default" %>
             <span>&nbsp;</span>
           <% else %>
+<<<<<<< HEAD
+            <div class="wrap_season_result">
+              <!--진단결과 시작-->
+              <p class="txt_season_tone"><%= @current_season %></p>
+              <!--진단결과 끝-->
+              
+              <!--발색사진 시작-->
+              <div class="col-md-12 col-xs-12 img_wrist_wrap" style="padding:0;">
+              <% if (@product.season_1 != @product.season_2) && (@current_season == @product.season_1) %>
+                <div class="img_wrist_box">
+                  <img class="img_wrist_color" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+                </div>
+              <% elsif (@product.season_1 != @product.season_2) && (@current_season == @product.season_2) %>
+                <div class="img_wrist_box">
+                  <img class="img_wrist_color2" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+                </div>
+              <% else %>
+                <div class="img_wrist_box2">
+                  <img class="img_wrist_color3" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product_color/<%=@product.image%>_wrist2-min.jpg">
+                </div>
+              <% end %>
+             </div>
+              <!--발색사진 끝-->
+              
+              <!-- 제품군, 펄유무, 텍스쳐 모바일버전 시작-->
+              <div class="product_info_mobile">
+                <div class="panel panel-default col-md-4 col-xs-4" style="padding:0">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:center">
+                    <img src="/images/product_lip.png" width="30"><br><%=@product.pro_type %></span>
+                  </div>
+                </div>
+                <div class="panel panel-default col-md-4 col-xs-4">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:center">
+                    <img src="/images/glitter.png" width="30"><br><%=@product.glitter %></span>
+                  </div>
+                </div>
+                <div class="panel panel-default col-md-4 col-xs-4">
+                  <div class="panel-body" align="center">
+                    <span style="font-size:12px; text-align:right">
+                    <img src="/images/texture.png" width="30"><br><%=@product.texture %></span>
+                  </div>
+=======
             <!--진단결과 시작-->
             <p class="txt_season_tone"><%= @current_season %></p>
             <!--진단결과 끝-->
@@ -163,9 +207,37 @@
                 <div class="panel-body" align="center">
                   <span>
                   <img src="/images/texture.png"><br><%=@product.texture %></span>
+>>>>>>> upstream/master
                 </div>
               </div>
+              <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
+              
+              <!--진단결과 설명 시작-->
+              <div class="explain_season_result">
+                <img src="/images/icon_like.png" width="50px">
+                <% if (@current_season == "봄 라이트" || @current_season == "여름 라이트" || @current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_1 && @product.season_1 != @product.season_2 %>
+                  <p class="title_season_result">연하게 발라주세요!</p>
+                  <p class="txt_season_result">
+                    진하게 바를수록 <%=@product.season_2%>에 가까워지는 제품이에요.
+                  </p>
+                <% elsif (@current_season == "여름 뮤트" || @current_season == "가을 뮤트" || @current_season == "가을 딥" || @current_season == "겨울 딥" || @current_season == "봄 브라이트" || @current_season == "겨울 브라이트") && @current_season == @product.season_2 && @product.season_1 != @product.season_2 %>
+                  <p class="title_season_result">진하게 발라주세요!</p>
+                  <p class="txt_season_result">
+                    연하게 바를수록 <%=@product.season_1%>에 가까워지는 제품이에요.
+                  </p>
+                <% else %>
+                  <p class="title_season_result">취향에 따라 발라주세요!</p>
+                  <p class="txt_season_result">
+                    옅거나 짙게 발라도 <%=@current_season%>에 어울리는 제품이에요.
+                  </p>
+                <% end %>
+              </div>  
+              <!--진단결과 설명 끝-->
+              
             </div>
+<<<<<<< HEAD
+            <!--wrap_season_result end-->
+=======
             <!-- 제품군, 펄유무, 텍스쳐 모바일버전 끝-->
             
             <!--진단결과 설명 시작-->
@@ -189,6 +261,7 @@
               <% end %>
             </div>  
             <!--진단결과 설명 끝-->
+>>>>>>> upstream/master
           <% end %>
           
           <!--Good/Bad 시작-->
@@ -594,7 +667,882 @@
 
 
 
+<<<<<<< HEAD
+<style>
+    @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+    
+    h4 {font-family: 'Hanna';}
+
+    .page-navigation>a{
+      color:#56565d;
+    }
+    .partner_name:hover{
+      text-decoration: none;
+    }
+    .season_info{
+      font-family:'Hanna';
+      font-weight:bold;
+      text-align:center;
+      display:inline-block;
+    }
+    .txt_season_info{
+      color:gray;
+      font-weight:200;
+      font-family:'Nanum Gothic';
+      font-size:13px;
+    }
+    a.like{
+      color:red;
+      text-decoration:none;
+    }
+    a.like:hover{
+      color:red;
+      text-decoration:none;
+    }
+    a.like:active{
+      color:red;
+      text-decoration:none;
+    }
+    
+    /*후기*/
+    .review_area{
+      border: 1px solid lightgray; 
+      border-radius: 3px;
+      padding:10px; 
+      background-color:#ffffff;
+      margin:15px 0px;
+    }
+    .review_username{
+      color:#ff6666;
+    }
+    .btn_review_action{
+      color:gray;
+      background-color:#ffffff;
+      margin-top:20px;
+      font-weight:bold;
+    }
+    .write_review{
+      background-color:#e4e4e4;
+      margin-top:80px;
+    }
+    .review_submit{
+      display:inline-block;
+      background-color:gray;
+      border-radius:5px;
+      width:20%;
+      padding:5px;
+      margin:10px 0px;
+    }
+    a.review_submit{
+      text-align:center;
+      text-decoration:none;
+      color:white;
+    }
+    a.review_submit:hover{
+      text-decoration:none;
+    }
+    input#counter{
+      background-color:#e4e4e4;
+      text-align:right;
+      width:100%;
+      margin-top:5px;
+    }
+    .filebox label {
+        display: inline-block;
+        padding: 5px 0px;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #fdfdfd;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        width:40%;
+        max-width:100%;
+        margin-bottom:20px;
+    }
+
+    .filebox input[type="file"] {  /* 파일 필드 숨기기 */
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
+    }
+    
+    .picture p{
+      font-weight:bold;
+      color:#919191;
+    } 
+    
+     .picture img {
+        width:130px;
+        height:130px;
+    }
+     .review_img{
+       display:block;
+       width:80%;
+       margin:0 auto;
+     }
+
+     .line_separate{
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        display: inline-block;
+        width: 5px;
+        height: 100%;
+        background: white;
+     }
+     
+     #detailNotice{
+       display:block;
+       width:100%;
+       margin:0 auto;
+     }
+
+    
+    @media (max-width: 768px){
+      
+      #carousel-example-generic{padding:100px 50px 0;}
+      .page-navigation{
+        text-align:right;
+        margin: 30px 10px 20px 0px;
+      }
+      .btn-edit{
+        height:40px;
+        width:80px;
+        line-height:40px;
+        color:#56565d;
+        font-size:13px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:active{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:12px;
+        clear:both;
+        text-align:left;
+        border:1px solid #56565d;
+        margin-bottom:50px;
+      }
+      .color_intro>h4{
+        font-weight:bold;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
+      }
+      .color-image{
+        display:inline;
+        width:100%;
+        height:100%;
+      }
+      /*제품 상세페이지*/
+      .panel-body{
+        padding:10px;
+      }
+
+      /*전문가 코멘트 부분*/
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding:10px;
+        margin:0 10px 0 10px; 
+        word-break:break-all;
+        white-space: pre-line;
+        display:inline-block;
+        font-size:20px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 7px 21px 7px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -7px;
+        left: -16px;
+        top: 50%;
+
+      }
+      .partner_comments_header{
+        text-align:center;
+        margin-bottom:30px;
+      }
+      .partner_comments_header>h3{
+        
+        font-family:'Hanna';
+        font-size:20px;
+        font-weight:bold;
+        display:inline-block;
+      }
+      .partner_comments_header>h3>p{
+        font-size:11px;
+      }
+      .comment_icon{
+        display:inline-block;
+        font-size:20px;
+        color:#ffa291;
+        margin-left:10px;
+      }
+      .partner_profile{
+        
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:14px;
+        margin-top:10px;
+
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:80px;
+        height:80px;
+        display:inline-block;
+      }
+      .product_info{
+        display:none;
+      }
+     .season_PC{
+        display:none;
+      }
+      .season_info{
+      font-family:'Hanna';
+      font-weight:bold;
+      font-size:19px;
+      text-align:center;
+      display:inline-block;
+    }
+       /*img.lip_img{
+        width:30px;
+        height:30px;
+        margin-bottom:50px;
+      }*/
+      .season_info_img{
+        width:100%;
+        height:auto;
+        margin-bottom:30px;
+
+      }
+      .color_show_wrapper{
+        text-align: center;
+      }
+      .color_show{
+        /*height:312px;*/
+        width:100%;
+        margin:auto;
+        display:block;
+      }
+      .color_chip{
+        width:285px;
+        height:70px;
+        margin:auto;
+        margin-top:10px;
+        margin-bottom:30px;
+      }
+      .color_show2{
+        height:300px;
+        width:100%;
+        display:block;
+        margin:3px 0px 50px 0px;
+      }
+      p.color_show_explain{
+        text-align:center;
+        padding:50px 30px;
+        border:2px solid #6e6e6e;
+        border-radius:3px;
+        height:auto;
+        width:100%;
+        display:block;
+        margin:20px auto;
+        margin-bottom:20px;
+        font-size:12px;
+      }
+      p.color_show_explain img{
+        width:30px;
+        height:30px;
+        margin-bottom:5px;
+        margin-right:5px;
+        display:inline-block;
+        
+      }
+      p.color_show_explain .explain_notice{
+        font-size:20px;
+        font-weight:bold;
+        display:inline-block;
+        border-bottom:2px solid #6e6e6e;
+        padding:0px 50px 20px;
+      }
+      p.color_show_explain .explain_title{
+        font-size:15px;
+        font-weight:700;
+        margin-top:40px;
+        margin-bottom:10px;
+        display:block;
+      }
+      p.color_show_explain .explain_content{
+        /*color:gray;*/
+        font-size:12px;
+        margin-right:8px;
+      }
+      
+      .box_season_result {
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:10px 0;
+        text-align:center;
+      }
+      
+       #detailContent{
+        display:inline-block;
+        width:100%;
+        /*padding:15px 15px 0 15px;*/
+        margin:0 auto 15px;
+        /*border:1px solid #bcbcbc;*/
+      }
+      
+      .explain_season_result{
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:20px 10px;
+      }
+      
+      .title_season_result{
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 15px;
+      }
+      
+      .txt_season_result{
+        color:gray;
+        font-size:15px;
+        padding:15px 50px;
+
+      }
+      
+      .txt_season_evaluation{
+        font-size:30px;
+        font-family:'Impacted';
+      }
+      
+      .wrap_season_result{
+        display:inline-block;
+        width:100%;
+        border:1px solid #bcbcbc;
+        padding:0 15px;
+        margin-bottom:20px;
+      }
+      
+      .txt_season_tone{
+        display:inline-block;
+        font-family:'Hanna';
+        font-weight:bold;
+        font-size:20px;
+        margin:15px;
+      }
+      
+      .img_wrist_wrap{
+        display:inline-block;
+        width:100%;
+        height:auto;
+        margin-bottom:10px;
+      }
+      
+      .img_wrist_box{
+        position: relative;
+        width: 100%;
+        padding-top: 50%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_box2{
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_color, .img_wrist_color3{
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	width: 100%;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
+      .img_wrist_color2{
+        position: absolute;
+        bottom: 0;
+      	left: 0;
+      	right: 0;
+      	width: 100%;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
+      .btn-buy{
+        height:38px;
+        width:100px;
+        line-height:30px;
+        color:#ffffff;
+        font-size:14px;
+        text-align:center;
+        background:#ffaaa3;
+        border-radius:3px;
+        margin-bottom:20px;
+        padding:5px;
+        display:inline-block;
+      }
+      .btn-buy-bottom{
+        height:50px;
+        width:200px;
+        line-height:40px;
+        font-size:15px;
+        display:block;
+        margin:30px auto;
+        margin-bottom:0px;
+
+      }
+
+      .fa-krw{
+        color:#ffaaa3;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size:10px;
+        padding:5px;
+        margin:0 3px;
+      }
+      .divide_inPC{
+        display:none;
+      }
+      .detail_mobile{
+        padding-right:30px;
+        padding-left:30px;
+      }
+
+      /*후기 부분*/
+
+      .review_section{
+        clear:both;
+      }
+      div#btn_review_delete{
+        text-align:right;
+      }
+      div#btn_review_edit{
+        text-align:left;
+      }
+      
+      
+      
+      
+    } /*max-width 768px ends*/
+
+    @media (min-width: 768px){
+      .page-navigation{
+        text-align:right;
+        margin-right:45px;
+
+      }
+      body{
+        margin-top:60px;
+        height:auto;
+      }
+      .detail_PC{
+        padding-right:150px;
+        padding-left:150px;
+      }
+      .btn-edit{
+        height:50px;
+        width:110px;
+        padding:10px;
+        line-height:30px;
+        color:#56565d;
+        font-size:15px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        float:right;
+        margin-bottom:20px;
+        display:block;
+      }
+      .btn-edit:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+      }
+      .color_intro{
+        font-size:14px;
+        clear:both;
+        text-align:left;
+        border:1px solid #56565d;
+        margin-bottom:50px;
+      }
+      .color_intro>h4{
+        font-weight:bold;
+      }
+      .color_intro>ul{
+        list-style: disc;
+      }
+      .color_intro>ul>li{
+        padding:10px;
+      }
+      .color-image{
+        display:inline;
+        width:55%;
+        height:40%;
+        margin-bottom:20px;
+      }
+      /*전문가 코멘트 부분*/
+      .partner_comments_header{
+        text-align:center;
+        margin-bottom:30px;
+      }
+      .partner_comments_header>h3{
+        
+        font-family:'Hanna';
+        font-weight:bold;
+        display:inline-block;
+        
+      }
+      .comment_icon{
+        display:inline-block;
+        font-size:30px;
+        color:#ffa291;
+        margin-left:10px;
+      }
+      .partner_comment {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        display:inline-block;
+        font-size:28px;
+        font-family: 'Nanum Brush Script', serif;
+        text-align:center;
+        padding: 0px;
+        background: #ffe6e6;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      .partner_comment:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 12px 17px 12px 0;
+        border-color: transparent #ffe6e6;
+        display: block;
+        width: 0;
+        z-index: 1;
+        margin-top: -12px;
+        left: -16px;
+        top: 50%;
+
+      }
+
+      .partner_profile{
+
+        text-align: center;
+      }
+      .partner_name{
+        display:block;
+        color:#000;
+        font-size:12px;
+        margin-top:20px;
+      }
+
+      .partner_img{
+        border-radius:100%;
+        width:80px;
+        height:80px;
+        display:inline-block;
+      }
+
+      /*제품 상세 페이지*/
+
+      .product_info_mobile{
+        display: none;
+      }
+      .product_info .panel{
+        margin-top:30px;
+        margin-bottom:40px;
+      }
+      .btn-buy{
+        height:38px;
+        width:120px;
+        line-height:30px;
+        color:#ffffff;
+        font-size:15px;
+        text-align:center;
+        background:#ffaaa3;
+        border-radius:3px;
+        margin-bottom:20px;
+        padding:5px;
+        display:inline-block;
+        transition: all 0.4s;
+      }
+      .btn-buy.btn-buy-bottom{
+        height:50px;
+        width:300px;
+        line-height:40px;
+        font-size:17px;
+        display:block;
+        margin:30px auto;
+        margin-bottom:0px;
+
+      }
+      .btn-buy:hover{
+        text-decoration:none;
+        color:#ffffff;
+        background-color:#d74b4b;
+      }
+
+      .fa-krw{
+        color:#ffaaa3;
+        background-color: #ffffff;
+        border-radius: 100%;
+        font-size:10px;
+        padding:5px;
+        margin:0 3px;
+      }
+      .season_info{
+        margin-bottom:20px;
+        margin-top:20px;
+      }
+     
+      .season_info_img{
+        width:650px;
+        height:auto;
+        margin:30px auto;
+        display:block;
+      }
+      .season_mobile{
+        font-size:35px;
+      }
+      .color_show_wrapper{
+        text-align: center;
+        margin-top:50px;
+      }
+      .color_show{
+        height:650px;
+        width:650px;
+        margin:auto;
+        display:block;
+      }
+      
+      .color_show2{
+        height:590px;
+        width:590px;
+        display:block;
+        margin:50px auto;
+      }
+      p.color_show_explain{
+        text-align:center;
+        padding:100px 30px;
+        border:2px solid #6e6e6e;
+        border-radius:3px;
+        height:auto;
+        width:650px;
+        display:block;
+        margin:0 auto;
+        font-size:15px;
+      }
+      p.color_show_explain img{
+        width:40px;
+        height:40px;
+        margin-bottom:5px;
+        margin-right:5px;
+        display:inline-block;
+        
+      }
+      p.color_show_explain .explain_notice{
+        font-size:25px;
+        font-weight:bold;
+        display:inline-block;
+        border-bottom:2px solid #6e6e6e;
+        padding:0px 150px 30px;
+      }
+      p.color_show_explain .explain_title{
+        font-size:20px;
+        font-weight:700;
+        margin-top:50px;
+        margin-bottom:10px;
+        display:block;
+      }
+      p.color_show_explain .explain_content{
+        /*color:gray;*/
+        font-size:14px;
+        margin-right:8px;
+      }
+
+      /*img.lip_img{
+        margin-bottom:80px;
+      }*/
+
+      .box_season_result {
+        display:inline-block;
+        width:100%;
+        margin:0 auto;
+        padding:10px 0;
+        text-align:center;
+      }
+
+      #detailContent{
+        display:inline-block;
+        width:650px;
+        /*padding:15px;*/
+        margin:50px auto;
+        /*border:1px solid #6b6b6b;*/
+      }
+      
+      .explain_season_result{
+        display:inline-block;
+        width:100%;
+        margin:20px auto;
+        padding:20px;
+      }
+      
+      .title_season_result{
+        font-weight:bold;
+        font-size:30px;
+        margin-top:20px;
+      }
+      
+      .txt_season_result{
+        color:gray;
+        font-size:16px;
+        padding:20px;
+      }
+
+      .txt_season_evaluation{
+        font-size:50px;
+        font-family:'Impacted';
+      }
+      
+      .txt_season_tone{
+        display:inline-block;
+        font-family:'Hanna';
+        font-weight:bold;
+        font-size:30px;
+        margin:20px;
+      }
+      
+      .img_wrist_wrap{
+        display:inline-block;
+        width:100%;
+        height:auto;
+        margin-bottom:10px;
+      }
+      
+      .img_wrist_box{
+        position: relative;
+        width: 100%;
+        padding-top: 50%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_box2{
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+      }
+      
+      .img_wrist_color, .img_wrist_color3{
+        position: absolute;
+      	top: 0;
+      	left: 0;
+      	right: 0;
+      	width: 650px;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+      
+      .img_wrist_color2{
+        position: absolute;
+        bottom: 0;
+      	left: 0;
+      	right: 0;
+      	width: 650px;
+      	transform: rotate(90deg);
+       -ms-transform: rotate(90deg); // IE 9 이상에서 사용
+       -webkit-transform: rotate(90deg); // 사파리, 크롬, 오페라 브라우저 사용
+      }
+
+      /*후기 부분*/
+
+      .review_section{
+        clear:both;
+      }
+      .review_area{
+        margin:15px auto;
+        width:80%;
+      }
+       .review_img{
+       display:block;
+       width:40%;
+       margin:0 auto;
+     }
+     div#btn_review_delete{
+        text-align:right;
+      }
+      div#btn_review_edit{
+        text-align:right;
+      }
+      
+      
+    } /*min-width :768px ends*/
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+=======
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+>>>>>>> upstream/master
 
 <script>
     

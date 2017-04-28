@@ -314,6 +314,10 @@
   }
 
   @media (max-width:767px){
+    .title-web{
+      margin-left: 15px
+    }
+    
     .list-display {
         margin-top:50px;
         padding-right: 5px;
@@ -322,7 +326,7 @@
 
     .product-container{
       border: 1px solid lightgray;
-      height:135px;
+      height:140px;
     }
     .product-container:active{
       border:1px solid #ffa291;
@@ -340,8 +344,8 @@
 
     .example{
     margin-top:7px;
-    width: 94px;
-    height: 94px;
+    width: 100px;
+    height: 100px;
     }
 
     .page-navigation{
