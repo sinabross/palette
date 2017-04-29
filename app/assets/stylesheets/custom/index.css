@@ -193,6 +193,10 @@
     display:inline;
 
   }
+  
+  .content-section-d, .content-section-f{
+    background:rgb(251, 235, 235);
+  }
 
 @media(max-width:767px) {
     .intro-message {
@@ -244,7 +248,7 @@
     /*전문가 소개 페이지*/
 
     .content-section-d{
-      padding-top:10px;
+      /*padding-top:10px;*/
       padding-bottom:20px;
       border-top: 1px solid #e7e7e7;
     }
@@ -345,6 +349,79 @@
     font-weight:bold;
   }
 
+/* langding page start */
+   #landingPageFirst, #landingPageThird{
+     background:rgb(251, 235, 235);
+   }
+   
+   #landingPageFifth{
+     background:gray;
+   }
+   
+  
+   .wrap_landing_section{
+     margin:60px auto;
+   }
+   
+   .box_landing_section{
+     width:50%;
+     float: left;
+     margin:15px auto;
+   }
+   
+   .wrap_colortable{
+     width:80%;
+     margin:0 auto;
+   }
+   
+   .wrap_landing_img{
+    width: 30%;
+    margin: 0 auto;
+   }  
+  
+   .img_pantone, .img_kiss, .img_lipstick{
+     display:inline-block;
+     width:100%;
+     margin:0 auto;
+   }
+   
+   .img_colortable{
+     display:inline-block;
+     width:100%;
+   }
+   
+   .landing_title{
+     text-align:center;
+     margin:30px auto;
+     font-weight:bold;
+     font-size:20px;
+   }
+   
+   .landing_content{
+     text-align:center;
+   }
+   
+   .landing_season{
+     text-align:center;
+     font-weight: bold;
+     font-size:16px;
+     margin:15px auto;
+   }
+   
+   .landing_tone{
+     font-weight: bold;
+     font-size:13px;
+     margin:15px 20px;
+     height:30px;
+   }
+   
+   .landing_comment{
+     margin:15px;
+   }
+
+  /* landing page ends */
+
+
 
 } /*media max-width 767px*/
 
@@ -417,7 +494,7 @@
       font-size:17px;
     }
     .content-section-d{
-      padding-top:10px;
+      /*padding-top:10px;*/
       padding-bottom:20px;
       border-top: 1px solid #e7e7e7;
     }
@@ -486,6 +563,80 @@
   }
 
   /*palette story ends*/
+  
+  
+  /* langding page start */
+   #landingPageFirst, #landingPageThird{
+     background:rgb(251, 235, 235);
+   }
+   
+   #landingPageFifth{
+     background:gray;
+   }
+   
+  
+   .wrap_landing_section{
+     width:80%;
+     margin:60px auto;
+   }
+   
+   .box_landing_section{
+     width:25%;
+     float: left;
+     margin:15px auto;
+   }
+   
+   .wrap_colortable{
+     width:80%;
+     margin:0 auto;
+   }
+   
+   .wrap_landing_img{
+    width:15%;
+    margin:0 auto;
+   }  
+  
+   .img_pantone, .img_kiss, .img_lipstick{
+     display:inline-block;
+     width:100%;
+     margin:0 auto;
+   }
+   
+   .img_colortable{
+     display:inline-block;
+     width:100%;
+   }
+   
+   .landing_title{
+     text-align:center;
+     margin:30px auto;
+     font-weight:bold;
+     font-size:25px;
+   }
+   
+   .landing_content{
+     text-align:center;
+   }
+   
+   .landing_season{
+     text-align:center;
+     font-weight: bold;
+     font-size:18px;
+     margin:15px auto;
+   }
+   
+   .landing_tone{
+     font-weight: bold;
+     font-size:14px;
+     padding:30px;
+   }
+   
+   .landing_comment{
+     margin:15px;
+   }
+
+  /* landing page ends */
+  
 
   /*제품 요청 */
   table{

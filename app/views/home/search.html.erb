@@ -72,8 +72,11 @@
 <% @result.each_slice(3) do |slice| %>
   <div class="row">
       <% slice.each do |w|%>
-        <div class="col-md-4 col-xs-12" style="margin-top:-10px">
+        <div class="col-md-4 col-xs-12 product_wrapper">
           <br>
+          <%#if w.날짜칼럼명 + 7.day>Time.current%>
+            <%#img class="img-update" src="/images/update.png">
+          <%#end%>
           <div class="product-container" onClick="location.href='/home/detail2/<%=@current_season%>/<%=w.image%>'">
             <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
             <a class="col-md-12 col-xs-4" href="/home/detail2/<%=@current_season%>/<%=w.image%>">
@@ -289,7 +292,7 @@
   }
   .product-container{
     border: 1px solid lightgray;
-    height:130px;
+    height:140px;
   }
 
   .product-container:active{
