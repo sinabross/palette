@@ -182,6 +182,7 @@
         border:2px solid #56565d;
         margin:10px auto;
         display:block;
+        float:none;
       }
       .btn-edit:active{
         color:#ffa291;
