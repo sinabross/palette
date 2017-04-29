@@ -193,6 +193,10 @@
     display:inline;
 
   }
+  
+  .content-section-d, .content-section-f{
+    background:rgb(251, 235, 235);
+  }
 
 @media(max-width:767px) {
     .intro-message {
