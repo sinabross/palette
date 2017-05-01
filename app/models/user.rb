@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true 
   validates :username, presence: true 
   validates :username, uniqueness: true
-  validates :birthday, presence: true
+ # validates :birthday, presence: true
   
   acts_as_voter  # 찜하기 되게 하기 위한 것
   
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
         user.email = auth.info.email
         user.name = auth.info.name
         user.username= auth.info.name
-        user.birthday= Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+       # user.birthday= Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
         user.password = Devise.friendly_token[0,20]
       end
   end
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
          user.email = data["email"] if user.email.blank?
          user.name = data["name"] if user.name.blank?
          user.username = data["name"] if user.username.blank?
-         user.birthday = data["birthday"] if user.birthday.blank?
+        # user.birthday = data["birthday"] if user.birthday.blank?
       end
      end
   end
