@@ -27,12 +27,22 @@
       font-family:'Nanum Gothic';
       font-size:13px;
     }
-    .like-wrapper{text-align:center;margin-top:10px;}
-    .like-wrapper p {display:inline-block;font-size:25px;}
+    .like-wrapper{text-align:center;margin:30px auto;}
+    .like-wrapper p {display:inline-block;font-size:25px;width:100px;}
+    
+    .like-wrapper:last-child{
+      margin:0 auto;
+    }
+    
+    #fake-like{
+      color:red;
+      font-size:2em !important;
+    }
     
     a.like{
       color:red;
       text-decoration:none;
+      font-size:2em !important;
     }
     a.like:hover{
       color:red;
@@ -57,7 +67,8 @@
     
     .explain_season_result img{width:50px;}
       
-    .askfor_edit{color:gray;text-align: center;}  
+    .askfor_edit{color:gray;text-align: center;font-size:13px;}
+    
     /*후기*/
     .review_area{
       border: 1px solid lightgray; 
@@ -159,6 +170,10 @@
        display:block;
        width:100%;
        margin:0 auto;
+     }
+     
+     .wrap_askfor_edit{
+       margin:30px auto;
      }
 
     
@@ -387,7 +402,7 @@
         display:inline-block;
         width:100%;
         /*padding:15px 15px 0 15px;*/
-        margin:0 auto 15px;
+        margin:0 auto;
         /*border:1px solid #bcbcbc;*/
       }
       
@@ -408,12 +423,20 @@
       .txt_season_result{
         color:gray;
         font-size:15px;
-        padding:15px 50px;
+        padding:15px;
       }
       
       .txt_season_evaluation{
         font-size:30px;
         font-family:'Impacted';
+      }
+      
+      .wrap_season_result{
+        display:inline-block;
+        width:100%;
+        border:1px solid #bcbcbc;
+        padding:0 15px;
+        margin-bottom:20px;
       }
       
       .txt_season_tone{
@@ -529,6 +552,15 @@
         text-align:right;
         margin-right:45px;
 
+      }
+      
+      body{
+        margin-top:60px;
+        height:auto;
+      }
+      .detail_PC{
+        padding-right:150px;
+        padding-left:150px;
       }
       
       .divide_inPC{border:solid 1px lightgray;}
@@ -709,8 +741,7 @@
         margin-top:50px;
       }
       .color_show{
-        height:650px;
-        width:650px;
+        width:100%;
         margin:auto;
         display:block;
       }
@@ -775,9 +806,9 @@
       #detailContent{
         display:inline-block;
         width:650px;
-        /*padding:15px;*/
-        margin:50px auto;
-        /*border:1px solid #6b6b6b;*/
+        padding:15px;
+        margin:0 auto;
+        border:1px solid #bcbcbc;
       }
       
       .explain_season_result{

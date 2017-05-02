@@ -130,6 +130,30 @@
     text-align: center;
     font-weight: bold;
   }
+  
+  .content-section-d{
+    background:rgb(251, 235, 235);
+  }
+  
+  .content-section-e{
+    margin-bottom:30px;
+  }
+
+  .content-section-f{
+    background:url("/images/story.png") no-repeat;
+    background-size:100% 100%;
+  }
+  
+  .landing_cta_title{
+    color:#fff;
+    text-align:center;
+    margin:100px auto 50px;
+  }
+
+  .season-btn-wrapper{
+    text-align: center;
+    margin:50px auto 100px;
+  }
 
   /* PCI 컬러 분류 과정 소개 */
   .content-section-c {
@@ -194,10 +218,7 @@
 
   }
   
-  .content-section-d, .content-section-f{
-    background:rgb(251, 235, 235);
-  }
-
+  
 @media(max-width:767px) {
     .intro-message {
       position:relative;
@@ -207,8 +228,9 @@
     .intro-hooking{
       font-size:18px;
       margin-bottom:70px;
+      line-height: 1.3em;
     }
-
+    
     ul.intro-social-buttons > li {
       display: block;
       margin-bottom: 20px;
@@ -350,17 +372,9 @@
   }
 
 /* langding page start */
-   #landingPageFirst, #landingPageThird{
-     background:rgb(251, 235, 235);
-   }
    
-   #landingPageFifth{
-     background:gray;
-   }
-   
-  
    .wrap_landing_section{
-     margin:60px auto;
+     margin:40px auto ;
    }
    
    .box_landing_section{
@@ -401,6 +415,11 @@
      text-align:center;
    }
    
+   .content-second{
+     font-size:18px;
+     
+   }
+   
    .landing_season{
      text-align:center;
      font-weight: bold;
@@ -428,7 +447,10 @@
 
 
 @media(min-width:767px) {
-
+    
+    .intro-hooking-mobile{
+      display:none;
+    }
 
     .btn-list:hover{
       text-decoration:none;
@@ -566,18 +588,20 @@
   
   
   /* langding page start */
-   #landingPageFirst, #landingPageThird{
-     background:rgb(251, 235, 235);
-   }
-   
-   #landingPageFifth{
-     background:gray;
-   }
-   
+  
+    #landingPageSecond, #landingPageThird, #landingPageFourth{
+      float:left;
+      width:33%;
+      margin:0 auto;
+    }
   
    .wrap_landing_section{
      width:80%;
      margin:60px auto;
+   }
+   
+   .wrap_landing_section:last-child{
+     width:100%;
    }
    
    .box_landing_section{
@@ -592,8 +616,11 @@
    }
    
    .wrap_landing_img{
-    width:15%;
+    width:40%;
+    height:160px;
     margin:0 auto;
+    line-height: 150px;
+    vertical-align: middle;
    }  
   
    .img_pantone, .img_kiss, .img_lipstick{
@@ -611,11 +638,16 @@
      text-align:center;
      margin:30px auto;
      font-weight:bold;
-     font-size:25px;
+     font-size:20px;
    }
    
    .landing_content{
      text-align:center;
+   }
+   
+   .content_second{
+     font-size:15px;
+     font-weight:bold;
    }
    
    .landing_season{
