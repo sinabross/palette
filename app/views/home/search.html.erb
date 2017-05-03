@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="searchContainer">
 <!-- if there is no search result, show this message-->
 <% if @result.blank? && @result2.blank? %>
 
@@ -80,9 +80,12 @@
           <div class="product-container" onClick="location.href='/home/detail2/<%=@current_season%>/<%=w.image%>'">
             <!--모바일화면에서 사진오른쪽에 제품명,브랜드 뜨도록 col-xs-5 추가, 큰화면에서도 오른쪽에 떠서 col-md-12도 추가 -->
             <a class="col-md-12 col-xs-4" href="/home/detail2/<%=@current_season%>/<%=w.image%>">
-                <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.image%>-min.jpg"
+                <% if w.image.include?(" ") || w.image == nil %>
+                  <img class="example" src="/images/img_no_image.jpg" alt="이미지를 준비중입니다.">
+                <% else %>
+                  <img class="example" src="https://s3.ap-northeast-2.amazonaws.com/palette160829111/product/<%=w.image%>-min.jpg"
                      alt="<%=w.name%>" > <!-- 큰화면,모바일화면에서 사진사이즈 작아서 조정함-->
-
+                <% end %>
             </a>
 
             <div class="col-md-12 col-xs-8"> <!-- 모바일화면에서 제품밑에 가격,톤이 없고 사진밑에있어서 p태그를 span태그로 바꿈 -->
@@ -223,6 +226,10 @@
   /* 제품정보 라벨 끝 */
 
 @media (min-width: 768px) {
+  #searchContainer{
+    margin-top:80px;
+  }
+  
   .mobilesearch{
     margin-top:50px;
     margin-bottom:20px;
@@ -275,6 +282,10 @@
 
   
 @media (max-width:767px){
+  #searchContainer{
+    margin-top:50px;
+  }
+  
   .mobilesearch{
     margin-top:20px;
   }

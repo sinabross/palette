@@ -186,31 +186,31 @@ class HomeController < ApplicationController
 
     #필터 검색
 
-    @list = Lip.where(nil).order('brand').paginate(page: params[:page], per_page: 21) # creates an anonymous scope
+    @list = Lip.where(nil).order('brand').paginate(page: params[:page], per_page: 20) # creates an anonymous scope
 
-    @list = @list.tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 21) if params[:tone].present?
+    @list = @list.tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 20) if params[:tone].present?
 
-    @list = @list.pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21) if params[:pro_type].present?
+    @list = @list.pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
 
-    @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21)if params[:color].present?
+    @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 20)if params[:color].present?
 
-   # @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 21) if params[:texture].present?
+    @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 20) if params[:texture].present?
 
-    @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
+    @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 20) if params[:level].present?
 
     #브랜드 필터(드롭박스) 검색
     
     if params[:brand].present?
       
-    @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 21) 
+    @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 20) 
     
-    @list = @list.brand(params[:brand]).tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 21) if params[:tone].present?
+    @list = @list.brand(params[:brand]).tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 20) if params[:tone].present?
     
-    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 21) if params[:pro_type].present?
+    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
     
-    @list = @list.brand(params[:brand]).color(params[:color]).order('brand').paginate(page: params[:page], per_page: 21) if params[:color].present?
+    @list = @list.brand(params[:brand]).color(params[:color]).order('brand').paginate(page: params[:page], per_page: 20) if params[:color].present?
     
-    @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 21) if params[:level].present?
+    @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 20) if params[:level].present?
 
     end
     
@@ -902,6 +902,7 @@ class HomeController < ApplicationController
 
   def notice  #제품 업데이트 등 공지사항 알리기 위한 게시판
     @notices = Notice.all.order('id desc')
+    @notice_list = @notices.paginate(page: params[:page], per_page:10)
   end
 
   def notice_write

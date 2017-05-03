@@ -28,7 +28,7 @@
       font-size:13px;
     }
     .like-wrapper{text-align:center;margin:30px auto;}
-    .like-wrapper p {display:inline-block;font-size:25px;width:100px;}
+    .like-wrapper p {display:inline-block;font-size:25px;width:80px;}
     
     .like-wrapper:last-child{
       margin:0 auto;
@@ -176,7 +176,6 @@
        margin:30px auto;
      }
 
-    
     @media (max-width: 768px){
       
       #carousel-example-generic{padding:50px 50px 0;}

@@ -13,6 +13,7 @@
                     inner_window: 2, outer_window: 0,
                     :previous_label => '<', :next_label => '>'%>
 <% end %>
+
 <!--찜 목록보기(마이페이지)-->
 <% if @like_list %>
   <%= will_paginate @like_list,
@@ -58,4 +59,11 @@
                           :previous_label => '<', :next_label => '>'%>
   <% end %>
 <%end%>
-  
+
+<!--새소식-->
+<% if @notice_list %>
+  <%= will_paginate @notice_list,
+                    :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
+                    inner_window: 2, outer_window: 0,
+                    :previous_label => '<', :next_label => '>'%>
+<% end %>
