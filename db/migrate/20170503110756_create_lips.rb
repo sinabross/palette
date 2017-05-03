@@ -26,3 +26,4 @@ class CreateLips < ActiveRecord::Migration
     end
   end
 end
+

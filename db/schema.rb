@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424110051) do
+ActiveRecord::Schema.define(version: 20170503110901) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,29 +31,6 @@ ActiveRecord::Schema.define(version: 20170424110051) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 6335bbe7e038c3a6cb1fbbb5b1bdf3b9c34a2675
->>>>>>> upstream/master
-  create_table "all_likes", force: :cascade do |t|
-    t.string   "lips_image",                 null: false
-    t.string   "users_username",             null: false
-    t.integer  "likes",          default: 0, null: false
-    t.integer  "hates",          default: 0, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 67425d972e425a00d99af61fe9d52490a66970d6
->>>>>>> upstream/master
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
@@ -75,7 +52,6 @@ ActiveRecord::Schema.define(version: 20170424110051) do
 
   add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
 
->>>>>>> 7115498c4d3e345f10950edbabd3ed95720701b4
   create_table "eyedbs", force: :cascade do |t|
     t.string   "num"
     t.string   "wc"
@@ -100,8 +76,9 @@ ActiveRecord::Schema.define(version: 20170424110051) do
     t.string   "emailaddress"
     t.string   "pro_num",      default: ""
     t.string   "img_url",      default: ""
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "status",       default: "요청"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -113,24 +90,44 @@ ActiveRecord::Schema.define(version: 20170424110051) do
     t.datetime "updated_at"
   end
 
-  create_table "lipdbs", force: :cascade do |t|
+  create_table "lips", force: :cascade do |t|
     t.string   "num"
-    t.string   "wc"
-    t.string   "season"
-    t.string   "tone"
-    t.string   "brand"
+    t.string   "image"
     t.string   "name"
-    t.integer  "price"
+    t.string   "brand"
+    t.string   "level"
+    t.string   "color"
+    t.string   "wc"
+    t.string   "tone_weak1",              default: " "
+    t.string   "tone_weak2",              default: " "
+    t.string   "tone_strong1",            default: " "
+    t.string   "tone_strong2",            default: " "
+    t.string   "season_1"
+    t.string   "season_2"
+    t.string   "price"
     t.string   "size"
-    t.integer  "zzim",       default: 0
     t.string   "pro_type"
     t.string   "glitter"
     t.string   "texture"
     t.string   "keyword"
-    t.string   "image_url",  default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
+
+  add_index "lips", ["cached_votes_down"], name: "index_lips_on_cached_votes_down"
+  add_index "lips", ["cached_votes_score"], name: "index_lips_on_cached_votes_score"
+  add_index "lips", ["cached_votes_total"], name: "index_lips_on_cached_votes_total"
+  add_index "lips", ["cached_votes_up"], name: "index_lips_on_cached_votes_up"
+  add_index "lips", ["cached_weighted_average"], name: "index_lips_on_cached_weighted_average"
+  add_index "lips", ["cached_weighted_score"], name: "index_lips_on_cached_weighted_score"
+  add_index "lips", ["cached_weighted_total"], name: "index_lips_on_cached_weighted_total"
 
   create_table "notices", force: :cascade do |t|
     t.string   "title"
@@ -138,6 +135,20 @@ ActiveRecord::Schema.define(version: 20170424110051) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "tel"
+    t.string   "address"
+    t.string   "money_name"
+    t.string   "product_brand"
+    t.string   "product_name"
+    t.integer  "product_price"
+    t.integer  "product_number", default: 1
+    t.string   "confirm",        default: "미확정"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "punches", force: :cascade do |t|
@@ -151,6 +162,43 @@ ActiveRecord::Schema.define(version: 20170424110051) do
 
   add_index "punches", ["average_time"], name: "index_punches_on_average_time"
   add_index "punches", ["punchable_type", "punchable_id"], name: "punchable_index"
+
+  create_table "request_comments", force: :cascade do |t|
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "request_replies", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "request_id"
+    t.integer  "group"
+    t.integer  "level"
+    t.string   "img_url",    default: ""
+    t.integer  "hits"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "secret"
+    t.string   "password"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "nickname"
+    t.integer  "group"
+    t.integer  "level"
+    t.string   "img_url",    default: ""
+    t.integer  "hits"
+    t.string   "secret"
+    t.string   "password"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string   "num"
@@ -181,6 +229,7 @@ ActiveRecord::Schema.define(version: 20170424110051) do
     t.string   "uid"
     t.string   "birthday"
     t.boolean  "admin"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

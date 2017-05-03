@@ -26,4 +26,3 @@ class DropLips < ActiveRecord::Migration
     end
   end
 end
-
