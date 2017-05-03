@@ -46,9 +46,15 @@
           </tbody>
         </table>
        </div>
+       
+        <br><br>
+        <!-- pagination -->
+        <%= render :partial => "layouts/partial/pagination" %>
+        <br><br>
+       
         <%if user_signed_in? && current_user.admin !=nil%>
           <a href="/home/admin_write"  class="btn btn-black" role="button">글쓰기</a>
-         <%end%>
+        <%end%>
       </div>
   </div>
 
