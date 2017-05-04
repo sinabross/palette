@@ -1,6 +1,6 @@
-class CreateLips < ActiveRecord::Migration
+class DropLips < ActiveRecord::Migration
   def change
-    create_table :lips do |t|
+    drop_table :lips do |t|
 
       t.string  :num
       t.string  :image
@@ -21,11 +21,9 @@ class CreateLips < ActiveRecord::Migration
       t.string  :glitter
       t.string  :texture
       t.string  :keyword
-      t.string  :update
 
       t.timestamps null: false
     end
   end
 end
-
 

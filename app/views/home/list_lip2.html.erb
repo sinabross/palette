@@ -317,9 +317,9 @@
         <div class="col-md-4 col-xs-12 product_wrapper">
           <br>
             
-            <% if w.update + 7.day>Time.current%>
-              <img class="img-update" src="/images/update.png">
-            <% end %>
+            <%#if w.날짜칼럼명 + 7.day>Time.current%>
+            <%#=img class="img-update" src="/images/update.png">
+            <%#end%>
             <div class="product-container"  onClick="location.href='/home/detail2/<%=@current_season%>/<%=w.image%>'">
               
               <a class="col-md-12 col-xs-4" href="/home/detail2/<%=@current_season%>/<%=w.image%>">
