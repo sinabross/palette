@@ -49,9 +49,9 @@ class HomeController < ApplicationController
     end   
 
     if params[:search]
-      @result = Lip.all.search(@search,@search2,@search3).order("brand").paginate(page: params[:page], per_page: 21)
+      @result = Lip.all.search(@search,@search2,@search3).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 21)
     else
-      @result = Lip.all.order("brand").paginate(page: params[:page], per_page: 21)
+      @result = Lip.all.order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 21)
     end
     
     if params[:tone]
@@ -186,31 +186,31 @@ class HomeController < ApplicationController
 
     #필터 검색
 
-    @list = Lip.where(nil).order('brand').paginate(page: params[:page], per_page: 20) # creates an anonymous scope
+    @list = Lip.where(nil).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) # creates an anonymous scope
 
-    @list = @list.tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 20) if params[:tone].present?
+    @list = @list.tone(params[:tone]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:tone].present?
 
-    @list = @list.pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
+    @list = @list.pro_type(params[:pro_type]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
 
-    @list = @list.color(params[:color]).order('brand').paginate(page: params[:page], per_page: 20)if params[:color].present?
+    @list = @list.color(params[:color]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20)if params[:color].present?
 
-    @list = @list.texture(params[:texture]).order('brand').paginate(page: params[:page], per_page: 20) if params[:texture].present?
+    @list = @list.texture(params[:texture]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:texture].present?
 
-    @list = @list.level(params[:level]).order('brand').paginate(page: params[:page], per_page: 20) if params[:level].present?
+    @list = @list.level(params[:level]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:level].present?
 
     #브랜드 필터(드롭박스) 검색
     
     if params[:brand].present?
       
-    @list = @list.brand(params[:brand]).order('brand').paginate(page: params[:page], per_page: 20) 
+    @list = @list.brand(params[:brand]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) 
     
-    @list = @list.brand(params[:brand]).tone(params[:tone]).order('brand').paginate(page: params[:page], per_page: 20) if params[:tone].present?
+    @list = @list.brand(params[:brand]).tone(params[:tone]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:tone].present?
     
-    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order('brand').paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
+    @list = @list.brand(params[:brand]).pro_type(params[:pro_type]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:pro_type].present?
     
-    @list = @list.brand(params[:brand]).color(params[:color]).order('brand').paginate(page: params[:page], per_page: 20) if params[:color].present?
+    @list = @list.brand(params[:brand]).color(params[:color]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:color].present?
     
-    @list = @list.brand(params[:brand]).level(params[:level]).order('brand').paginate(page: params[:page], per_page: 20) if params[:level].present?
+    @list = @list.brand(params[:brand]).level(params[:level]).order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page: 20) if params[:level].present?
 
     end
     
@@ -753,7 +753,7 @@ class HomeController < ApplicationController
     
     
     #@like_list = current_user.find_liked_items  #이것도 current_user 찜목록인데 pagination이 안되서 아래걸로 함
-    @like_list=current_user.get_up_voted Lip.paginate(page: params[:page], per_page:15)
+    @like_list=current_user.get_up_voted Lip.order(update_date: :desc, brand: :asc).paginate(page: params[:page], per_page:15)
     
     
   end
