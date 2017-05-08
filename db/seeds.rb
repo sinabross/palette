@@ -8,7 +8,7 @@
 
 
  #자연광 DB
-    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170504.xlsx")
+    xlsx_lip = Roo::Excelx.new("xlsx/lipdb170508.xlsx")
     input_lip= xlsx_lip.parse(  num: 'num',
                                 image: 'image',
                                 name: 'name',
@@ -27,7 +27,8 @@
                                 pro_type: 'pro_type',
                                 glitter: 'glitter',
                                 texture: 'texture',
-                                keyword: 'keyword')
+                                keyword: 'keyword',
+                                update_date: 'update_date')
      input_lip.each_with_index do |item, index|
         next if index == 0
         Lip.create(item)

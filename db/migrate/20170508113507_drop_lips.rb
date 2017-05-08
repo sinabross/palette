@@ -21,9 +21,9 @@ class DropLips < ActiveRecord::Migration
       t.string  :glitter
       t.string  :texture
       t.string  :keyword
+      t.string  :update_date
 
       t.timestamps null: false
     end
   end
 end
-
