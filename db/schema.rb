@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20170504140124) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+  create_table "all_likes", force: :cascade do |t|
+    t.string   "lips_image",                 null: false
+    t.string   "users_username",             null: false
+    t.integer  "likes",          default: 0, null: false
+    t.integer  "hates",          default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
     t.string   "name",                    null: false
