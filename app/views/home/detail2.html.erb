@@ -95,7 +95,7 @@
            <div class="row like-wrapper">
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 unlike-button">
                 <%=link_to '', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                    class: "like #{@product.image}_like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
                  <p>찜하기</p>     
               </div>
            </div>
@@ -103,7 +103,7 @@
             <div class="row like-wrapper"> 
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 like-button">
                 <%=link_to '', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                    class: "like #{@product.image}_like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
                  <p>찜하기</p>       
               </div>
             </div>  

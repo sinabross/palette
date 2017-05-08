@@ -1,11 +1,12 @@
 <!--admin page : 재검토요청 모아보기-->
-    <div float="left" style="margin-top:30px; margin-left:30px;">
-      <input type="button" value="회원목록" float="left" class="button" onclick="window.location='/home/admin_user';">
-      <!--<input type="button" value="리뷰보기" class="button" float="left" onclick="window.location='/home/admin_reply';" >-->
-      <input type="button" value="재검토요청" class="button" float="left" onclick="window.location='/home/admin_feedback';" >  
-      <input type="button" value="찜 현황판" class="button" float="left" onclick="window.location='/home/admin_likes';"> 
-      <input type="button" value="문의/건의" class="button" float="left" onclick="window.location='/home/request_list';">
-      <input type="button" value="공지 작성" class="button" float="left" onclick="window.location='/home/admin_write';" >
+    <div class="admin_button_wrapper">
+     <input type="button" value="회원목록" class="button" onclick="window.location='/home/admin_user';">
+     <!--<input type="button" value="리뷰보기" class="button" float="left" onclick="window.location='/home/admin_reply';" >-->
+     <input type="button" value="재검토요청" class="button" onclick="window.location='/home/admin_feedback';" >
+     <input type="button" value="찜 현황판" class="button" onclick="window.location='/home/admin_likes';" >
+     <input type="button" value="문의/건의" class="button" onclick="window.location='/home/request_list';" >
+     <input type="button" value="공지 작성" class="button" onclick="window.location='/home/admin_write';" >
+         
       <a href="/users/sign_out">관리자 로그아웃</a>
     </div>
     
@@ -18,7 +19,7 @@
 
               <li>
                 <!-- 리뷰본 -->
-                <div class="media" style="border: 0px solid lightgray; border-radius: 5px; padding:10px; background-color:#f5f5f5;">
+                <div class="media">
                     <div class="col-md-12 col-xs-12">
                       <div class="col-md-12" >
                         <p style="text-align:left;"><a href="/home/detail2/<%=p.pro_num%>"><%=p.pro_num%></a></p>
@@ -26,12 +27,12 @@
                         <p style="text-align:left;"><%=p.emailaddress%></p>
                       </div>
                      
-                        <div class="col-md-12 col-xs-12" style="margin-top:20px;">
-                          <div class="col-md-9 col-xs-9">내용: <%=p.content %></div> 
-                          <% unless p.img_url.nil? %>
-                            <img class="review_img" src="<%= p.img_url %>">
-                          <% end %>
-                        </div>
+                    <div class="col-md-12 col-xs-12">
+                      <div class="col-md-9 col-xs-9">내용: <%=p.content %></div> 
+                        <% unless p.img_url.nil? %>
+                          <img class="review_img" src="<%= p.img_url %>">
+                        <% end %>
+                      </div>
                     </div>
                 </div>
               </li>
