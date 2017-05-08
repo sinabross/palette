@@ -363,7 +363,7 @@
     line-height: 40px;
     border:1px solid #ffffff;
   }
-  .btn-mainM:active{
+  .btn-mainM:active, .btn-mainM:focus{
     text-decoration: none;
     background-color:rgba(255,255,255,0.1);
     color:#ffa291;
@@ -489,7 +489,7 @@
       line-height: 40px;
       margin:0px 2px 0px 2px;
     }
-    .btn-main:hover{
+    .btn-main:hover,.btn-main:active,.btn-main:focus{
       text-decoration: none;
       background-color:rgba(255,255,255,0.1);
       color:#ffa291;
