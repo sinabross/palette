@@ -8,14 +8,6 @@
     }
     .product_wrapper{position:relative;}
     
-    .img-update {
-      width:60px;
-      position: absolute;
-      top:35px;
-      left:5px;
-      z-index:1;
-    }
-    
     .product-name{
       margin-top:10px;
       font-family: NanumGothic;
@@ -171,6 +163,15 @@
 
 
   @media (min-width: 768px) {
+    
+    .img-update {
+      width:60px;
+      position: absolute;
+      top:35px;
+      left:5px;
+      z-index:1;
+    }
+    
     .list-display {
         margin-top:70px;
       }
@@ -314,6 +315,14 @@
   }
 
   @media (max-width:767px){
+    .img-update {
+      width:60px;
+      position: absolute;
+      top:15px;
+      left:5px;
+      z-index:1;
+    }
+    
     .title-web{
       margin-left: 15px
     }
