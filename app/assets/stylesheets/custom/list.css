@@ -162,9 +162,40 @@
     /* filter button end*/
 
 
+ 
+
+/*검색결과 페이지*/
+
+  .search_result{
+    margin-top:80px;
+    text-align:center;
+  }
+  
+  .btn-ask {
+        height:50px;
+        width:100px;
+        padding:10px;
+        line-height:30px;
+        color:#56565d;
+        font-size:15px;
+        font-weight:bold;
+        text-align:center;
+        background:#ffffff;
+        border:2px solid #56565d;
+        display:block;
+        margin:auto;
+  }
+   .btn-ask:hover{
+        color:#ffa291;
+        background-color: #ffffff;
+        border:2px solid #ffa291;
+        text-decoration:none;
+   }
+
+
   @media (min-width: 768px) {
     
-    .img-update {
+   .img-update {
       width:60px;
       position: absolute;
       top:35px;
@@ -185,6 +216,11 @@
    
     .product-name{
       margin-bottom:30px;
+    }
+    
+    .wrap_product_label{
+      position: absolute;
+      bottom: 10px;
     }
 
     .product_label{
@@ -309,7 +345,11 @@
     
     /* filter button end*/
 
-     
+  /*검색결과*/
+  
+    .search_result{
+      margin-top:100px;
+    }
    
 
   }
@@ -335,11 +375,18 @@
 
     .product-container{
       border: 1px solid lightgray;
-      height:140px;
+      height:135px;
     }
     .product-container:active{
       border:1px solid #ffa291;
     }
+    
+    .wrap_product_label{
+      position: absolute;
+      bottom: 5px;
+      left: 36%;
+    }
+    
     .product_label{
       font-size:11px;
       text-align:center;
@@ -349,7 +396,6 @@
       border-radius:5px;
       margin-bottom:10px;
     }
-
 
     .example{
     margin-top:7px;

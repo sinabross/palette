@@ -28,14 +28,14 @@
 <%
 =end
 %>
-<div class="container" style="margin-top:40px;">
+<div class="container my_palett_wrapper">
     
-    <div class="row" style="margin:30px auto">
+    <div class="row" style="margin:0">
       
-      <div class="col-md-12 col-xs-12" style="padding:0;text-align:center;">
+      <div class="col-md-12 col-xs-12">
       
         
-        <ul class="mypage_nav" style="padding:0;">
+        <ul class="mypage_nav">
           <li>
             <i class="fa fa-heart" aria-hidden="true"></i>
             <a href="/basket">찜한상품</a>
@@ -51,37 +51,41 @@
         </ul>
       </div>
 
-      <div class="content box col-md-12 col-xs-12" id="basket" style="text-align:center;">
+      <div class="content box col-md-12 col-xs-12" id="basket">
         
-         <div class="title-web" style="margin-right:10px;text-align:left;">
+         <div class="title-web">
           <h3>찜한 상품</h3>
           <p>찜해 놓은 상품을 한 눈에 보여드려요</p>
         </div>
-         <hr style="border: 2px solid #38393b">  
+         <hr class="title_deco_line">  
          
         <div class="table">
-          <table class="table">
+          <table class="table_basket">
         
             <thead>
-              <tr style="text-align:center;">
+              <tr>
                <!-- <th class="col-md-1"><input type="checkbox" name="select_all" id="select_all"></th>-->
-                <th class="col-md-2 col-xs-3">사진</th>
+                <!--<th class="col-md-2 col-xs-3">사진</th>
                 <th class="col-md-4 col-xs-4">제품명</th>
                 <th class="col-md-1 hidden-xs">가격</th>
                 <th class="col-md-1 col-xs-3">컬러톤</th>
-                <th class="col-md-1 col-xs-2">삭제</th>
+                <th class="col-md-1 col-xs-2">삭제</th>-->
               </tr>
             </thead>
             <tbody> <!-- 찜제품목록 -->
               <%@like_list.each do |list|%>
                 <form method="post" action="#">
-                  <tr style="font-size:12px;">
+                  <tr>
                   <!--  <td style="padding-top:20px">
                       <input type="checkbox">
                     </td> -->
                     
                     <td class="col-md-2 col-xs-2">
                       <a href="/home/detail2/<%=list.image%>">
+                        <% if list.update_date.to_time + 7.day>Time.current %>
+                          <img class="img-update img-update-in-basket" src="/images/update.png">
+                        <% end %>
+                        
                         <% if list.image.include?(" ") || list.image == nil %>
                           <img src="/images/img_no_image.jpg" alt="이미지를 준비중입니다." style="width:60px">
                         <% else %>
@@ -89,10 +93,30 @@
                         <% end %>
                       </a>
                     </td>
-                    <td class="col-md-5 col-xs-4" style="padding-top:20px;"><a href="/home/detail2/<%=list.image%>" style="color:#000000;">[<%=list.brand%>]<%=list.name%></a></td>
-                    <td class="col-md-1 hidden-xs" style="padding-top:20px"><%=list.price.to_i.floor%>원</td>
-                    <td class="col-md-3 col-xs-4" style="padding-top:20px"><%=list.season_1%>/<br><%=list.season_2%></td>
-                    <td class="col-md-1 col-xs-2" style="padding-top:20px">
+                    <td class="col-md-4 col-xs-5" style="padding-top:20px;">
+                      <a href="/home/detail2/<%=list.image%>" style="color:#000000;">[<%=list.brand%>]<%=list.name%></a>
+                      <span class="basket_price"><%=list.price.to_i.floor%>원 / <%=list.size%></span>
+                    </td>
+                    <td class="col-md-2 hidden-xs" style="padding-top:20px"><%=list.price.to_i.floor%>원 / <%=list.size%></td>
+                    <td class="col-md-3 col-xs-4" style="padding-top:20px">
+                      <div><%=list.season_1%>/<br><%=list.season_2%></div>
+                      <div class="wrap_label_basket">
+                        <%if list.color=="레드"%>
+                          <span class="product_label_color label_red"><%=list.color%></span>
+                        <%elsif list.color=="오렌지"%>
+                          <span class="product_label_color label_orange"><%=list.color%></span>
+                        <%elsif list.color=="핑크"%>
+                          <span class="product_label_color label_pink"><%=list.color%></span>
+                        <%elsif list.color=="베이지"%>
+                          <span class="product_label_color label_beige"><%=list.color%></span>
+                        <%else%>
+                          <span class="product_label_color label_purple"><%=list.color%></span>
+                        <%end%>
+                        
+                        <span class="product_label_texture label_product"><%=list.texture%></span>
+                      </div>
+                    </td>
+                    <td class="col-md-1 col-xs-1" style="vertical-align:middle">
                       <%= link_to image_tag('http://bit.ly/2bEP2Ov',:width => 20, :height => 20), basket_delete_home_path(list.image),
                                                                                         data: { confirm: "삭제 하시겠습니까?" } %>
                     </td>
@@ -112,67 +136,6 @@
   </div><!--/.row-->
 </div> <!--/.container 맨위 -->
            
-<style>
-  .seasons{width:40%; height:40px; border-radius:8px; background-color:CornflowerBlue; color:white; text-align:center; font-size:15px;}
-  th{
-    text-align:center;
-  }
-  .title-web h3 {
-        font-family: 'NanumGothic';
-        font-size: 22px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        color: #38393b;
-    }
-    .title-web p{
-        font-family: NanumGothic;
-        font-size: 14px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        color: #787878;
-    }
-  .btn-black{
-          width:100px;
-          height:40px;
-          font-size:15px;
-          text-align:center;
-          cursor:pointer;
-          color:#000000;
-          background:#333333;
-      }
-  
-  .mypage_nav li{
-    display:inline-block;
-    padding:5px;
-    margin:0 5px;
-    border-radius:5px;
-    
-  }
-  .mypage_nav li:hover{
-    background-color:#ff6666;
-    color:white;
-  }
-  .mypage_nav li a{
-    color:black;
-    text-decoration:none;
-  }
-  .mypage_nav li a:hover{
-    color:white;
-    text-decoration:none;
-  }
-  
-  @media(min-width:768px){
-  
-    .mypage_nav li{
-        padding:10px;
-        margin:0 100px;
-    }
-    
-  }
-</style>
-
 <script>
   $('#select_all').click(function(event) {
     if(this.checked) {

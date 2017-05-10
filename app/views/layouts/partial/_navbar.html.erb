@@ -102,7 +102,9 @@
         
 
         <!-- 햄버거 버튼 닫는 버튼 -->
-        <li class='hidden-web' id="toggle_close" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">▲</li>
+        <li class='hidden-web' id="toggle_close">
+          <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">▲</button>
+        </li>
 
 
       </ul>
@@ -116,7 +118,7 @@
 
     
 <script>
-  $(document).ready(function(){
+$(document).ready(function(){
 
     //팔렛 소개 anchoring
     
@@ -129,9 +131,9 @@
     $(".quick_tabM").click(function(){
       var currentId = $(this).attr('href');
       window.location = currentId;
-      $("#bs-example-navbar-collapse-1").toggle();
     });
+    
 
-  });
+});
   
 </script>

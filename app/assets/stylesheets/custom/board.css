@@ -92,12 +92,34 @@
     text-decoration: none;
     color:#ffa291;
   }
-
-
-
-
-
-
+  
+  /*제품 재진단 요청*/
+  .btn-feedback {
+    height:50px;
+    width:100px;
+    padding:10px;
+    line-height:30px;
+    color:black;
+    font-size:15px;
+    font-weight:bold;
+    text-align:center;
+    background:#ffffff;
+    border:2px solid black;
+    display:block;
+    float:left;
+  }
+  .btn-feedback:hover{
+    color:#ffa291;
+    background-color: #ffffff;
+    border:2px solid #ffa291;
+    text-decoration:none;
+  }
+  .page_title{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .page_title hr{border: solid 1px;color:#333333;}
+  
 /*공지사항 페이지 전체 PC 버전*/
 
   @media screen and (min-width:768px){
