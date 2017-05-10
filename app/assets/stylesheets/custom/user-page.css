@@ -34,8 +34,39 @@
   }
   .img-update.img-update-in-basket{
     width:45px;
-    top:165px;
+    top:115px;
   }
+  
+  .wrap_label_basket{
+    margin:10px 0;
+  }
+  
+  .product_label_color{
+    font-size:9px;
+    text-align:center;
+    display:inline-block;
+    width:35px;
+    padding:3px;
+    border-radius:5px;
+   
+  }
+  
+  .product_label_texture{
+    font-size:9px;
+    text-align:center;
+    display:inline-block;
+    width:46px;
+    padding:3px;
+    border-radius:5px;
+   
+  }
+  
+  .table_basket tbody tr td{
+    border-top:0 !important;
+    border-bottom:1px solid #e7ebee;
+  }
+  
+  
   /*로그인*/
     
     #login {
@@ -177,7 +208,21 @@
     }
   .img-update.img-update-in-basket{
     width:45px;
-    top:150px;
+    top:115px;
     left:50px;
   }  
+  
+  .basket_price{
+    display:none;
+  }
+}
+
+
+ @media (max-width:767px){
+
+.basket_price{
+    display:block;
+    margin:10px;
+  }
+  
 }

@@ -54,7 +54,7 @@
               <p class="product_price">  <%=w.size%> <p class="product_price"> <%=w.price.to_i.floor%>원</p>
             </div>
 
-            <div class="col-md-12 col-xs-8">
+            <div class="col-md-12 col-xs-8 wrap_product_label">
 
               <%if w.color=="레드"%>
                   <span class="product_label label_red"><%=w.color%></span>
@@ -79,9 +79,10 @@
 
 <!--제품 출력 목록2// 당분간 봉인 -->
 
-
+<br>
 <!-- pagination -->
 <%= render :partial => "layouts/partial/pagination" %>
+<br><br><br>
 
 </div>
 

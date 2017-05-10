@@ -6,15 +6,7 @@
       margin-top:10px;
       margin-bottom:20px;
     }
-    .product_wrapper{position:relative; margin-bottom:20px;}
-    
-    .img-update {
-      width:60px;
-      position: absolute;
-      top:35px;
-      left:5px;
-      z-index:1;
-    }
+    .product_wrapper{position:relative;}
     
     .product-name{
       margin-top:10px;
@@ -170,11 +162,12 @@
     /* filter button end*/
 
 
+ 
+
 /*검색결과 페이지*/
 
   .search_result{
     margin-top:80px;
-    margin-bottom:50px;
     text-align:center;
   }
   
@@ -200,7 +193,16 @@
    }
 
 
-@media (min-width: 768px) {
+  @media (min-width: 768px) {
+    
+   .img-update {
+      width:60px;
+      position: absolute;
+      top:35px;
+      left:5px;
+      z-index:1;
+    }
+    
     .list-display {
         margin-top:70px;
       }
@@ -214,6 +216,11 @@
    
     .product-name{
       margin-bottom:30px;
+    }
+    
+    .wrap_product_label{
+      position: absolute;
+      bottom: 10px;
     }
 
     .product_label{
@@ -348,6 +355,14 @@
   }
 
   @media (max-width:767px){
+    .img-update {
+      width:60px;
+      position: absolute;
+      top:15px;
+      left:5px;
+      z-index:1;
+    }
+    
     .title-web{
       margin-left: 15px
     }
@@ -360,11 +375,18 @@
 
     .product-container{
       border: 1px solid lightgray;
-      height:140px;
+      height:135px;
     }
     .product-container:active{
       border:1px solid #ffa291;
     }
+    
+    .wrap_product_label{
+      position: absolute;
+      bottom: 5px;
+      left: 36%;
+    }
+    
     .product_label{
       font-size:11px;
       text-align:center;
