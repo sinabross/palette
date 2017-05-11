@@ -32,7 +32,7 @@
     color:white;
     text-decoration:none;
   }
-  .img-update.img-update-in-basket{
+  .img-update-in-basket{
     width:45px;
     top:115px;
   }
@@ -206,10 +206,10 @@
         padding:10px;
         margin:0 100px;
     }
-  .img-update.img-update-in-basket{
+  .img-update-in-basket{
     width:45px;
-    top:115px;
-    left:50px;
+    /*top:115px;*/
+    vertical-align: top;
   }  
   
   .basket_price{

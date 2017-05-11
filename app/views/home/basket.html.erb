@@ -83,7 +83,7 @@
                     <td class="col-md-2 col-xs-2">
                       <a href="/home/detail2/<%=list.image%>">
                         <% if list.update_date.to_time + 7.day>Time.current %>
-                          <img class="img-update img-update-in-basket" src="/images/update.png">
+                          <img class="img-update-in-basket" src="/images/update.png">
                         <% end %>
                         
                         <% if list.image.include?(" ") || list.image == nil %>
