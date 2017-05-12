@@ -196,6 +196,59 @@
               </div>
             </div>
             <!--진단결과 끝-->
+            
+            <!--진단 히스토리 버튼 시작-->
+            <!--<button type="button" class="btn_update_count">수정횟수 <%#=@product.modify_count.to_i.floor%>회</button>-->
+            <div id="dialogWrap">
+              <dialog id="dialog">
+                <div class="wrap_update_history">
+                  <button type="button" class="btn_close"><img src="/images/btn_close_white.png" alt="close"></button>
+                  <h5 class="title_update_history">진단 히스토리</h5>
+                  <table class="table_update_history1">
+                    <tr>
+                        <td>수정횟수</td>
+                        <td><%=@product.modify_count.to_i.floor%></td>
+                    </tr>
+                    <tr>
+                        <td>최초등록일</td>
+                        <td><%=@product.update_date%></td>
+                    </tr>
+                    <tr>
+                        <td>최종수정일</td></td>
+                        <td><%=@product.modify_date%></td>
+                    </tr>
+                  </table>
+                  
+                  <% @update_histories.each do |p| %>
+                  <div class="btn_update_history">
+                    <button type="button" class="btn_edit"><img src="/images/btn_edit.png" alt="진단 히스토리 편집"></button>
+                    <button type="button" class="btn_delete"><img src="/images/btn_delete.png" alt="진단 히스토리 삭제"></button>
+                  </div>
+                  <table class="table_update_history2">
+                    <tr><td><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")%></td></tr>
+                    <tr><td><%=p.title%></td></tr>
+                    <tr><td><%=p.content%></td></tr>
+                  </table>
+                  <% end %>
+                  
+                  <form action="/home/update_history" method="post" id="updateHistoryForm">
+                    <div class="form-group update_history_write">
+                      <input type="hidden" name="num" value="<%=@product.image%>">
+                      <div class="form-group">
+                        <label for="updateHistoryTitle">진단결과</label>
+                        <input type="text" name="title" class="form-control" id="updateHistoryTitle" value="<%=@product.season_1%> ~ <%=@product.season_2%>">
+                      </div>
+                      <div class="form-group">
+                        <label for="updateHistoryContent">진단내용</label>
+                        <textarea class="form-control" id="updateHistoryContent" rows="3" name="content"></textarea>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn_update_history_submit" onclick="updateHistorySubmit()">등록</button>
+                  </form>
+                </div>
+              </dialog>
+            </div>
+            <!--진단 히스토리 버튼 끝-->
               
             <!--발색사진 시작-->
             <div class="col-md-12 col-xs-12 no-padding">
@@ -288,23 +341,25 @@
           <% end %>
         </div>
         <!--PCCS 끝-->
+      </section>
         
+      <section id="zzimFooter">
         <!--좋아요 기능 작동하는 하트 버튼 노출 -->
         <%if user_signed_in?%>    
           <% if current_user.voted_up_on? @product %>
            <div class="row like-wrapper">
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 unlike-button">
                 <%=link_to '', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like #{@product.image}_like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p>찜하기</p>     
+                    class: "like_footer #{@product.image}_like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                 <p style="font-size:18px">찜하기</p>     
               </div>
            </div>
           <% else %>
             <div class="row like-wrapper"> 
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 like-button">
                 <%=link_to '', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like #{@product.image}_like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p>찜하기</p>       
+                    class: "like_footer #{@product.image}_like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                 <p style="font-size:18px">찜하기</p>       
               </div>
             </div>  
           <% end %>
@@ -314,8 +369,8 @@
           <div class="row like-wrapper">
             <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 fake-like-button">
               <%=link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
-                  class: "fa fa-heart-o", onclick:"ga('send', 'event', 'fake_like', 'click', 'fake_like_click', 1);"%>
-              <p>찜하기</p>      
+                  class: "like_footer fa fa-heart-o", onclick:"ga('send', 'event', 'fake_like', 'click', 'fake_like_click', 1);"%>
+              <p style="font-size:18px">찜하기</p>      
             </div>
           </div>
         <%end%>
@@ -340,25 +395,25 @@
     <!-- 제품 상세 설명: 전문가 코멘트, 색상 정보, PCCS이미지 등-->
 
 
-      <!--유의사항 시작-->
-      <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
-        <h4 style="text-align: center;">유의사항</h4>
-        <ul>
-          <li>
-            팔렛에 소개된 모든 제품의 퍼스널컬러 정보는 자연광 환경에서 전문가가 직접 분류하였습니다.
-           
-           <!-- 분류 과정에 대한 보다 자세한 소개를 원하신다면
-            <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.-->
-          </li>
-          <li>
-            퍼스널컬러에 절대적인 기준은 없습니다. 제품에 따라 외부의 기준과는 다소 차이가 있을 수 있음을 유의해주세요.
-          </li>
-          <li>
-            제품의 퍼스널컬러 정보가 어울리는 정도에는 개인차가 있을 수 있습니다.
-          </li>
-        </ul>
-      </div>
-      <!--유의사항 끝-->
+    <!--유의사항 시작-->
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-xs-12 color_intro">
+      <h4 style="text-align: center;">유의사항</h4>
+      <ul>
+        <li>
+          팔렛에 소개된 모든 제품의 퍼스널컬러 정보는 자연광 환경에서 전문가가 직접 분류하였습니다.
+         
+         <!-- 분류 과정에 대한 보다 자세한 소개를 원하신다면
+          <a href="/#process" style="color:#000;text-decoration:underline;" class='quick_tab' onClick="return false;"><strong>여기</strong></a> 를 눌러주세요.-->
+        </li>
+        <li>
+          퍼스널컬러에 절대적인 기준은 없습니다. 제품에 따라 외부의 기준과는 다소 차이가 있을 수 있음을 유의해주세요.
+        </li>
+        <li>
+          제품의 퍼스널컬러 정보가 어울리는 정도에는 개인차가 있을 수 있습니다.
+        </li>
+      </ul>
+    </div>
+    <!--유의사항 끝-->
       
       
 <%
@@ -647,120 +702,176 @@
 <script>
     
 
-    //로그인 안한상태에서 후기쓰기 누르면 뜨는 안내메세지    
-    $("#review_login").click(function(){
-      alert("로그인 후 이용해주세요!");
-    });
+//로그인 안한상태에서 후기쓰기 누르면 뜨는 안내메세지    
+$("#review_login").click(function(){
+  alert("로그인 후 이용해주세요!");
+});
 
-      //page navigation scrolling
+  //page navigation scrolling
 
-      $(".quick_tab").click(function(){
-        var currentId = $(this).attr('href');
-        window.location = currentId;
+  $(".quick_tab").click(function(){
+    var currentId = $(this).attr('href');
+    window.location = currentId;
 
-      });
-    
-    
-    //리뷰 최소 20자 이상 쓰게 하기.
-    $( "form" ).submit(function( event ) {
-      
-        
-        if ( $('textarea').val().length < 20 ) {
-          $( "span.minlength_require" ).text( "20자 이상으로 자세히 말씀 해주세요:)" ).show();//.fadeOut( 3000 );
-          event.preventDefault();
-          return;
-        }
-      
-    });  
-    
-    //실시간 글자수 세기
-    $(function() {
-      
-        var wordCounts = {};
-    
-        $('#content').each(function() {
-            var input = '#content'
-            word_count(input);
-    
-            $(this).keyup(function() {
-                word_count(input);
-            })
-    
-        });
-    
-          function word_count(field) {
-                  var number = 0;
-                  var matches = $(field).val();
-                  if (matches) {
-                      number = matches.length;
-                  }
-                  wordCounts[field] = number;
-                  var finalCount = 0;
-                  $.each(wordCounts, function(k, v) {
-                      finalCount += v;
-                  });
-                  $('#counter').val(finalCount+"/500")
-              }    
-    });
-     
+  });
+
+
+//리뷰 최소 20자 이상 쓰게 하기.
+$( "form" ).submit(function( event ) {
   
-    //후기 사진 첨부 미리보기
-    function getThumbnailPrivew(html, $target) {
-      if (html.files && html.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-          $target.css('display', '');
-            //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
-            $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
-          }
-          reader.readAsDataURL(html.files[0]);
-        }
-      }
-
-
-    //상세페이지 진단결과 설명 텍스트 컬러 입히기
-    $(function(){
-      var getSeasonColor = $(".txt_season_color").text();
-      switch (getSeasonColor){
-        case "봄 브라이트" :
-          $(".txt_season_color").css("color", "red");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        case "봄 라이트" :
-          $(".txt_season_color").css("color", "#ff9001");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        case "여름 라이트" :
-          $(".txt_season_color").css("color", "#fe9289");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        case "여름 뮤트" :
-          $(".txt_season_color").css("color", "#4e9ecc");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        case "가을 뮤트" :
-          $(".txt_season_color").css("color", "#bf568f");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        case "가을 딥" :
-          $(".txt_season_color").css("color", "#a50000");
-          $(".txt_season_color").css("font-weight", "bold");
-          $(".txt_season_color2").html("은");
-        break;
-        case "겨울 딥" :
-          $(".txt_season_color").css("color", "#97005c");
-          $(".txt_season_color").css("font-weight", "bold");
-          $(".txt_season_color2").html("은");
-        break;
-        case "겨울 브라이트" :
-          $(".txt_season_color").css("color", "#ff00c0");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-        default :
-          $(".txt_season_color").css("color", "black");
-          $(".txt_season_color").css("font-weight", "bold");
-        break;
-      }
-    });
     
+    if ( $('textarea').val().length < 20 ) {
+      $( "span.minlength_require" ).text( "20자 이상으로 자세히 말씀 해주세요:)" ).show();//.fadeOut( 3000 );
+      event.preventDefault();
+      return;
+    }
+  
+});  
+
+//실시간 글자수 세기
+$(function() {
+  
+    var wordCounts = {};
+
+    $('#content').each(function() {
+        var input = '#content'
+        word_count(input);
+
+        $(this).keyup(function() {
+            word_count(input);
+        })
+
+    });
+
+      function word_count(field) {
+              var number = 0;
+              var matches = $(field).val();
+              if (matches) {
+                  number = matches.length;
+              }
+              wordCounts[field] = number;
+              var finalCount = 0;
+              $.each(wordCounts, function(k, v) {
+                  finalCount += v;
+              });
+              $('#counter').val(finalCount+"/500")
+          }    
+});
+ 
+
+//후기 사진 첨부 미리보기
+function getThumbnailPrivew(html, $target) {
+  if (html.files && html.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+      $target.css('display', '');
+        //$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시
+        $target.html('<img src="' + e.target.result + '" border="0" alt="" />');
+      }
+      reader.readAsDataURL(html.files[0]);
+    }
+  }
+
+
+//상세페이지 진단결과 설명 텍스트 컬러 입히기
+$(function(){
+  var getSeasonColor = $(".txt_season_color").text();
+  switch (getSeasonColor){
+    case "봄 브라이트" :
+      $(".txt_season_color").css("color", "red");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    case "봄 라이트" :
+      $(".txt_season_color").css("color", "#ff9001");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    case "여름 라이트" :
+      $(".txt_season_color").css("color", "#fe9289");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    case "여름 뮤트" :
+      $(".txt_season_color").css("color", "#4e9ecc");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    case "가을 뮤트" :
+      $(".txt_season_color").css("color", "#bf568f");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    case "가을 딥" :
+      $(".txt_season_color").css("color", "#a50000");
+      $(".txt_season_color").css("font-weight", "bold");
+      $(".txt_season_color2").html("은");
+    break;
+    case "겨울 딥" :
+      $(".txt_season_color").css("color", "#97005c");
+      $(".txt_season_color").css("font-weight", "bold");
+      $(".txt_season_color2").html("은");
+    break;
+    case "겨울 브라이트" :
+      $(".txt_season_color").css("color", "#ff00c0");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+    default :
+      $(".txt_season_color").css("color", "black");
+      $(".txt_season_color").css("font-weight", "bold");
+    break;
+  }
+});
+
+
+//진단 히스토리 등록
+function updateHistorySubmit(){
+  if(document.getElementById("updateHistoryTitle").value == ""){
+    alert("진단결과를 입력해주세요.");
+    document.getElementById("updateHistoryTitle").focus();
+  }else if(document.getElementById("updateHistoryContent").value == ""){
+    alert("진단내용을 입력해주세요.");
+    document.getElementById("updateHistoryContent").focus();
+  }else{
+    alert("진단 히스토리가 등록되었습니다!");
+    document.getElementById("updateHistoryForm").submit();
+  }
+}
+   
+ 
+//진단 히스토리 Dialog
+var $dialogWrap;
+var $dialog;
+
+$(function(){
+    $dialogWrap = $('#dialogWrap');
+    $dialog = $('#dialog');
+
+    $('.btn_update_count').click(dialogBtnClickHandler);
+    $dialog.find('.btn_close').click(closeDialogBtnClickHandler);
+    
+    setInterval(function () {
+        $dialog.width($('body').width() * 0.8);
+        $dialog.css('background', '#fd9e96');
+    }, 100);
+    
+});
+
+function dialogBtnClickHandler(e){
+    var $this = $(this);
+    $dialogWrap.css('display','block');
+    $dialog.css('display', 'block');
+    $dialog.attr('open', 'open');
+    
+    setDialogOpend(true);
+}
+
+function setDialogOpend(flag) {
+    if (typeof(app) != 'undefined' && typeof("app.setDialogOpend") != 'undefined') {
+        app.setDialogOpend(flag);
+    }
+}
+
+function closeDialogBtnClickHandler() {
+    setDialogOpend(false);
+    $dialog.removeAttr('open');
+    $dialogWrap.css('display','none');
+    $dialog.css('display', 'none');
+}
+
 </script>

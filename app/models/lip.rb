@@ -1,5 +1,5 @@
 class Lip < ActiveRecord::Base
-
+ 
  #for searching
  def self.search(search, search2, search3)
       where("name LIKE ? OR brand LIKE ? OR season_1 LIKE ? OR season_2 LIKE ? OR pro_type LIKE ? OR keyword LIKE ?",
@@ -28,6 +28,7 @@ class Lip < ActiveRecord::Base
  #for 리뷰기능
  has_many :reviews
  
-    
+ #for 진단 히스토리 기능
+ has_many :update_histories
 end
 

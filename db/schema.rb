@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508113738) do
+ActiveRecord::Schema.define(version: 20170511111043) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 20170508113738) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-
-  create_table "all_likes", force: :cascade do |t|
-    t.string   "lips_image",                 null: false
-    t.string   "users_username",             null: false
-    t.integer  "likes",          default: 0, null: false
-    t.integer  "hates",          default: 0, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
 
   create_table "askfors", force: :cascade do |t|
     t.string   "brand",                   null: false
@@ -120,6 +111,8 @@ ActiveRecord::Schema.define(version: 20170508113738) do
     t.string   "texture"
     t.string   "keyword"
     t.string   "update_date"
+    t.string   "modify_date"
+    t.string   "modify_count"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "cached_votes_total",      default: 0
@@ -218,6 +211,14 @@ ActiveRecord::Schema.define(version: 20170508113738) do
     t.string   "userseason"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "update_histories", force: :cascade do |t|
+    t.string   "num"
+    t.string   "title"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

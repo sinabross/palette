@@ -238,6 +238,21 @@ class HomeController < ApplicationController
 
   end
 
+  #=====진단 히스토리 시작=====
+  def update_history
+ 
+    @update_history = UpdateHistory.new
+    @update_history.num = params[:num]
+    @update_history.title = params[:title]
+    @update_history.content = params[:content]
+    @update_history.save
+      
+    redirect_to :back
+
+  end
+  
+  #=====진단 히스토리 끝======
+  
   def detail2
     
     # 빵부스러기
@@ -258,6 +273,7 @@ class HomeController < ApplicationController
       @current_season = "default"
     end
 
+
     # 좋아요 페이지 (like.js.erb)로 갔다가 redirect 됐을때 좋아요 수를 lip,eye db의 zzim에 저장
      #@product.zzim = @product.votes_for.up.by_type(User).size
      #@product.save
@@ -276,7 +292,8 @@ class HomeController < ApplicationController
     # 리뷰 작성 시에 해당 제품의 리뷰 페이지로 연결될 수 있도록 변수 지정
     @review=Review.where(num:params[:product_num]).order("id desc").paginate(page: params[:page], per_page: 5)
     
-
+    #진단 히스토리
+    @update_histories=UpdateHistory.where(num:params[:product_num]).order("id asc")
 
   end  
   #================= 아래는 좋아요 기능=====================
