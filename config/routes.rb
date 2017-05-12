@@ -75,6 +75,9 @@ Rails.application.routes.draw do
   #2. 딱히 없을 경우
   get 'home/detail2/:product_num' => "home#detail2"
   
+  #진단 히스토리
+  post 'home/update_history'
+  
   #ask for new products
   #get 'home/askfor'
   post 'home/askfor_submit'  #문의/건의

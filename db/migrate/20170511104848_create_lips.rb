@@ -22,6 +22,8 @@ class CreateLips < ActiveRecord::Migration
       t.string  :texture
       t.string  :keyword
       t.string  :update_date
+      t.string  :modify_date
+      t.string  :modify_count
 
       t.timestamps null: false
     end
