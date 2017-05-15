@@ -10,9 +10,7 @@ class CreateLips < ActiveRecord::Migration
       t.string  :color
       t.string  :wc
       t.string  :tone_weak1, default: " "
-      t.string  :tone_weak2, default: " "
       t.string  :tone_strong1, default: " "
-      t.string  :tone_strong2, default: " "
       t.string  :season_1
       t.string  :season_2
       t.string  :price
@@ -29,3 +27,4 @@ class CreateLips < ActiveRecord::Migration
     end
   end
 end
+

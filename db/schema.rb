@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514053954) do
+ActiveRecord::Schema.define(version: 20170515120112) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -99,9 +99,7 @@ ActiveRecord::Schema.define(version: 20170514053954) do
     t.string   "color"
     t.string   "wc"
     t.string   "tone_weak1",              default: " "
-    t.string   "tone_weak2",              default: " "
     t.string   "tone_strong1",            default: " "
-    t.string   "tone_strong2",            default: " "
     t.string   "season_1"
     t.string   "season_2"
     t.string   "price"
