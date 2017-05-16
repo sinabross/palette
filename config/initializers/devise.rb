@@ -252,9 +252,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 #  config.omniauth :facebook,"1051500254964606","f4936db9ebcf81e2384f71a6b981042e"
-  config.omniauth :facebook,"1775986029325742","42dcc263366f511b4f139f8d83f4b39a",
-                  callback_url: "http://www.palett.co.kr/users/auth/facebook/callback",
-                 # callback_url: "https://palett-songs-work-garsong.c9users.io/users/auth/facebook/callback",
+  config.omniauth :facebook, ENV["Facebook_Key"], ENV["Facebook_Secret"],
+                 #callback_url은 테스트 할 때는 palett.co.kr 주석처리하고  자신의 workspace에 맞게 url 주석해제해서 사용
+                 # callback_url: "http://www.palett.co.kr/users/auth/facebook/callback",
+                  callback_url: "https://palett-songs-work-garsong.c9users.io/users/auth/facebook/callback",
                   scope: 'public_profile,email,user_birthday', info_fields: 'email,name,birthday',
                   :client_options => { :site => 'https://graph.facebook.com/v2.6', :authorize_url => "https://www.facebook.com/v2.6/dialog/oauth" }
                    
