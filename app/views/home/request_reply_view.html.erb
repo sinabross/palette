@@ -33,8 +33,8 @@
           <td class="button_area">
             <a href="/home/request_list" class="btn_black" role="button">목록</a>
             <% if user_signed_in? && current_user.admin !=nil%>
-              <a href="/home/request_reply_update/<%= @one_reply.id %>" class="btn_black" role="button">수정</a>
-              <a href="/home/request_reply_destroy/<%= @one_reply.id %>" class="btn_black" role="button">삭제</a>
+              <a href="/home/request_reply_update/<%= @one_reply.request_id %>" class="btn_black" role="button">수정</a>
+              <a href="/home/request_reply_destroy/<%= @one_reply.request_id %>" class="btn_black" role="button">삭제</a>
             <%end%>
           </td>
         </tr>
