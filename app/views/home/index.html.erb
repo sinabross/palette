@@ -55,8 +55,8 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 counts">
             <p style="display:inline-block;">등록된 상품 수</p>
             <!--상품업데이트 소식(1주일간 new) -> 날짜 및 추가된 상품 개수는 수작업 해줘야함-->
-            <%if '2017-05-08'.to_time + 7.day>Time.current%> 
-              <span class="badge">43</span>
+            <%if '2017-05-15'.to_time + 7.day>Time.current%> 
+              <span class="badge">29</span>
             <%end%> 
             <h3><%=@product_count%></h3>
           </div>
