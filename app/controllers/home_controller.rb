@@ -879,6 +879,7 @@ class HomeController < ApplicationController
     @edit.title = params[:title]
     @edit.name = params[:name]
     @edit.content = params[:content]
+    @edit.special = params[:special]
     @edit.save
 
     redirect_to '/home/notice'
@@ -927,6 +928,7 @@ class HomeController < ApplicationController
     @notices.title = params[:title]
     @notices.content = params[:content]
     @notices.name = params[:name]
+    @notices.special = params[:special]
     @notices.save
 
 

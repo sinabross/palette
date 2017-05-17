@@ -119,6 +119,7 @@
   }
   footer p{
     display:inline-block;
+    margin:5px;
   }
   footer i{
       font-size:18px;

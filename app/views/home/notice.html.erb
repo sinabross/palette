@@ -24,6 +24,28 @@
           </thead>
           <tbody>
           <% @notices.each do |p| %>
+            <% if p.special == "Y" %>
+              <tr style="background:#fefde5;">
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <p><img src="/images/icon_bell.png" alert="bell" style="width:18px;"></p>
+                </td>
+                <td class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+                  <a href="/home/notice_view/<%=p.id%>" style="font-weight:bold;font-size:13px;"><%=p.title%></a>
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-1 hidden-sm col-xs-1 hidden-xs">
+                  <p style="font-weight:bold;font-size:13px;"><%=p.name %></p>
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                  <p style="font-weight:bold;font-size:13px;"><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%y-%m-%d") %></p>
+                </td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                  <p style="font-weight:bold;font-size:13px;"><%=p.hits %></p>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+          
+          <% @notices.each do |p| %>
               <tr>
                 <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                   <p><%=p.id%></p>
@@ -40,7 +62,6 @@
                 <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                   <%=p.hits %>
                 </td>
-
               </tr>
           <% end %>
           </tbody>
@@ -50,7 +71,7 @@
          <!-- pagination -->
         <%= render :partial => "layouts/partial/pagination" %>
        
-        <%if user_signed_in? && current_user.admin !=nil%>
+        <%if user_signed_in? && current_user.admin !=nil %> 
           <a href="/home/admin_write"  class="btn btn-black" role="button">글쓰기</a>
         <%end%>
       </div>

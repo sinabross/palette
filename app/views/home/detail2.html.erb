@@ -348,17 +348,17 @@
           <% if current_user.voted_up_on? @product %>
            <div class="row like-wrapper">
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 unlike-button">
-                <%=link_to '', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like_footer #{@product.image}_like fa fa-heart", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p style="font-size:18px">찜하기</p>     
+                <%=link_to image_tag('btn_heart_on.png', :class => "img_heart_on", :alt => "img_heart_on")+' 파우치에 담기', unlike_home_path(@product.image), remote: true, id: "#{@product.image}_like",
+                    class: "like_footer #{@product.image}_like zzim_like", onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                 <!--<p style="font-size:18px">찜하기</p>-->     
               </div>
            </div>
           <% else %>
             <div class="row like-wrapper"> 
               <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 like-button">
-                <%=link_to '', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
-                    class: "like_footer #{@product.image}_like fa fa-heart-o",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
-                 <p style="font-size:18px">찜하기</p>       
+                <%=link_to image_tag('btn_heart_off.png', :class => "img_heart_off", :alt => "img_heart_off")+' 파우치에 담기', like_home_path(@product.image), remote: true, id: "#{@product.image}_like",
+                    class: "like_footer #{@product.image}_like zzim_unlike",  onclick:"ga('send', 'event', 'like', 'click', 'like_click', 1);" %>
+                 <!--<p style="font-size:18px">찜하기</p>-->
               </div>
             </div>  
           <% end %>
@@ -367,9 +367,9 @@
           <!--로그인을 안 했을 시 로그인을 유도하는 가짜 찜하기 버튼 -->
           <div class="row like-wrapper">
             <div class="col-md-4 col-md-offset-4 col-sm-1 col-sm-offset-5 fake-like-button">
-              <%=link_to "", new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
-                  class: "like_footer fa fa-heart-o", onclick:"ga('send', 'event', 'fake_like', 'click', 'fake_like_click', 1);"%>
-              <p style="font-size:18px">찜하기</p>      
+              <%=link_to image_tag('btn_heart_off.png', :class => "img_heart_off", :alt => "img_heart_off")+' 파우치에 담기', new_user_session_path, data: { confirm: "로그인 후 이용해주세요." },  id: "fake-like",
+                  class: "like_footer", onclick:"ga('send', 'event', 'fake_like', 'click', 'fake_like_click', 1);"%>
+              <!--<p style="font-size:18px">찜하기</p>-->      
             </div>
           </div>
         <%end%>
@@ -694,7 +694,19 @@
   <!--/.containter_맨위 -->
 
 
+<footer>
+  <p>이메일 contact@palett.co.kr</p>
+  <br>
+  <p>Copyright &copy; 2017 Palett All right reserved.</p>
+</footer>
 
+<style>
+  footer:last-child{
+    background:#fff;
+    color:#fff;
+    padding:0;
+  }
+</style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -827,7 +839,7 @@ function updateHistorySubmit(){
     alert("진단내용을 입력해주세요.");
     document.getElementById("updateHistoryContent").focus();
   }else{
-    alert("진단 히스토리가 등록되었습니다!");
+    alert("진단 히스토리가 등록되었습니다.");
     document.getElementById("updateHistoryForm").submit();
   }
 }

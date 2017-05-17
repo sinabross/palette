@@ -82,9 +82,9 @@
                     
                     <td class="col-md-2 col-xs-2">
                       <a href="/home/detail2/<%=list.image%>">
-                        <% if list.update_date.to_time + 7.day>Time.current %>
-                          <img class="img-update-in-basket" src="/images/update.png">
-                        <% end %>
+                        <%# if list.update_date.to_time + 7.day>Time.current %>
+                          <!--<img class="img-update-in-basket" src="/images/update.png">-->
+                        <%# end %>
                         
                         <% if list.image.include?(" ") || list.image == nil %>
                           <img src="/images/img_no_image.jpg" alt="이미지를 준비중입니다." style="width:60px">
