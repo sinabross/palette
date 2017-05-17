@@ -30,6 +30,12 @@
       margin-left:2px;
       float:right;
     }
+    
+    .wrap_product_price{
+      position:absolute;
+      bottom:35px;
+      right:20px;
+    }
 
     /*제품 정보 라벨*/
 

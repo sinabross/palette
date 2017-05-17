@@ -1,6 +1,10 @@
 alert('관심상품 목록에서 제거 되었습니다.');
 
-$(".<%= @product.image%>_like").removeClass('fa-heart').addClass('fa-heart-o');
+<!--$(".<%#= @product.image%>_like").removeClass('fa-heart').addClass('fa-heart-o');-->
+
+$(".img_heart_on").attr("src", "<%= image_path 'btn_heart_off.png' %>" );
+$(".img_heart_on").attr("alt", "img_heart_off" );
+$(".img_heart_on").removeClass('img_heart_on').addClass('img_heart_off');
 
 $(".<%= @product.image %>_like").attr("href", '/home/<%= @product.image %>/like');
 
