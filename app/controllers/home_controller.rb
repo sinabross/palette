@@ -919,8 +919,7 @@ class HomeController < ApplicationController
   # ==================새소식 ==========================
 
   def notice  #제품 업데이트 등 공지사항 알리기 위한 게시판
-    @notices = Notice.all.order('id desc')
-    @notice_list = @notices.paginate(page: params[:page], per_page:10)
+    @notices = Notice.all.order('id desc').paginate(page: params[:page], per_page:10)
   end
 
   def notice_write

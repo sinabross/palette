@@ -61,8 +61,8 @@
 <%end%>
 
 <!--새소식-->
-<% if @notice_list %>
-  <%= will_paginate @notice_list,
+<% if @notices %>
+  <%= will_paginate @notices,
                     :class => "flickr_pagination col-lg-12 col-md-12 col-xs-12 col-sm-12",
                     inner_window: 2, outer_window: 0,
                     :previous_label => '<', :next_label => '>'%>
