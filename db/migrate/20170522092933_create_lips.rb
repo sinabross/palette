@@ -1,7 +1,7 @@
-class DropLips < ActiveRecord::Migration
+class CreateLips < ActiveRecord::Migration
   def change
-    drop_table :lips do |t|
-
+    create_table :lips do |t|
+      
       t.string  :num
       t.string  :image
       t.string  :name

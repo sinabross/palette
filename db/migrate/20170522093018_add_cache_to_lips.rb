@@ -30,4 +30,3 @@ class AddCacheToLips < ActiveRecord::Migration
   end
 
 end
-
