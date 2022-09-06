@@ -18,3 +18,6 @@
 
 # Ignore application configuration
 /config/application.yml
+aws.rb
+devise.rb
+secrets.yml
